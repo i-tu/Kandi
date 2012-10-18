@@ -1,0 +1,4 @@
+Kandi
+=====
+
+Automaatiokaavioiden generointi
