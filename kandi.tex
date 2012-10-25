@@ -10,7 +10,7 @@
 	%% Use this if you do not like hyperref package - this defines url environment and formats it correctly
 	%\usepackage{url}
 
-	% Math shit:
+	% Math stuff
 	\usepackage{amsfonts,amssymb,amsbsy}
 
   \usepackage{lmodern}
@@ -29,7 +29,7 @@
 	\begin{document}
 
 	\university{aalto-yliopisto}
-	\school{S‰hkˆtekniikan korkeakoulu}
+	\school{S√§hk√∂tekniikan korkeakoulu}
 
 	\faculty{Automaatio- ja systeemitekniikka}
 	\degreeprogram{Automaatio- ja systeemitekniikka}
@@ -39,15 +39,15 @@
 	\place{Espoo}
 	\date{5.12.2012}
 	\supervisor{super visor}
-	\instructor{DI Mika Strˆmman}
+	\instructor{DI Mika Str√∂mman}
 	\uselogo{red}{!}{tkk}
 	\makecoverpage
 
-	\keywords{PLC ﬂ}
-	%% Tiivistelm‰n tekstiosa
+	\keywords{PLC √ü}
+	%% Tiivistelm√§n tekstiosa
 	\begin{abstractpage}[finnish]
   
-LYHYT TIIVISTELMƒ
+LYHYT TIIVISTELM√Ñ
   
 	\end{abstractpage}
 
@@ -55,9 +55,9 @@ LYHYT TIIVISTELMƒ
 
 	\mysection{Esipuhe}
 
-Haluan kiitt‰‰ Kandiryhm‰‰mme Six-b‰ki‰
+Haluan kiitt√§√§ Kandiryhm√§√§mme Six-b√§ki√§
 
-Mika strˆmman oli hieno kaveri \\
+Mika str√∂mman oli hieno kaveri \\
 
 	\vspace{5cm}
 
@@ -68,7 +68,7 @@ Otaniemi, 16.3.2010
 
 	\newpage
 
-	\addcontentsline{Sis‰llysluettelo}
+	\addcontentsline{Sis√§llysluettelo}
 	\tableofcontents
 
 
@@ -81,7 +81,7 @@ Otaniemi, 16.3.2010
 	%    $\boldsymbol p_i$ and $\boldsymbol p_j$ ($\boldsymbol p_i$ for $|a_i|^2$) \\
 	%                 & at any given instant \\
 	$\mathbf{B}$  & magneettivuon tiheys  \\
-	$c$              & valon nopeus tyhjˆss‰ $\approx 3\times10^8$ [m/s]\\
+	$c$              & valon nopeus tyhj√∂ss√§ $\approx 3\times10^8$ [m/s]\\
 	%$p$              & magnitude of momentum \\
 	%$\boldsymbol p$, $\boldsymbol p_i$, $\boldsymbol p_i^{'}$  & momentum vector \\
 	%$p$              & magnitude of momentum \\
@@ -89,9 +89,9 @@ Otaniemi, 16.3.2010
 	%$\boldsymbol P$  &  \\
 	%$p_{\mathrm{F}}$ & Fermi momentum \\
 	$\omega_{\mathrm{D}}$    & Debye-taajuus \\
-	$\omega_{\mathrm{latt}}$ & hilan keskim‰‰r‰inen fononitaajuus \\
-	$\uparrow$       & elektronin spinin suunta ylˆsp‰in\\
-	$\downarrow$     & elektronin spinin suunta alasp‰in
+	$\omega_{\mathrm{latt}}$ & hilan keskim√§√§r√§inen fononitaajuus \\
+	$\uparrow$       & elektronin spinin suunta yl√∂sp√§in\\
+	$\downarrow$     & elektronin spinin suunta alasp√§in
 	\end{tabular}
 
 	\subsection*{Lyhenteet}
@@ -100,7 +100,7 @@ Otaniemi, 16.3.2010
 AC         & vaihtovirta \\
 APLAC      & an object-oriented analog circuit simulator and design tool \\
            & (originally Analysis Program for Linear Active Circuits) \\
-BCS        & Bardeen-Cooper-Schrieffer \\ %% tavuviiva - nimien v‰liss‰ 
+BCS        & Bardeen-Cooper-Schrieffer \\ %% tavuviiva - nimien v√§liss√§ 
 DC         & tasavirta \\
 TEM        & transverse eletromagnetic
 	\end{tabular}
@@ -114,35 +114,49 @@ TEM        & transverse eletromagnetic
 	\section{Johdanto}
 	\thispagestyle{empty}
 
-Teollisuuden automaatioj‰rjestelm‰n suunnittelutyˆn tulos koostuu kaavioista - laajan j‰rjestelm‰n tapauksessa jopa useista tuhansista. Kaavioiden piirt‰minen ja ajantasaisena pit‰minen on tyˆl‰st‰ ilman automatisoituja suunnittelun apuv‰lineit‰. T‰m‰n vuoksi tuotettavat kaaviot tyypillisesti generoidaan suunnittelijoiden laatimista kuvauksista, joiden muokkaamisesta suunnittelutyˆ p‰‰asiallisesti koostuu.
+Teollisuuden automaatioj√§rjestelm√§n suunnitteluty√∂n tulos koostuu kaavioista - laajan j√§rjestelm√§n tapauksessa jopa useista tuhansista. 
+Kaavioiden piirt√§minen ja ajantasaisena pit√§minen on ty√∂l√§st√§ ilman automatisoituja suunnittelun apuv√§lineit√§.
+T√§m√§n vuoksi tuotettavat kaaviot tyypillisesti generoidaan suunnittelijoiden laatimista kuvauksista, joiden muokkaamisesta suunnitteluty√∂ p√§√§asiallisesti koostuu.
 
-T‰m‰n tutkimuksen kohteena on j‰rjestelm‰n ohjauslogiikan formaalin kuvauksen muuntaminen logiikkakaavioksi. Logiikkakaavio on m‰‰ritelty yksiselitteisesti, ja on tulkittavissa suunnatuksi graafiksi.
+T√§m√§n tutkimuksen kohteena on j√§rjestelm√§n ohjauslogiikan formaalin kuvauksen muuntaminen logiikkakaavioksi.
+Logiikkakaavio on m√§√§ritelty yksiselitteisesti, ja on tulkittavissa suunnatuksi graafiksi.
 
-Automaatioj‰rjestelmien kuvaukset on m‰‰ritelty esimerkiksi standardeissa IEC 61131-3 ja IEC 61499. Lis‰ksi suunnittelijoilla saattaa olla k‰ytˆss‰ jokin muu, ei-standardi tapa kuvata j‰rjestelm‰‰.
+Automaatioj√§rjestelmien kuvaukset on m√§√§ritelty esimerkiksi standardeissa IEC 61131-3 ja IEC 61499.
+Lis√§ksi suunnittelijoilla saattaa olla k√§yt√∂ss√§ jokin muu, ei-standardi tapa kuvata j√§rjestelm√§√§.
 
 
-Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan k‰ytt‰‰ kaikenlaisten kaavioiden piirtoon. Esittelemme Sugiyaman hierarkisen l‰hestymistavan. jonka avulla lopullinen kaavio piirret‰‰n.
+Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan k√§ytt√§√§ kaikenlaisten kaavioiden piirtoon.
+Esittelemme Sugiyaman hierarkisen l√§hestymistavan. jonka avulla lopullinen kaavio piirret√§√§n.
 
-Tavoitteena on arvioida eri keinojen hyvi‰ ja huonoja puolia sek‰ k‰yt‰nnˆn toteutusvaatimuksia. Lis‰ksi tarkastellaan voisiko n‰it‰ ratkaisuja laajentaa muunlaisten kaavioiden tuotantoon.
+Tavoitteena on arvioida eri keinojen hyvi√§ ja huonoja puolia sek√§ k√§yt√§nn√∂n toteutusvaatimuksia.
+Lis√§ksi tarkastellaan voisiko n√§it√§ ratkaisuja laajentaa muunlaisten kaavioiden tuotantoon.
 
 	\clearpage
 	\section{Tehdasmalli ja sen kuvaukset}
 
-îTehdasmallina pidet‰‰n usein dokumenttihotellin typpist‰ sovellusta, joka koostuu 3d-mallista, n‰ihin liittyvist‰ dokumenteista sek‰ k‰yttˆliittym‰st‰.î
+‚ÄùTehdasmallina pidet√§√§n usein dokumenttihotellin typpist√§ sovellusta, joka koostuu 3d-mallista, n√§ihin liittyvist√§ dokumenteista sek√§ k√§ytt√∂liittym√§st√§.‚Äù
 
-Automaatiosuunnitteluprosessin tuloksena syntyy j‰rjestelm‰n malli. Malli voi olla joukko dokumentteja, tai suunnittelijoiden yhteinen tietokanta, ns. tehdasmalli, jonka avulla voidaan tuottaa j‰rjestelm‰n dokumentointi.
-Tehdasmallin voidaan sanoa olevan tietomalli. Se kuvaa laajuudestaan riippuen laitoksen toimintaa, sen prosessia ja harvinaisemmin ihmisi‰, organisaatiota ja n‰itten aktiviteetteja. Vaikka tehtaasta on vain yksi malli, on eri suunnittelijoilla erilaisia tarpeita. Tehdasmallin tulee siis palvella kaikkia n‰kˆkulmia joita tarvitaan.  
+Automaatiosuunnitteluprosessin tuloksena syntyy j√§rjestelm√§n malli.
+Malli voi olla joukko dokumentteja, tai suunnittelijoiden yhteinen tietokanta, ns. tehdasmalli, jonka avulla voidaan tuottaa j√§rjestelm√§n dokumentointi.
+Tehdasmallin voidaan sanoa olevan tietomalli.
+Se kuvaa laajuudestaan riippuen laitoksen toimintaa, sen prosessia ja harvinaisemmin ihmisi√§, organisaatiota ja n√§itten aktiviteetteja.
+Vaikka tehtaasta on vain yksi malli, on eri suunnittelijoilla erilaisia tarpeita.
+Tehdasmallin tulee siis palvella kaikkia n√§k√∂kulmia joita tarvitaan.  
 
-Automaatioj‰rjestelm‰n n‰kymi‰ ovat
+Automaatioj√§rjestelm√§n n√§kymi√§ ovat
 Minimivaatimukset kuvaukselle
-Automaatioj‰rjestelmien ontologia
-îSemanttinen kuvausî
+Automaatioj√§rjestelmien ontologia
+‚ÄùSemanttinen kuvaus‚Äù
 
 	\subsection{Logiikkakaaviot}
 
-Funktioblokit kuvaavat toisistaan erillisi‰ itsen‰isi‰ laskennallisia yksikˆit‰ ja niitten relaatioita toisiinsa. Funktioblokki voi tilastaan riippuen l‰hett‰‰ tapahtumia jotka vaikuttavat muitten blokkien toimintaan. Funktioblokin tekemien laskutoimitusten tulos riippuu siis sen vasemmalta puolelta tulevista syˆttˆtiedoista. Laskennan tulokset l‰hetet‰‰n blokin oikealta puolelta. Toisiinsa liitetyt funktioblokit muodostavat funktioblokkiverkon. 
+Funktioblokit kuvaavat toisistaan erillisi√§ itsen√§isi√§ laskennallisia yksik√∂it√§ ja niitten relaatioita toisiinsa.
+Funktioblokki voi tilastaan riippuen l√§hett√§√§ tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
+Funktioblokin tekemien laskutoimitusten tulos riippuu siis sen vasemmalta puolelta tulevista sy√∂tt√∂tiedoista.
+Laskennan tulokset l√§hetet√§√§n blokin oikealta puolelta.
+Toisiinsa liitetyt funktioblokit muodostavat funktioblokkiverkon. 
 
-IEC 61499 m‰‰rittelee XML-kuvauksen funktioblokkiverkoille. 
+IEC 61499 m√§√§rittelee XML-kuvauksen funktioblokkiverkoille. 
 
 Although the IEC 61499 is not always seen as the ultimate solution, it is a useful and powerful basis for engineering tools that follow an abstract, model-driven approach and can generate the actual function blocks and their interconnections automatically from a high-level description of the required functionalities." -10.1109/MIE.2011.942175 (Sauter et. al. IEEE Industrial electronics magazine, p. 35)
 
@@ -150,94 +164,138 @@ Although the IEC 61499 is not always seen as the ultimate solution, it is a usef
 	\subsection{Logiikkakaavioiden tuotanto}
 	
 mcavinew, control system documentation
-Logiikkaa sis‰lt‰v‰n j‰rjestelm‰n suunnittelussa on kaksi vaihetta, jotka tulee molemmat ottaa huomioon. Ensimm‰inen on prosessin konseptualisointi ja toinen toteutus. Hajottamalla prosessi kahteen voidaan prosessia kehitt‰‰ ja siit‰ keskustella ilman syv‰llist‰ tuntemusta instrumenteista. Kun p‰‰tˆkset on tehty abstraktilla tasolla, voidaan hankinnat r‰‰t‰lˆid‰ sen mukaisesti ja tulos toteuttaa tehokkaasti.
-Ment‰ess‰ konseptista toteutukseen, voidaan n‰hd‰ ett‰ v‰hint‰‰n kahdenlaisia dokumentteja tarvitaan. Toteuttava dokumentti saattaa olla ainoa, joka n‰kee p‰iv‰nvalon. 
 
-Yleisin tapa tuottaa kaavioita lienee niitten k‰sin tekeminen.
-Valmiiden grafiikkakirjastojen k‰yttˆ‰ on tutkinut K‰‰ri‰inen, jonka mukaan tyˆss‰ 
-next generation systemsÖ
+Logiikkaa sis√§lt√§v√§n j√§rjestelm√§n suunnittelussa on kaksi vaihetta, jotka tulee molemmat ottaa huomioon.
+Ensimm√§inen on prosessin konseptualisointi ja toinen toteutus.
+Hajottamalla prosessi kahteen voidaan prosessia kehitt√§√§ ja siit√§ keskustella ilman syv√§llist√§ tuntemusta instrumenteista.
+Kun p√§√§t√∂kset on tehty abstraktilla tasolla, voidaan hankinnat r√§√§t√§l√∂id√§ sen mukaisesti ja tulos toteuttaa tehokkaasti.
+
+Ment√§ess√§ konseptista toteutukseen voidaan n√§hd√§ ett√§ v√§hint√§√§n kahdenlaisia dokumentteja tarvitaan.
+Toteuttava dokumentti saattaa olla ainoa, joka n√§kee p√§iv√§nvalon. 
+
+Yleisin tapa tuottaa kaavioita lienee niitten k√§sin tekeminen.
+Valmiiden grafiikkakirjastojen k√§ytt√∂√§ on tutkinut K√§√§ri√§inen, jonka mukaan ty√∂ss√§ .
+next generation systems‚Ä¶
 
 http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
 
-	\subsection{Suoritusj‰rjestys}
+	\subsection{Suoritusj√§rjestys}
 	
-Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusj‰rjestyst‰ mietitt‰ess‰.  Mill‰ tavoin? Miten sen voi v‰ltt‰‰?
-Automaatiokaavioiden suoritusj‰rjestys on m‰‰ritelty standardissa IEC 61131-3 ylh‰‰lt‰ alas, vasemmalta oikealle. T‰m‰ tarkoittaa sit‰, ett‰ graafin uudelleenj‰rjestely johtaa v‰‰r‰nlaiseen kaavioon.
-T‰m‰ tyˆ olettaa, ett‰ eri ohjelmien suoritusj‰rjestys niill‰ kohdin, kuin se on olennaista, on tiedossa, ja ett‰ kyseisiˆ
-Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusj‰rjestyst‰ mietitt‰ess‰.  Mill‰ tavoin? Miten sen voi v‰ltt‰‰?
-Standardi: ylh‰‰lt‰ alas, vasemmalta oikealle.
+Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusj√§rjestyst√§ mietitt√§ess√§. 
+Mill√§ tavoin?
+Miten sen voi v√§ltt√§√§?
+Automaatiokaavioiden suoritusj√§rjestys on m√§√§ritelty standardissa IEC 61131-3 ylh√§√§lt√§ alas, vasemmalta oikealle.
+T√§m√§ tarkoittaa sit√§, ett√§ graafin uudelleenj√§rjestely johtaa v√§√§r√§nlaiseen kaavioon.
+T√§m√§ ty√∂ olettaa, ett√§ eri ohjelmien suoritusj√§rjestys niill√§ kohdin, kuin se on olennaista, on tiedossa, ja ett√§ kyseisi√∂
+Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusj√§rjestyst√§ mietitt√§ess√§. 
+Mill√§ tavoin?
+Miten sen voi v√§ltt√§√§?
+Standardi: ylh√§√§lt√§ alas, vasemmalta oikealle.
 
 	\clearpage
 	\section{PLC-ohjelmointi}
 
-Kaavioiden tuotannon tutkimuskent‰st‰ yleisesti. Mist‰ n‰kˆkulmista on asiaa aiemmin l‰hestytty? Onko siin‰ jokin vallitseva paradigma? Mihin ollaan menossa? Mit‰ aiempaa yhteistyˆt‰ on ollut graafipiirt‰misen tutkijoilla ja automaatiosuunnittelun tutkijoilla?
+Kaavioiden tuotannon tutkimuskent√§st√§ yleisesti.
+Mist√§ n√§k√∂kulmista on asiaa aiemmin l√§hestytty?
+Onko siin√§ jokin vallitseva paradigma?
+Mihin ollaan menossa?
+Mit√§ aiempaa yhteisty√∂t√§ on ollut graafipiirt√§misen tutkijoilla ja automaatiosuunnittelun tutkijoilla?
 
-Varhainen tapa hallita tehtaiden prosesseja s‰hkˆlaitteiden avulla oli relelogiikka. Jos esimerkiksi moottori k‰ytt‰‰ liikaa virtaa, kytket‰‰n se pois p‰‰lt‰. Tietylle syˆttˆavaruudelle tietty l‰htˆavaruus. Kalliissa ja hankalassa relelogiikassa oli kuitenkin omat ongelmansa, ja siirryttiin PLC-ohjaukseen. PLC- ohjaus vie v‰hemm‰n tilaa, on halvempaa ja helpommin uudelleenohjelmoitavissa.
+Varhainen tapa hallita tehtaiden prosesseja s√§hk√∂laitteiden avulla oli relelogiikka.
+Jos esimerkiksi moottori k√§ytt√§√§ liikaa virtaa, kytket√§√§n se pois p√§√§lt√§.
+Tietylle sy√∂tt√∂avaruudelle tietty l√§ht√∂avaruus.
+Kalliissa ja hankalassa relelogiikassa oli kuitenkin omat ongelmansa, ja siirryttiin PLC-ohjaukseen.
+PLC- ohjaus vie v√§hemm√§n tilaa, on halvempaa ja helpommin uudelleenohjelmoitavissa.
 
-PLCeit‰ usein ohjelmoidaan vanhasta tottumuksesta tikapuukaavioilla. N‰itten ymm‰rt‰minen on intuitiivisesti vaikeampaa ja ne usein vaativat alan tuntemusta. Logiikkadiagrammit ovat yritys pelkist‰‰ yksinkertaisimpaan mahdolliseen esitykseen monimutkainen logiikka joka on syˆttˆjen ja l‰htˆjen v‰lill‰. Vaikka PLC saatetaan myˆhemmin ohjelmoida tikapuukaavioilla, on silti helpompaa tyˆskennell‰ ja ymm‰rt‰‰ ohjelman rakenne logiikkadiagrammien avulla.
+PLCeit√§ usein ohjelmoidaan vanhasta tottumuksesta tikapuukaavioilla.
+N√§itten ymm√§rt√§minen on intuitiivisesti vaikeampaa ja ne usein vaativat alan tuntemusta.
+Logiikkadiagrammit ovat yritys pelkist√§√§ yksinkertaisimpaan mahdolliseen esitykseen monimutkainen logiikka joka on sy√∂tt√∂jen ja l√§ht√∂jen v√§lill√§.
+Vaikka PLC saatetaan my√∂hemmin ohjelmoida tikapuukaavioilla, on silti helpompaa ty√∂skennell√§ ja ymm√§rt√§√§ ohjelman rakenne logiikkadiagrammien avulla.
+
 (Formal methods in PLC programming, Frey, Litz)
 
-Frey ja Litz vertailevat s‰‰tˆsuunnitteluprosessia ja vertailevat eri formaaleja prosesseja ja kategorisoivat PLC-ohjelmoinnin menetelmi‰. 
-Siit‰ huolimatta ett‰ PLC-ohjelmointi on vanha ja intuitiivinen ala, on selvi‰ syit‰ suunnittelun formalisoitumiselle. S‰‰tˆ-ongelmat monimutkaistuvat ja vaadittu toteutusaika v‰henee. Vanhan suunnittelutyˆn hyv‰ksik‰yttˆ vaatii formalismien k‰yttˆˆnoton. PLC-ohjelmointij‰rjestelmien laatu- ja turvallisuusvaatimusten kasvaessa 
+Frey ja Litz vertailevat s√§√§t√∂suunnitteluprosessia ja vertailevat eri formaaleja prosesseja ja kategorisoivat PLC-ohjelmoinnin menetelmi√§. 
+Siit√§ huolimatta ett√§ PLC-ohjelmointi on vanha ja intuitiivinen ala, on selvi√§ syit√§ suunnittelun formalisoitumiselle.
+S√§√§t√∂-ongelmat monimutkaistuvat ja vaadittu toteutusaika v√§henee.
+Vanhan suunnitteluty√∂n hyv√§ksik√§ytt√∂ vaatii formalismien k√§ytt√∂√∂noton.
+PLC-ohjelmointij√§rjestelmien laatu- ja turvallisuusvaatimusten kasvaessa 
 
 	\clearpage
 	\section{Hierarkinen graafinpiirto}
 
-Hierarkisen l‰hestymistavan kerrostettujen suunnattujen graafien piirt‰miseen esitti Sugiyama et. al vuonna 1981. Menetelm‰‰ on kehitetty sen j‰lkeen eteenp‰in samanlaisilla menetelmill‰. Hierarkinen l‰hestymistapa koostuu
-kolmesta vaiheesta: kerrostamisesta, riste‰misten v‰hent‰misest‰ ja poikittaisasettelusta. Jos l‰hdegraafi sis‰lt‰‰ takaisinkytkentˆj‰, vaatii
+Hierarkisen l√§hestymistavan kerrostettujen suunnattujen graafien piirt√§miseen esitti Sugiyama et. al vuonna 1981. Menetelm√§√§ on kehitetty sen j√§lkeen eteenp√§in samanlaisilla menetelmill√§. Hierarkinen l√§hestymistapa koostuu
+kolmesta vaiheesta: kerrostamisesta, riste√§misten v√§hent√§misest√§ ja poikittaisasettelusta. Jos l√§hdegraafi sis√§lt√§√§ takaisinkytkent√∂j√§, vaatii
 http://www.cs.brown.edu/~rt/gdhandbook/
 
-Sit‰ on sen j‰lkeen kehitetty eteenp‰in 
-Sugiyama et al. ovat tutkineet ongelmaa [1]. Muut ovat sit‰ jatkokehitelleet [2]. Algoritmi selitet‰‰n.
+Sit√§ on sen j√§lkeen kehitetty eteenp√§in 
+Sugiyama et al. ovat tutkineet ongelmaa [1]. Muut ovat sit√§ jatkokehitelleet [2]. Algoritmi selitet√§√§n.
 
-Kerrostetut suunnatut graafit ovat luonteeltaan hierarkisia, kuten logiikkakaaviot suoritusj‰rjestyksens‰ puolesta.
-Kerrostetun suunnatun graafin piirto on jaettu kolmeen vaiheeseen. Kerroksiin jako, lankojen riste‰misten minimointi, x-koordinaatin m‰‰ritely.
+Kerrostetut suunnatut graafit ovat luonteeltaan hierarkisia, kuten logiikkakaaviot suoritusj√§rjestyksens√§ puolesta.
+Kerrostetun suunnatun graafin piirto on jaettu kolmeen vaiheeseen. Kerroksiin jako, lankojen riste√§misten minimointi, x-koordinaatin m√§√§ritely.
 
-Jos graafissa on syklej‰, eli graafi ei ole suunnattu, k‰‰nnet‰‰n syklin aiheuttavien lankojen suunta ja tehdyt muutokset merkit‰‰n muistiin.
+Jos graafissa on syklej√§, eli graafi ei ole suunnattu, k√§√§nnet√§√§n syklin aiheuttavien lankojen suunta ja tehdyt muutokset merkit√§√§n muistiin.
 
 	\subsection{Kerrostus}
 
-Kerrostuksen tulee t‰ytt‰‰ tietyt ehdot. Sen tulee olla kompakti. T‰m‰ tarkoittaa ett‰ sen leveys ja pituus ovat pieni‰ ja kerrosten v‰linen et‰isyys on vakio. Graafin pituuden alaraja on maksimim‰‰r‰ lankoja alkunoodista loppunoodiin. On olemassa menetelm‰, jonka avulla graafin pituus voidaan minimoida leveyden kustannuksella tai siit‰ voidaan tehd‰ mahdollisimman kapea pituuden kustannuksella.
-Leveyden ja pituuden minimointi taas on NP- t‰ydellinen ongelma, seuraavasta syyst‰. Jos jokainen solmi suunnatussa kerrostetussa verkossa G esitt‰‰ yhden aikayksikˆn tyˆt‰ yhdess‰ multiprosessorin prosessorissa, lanka (u, v) esitt‰‰ rajoitetta, jonka mukaan suorituksen u t‰ytyy edelt‰‰ suoritusta. (Battista, 273)
-T‰llˆin voidaan lˆyt‰‰ isomorfismi multiprosessoriajastusongelmalle, jossa teht‰v‰n‰ on jakaa teht‰v‰t prosessorien kesken siten, ett‰ teht‰v‰ tulee suoritettua ajassa H. Koska multiprosessoriajastusongelma on NP-t‰ydellinen (M.R. Garey and D.S. Johnson, Computers and Intractibility: A guide to the theory of NP-completeness. 1979) , seuraa, ett‰ kerrostusongelmakin on.
-Yhteys multiprosessoriongelmaan on kiinnostava k‰sittelem‰mme sovelluksen, PLC-ohjelmoinnin kannalta. Multiprosessoriongelmaa varten tehty algoritmi, Coffman-Graham-kerrostusmenetelm‰ (Coffman, Optimal scheduling for two processor systems, 1972) tarjoaa ratkaisun t‰h‰n ongelmaan. Se palauttaa graafin, jolla on jokin minimileveys, alkuper‰isess‰ toteutuksessa prosessorien m‰‰r‰, omassa tapauksessamme arkin korkeus. Algoritmin tavoitteena on varmistaa, ett‰ 
+Kerrostuksen tulee t√§ytt√§√§ tietyt ehdot.
+Sen tulee olla kompakti.
+T√§m√§ tarkoittaa ett√§ sen leveys ja pituus ovat pieni√§ ja kerrosten v√§linen et√§isyys on vakio.
+Graafin pituuden alaraja on maksimim√§√§r√§ lankoja alkunoodista loppunoodiin.
+On olemassa menetelm√§, jonka avulla graafin pituus voidaan minimoida leveyden kustannuksella tai siit√§ voidaan tehd√§ mahdollisimman kapea pituuden kustannuksella.
 
-	\subsection{Risteyksien v‰hent‰minen}
+Leveyden ja pituuden minimointi taas on NP- t√§ydellinen ongelma, seuraavasta syyst√§.
+Jos jokainen solmi suunnatussa kerrostetussa verkossa G esitt√§√§ yhden aikayksik√∂n ty√∂t√§ yhdess√§ multiprosessorin prosessorissa, lanka (u, v) esitt√§√§ rajoitetta, jonka mukaan suorituksen u t√§ytyy edelt√§√§ suoritusta. (Battista, 273)
+T√§ll√∂in voidaan l√∂yt√§√§ isomorfismi multiprosessoriajastusongelmalle, jossa teht√§v√§n√§ on jakaa teht√§v√§t prosessorien kesken siten, ett√§ teht√§v√§ tulee suoritettua ajassa H.
+Koska multiprosessoriajastusongelma on NP-t√§ydellinen (M.R. Garey and D.S. Johnson, Computers and Intractibility: A guide to the theory of NP-completeness. 1979) , seuraa, ett√§ kerrostusongelmakin on.
+Yhteys multiprosessoriongelmaan on kiinnostava k√§sittelem√§mme sovelluksen, PLC-ohjelmoinnin kannalta.
+Multiprosessoriongelmaa varten tehty algoritmi, Coffman-Graham-kerrostusmenetelm√§ (Coffman, Optimal scheduling for two processor systems, 1972) tarjoaa ratkaisun t√§h√§n ongelmaan.
+Se palauttaa graafin, jolla on jokin minimileveys, alkuper√§isess√§ toteutuksessa prosessorien m√§√§r√§, omassa tapauksessamme arkin korkeus. 
+Algoritmin tavoitteena on varmistaa, ett√§ 
 
-Risteyksien v‰hent‰minen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskin‰iseen j‰rjestykseen. Ongelma on siis luonteeltaan kombinatorinen eik‰ geometrinen. T‰m‰ yksinkertaistaa ongelman ratkaisemista. 
+	\subsection{Risteyksien v√§hent√§minen}
 
-Risteyksien v‰hent‰minen on t‰st‰ huolimatat NP-t‰ydellinen ongelma (M.R. Garey îCrossing problem is NP-completeî), siin‰kin tapauksessa ett‰ kerroksia no vain kaksi.
+Risteyksien v√§hent√§minen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskin√§iseen j√§rjestykseen.
+Ongelma on siis luonteeltaan kombinatorinen eik√§ geometrinen.
+T√§m√§ yksinkertaistaa ongelman ratkaisemista. 
 
-L‰hestymistapoja risteyksien v‰hent‰miseen on vierekk‰isten noodien paikkojen vaihtelu kesken‰‰n, sek‰ mediaanimenetelm‰, jossa noodi asetetaan paikalle, joka on siihen yhtyneiden solmujen puoliv‰liss‰.
+Risteyksien v√§hent√§minen on t√§st√§ huolimatat NP-t√§ydellinen ongelma (M.R. Garey ‚ÄùCrossing problem is NP-complete‚Äù), siin√§kin tapauksessa ett√§ kerroksia no vain kaksi.
 
-Monet tutkijat ovat T‰h‰n se v‰ikk‰ri myˆs! (P. Eades, îHeuristics for Reducing crossings in 2-layered networksî, E. M‰kinen, îexperiments of drawing 2-level hierarchical graphsî, M. J¸nger, î2-layer straightline crossing minimization: PerfÖî ) tutkineet eri risteysalgoritmeja. Selke‰sti parasta menetelm‰‰ ei ole lˆytynyt.
+L√§hestymistapoja risteyksien v√§hent√§miseen on vierekk√§isten noodien paikkojen vaihtelu kesken√§√§n, sek√§ mediaanimenetelm√§, jossa noodi asetetaan paikalle, joka on siihen yhtyneiden solmujen puoliv√§liss√§.
 
-Sen sijaan paras l‰hestymistapa vaikuttaisi olevan hybridil‰hestymistapa, joka iteraation yhteydess‰ ensin uudelleenj‰rjest‰‰ solmut mediaanimenetelm‰ll‰, tekee paikallisia transpositioita ja lopulta pit‰‰ parhaan tuloksen seuraavaa iterointia varten.
+Monet tutkijat ovat T√§h√§n se v√§ikk√§ri my√∂s! (P. Eades, ‚ÄùHeuristics for Reducing crossings in 2-layered networks‚Äù, E. M√§kinen, ‚Äùexperiments of drawing 2-level hierarchical graphs‚Äù, M. J√ºnger, ‚Äù2-layer straightline crossing minimization: Perf‚Ä¶‚Äù ) tutkineet eri risteysalgoritmeja. Selke√§sti parasta menetelm√§√§ ei ole l√∂ytynyt.
+
+Sen sijaan paras l√§hestymistapa vaikuttaisi olevan hybridil√§hestymistapa, joka iteraation yhteydess√§ ensin uudelleenj√§rjest√§√§ solmut mediaanimenetelm√§ll√§, tekee paikallisia transpositioita ja lopulta pit√§√§ parhaan tuloksen seuraavaa iterointia varten.
 
 
-Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis, Christian-Albrechts-Universit‰t zu Kiel, Department of Computer Science
+Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis, Christian-Albrechts-Universit√§t zu Kiel, Department of Computer Science
 
 	\subsection{Poikittainen asettelu}
 
-Solmujen poikittainen asettelun avulla solmujen v‰listen lankojen k‰‰nnˆsten m‰‰r‰‰ pyrit‰‰n v‰hent‰m‰‰n, jotta kaavion luettavuus paranee. Risteyksien v‰hent‰misvaiheessa saavutettu j‰rjestys pyrit‰‰n s‰ilytt‰m‰‰n.
+Solmujen poikittainen asettelun avulla solmujen v√§listen lankojen k√§√§nn√∂sten m√§√§r√§√§ pyrit√§√§n v√§hent√§m√§√§n, jotta kaavion luettavuus paranee. Risteyksien v√§hent√§misvaiheessa saavutettu j√§rjestys pyrit√§√§n s√§ilytt√§m√§√§n.
 
 	\clearpage
-	\section{Menetelm‰t ja esimerkki}
+	\section{Menetelm√§t ja esimerkki}
 	\subsection{Kaavioiden tuottaminen}
 
-K‰yt‰nnˆn toteutuksia hierarkisesta graafinpiirtomenetelm‰st‰ on useita (viittaa: graphviz, tulip, kieler)í
+K√§yt√§nn√∂n toteutuksia hierarkisesta graafinpiirtomenetelm√§st√§ on useita (viittaa: graphviz, tulip, kieler)‚Äô
 An open graph visualization system and its applications to software engineering (2000) 
 
 Automatic generation of PLC automation projects
 
 from component-based models
-Elisabet EstÈvez
-K‰yt‰nnˆnl‰heinen selostus siit‰, kuinka aiempaa teoriaa sovelletaan.
+Elisabet Est√©vez
+K√§yt√§nn√∂nl√§heinen selostus siit√§, kuinka aiempaa teoriaa sovelletaan.
 
 	\subsection{Kaavioiden tuottaminen}
 	\subsubsection{Vertaillut vaihtoehdot}
 	
-Funktioblokkien editointiin on olemassa useita tyˆkaluja. Rockwell Automationin ilmainen funktioblokkieditori, FBDK on tutkimuksessa laajassa k‰ytˆss‰. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti. FBench on avoimen l‰hdekoodin standardimukainen ohjelmisto, joka kuitenkin k‰rsii samoista puutteista kuin FBDK. PROFACTORin kehitt‰m‰ 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin. Se ei kuitenkaan mahdollista blokkien v‰listen lankojen reititt‰mist‰. ISaGRAF ja NxtControl ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu tyˆt‰ varten arvioida.
+Funktioblokkien editointiin on olemassa useita ty√∂kaluja.
+Rockwell Automationin ilmainen funktioblokkieditori, FBDK on tutkimuksessa laajassa k√§yt√∂ss√§.
+FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
+FBench on avoimen l√§hdekoodin standardimukainen ohjelmisto, joka kuitenkin k√§rsii samoista puutteista kuin FBDK.
+PROFACTORin kehitt√§m√§ 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin.
+Se ei kuitenkaan mahdollista blokkien v√§listen lankojen reititt√§mist√§.
+ISaGRAF ja NxtControl ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu ty√∂t√§ varten arvioida.
 
 	\subsubsection{KIELER}
 
@@ -246,7 +304,7 @@ Kerrotaan tarkemmin ohjelmistosta jolla koe on suoritettu
 
 	\subsection{Tulosten arviointiperusteet}
 
-Lankojen riste‰mism‰‰rien minimointi !
+Lankojen riste√§mism√§√§rien minimointi !
 Ortogonaalisuus!
 Graph Layout Aesthetics in UML Diagrams: User Preferences
 
@@ -255,16 +313,16 @@ The Aesthetics of Graph Visualization
 	\clearpage
 	\section{Tulokset}
 	
-Olemme osoittaneet yhteyden graafiteorian suunnatuilla puilla ja logiikkadiagrammeilla ja n‰ytt‰neet miten graafipiirtoalgoritmeja voidaan k‰ytt‰‰ automaatiokaavioiden generointiin.
+Olemme osoittaneet yhteyden graafiteorian suunnatuilla puilla ja logiikkadiagrammeilla ja n√§ytt√§neet miten graafipiirtoalgoritmeja voidaan k√§ytt√§√§ automaatiokaavioiden generointiin.
 Tapa X on kivempi kuin tapa Y.
 
-	\section{Yhteenveto ja tulevaisuudenn‰kym‰t}
+	\section{Yhteenveto ja tulevaisuudenn√§kym√§t}
 	
-Siistej‰ juttuja, joo. Ollaan saavutettu tavoite A. T‰ss‰ hommassa kokonaisuutena on viel‰ haasteita. Olisipa hienoa saada selville asia Z
+Siistej√§ juttuja, joo. Ollaan saavutettu tavoite A. T√§ss√§ hommassa kokonaisuutena on viel√§ haasteita. Olisipa hienoa saada selville asia Z
 
-Automaatiosuunnittelu on siirtynyt yh‰ enemm‰n tietopohjaisesta tutkimuksesta
+Automaatiosuunnittelu on siirtynyt yh√§ enemm√§n tietopohjaisesta tutkimuksesta
 
-RDF:‰‰ voidaan k‰ytt‰‰ tehtaan PI-kaavion miettimiseen.
+RDF:√§√§ voidaan k√§ytt√§√§ tehtaan PI-kaavion miettimiseen.
 Graph theory - An RDF model is a labeled, directed multi-graph
 
 
@@ -273,11 +331,11 @@ Graph theory - An RDF model is a labeled, directed multi-graph
 
 \begin{thebibliography}{99}
 	\bibitem{Kauranen} Kauranen,\ I., Mustakallio,\ M. ja Palmgren,\ V.
-	  \textit{Tutkimusraportin kirjoittamisen opas opinn‰ytetyˆn
-		tekijˆille.}  Espoo, Teknillinen korkeakoulu, 2006.
+	  \textit{Tutkimusraportin kirjoittamisen opas opinn√§ytety√∂n
+		tekij√∂ille.}  Espoo, Teknillinen korkeakoulu, 2006.
 
-	\bibitem{Itkonen} Itkonen,\ M. \textit{Typografian k‰sikirja.} 3.\
-	  painos.  Helsinki, RPS-yhtiˆt, 2007.
+	\bibitem{Itkonen} Itkonen,\ M. \textit{Typografian k√§sikirja.} 3.\
+	  painos.  Helsinki, RPS-yhti√∂t, 2007.
 
 	\bibitem{Koblitz} Koblitz,\ N. \textit{A Course in Number Theory and
 		Cryptography. Graduate Texts in Mathematics 114.}  2.\ painos. New
