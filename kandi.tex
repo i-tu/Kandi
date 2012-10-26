@@ -55,9 +55,15 @@ LYHYT TIIVISTELMÄ
 
 	\mysection{Esipuhe}
 
-Haluan kiittää Kandiryhmäämme Six-bäkiä
+Haluan kiittää seuraavia ihmisiä joita ilman en olisi onnistunut tässä työssä
+Kandiryhmäni jäseniä Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, Peter 'Bembu'  Kronströmiä ja Lauri Andleria.
+Kandikurssin järjestäjää 
+Mika Strömmania hyvistä huomioista,  asiallisesta palautteesta ja skarpista ohjauksesta.
+Petri Kokkoa ja Pekka Niemistä ideoinnista ja suunnannäyttämisestä.
 
-Mika strömman oli hieno kaveri \\
+Aalto- yliopiston henkilökuntaa hyvästä työstä.
+Vanhempiani tuesta ja kannustuksesta.
+\\
 
 	\vspace{5cm}
 
@@ -97,8 +103,8 @@ Otaniemi, 16.3.2010
 	\subsection*{Lyhenteet}
 
 	\begin{tabular}{ll}
-AC         & vaihtovirta \\
-APLAC      & an object-oriented analog circuit simulator and design tool \\
+         & vaihtovirta \\
+PLC      & Programmable Logic Circuit \\
            & (originally Analysis Program for Linear Active Circuits) \\
 BCS        & Bardeen-Cooper-Schrieffer \\ %% tavuviiva - nimien välissä 
 DC         & tasavirta \\
@@ -116,81 +122,54 @@ TEM        & transverse eletromagnetic
 
 Teollisuuden automaatiojärjestelmän suunnittelutyön tulos koostuu kaavioista - laajan järjestelmän tapauksessa jopa useista tuhansista. 
 Kaavioiden piirtäminen ja ajantasaisena pitäminen on työlästä ilman automatisoituja suunnittelun apuvälineitä.
-Tämän vuoksi tuotettavat kaaviot tyypillisesti generoidaan suunnittelijoiden laatimista kuvauksista, joiden muokkaamisesta suunnittelutyö pääasiallisesti koostuu.
+Tämän vuoksi kaaviot tyypillisesti generoidaan suunnittelijoiden laatimista kuvauksista, joiden muokkaamisesta suunnittelutyö pääasiallisesti koostuu.
 
-Tämän tutkimuksen kohteena on järjestelmän ohjauslogiikan formaalin kuvauksen muuntaminen logiikkakaavioksi.
-Logiikkakaavio on määritelty yksiselitteisesti, ja on tulkittavissa suunnatuksi graafiksi.
+Tämän tutkimuksen kohteena on järjestelmän ohjauslogiikan formaalin kuvauksen muuntaminen standardeita noudattavaksi logiikkakaavioksi.
+Logiikkakaavio on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi.
 
-Automaatiojärjestelmien kuvaukset on määritelty esimerkiksi standardeissa IEC 61131-3 ja IEC 61499.
+Logiikkakaavioiden kuvaukset on määritelty esimerkiksi standardeissa IEC~61131-3 ja IEC~61499.
 Lisäksi suunnittelijoilla saattaa olla käytössä jokin muu, ei-standardi tapa kuvata järjestelmää.
 
-
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten kaavioiden piirtoon.
-Esittelemme Sugiyaman hierarkisen lähestymistavan. jonka avulla lopullinen kaavio piirretään.
+Esittelemme Sugiyaman esittämän hierarkisen lähestymistavan. jonka avulla lopullinen kaavio piirretään.
 
 Tavoitteena on arvioida eri keinojen hyviä ja huonoja puolia sekä käytännön toteutusvaatimuksia.
 Lisäksi tarkastellaan voisiko näitä ratkaisuja laajentaa muunlaisten kaavioiden tuotantoon.
 
 	\clearpage
-	\section{Tehdasmalli ja sen kuvaukset}
+	\section{Tehdasmalli}
 
-”Tehdasmallina pidetään usein dokumenttihotellin typpistä sovellusta, joka koostuu 3d-mallista, näihin liittyvistä dokumenteista sekä käyttöliittymästä.”
+Tehdasmalli on tehtaan kuvaus joka mahdollistaa sen toteutuksen, käyttöönoton ja ylläpidon.
+Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
+Organisaatio jätetään usein käsittelemättä ja keskitytään mekaanisesti funktionaalisen prosessin rakenteen ja elinkaaren kuvaamiseen.
 
-Automaatiosuunnitteluprosessin tuloksena syntyy järjestelmän malli.
-Malli voi olla joukko dokumentteja, tai suunnittelijoiden yhteinen tietokanta, ns. tehdasmalli, jonka avulla voidaan tuottaa järjestelmän dokumentointi.
-Tehdasmallin voidaan sanoa olevan tietomalli.
-Se kuvaa laajuudestaan riippuen laitoksen toimintaa, sen prosessia ja harvinaisemmin ihmisiä, organisaatiota ja näitten aktiviteetteja.
+Tehdasmallilla on metamalli joka määrittelee millaisia objekteja tehdasmalli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla, ja millaisia yhteyksiä objektien välillä on.
+Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista. 
+
 Vaikka tehtaasta on vain yksi malli, on eri suunnittelijoilla erilaisia tarpeita.
 Tehdasmallin tulee siis palvella kaikkia näkökulmia joita tarvitaan.  
+Suunnitteluprosessin tuloksena syntyy järjestelmän malli.
+
+Käytännössä tehdasmalli on dokumenttihotellin typpinen sovellus, joka koostuu 3d-mallista, näihin liittyvistä dokumenteista sekä käyttöliittymästä.
+
+Malli voi olla joukko dokumentteja, tai suunnittelijoiden yhteinen tietokanta, ns. tehdasmalli, jonka avulla voidaan tuottaa järjestelmän dokumentointi.
+
+		\subsection{Ontologia}
+
+
+KUVA: Tehdasmallin abstraktiotasot. (Lähde: Automaatiosuunnittelun prosessimalli)
+
+		\subsection{Tietokanta}
+
+Tietokanta on perinteisesti linkitetty tietokanta. (lähde?)
+
+Tehdasmallin voidaan sanoa olevan tietomalli.
+
 
 Automaatiojärjestelmän näkymiä ovat
 Minimivaatimukset kuvaukselle
 Automaatiojärjestelmien ontologia
 ”Semanttinen kuvaus”
-
-	\subsection{Logiikkakaaviot}
-
-Funktioblokit kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä ja niitten relaatioita toisiinsa.
-Funktioblokki voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
-Funktioblokin tekemien laskutoimitusten tulos riippuu siis sen vasemmalta puolelta tulevista syöttötiedoista.
-Laskennan tulokset lähetetään blokin oikealta puolelta.
-Toisiinsa liitetyt funktioblokit muodostavat funktioblokkiverkon. 
-
-IEC 61499 määrittelee XML-kuvauksen funktioblokkiverkoille. 
-
-Although the IEC 61499 is not always seen as the ultimate solution, it is a useful and powerful basis for engineering tools that follow an abstract, model-driven approach and can generate the actual function blocks and their interconnections automatically from a high-level description of the required functionalities." -10.1109/MIE.2011.942175 (Sauter et. al. IEEE Industrial electronics magazine, p. 35)
-
-
-	\subsection{Logiikkakaavioiden tuotanto}
-	
-mcavinew, control system documentation
-
-Logiikkaa sisältävän järjestelmän suunnittelussa on kaksi vaihetta, jotka tulee molemmat ottaa huomioon.
-Ensimmäinen on prosessin konseptualisointi ja toinen toteutus.
-Hajottamalla prosessi kahteen voidaan prosessia kehittää ja siitä keskustella ilman syvällistä tuntemusta instrumenteista.
-Kun päätökset on tehty abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos toteuttaa tehokkaasti.
-
-Mentäessä konseptista toteutukseen voidaan nähdä että vähintään kahdenlaisia dokumentteja tarvitaan.
-Toteuttava dokumentti saattaa olla ainoa, joka näkee päivänvalon. 
-
-Yleisin tapa tuottaa kaavioita lienee niitten käsin tekeminen.
-Valmiiden grafiikkakirjastojen käyttöä on tutkinut Kääriäinen, jonka mukaan työssä .
-next generation systems…
-
-http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
-
-	\subsection{Suoritusjärjestys}
-	
-Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
-Millä tavoin?
-Miten sen voi välttää?
-Automaatiokaavioiden suoritusjärjestys on määritelty standardissa IEC 61131-3 ylhäältä alas, vasemmalta oikealle.
-Tämä tarkoittaa sitä, että graafin uudelleenjärjestely johtaa vääränlaiseen kaavioon.
-Tämä työ olettaa, että eri ohjelmien suoritusjärjestys niillä kohdin, kuin se on olennaista, on tiedossa, ja että kyseisiö
-Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
-Millä tavoin?
-Miten sen voi välttää?
-Standardi: ylhäältä alas, vasemmalta oikealle.
 
 	\clearpage
 	\section{PLC-ohjelmointi}
@@ -220,11 +199,62 @@ Säätö-ongelmat monimutkaistuvat ja vaadittu toteutusaika vähenee.
 Vanhan suunnittelutyön hyväksikäyttö vaatii formalismien käyttöönoton.
 PLC-ohjelmointijärjestelmien laatu- ja turvallisuusvaatimusten kasvaessa 
 
+
+
+		\subsection{Logiikkakaaviot}
+
+Funktioblokit kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä ja niitten relaatioita toisiinsa.
+Funktioblokki voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
+Funktioblokin tekemien laskutoimitusten tulos riippuu siis sen vasemmalta puolelta tulevista syöttötiedoista.
+Laskennan tulokset lähetetään blokin oikealta puolelta.
+Toisiinsa liitetyt funktioblokit muodostavat funktioblokkiverkon. 
+
+IEC 61499 määrittelee XML-kuvauksen funktioblokkiverkoille. 
+
+Although the IEC 61499 is not always seen as the ultimate solution, it is a useful and powerful basis for engineering tools that follow an abstract, model-driven approach and can generate the actual function blocks and their interconnections automatically from a high-level description of the required functionalities." -10.1109/MIE.2011.942175 (Sauter et. al. IEEE Industrial electronics magazine, p. 35)
+
+
+		\subsection{Logiikkakaavioiden tuotanto}
+	
+mcavinew, control system documentation
+
+Logiikkaa sisältävän järjestelmän suunnittelussa on kaksi vaihetta, jotka tulee molemmat ottaa huomioon.
+Ensimmäinen on prosessin konseptualisointi ja toinen toteutus.
+Hajottamalla prosessi kahteen voidaan prosessia kehittää ja siitä keskustella ilman syvällistä tuntemusta instrumenteista.
+Kun päätökset on tehty abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos toteuttaa tehokkaasti.
+
+Mentäessä konseptista toteutukseen voidaan nähdä että vähintään kahdenlaisia dokumentteja tarvitaan.
+Toteuttava dokumentti saattaa olla ainoa, joka näkee päivänvalon. 
+
+Yleisin tapa tuottaa kaavioita lienee niitten käsin tekeminen.
+Valmiiden grafiikkakirjastojen käyttöä on tutkinut Kääriäinen, jonka mukaan työssä .
+next generation systems…
+
+http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
+
+		\subsection{Suoritusjärjestys}
+	
+Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
+Millä tavoin?
+Miten sen voi välttää?
+Automaatiokaavioiden suoritusjärjestys on määritelty standardissa IEC 61131-3 ylhäältä alas, vasemmalta oikealle.
+Tämä tarkoittaa sitä, että graafin uudelleenjärjestely johtaa vääränlaiseen kaavioon.
+Tämä työ olettaa, että eri ohjelmien suoritusjärjestys niillä kohdin, kuin se on olennaista, on tiedossa, ja että kyseisiö
+Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
+Millä tavoin?
+Miten sen voi välttää?
+Standardi: ylhäältä alas, vasemmalta oikealle.
+
+
+
 	\clearpage
 	\section{Hierarkinen graafinpiirto}
 
-Hierarkisen lähestymistavan kerrostettujen suunnattujen graafien piirtämiseen esitti Sugiyama et. al vuonna 1981. Menetelmää on kehitetty sen jälkeen eteenpäin samanlaisilla menetelmillä. Hierarkinen lähestymistapa koostuu
-kolmesta vaiheesta: kerrostamisesta, risteämisten vähentämisestä ja poikittaisasettelusta. Jos lähdegraafi sisältää takaisinkytkentöjä, vaatii
+Hierarkisen lähestymistavan kerrostettujen suunnattujen graafien piirtämiseen esitti Sugiyama et. al vuonna 1981.
+Menetelmää on kehitetty sen jälkeen eteenpäin samanlaisilla menetelmillä.
+Hierarkinen lähestymistapa koostuu kolmesta vaiheesta: kerrostamisesta, risteämisten vähentämisestä ja poikittaisasettelusta.
+Jos lähdegraafi sisältää takaisinkytkentöjä, vaatii
+
 http://www.cs.brown.edu/~rt/gdhandbook/
 
 Sitä on sen jälkeen kehitetty eteenpäin 
@@ -235,7 +265,7 @@ Kerrostetun suunnatun graafin piirto on jaettu kolmeen vaiheeseen. Kerroksiin ja
 
 Jos graafissa on syklejä, eli graafi ei ole suunnattu, käännetään syklin aiheuttavien lankojen suunta ja tehdyt muutokset merkitään muistiin.
 
-	\subsection{Kerrostus}
+		\subsection{Kerrostus}
 
 Kerrostuksen tulee täyttää tietyt ehdot.
 Sen tulee olla kompakti.
@@ -252,30 +282,27 @@ Multiprosessoriongelmaa varten tehty algoritmi, Coffman-Graham-kerrostusmenetelm
 Se palauttaa graafin, jolla on jokin minimileveys, alkuperäisessä toteutuksessa prosessorien määrä, omassa tapauksessamme arkin korkeus. 
 Algoritmin tavoitteena on varmistaa, että 
 
-	\subsection{Risteyksien vähentäminen}
+		\subsection{Risteyksien vähentäminen}
 
 Risteyksien vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen.
-Ongelma on siis luonteeltaan kombinatorinen eikä geometrinen.
-Tämä yksinkertaistaa ongelman ratkaisemista. 
-
-Risteyksien vähentäminen on tästä huolimatat NP-täydellinen ongelma (M.R. Garey ”Crossing problem is NP-complete”), siinäkin tapauksessa että kerroksia no vain kaksi.
+Ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa ongelman ratkaisemista. 
+Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma (M.R. Garey ”Crossing problem is NP-complete”) siinäkin tapauksessa että kerroksia no vain kaksi.
 
 Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkojen vaihtelu keskenään, sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka on siihen yhtyneiden solmujen puolivälissä.
 
-Monet tutkijat ovat Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” ) tutkineet eri risteysalgoritmeja. Selkeästi parasta menetelmää ei ole löytynyt.
-
-Sen sijaan paras lähestymistapa vaikuttaisi olevan hybridilähestymistapa, joka iteraation yhteydessä ensin uudelleenjärjestää solmut mediaanimenetelmällä, tekee paikallisia transpositioita ja lopulta pitää parhaan tuloksen seuraavaa iterointia varten.
+Monet tutkijat ovat Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” ) tutkineet eri risteysalgoritmeja. Yhtä selkeästi parasta menetelmää ei ole löytynyt. Sen sijaan paras lähestymistapa on osoittautunut algoritmeja yhdisteleväksi hybridilähestymiseksi.
+(Joku et al on) saavuttanut hyviä tuloksia iteroimalla joka iteraation yhteydessä ensin uudelleenjärjestää solmut mediaanimenetelmällä, tekee paikallisia transpositioita ja lopulta pitää parhaan tuloksen seuraavaa iterointia varten.
 
 
 Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis, Christian-Albrechts-Universität zu Kiel, Department of Computer Science
 
-	\subsection{Poikittainen asettelu}
+		\subsection{Poikittainen asettelu}
 
 Solmujen poikittainen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään, jotta kaavion luettavuus paranee. Risteyksien vähentämisvaiheessa saavutettu järjestys pyritään säilyttämään.
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
-	\subsection{Kaavioiden tuottaminen}
+		\subsection{Kaavioiden tuottaminen}
 
 Käytännön toteutuksia hierarkisesta graafinpiirtomenetelmästä on useita (viittaa: graphviz, tulip, kieler)’
 An open graph visualization system and its applications to software engineering (2000) 
@@ -286,8 +313,8 @@ from component-based models
 Elisabet Estévez
 Käytännönläheinen selostus siitä, kuinka aiempaa teoriaa sovelletaan.
 
-	\subsection{Kaavioiden tuottaminen}
-	\subsubsection{Vertaillut vaihtoehdot}
+		\subsection{Kaavioiden tuottaminen}
+			\subsubsection{Vertaillut vaihtoehdot}
 	
 Funktioblokkien editointiin on olemassa useita työkaluja.
 Rockwell Automationin ilmainen funktioblokkieditori, FBDK on tutkimuksessa laajassa käytössä.
@@ -297,12 +324,12 @@ PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkiedito
 Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä.
 ISaGRAF ja NxtControl ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
 
-	\subsubsection{KIELER}
+			\subsubsection{KIELER}
 
 Koeohjelmistoksi valittiin KIELER, Kielin yliopistossa kehitetty yleiseen graafinpiirtoon tuotettu ohjelmisto, jolle on kehitetty IEC 61499-standardin mukaisten funktioblokkidiagrammien piirto-ohjelmisto CAKeFEED. 
 Kerrotaan tarkemmin ohjelmistosta jolla koe on suoritettu
 
-	\subsection{Tulosten arviointiperusteet}
+		\subsection{Tulosten arviointiperusteet}
 
 Lankojen risteämismäärien minimointi !
 Ortogonaalisuus!
