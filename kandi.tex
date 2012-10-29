@@ -55,11 +55,12 @@ LYHYT TIIVISTELMÄ
 
 	\mysection{Esipuhe}
 
-Haluan kiittää seuraavia ihmisiä joita ilman en olisi onnistunut tässä työssä
+Haluan kiittää seuraavia ihmisiä joita ilman en olisi onnistunut tässä työssä.
 Kandiryhmäni jäseniä Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, Peter 'Bembu'  Kronströmiä ja Lauri Andleria.
 Kandikurssin järjestäjää 
 Mika Strömmania hyvistä huomioista,  asiallisesta palautteesta ja skarpista ohjauksesta.
 Petri Kokkoa ja Pekka Niemistä ideoinnista ja suunnannäyttämisestä.
+
 
 Aalto- yliopiston henkilökuntaa hyvästä työstä.
 Vanhempiani tuesta ja kannustuksesta.
@@ -127,8 +128,8 @@ Tämän vuoksi kaaviot tyypillisesti generoidaan suunnittelijoiden laatimista ku
 Tämän tutkimuksen kohteena on järjestelmän ohjauslogiikan formaalin kuvauksen muuntaminen standardeita noudattavaksi logiikkakaavioksi.
 Logiikkakaavio on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi.
 
-Logiikkakaavioiden kuvaukset on määritelty esimerkiksi standardeissa IEC~61131-3 ja IEC~61499.
-Lisäksi suunnittelijoilla saattaa olla käytössä jokin muu, ei-standardi tapa kuvata järjestelmää.
+%Logiikkakaavioiden kuvaukset on määritelty esimerkiksi standardeissa IEC~61131-3 ja IEC~61499.
+%Lisäksi suunnittelijoilla saattaa olla käytössä jokin muu, ei-standardi tapa kuvata järjestelmää.
 
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten kaavioiden piirtoon.
 Esittelemme Sugiyaman esittämän hierarkisen lähestymistavan. jonka avulla lopullinen kaavio piirretään.
@@ -141,29 +142,47 @@ Lisäksi tarkastellaan voisiko näitä ratkaisuja laajentaa muunlaisten kaavioid
 
 Tehdasmalli on kuvaus joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
 Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
+Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista.
 
 Tehdasmallilla on metamalli joka määrittelee millaisia objekteja tehdasmalli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla, ja millaisia yhteyksiä objektien välillä on.
-Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista. 
+Metamallin loogiset riippuvuudet määrittelevät suunnittelutyön työtapoja.
+
+Suunnittelutehtävät on eroteltu tarkemmin nk. projektimallissa.
+Projektimalli määrittelee, mitä tietoja täytyy kussakin vaiheessa olla jotta suunnittelussa voidaan edetä.
+Itse suunnittelutyö jaetaan elinkaairvaiheisiin.
+
+Metamalli siis määrittelee tehdasmallin joka vuorostaan määrää projektimallin.
+
+Perinteisesti tehdasmalli on joukko dokumentteja, joita muokataan käsin.
+Tässä työssä tarkastellaan tietosisältöpohjaista työtapaa johon kuuluu yhteisen suunnittelutietokannan käyttö.
+Suunnittelutietokanta sisältää kuvauksen järjestelmästä ja sen avulla voidaan tuottaa standardi tapa kuvata tehdas, tehtaan dokumentointi.
 
 Vaikka tehtaasta on vain yksi malli, on eri suunnittelutehtävillä erilaisia tarpeita.
-Tehdasmallin tulee siis palvella kaikkia näkökulmia joita tarvitaan.  
-Suunnitteluprosessin tuloksena syntyy järjestelmän malli.
+Tehdasmallin tulee siis palvella kaikkia näkökulmia joita tarvitaan.
 
 Käytännössä tehdasmalli on dokumenttihotellin typpinen sovellus, joka koostuu 3d-mallista, näihin liittyvistä dokumenteista sekä käyttöliittymästä.
 
-Malli voi olla joukko dokumentteja, tai suunnittelijoiden yhteinen tietokanta, ns. tehdasmalli, jonka avulla voidaan tuottaa järjestelmän dokumentointi.
+Automaatiojärjestelmän kuvaus on osa tehdasmallia.
 
 		\subsection{Ontologia}
 
+Tehdasmallin ontologialla tarkoitetaan teh 
+
+Toimilaite,
 
 
 KUVA: Tehdasmallin abstraktiotasot. (Lähde: Automaatiosuunnittelun prosessimalli)
 
 		\subsection{Tietokanta}
 
+Perinteinen suunnittelu pohjautuu dokumenttipohjaiseen suunnitteluun.
+
 Tietokanta on perinteisesti linkitetty tietokanta. (lähde?)
 
 Tehdasmallin voidaan sanoa olevan tietomalli.
+
+Tietok
+
 
 Automaatiojärjestelmän näkymiä ovat
 Minimivaatimukset kuvaukselle
@@ -171,7 +190,7 @@ Automaatiojärjestelmien ontologia
 ”Semanttinen kuvaus”
 
 	\clearpage
-	\section{PLC-ohjelmointi}
+	\section{Automaatiojärjestelmän logiikka}
 
 Varhainen tapa hallita tehtaiden prosesseja sähkölaitteiden avulla oli relelogiikka.
 Jos esimerkiksi moottori käyttää liikaa virtaa, kytketään se pois päältä.
@@ -197,8 +216,10 @@ PLC-ohjelmointijärjestelmien laatu- ja turvallisuusvaatimusten kasvaessa
 
 
 		\subsection{Logiikkakaaviot}
-	
-mcavinew, control system documentation
+
+Logiikkadiagrammit (Funmcavinew, control system documentation
+
+Logiikkadiagrammit helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan dokumentointia.
 
 Funktioblokit kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä ja niitten relaatioita toisiinsa.
 Funktioblokki voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
@@ -210,12 +231,11 @@ IEC 61499 määrittelee XML-kuvauksen funktioblokkiverkoille.
 
 Although the IEC 61499 is not always seen as the ultimate solution, it is a useful and powerful basis for engineering tools that follow an abstract, model-driven approach and can generate the actual function blocks and their interconnections automatically from a high-level description of the required functionalities." -10.1109/MIE.2011.942175 (Sauter et. al. IEEE Industrial electronics magazine, p. 35)
 
-
 		\subsection{Logiikkakaavioiden tuotanto}
 
+Logiikkaa sisältävän järjestelmän suunnittelutyö koostuu ensin prosessin konseptualisoinnista ja toinen toteutuksesta.
+Tässä työssä tarkastellaan tapaa jolla suunnittelutyön 
 
-Logiikkaa sisältävän järjestelmän suunnittelussa on kaksi vaihetta, jotka tulee molemmat ottaa huomioon.
-Ensimmäinen on prosessin konseptualisointi ja toinen toteutus.
 Hajottamalla prosessi kahteen voidaan prosessia kehittää ja siitä keskustella ilman syvällistä tuntemusta instrumenteista.
 Kun päätökset on tehty abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos toteuttaa tehokkaasti.
 
@@ -231,10 +251,13 @@ http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
 		\subsection{Suoritusjärjestys}
 	
 Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
-Millä tavoin?
-Miten sen voi välttää?
+
 Automaatiokaavioiden suoritusjärjestys on määritelty standardissa IEC 61131-3 ylhäältä alas, vasemmalta oikealle.
 Tämä tarkoittaa sitä, että graafin uudelleenjärjestely johtaa vääränlaiseen kaavioon.
+
+Suoritusjärjestysvaatimus asettaa siis käyttämillemme algoritmeille järjestysrajoituksen.
+Koska suoritusjärjestyksen eteneminen on määritelty tavalla X, voidaan käyttää algoritmia sillä rajoituksella, että Y
+
 Tämä työ olettaa, että eri ohjelmien suoritusjärjestys niillä kohdin, kuin se on olennaista, on tiedossa, ja että kyseisiö
 Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
 Millä tavoin?
@@ -296,6 +319,9 @@ Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis, Christ
 
 Solmujen poikittainen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään, jotta kaavion luettavuus paranee. Risteyksien vähentämisvaiheessa saavutettu järjestys pyritään säilyttämään.
 
+%% STOP HERE
+
+
 	\clearpage
 	\section{Menetelmät ja esimerkki}
 		\subsection{Kaavioiden tuottaminen}
@@ -342,6 +368,8 @@ Tapa X on kivempi kuin tapa Y.
 	\section{Yhteenveto ja tulevaisuudennäkymät}
 	
 Siistejä juttuja, joo. Ollaan saavutettu tavoite A. Tässä hommassa kokonaisuutena on vielä haasteita. Olisipa hienoa saada selville asia Z
+
+Vaikka automaatiokaavioiden tuottamisen automatisointi onnistuttaisiin tekemään, on se vain yksi viidestä erilaisesta suunnitelunäkymästä.
 
 Automaatiosuunnittelu on siirtynyt yhä enemmän tietopohjaisesta tutkimuksesta
 
