@@ -139,14 +139,13 @@ Lisäksi tarkastellaan voisiko näitä ratkaisuja laajentaa muunlaisten kaavioid
 	\clearpage
 	\section{Tehdasmalli}
 
-Tehdasmalli on tehtaan kuvaus joka mahdollistaa sen toteutuksen, käyttöönoton ja ylläpidon.
+Tehdasmalli on kuvaus joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
 Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
-Organisaatio jätetään usein käsittelemättä ja keskitytään mekaanisesti funktionaalisen prosessin rakenteen ja elinkaaren kuvaamiseen.
 
 Tehdasmallilla on metamalli joka määrittelee millaisia objekteja tehdasmalli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla, ja millaisia yhteyksiä objektien välillä on.
 Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista. 
 
-Vaikka tehtaasta on vain yksi malli, on eri suunnittelijoilla erilaisia tarpeita.
+Vaikka tehtaasta on vain yksi malli, on eri suunnittelutehtävillä erilaisia tarpeita.
 Tehdasmallin tulee siis palvella kaikkia näkökulmia joita tarvitaan.  
 Suunnitteluprosessin tuloksena syntyy järjestelmän malli.
 
@@ -157,6 +156,7 @@ Malli voi olla joukko dokumentteja, tai suunnittelijoiden yhteinen tietokanta, n
 		\subsection{Ontologia}
 
 
+
 KUVA: Tehdasmallin abstraktiotasot. (Lähde: Automaatiosuunnittelun prosessimalli)
 
 		\subsection{Tietokanta}
@@ -165,7 +165,6 @@ Tietokanta on perinteisesti linkitetty tietokanta. (lähde?)
 
 Tehdasmallin voidaan sanoa olevan tietomalli.
 
-
 Automaatiojärjestelmän näkymiä ovat
 Minimivaatimukset kuvaukselle
 Automaatiojärjestelmien ontologia
@@ -173,12 +172,6 @@ Automaatiojärjestelmien ontologia
 
 	\clearpage
 	\section{PLC-ohjelmointi}
-
-Kaavioiden tuotannon tutkimuskentästä yleisesti.
-Mistä näkökulmista on asiaa aiemmin lähestytty?
-Onko siinä jokin vallitseva paradigma?
-Mihin ollaan menossa?
-Mitä aiempaa yhteistyötä on ollut graafipiirtämisen tutkijoilla ja automaatiosuunnittelun tutkijoilla?
 
 Varhainen tapa hallita tehtaiden prosesseja sähkölaitteiden avulla oli relelogiikka.
 Jos esimerkiksi moottori käyttää liikaa virtaa, kytketään se pois päältä.
@@ -191,6 +184,8 @@ Näitten ymmärtäminen on intuitiivisesti vaikeampaa ja ne usein vaativat alan 
 Logiikkadiagrammit ovat yritys pelkistää yksinkertaisimpaan mahdolliseen esitykseen monimutkainen logiikka joka on syöttöjen ja lähtöjen välillä.
 Vaikka PLC saatetaan myöhemmin ohjelmoida tikapuukaavioilla, on silti helpompaa työskennellä ja ymmärtää ohjelman rakenne logiikkadiagrammien avulla.
 
+
+
 (Formal methods in PLC programming, Frey, Litz)
 
 Frey ja Litz vertailevat säätösuunnitteluprosessia ja vertailevat eri formaaleja prosesseja ja kategorisoivat PLC-ohjelmoinnin menetelmiä. 
@@ -202,6 +197,8 @@ PLC-ohjelmointijärjestelmien laatu- ja turvallisuusvaatimusten kasvaessa
 
 
 		\subsection{Logiikkakaaviot}
+	
+mcavinew, control system documentation
 
 Funktioblokit kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä ja niitten relaatioita toisiinsa.
 Funktioblokki voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
@@ -215,8 +212,7 @@ Although the IEC 61499 is not always seen as the ultimate solution, it is a usef
 
 
 		\subsection{Logiikkakaavioiden tuotanto}
-	
-mcavinew, control system documentation
+
 
 Logiikkaa sisältävän järjestelmän suunnittelussa on kaksi vaihetta, jotka tulee molemmat ottaa huomioon.
 Ensimmäinen on prosessin konseptualisointi ja toinen toteutus.
