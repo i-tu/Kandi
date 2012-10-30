@@ -107,15 +107,13 @@ PLC      & Programmable Logic Circuit \\
 	\section{Johdanto}
 	\thispagestyle{empty}
 
-Teollisuuden automaatiojärjestelmän suunnittelutyön tulos koostuu kaavioista. Laajan järjestelmän tapauksessa niitä voi olla jopa useita tuhansia. Kaaviot muodostavat tehtaan kuvauksen, tehdasmallin, joka mahdollistaa sen toteutuksen, käyttöönoton ja ylläpidon. Kaavioiden piirtäminen käsin on kuitenkin suurissa projekteissa työlästä ja tehotonta. Nykyaikaisessa tehdassuunnittelussa ongelma korostuu, kun ratkaisut ovat entistä monimutkaisempia ja vaadittu toteutusaika lyhenee. Myös laatuvaatimukset ovat tiukentuneet.
+Teollisuuden automaatiojärjestelmän suunnittelutyön tulos koostuu kaavioista. Laajan järjestelmän tapauksessa niitä voi olla jopa useita tuhansia. Kaaviot muodostavat tehtaan kuvauksen, tehdasmallin, joka mahdollistaa sen toteutuksen, käyttöönoton ja ylläpidon. Kaavioiden piirtäminen käsin on kuitenkin suurissa projekteissa työlästä ja tehotonta. Nykyaikaisessa tehdassuunnittelussa ongelma korostuu. Ratkaisuista on tullut monimutkaisempia ja laatu- ja joustavuusvaatimukset ovat kasvaneet. Lisäksi suunnitteluprojektien suunnitteluaika on jatkuvasti lyhentynyt.
 
-Tämän vuoksi suunnitteluprosessia on pyritty tehostamaan automatisoiduilla suunnittelun apuvälineillä. Suunnittelumetodiikat eivät ole kuitenkaan ilmeisistä standardoimiseduista huolimatta yhtenäistyneet. Vaikka lähestymistavat ovat vaihtelevia, on tehdassuunnittelussa kuitenkin nähtävissä yhtenäinen siirtymä kohti tehtaan tietomalleja. Tietomalliin perustuva lähestymistapa vaatii tietomallin rajoitukset määrittelevän metamallin. Tämä ohjaa ja määrittää suunnittelun kohteen lisäksi myös suunnittelutyön kulkua.
+Tämän vuoksi suunnitteluprosessia on pyritty tehostamaan automatisoiduilla suunnittelun apuvälineillä. Suunnittelumetodiikat eivät kuitenkaan ole ilmeisistä standardoimiseduista huolimatta yhtenäistyneet, ja yhteistyö alan tutkimuksessa on vähäistä. Vaikka lähestymistavat ovat vaihtelevia, on tehdassuunnittelussa kuitenkin nähtävissä yhtenäinen siirtymä kohti tehtaan tietomalleja. Suunnittelujärjestelmään syntyy tällöin projektin edetessä tehtaan tietomalli johon tehtaan kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen on merkitty. Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokannasta.
 
-Suunnittelujärjestelmään syntyy tällöin projektin edetessä tehtaan tietomalli johon tehtaan kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen on merkitty. Se sisältää kuvauksen jonka avulla voidaan tuottaa tehtaan lopullinen dokumentointi.
+Tietomallin eri tasoille on ehdotettu esityksiä. Tietomalliin perustuva lähestymistapa vaatii tietomallin rajoitukset määrittelevän metamallin. Tämä ohjaa ja määrittää suunnittelun kohteen lisäksi myös suunnittelutyön kulkua.
 
-Suunnittelutyö koostuu tällöin tietomallin muokkaamisesta. Tämä mahdollistaa tehokkaiden suunnittelun apuvälineiden kehittämisen. Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokannasta joiden muokkaamisesta suunnittelutyö pääasiallisesti koostuu.
-
-Tämän tutkimuksen kohteena on tehtaan hajautetun ohjausjärjestelmän logiikan tietomallin muuntaminen standardeita noudattavaksi logiikkakaavioksi. Logiikkakaaviot ovat tapa pelkistää syöttöjen ja lähtöjen välillä vallitseva monimutkainen logiikka yksinkertaisimmaksi mahdolliseksi esitykseksi. Logiikkakaavio on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan hyödyntää.
+Tämän tutkimuksen kohteena on tehtaan hajautetun ohjausjärjestelmän logiikan tietomallin muuntaminen standardeita noudattavaksi logiikkakaavioksi. Logiikkakaaviot ovat tapa pelkistää syöttöjen ja lähtöjen välillä vallitseva monimutkainen logiikka yksinkertaisimmaksi mahdolliseksi esitykseksi.Logiikkakaavio on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan hyödyntää.
 
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon. Esittelemme Sugiyaman et. al. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuvan algoritmin jonka avulla lopullinen kaavio piirretään.
 
@@ -124,36 +122,23 @@ Lisäksi esitellään erilaisia olemassaolevia toteutuksia ja
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\clearpage
-	\section{Suunnittelutyön mallit}
+	\section{Tehtaan mallit ja mallinnustavat}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Työyhteisön kesken jaetut mallit ovat tärkeitä yhteistyön apuvälineitä. Ne hahmottavat projektin kulkua, työn sisältöä ja vaatimuksia sekä tarjoavat projektin työntekijöille yhteisen terminologian. Monimutkaisissa projekteissa kuten tehdassuunnittelussa, on mallien merkitys suuri. Ilman systemaattista suunnittelun mallia kommunikointi vaikeutuu ja suunnittelutyö hidastuu.
+Tehdasmalli on kuvaus joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon. Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja. Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista.
 
-Kun suunnittelutyön sisältö määritellään tarkasti, suunnittelijat voivat tehdä yhteistyötä tehokkaasti ja toisaalta keskittyä omaan suunnittelualueeseensa. Lisäksi tarkka malli mahdollistaa suunnittelun apuvälineiden kehittämisen.
+Suunnittelutyötä tekevillä on työtehtävästä riippuen erilaisia tarpeita tehdasmallin suhteen. Työn kohde on monitahoinen eikä mikään yksi malli ei pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä. Sitä tulee kuvata useilta eri näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti. Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaisuuden.
 
-		\subsection{Mallien ontologia}
+Kruchten [3] esittääkin, että useimmat monimutkaiset suunnittelutyöt vaativat vähintään neljää eri näkymää: loogista näkymää, prosessinäkymää, kehitysnäkymää sekä fyysistä näkymää.
 
-Mikään yksi malli ei pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä. Sen sijaan sekä tehdasmalli että suunnitteluprosessi koostuvat useista malleista, jotka yhdessä muodostavat kokonaisuuden.
+Jokaisella mallilla on myös metamalli joka määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on. Se on kuvaus siitä, millaisia valiidit tehdasmallit ovat. Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja- ja järjestystä.  Se kuvaa millaiset tietomallit ovat suunnittelujärjestelmän kannalta valiideja tehdasmalleja. Se määrää samalla suunnittelujärjestelmän laajuuden. Metamallin määritteleminen tekee suunnittelutyön tuloksesta ennakoitavan ja mahdollistaa suunnittelun apuvälineiden kehittämisen. Suunnittelutyön formalisoinnilla suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan pitkälle vietyyn formalismiin perustuvat työkalut ja suunnittelukäytännöt.
 
-Kruchten [3] esittääkin, että useimmat monimutkaiset suunnittelutyöt vaativat vähintään neljää eri näkymää: loogista näkymää, prosessinäkymää, kehitysnäkymää sekä fyysistä näkymää. Tämä järjestely onkin jo käytössä automaatiosuunnittelussa.
+Suunnittelutyön mallit on valittu siten, etteivät ne ole ristiriidassa ja muodostavat oman suljetun kokonaisuutensa. Tällöin mallien konfiguraatio muodostaa myös mallin malleista. Nämä voivat edelleen muodostaa muita metamalleja. Ne muodostavat johdonmukaisen projektiorientoituneen kokonaisuuden jonka tuloksena on tehdasmalli.
 
-Tehdasmallilla on metamalli joka määrittelee millaisia objekteja tehdasmalli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on. Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja- ja järjestystä.
-
-Metamalli on kuvaus siitä, millaisia valiidit tehdasmallit ovat. Se kuvaa millaiset tietomallit ovat tehdasmalleja. Se määrää samalla suunnittelujärjestelmän laajuuden ja järkevät toteutustavat. Abstraktoimalla ja käsitteellistämällä tehdas toisaalta suljetaan pois mahdollisia tehtaan abstraktioita ja toisaalta mahdollistetaan pitkälle vietyyn formalismiin perustuvat työkalut ja suunnittelukäytännöt.
-
-Projektin eri työntekijöillä projektipäälliköstä perussuunnittelijaan on erilaisia tarpeita, joita varten on erilaisia malleja. Suunnittelutyön mallit on valittu siten, etteivät ne ole ristiriidassa ja muodostavat oman suljetun kokonaisuutensa. Tällöin mallien konfiguraatio muodostaa myös mallin malleista. Nämä voivat edelleen muodostaa muita metamalleja. Ne muodostavat johdonmukaisen projektiorientoituneen kokonaisuuden jonka tuloksena on tehdasmalli.
-
-		\subsection{Tehdasmalli}
-
-Tehdasmalli on kuvaus joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
-
-Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja. Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista.
-
-Tehdasmallin tulee palvella kaikkia näkökulmia joita tarvitaan.
+Se voidaan määritellä monista eri näkökulmista jotka Tehdasmallin tulee palvella kaikkia näkökulmia joita tarvitaan.
 
 Tietokanta on perinteisesti linkitetty tietokanta. (lähde?) Tehdasmalli voi olla dokumenttihotellin typpinen sovellus. Se voi myös olla tietokantatyyppinen tietomalli.
 
-Tehdasmallin voidaan sanoa olevan tietomalli jonka osa automaatiojärjestelmän kuvaus on.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	\clearpage
@@ -161,19 +146,19 @@ Tehdasmallin voidaan sanoa olevan tietomalli jonka osa automaatiojärjestelmän 
 	\subsection{Automaatiojärjestelmän logiikka}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Tehtaan automaatiojärjestelmä muodostaa oman itsenäisen osansa tehdasmallista ja asettaa omat vaatimuksensa muulle mallille.
-Siinä
 
-		\subsection{Automaatiojärjestelmän logiikan malli}
+IEC~61131-3 ja IEC~61499 ovat pyrkimyksiä tuottaa avoimia standardeja, jotka määrittelevät automaatiojärjestelmän ohjelmoinimenetelmät.
+
+jotka ovat riittävän muokkautuvia mihin tahansa tarpeisiin.
 
 Hajautetun ohjausjärjestelmän logiikkasuunnittelulle ei ole de facto-standardia, pikemminkin joukko standardeja joita käytetään vaihtelevasti.
-IEC~61131-3 ja IEC~61499 ovat yrityksia tuottaa avoimia standardeja, jotka ovat riittävän muokkautuvia mihin tahansa tarpeisiin.
 
 PLC-ohjelmointi on vanha ja intuitiivinen ala. Vaikka olisi selviä syitä suunnittelun formalisoitumiselle
 
 Vaikka PLC saatetaan myöhemmin ohjelmoida tikapuukaavioilla, on silti helpompaa työskennellä ja ymmärtää ohjelman rakenne logiikkadiagrammien avulla.
 
-		\subsection{Toimintakaaviot}
+
+Toimintakaavio määrittelee ohjausjärjestelmän toimintoja. Se tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta. toimintakaaviota pidetään ajantasaisena järjestelmän suunnittelun edetessä. Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
 
 Logiikkadiagrammit ovat yritys pelkistää yksinkertaisimpaan mahdolliseen esitykseen monimutkainen logiikka joka on syöttöjen ja lähtöjen välillä. Vaikka PLC saatetaan myöhemmin ohjelmoida tikapuukaavioilla, on silti helpompaa työskennellä ja ymmärtää ohjelman rakenne logiikkadiagrammien avulla. Lisäksi tehtaan käyttöönotto ja huolto helpottuvat kun
 Tämän vuoksi 
@@ -248,8 +233,6 @@ Tämä työ olettaa, että eri ohjelmien suoritusjärjestys niillä kohdin, kuin
 
 Jos graafissa on syklejä, eli graafi ei ole suunnattu, käännetään syklin aiheuttavien lankojen suunta ja tehdyt muutokset merkitään muistiin.
 Tätä varten on kehitetty useita erilaisia algoritmeja.
-
-
 
 		\subsection{Kerrostus}
 
