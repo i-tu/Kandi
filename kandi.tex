@@ -1,9 +1,11 @@
 	\documentclass[finnish,12pt]{article}
 	\usepackage{aaltothesis}
-        \usepackage[T1]{inputenc}
+       \usepackage[utf8]{inputenc}
+
+
 	%% Use this if you run latex and use eps-format pictures
-	\usepackage[dvips]{graphicx}
-	%\usepackage[pdftex]{graphicx} 
+	%\usepackage[dvips]{graphicx}
+	\usepackage[pdftex]{graphicx} 
 
 	\usepackage[pdfpagemode=None,colorlinks=true,urlcolor=red,linkcolor=blue,citecolor=black,pdfstartview=FitH]{hyperref}
 
@@ -94,9 +96,12 @@ Otaniemi, 16.3.2010
 
 	\begin{tabular}{ll}
 DCS        & Distributed Control System \\
-	      & Hajautettu ohjausjärjestelmä
-PLC      & Programmable Logic Circuit \\
+	     & Hajautettu ohjausjärjestelmä 
+FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä logiikkaohjelmointikieli\\
+IEC          & Internation Electrotechnical Commission
+PLC         & Programmable Logic Circuit \\
 	      & Ohjelmoitava logiikkapiiri
+
 	\end{tabular}
 
 	\cleardoublepage
@@ -107,17 +112,16 @@ PLC      & Programmable Logic Circuit \\
 	\section{Johdanto}
 	\thispagestyle{empty}
 
-Teollisuuden automaatiojärjestelmän suunnittelutyön tulos koostuu kaavioista. Laajan järjestelmän tapauksessa niitä voi olla jopa useita tuhansia. Kaaviot muodostavat tehtaan kuvauksen, tehdasmallin, joka mahdollistaa sen toteutuksen, käyttöönoton ja ylläpidon. Kaavioiden piirtäminen käsin on kuitenkin suurissa projekteissa työlästä ja tehotonta. Nykyaikaisessa tehdassuunnittelussa ongelma korostuu. Ratkaisuista on tullut monimutkaisempia ja laatu- ja joustavuusvaatimukset ovat kasvaneet. Lisäksi suunnitteluprojektien suunnitteluaika on jatkuvasti lyhentynyt.
+Teollisuuden automaatiojärjestelmän suunnittelutyön tulos koostuu kaavioista - laajan järjestelmän tapauksessa jopa tuhansista sellaisista. Kaaviot muodostavat kuvauksen joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon. Kaavioiden piirtäminen käsin on suurissa projekteissa työlästä ja tehotonta. Nykyaikaisessa tehdassuunnittelussa ongelma korostuu. Ratkaisuista on tullut monimutkaisempia ja laatu- ja joustavuusvaatimukset ovat kasvaneet. Lisäksi suunnitteluprojektien suunnitteluaika on jatkuvasti lyhentynyt.
 
 Tämän vuoksi suunnitteluprosessia on pyritty tehostamaan automatisoiduilla suunnittelun apuvälineillä. Suunnittelumetodiikat eivät kuitenkaan ole ilmeisistä standardoimiseduista huolimatta yhtenäistyneet, ja yhteistyö alan tutkimuksessa on vähäistä. Vaikka lähestymistavat ovat vaihtelevia, on tehdassuunnittelussa kuitenkin nähtävissä yhtenäinen siirtymä kohti tehtaan tietomalleja. Suunnittelujärjestelmään syntyy tällöin projektin edetessä tehtaan tietomalli johon tehtaan kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen on merkitty. Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokannasta.
 
 Tietomallin eri tasoille on ehdotettu esityksiä. Tietomalliin perustuva lähestymistapa vaatii tietomallin rajoitukset määrittelevän metamallin. Tämä ohjaa ja määrittää suunnittelun kohteen lisäksi myös suunnittelutyön kulkua.
 
-Tämän tutkimuksen kohteena on tehtaan hajautetun ohjausjärjestelmän logiikan tietomallin muuntaminen standardeita noudattavaksi logiikkakaavioksi. Logiikkakaaviot ovat tapa pelkistää syöttöjen ja lähtöjen välillä vallitseva monimutkainen logiikka yksinkertaisimmaksi mahdolliseksi esitykseksi.Logiikkakaavio on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan hyödyntää.
+Tämän tutkimuksen kohteena on tehtaan hajautetun ohjausjärjestelmän logiikan tietomallin muuntaminen standardeja noudattavaksi logiikkakaavioksi. Logiikkakaaviot ovat tapa pelkistää syöttöjen ja lähtöjen välillä vallitseva logiikka. Logiikkakaavio on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan hyödyntää.
 
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon. Esittelemme Sugiyaman et. al. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuvan algoritmin jonka avulla lopullinen kaavio piirretään.
 
-Lisäksi esitellään erilaisia olemassaolevia toteutuksia ja 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,107 +131,72 @@ Lisäksi esitellään erilaisia olemassaolevia toteutuksia ja
 
 Tehdasmalli on kuvaus joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon. Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja. Tehdasmalli koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten välisistä relaatioista.
 
-Suunnittelutyötä tekevillä on työtehtävästä riippuen erilaisia tarpeita tehdasmallin suhteen. Työn kohde on monitahoinen eikä mikään yksi malli ei pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä. Sitä tulee kuvata useilta eri näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti. Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaisuuden.
+Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmallin suhteen. Työn kohde on monitahoinen eikä mikään yksi malli pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä. Tehdasta tulee kuvata useilta eri näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti. Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaisen systeemin.
 
-Kruchten [3] esittääkin, että useimmat monimutkaiset suunnittelutyöt vaativat vähintään neljää eri näkymää: loogista näkymää, prosessinäkymää, kehitysnäkymää sekä fyysistä näkymää.
+Jokaisella mallilla on myös metamalli joka määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on. Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja ja järjestystä. Ne kuvaavat millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja. Se määrää samalla suunnittelujärjestelmän laajuuden. Metamallin määritteleminen tekee suunnittelutyön tuloksesta ennakoitavan ja mahdollistaa suunnittelun apuvälineiden kehittämisen. Suunnittelutyön formalisoimisella myös suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan formalismiin perustuvat työkalut ja suunnittelukäytännöt. 
 
-Jokaisella mallilla on myös metamalli joka määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia niillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on. Se on kuvaus siitä, millaisia valiidit tehdasmallit ovat. Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja- ja järjestystä.  Se kuvaa millaiset tietomallit ovat suunnittelujärjestelmän kannalta valiideja tehdasmalleja. Se määrää samalla suunnittelujärjestelmän laajuuden. Metamallin määritteleminen tekee suunnittelutyön tuloksesta ennakoitavan ja mahdollistaa suunnittelun apuvälineiden kehittämisen. Suunnittelutyön formalisoinnilla suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan pitkälle vietyyn formalismiin perustuvat työkalut ja suunnittelukäytännöt.
+Suunnittelutyössä käytettävät metamallit valitaan siten, etteivät ne ole ristiriidassa ja muodostavat yhdessä toisiaan täydentävän kokonaisuuden. Tällöin metamallien konfiguraatio muodostaa itsessään mallin.
 
-Suunnittelutyön mallit on valittu siten, etteivät ne ole ristiriidassa ja muodostavat oman suljetun kokonaisuutensa. Tällöin mallien konfiguraatio muodostaa myös mallin malleista. Nämä voivat edelleen muodostaa muita metamalleja. Ne muodostavat johdonmukaisen projektiorientoituneen kokonaisuuden jonka tuloksena on tehdasmalli.
+%Hajottamalla suunnitteluprosessi kahteen voidaan prosessia kehittää ja siitä keskustella ilman syvällistä tuntemusta instrumenteista. Kun päätökset on tehty abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos toteuttaa tehokkaasti.
 
-Se voidaan määritellä monista eri näkökulmista jotka Tehdasmallin tulee palvella kaikkia näkökulmia joita tarvitaan.
+%Tässä työssä tarkastellaan tapaa jolla suunnittelutyön työmalli voidaan muuntaa toiseksi malliksi.
 
-Tietokanta on perinteisesti linkitetty tietokanta. (lähde?) Tehdasmalli voi olla dokumenttihotellin typpinen sovellus. Se voi myös olla tietokantatyyppinen tietomalli.
+%Projektin edetessä konseptista toteutukseksi huomataan, että vähintään kahdenlaisia dokumentteja tarvitaan. Toteuttava dokumentti saattaa olla ainoa, joka näkee päivänvalon. 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	\clearpage
-%	\section{Automaatiojärjestelmän logiikka}
+%Valmiiden grafiikkakirjastojen käyttöä on tutkinut Kääriäinen, jonka mukaan työssä .
+%http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
+%%%
 	\subsection{Automaatiojärjestelmän logiikka}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
 
+Teollisuuden hajautettujen ohjausjärjestelmien suunnittelussa on havaittu tarpeelliseksi ainakin kolme näkymää \cite{RefWorks:38}: säätötekninen näkymä, sähkötekninen näkymä sekä ohjelmistokehitysnäkymä.
 
-IEC~61131-3 ja IEC~61499 ovat pyrkimyksiä tuottaa avoimia standardeja, jotka määrittelevät automaatiojärjestelmän ohjelmoinimenetelmät.
+Näistä ensimmäinen määrittelee järjestelmän toiminnallisuuden. Tätä näkymää määritettäessä voivat eri alojen suunnittelijat osallistua työhön ilman tuntemusta instrumentoinnista tai ohjelmistokehityksestä. Kun päätökset on tehty abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos toteuttaa tehokkaasti. Säätöteknisen näkymän kuvauksena voidaan pitää PI-kaaviota joka on esisuunnittelutietona automaatiojärjestelmää kehitettäessä.
 
-jotka ovat riittävän muokkautuvia mihin tahansa tarpeisiin.
+Tässä työssä tarkastellaan tapaa jolla suunnittelutyön työmalli voidaan muuntaa toiseksi malliksi.
 
-Hajautetun ohjausjärjestelmän logiikkasuunnittelulle ei ole de facto-standardia, pikemminkin joukko standardeja joita käytetään vaihtelevasti.
+Projektin edetessä konseptista toteutukseksi havaitaan, että . Toteuttava dokumentti saattaa olla ainoa, joka näkee päivänvalon. 
 
-PLC-ohjelmointi on vanha ja intuitiivinen ala. Vaikka olisi selviä syitä suunnittelun formalisoitumiselle
+Kaksi jälkimmäistä määrittelevät järjestelmän toteutuksen. 
 
-Vaikka PLC saatetaan myöhemmin ohjelmoida tikapuukaavioilla, on silti helpompaa työskennellä ja ymmärtää ohjelman rakenne logiikkadiagrammien avulla.
+Hajautetun ohjausjärjestelmän logiikan suunnittelulle ja toteutukselle ei ole laajassa käytössä olevaa standardia, pikemminkin joukko standardeja joita käytetään vaihtelevasti. Ohjelmointi on vanha ja intuitiivinen ala. Vaikka olisi selviä syitä suunnittelun formalisoitumiselle, näin ei ole kuitenkaan laajassa mittakaavassa käynyt.
 
+%%%
+	\subsection{Logiikkadiagrammit}
+%%%
 
-Toimintakaavio määrittelee ohjausjärjestelmän toimintoja. Se tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta. toimintakaaviota pidetään ajantasaisena järjestelmän suunnittelun edetessä. Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
+IEC~61131-3 ja myöhemmin sitä täydentänyt IEC~61499 ovat pyrkimyksiä tuottaa avoin standardi joka määrittelee automaatiojärjestelmän ohjelmoinimenetelmät ja on riittävän joustava mihin tahansa tarkoitukseen. Se sisältää 6 eri ohjelmointikieltä, joista käsittelemme
 
-Logiikkadiagrammit ovat yritys pelkistää yksinkertaisimpaan mahdolliseen esitykseen monimutkainen logiikka joka on syöttöjen ja lähtöjen välillä. Vaikka PLC saatetaan myöhemmin ohjelmoida tikapuukaavioilla, on silti helpompaa työskennellä ja ymmärtää ohjelman rakenne logiikkadiagrammien avulla. Lisäksi tehtaan käyttöönotto ja huolto helpottuvat kun
-Tämän vuoksi 
-
-Logiikkadiagrammit (mcavinew, control system documentation
-
-Logiikkadiagrammit helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan dokumentointia.
+Logiikkadiagrammit pelkistävät syöttöjen ja lähtöjen välisen logiikan yksinkertaiseksi ja intuitiiviseksi esitykseksi. Vaikka ohjausjärjestelmän ohjelmointi toteutettaisiinkin muunlaisella esityksellä, esimerkiksi tikapuukaaviolla, on silti helpompaa ymmärtää ohjelman rakenne logiikkadiagrammien avulla. Lisäksi logiikkadiagrammit helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
 
 Funktioblokit kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä ja niitten relaatioita toisiinsa. Funktioblokki voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan. Funktioblokin tekemien laskutoimitusten tulos riippuu siis sen vasemmalta puolelta tulevista syöttötiedoista. Laskennan tulokset lähetetään blokin oikealta puolelta. Toisiinsa liitetyt funktioblokit muodostavat funktioblokkiverkon. 
 
 IEC 61499 määrittelee XML-kuvauksen funktioblokkiverkoille.
 
-Although the IEC 61499 is not always seen as the ultimate solution, it is a useful and powerful basis for engineering tools that follow an abstract, model-driven approach and can generate the actual function blocks and their interconnections automatically from a high-level description of the required functionalities." -10.1109/MIE.2011.942175 (Sauter et. al. IEEE Industrial electronics magazine, p. 35)
-PLCeitä usein ohjelmoidaan vanhasta tottumuksesta tikapuukaavioilla.
-Näitten ymmärtäminen on intuitiivisesti vaikeampaa ja ne usein vaativat alan tuntemusta.
+% Although the IEC 61499 is not always seen as the ultimate solution, it is a useful and powerful basis for engineering tools that follow an abstract, model-driven approach and can generate the actual function blocks and their interconnections automatically from a high-level description of the required functionalities." -10.1109/MIE.2011.942175 (Sauter et. al. IEEE Industrial electronics magazine, p. 35)
 
+% Toimintakaavio määrittelee ohjausjärjestelmän toimintoja. Se tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta. toimintakaaviota pidetään ajantasaisena järjestelmän suunnittelun edetessä. Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
 
-Näitten ymmärtäminen on intuitiivisesti vaikeampaa ja ne usein vaativat alan tuntemusta.
-
-		\subsection{Muunnokset}
-
-Hajottamalla suunnitteluprosessi kahteen voidaan prosessia kehittää ja siitä keskustella ilman syvällistä tuntemusta instrumenteista.
-Kun päätökset on tehty abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos toteuttaa tehokkaasti.
-
-Logiikkaa sisältävän järjestelmän suunnittelutyö koostuu ensin prosessin konseptualisoinnista ja toinen toteutuksesta.
-Tässä työssä tarkastellaan tapaa jolla suunnittelutyön työmalli voidaan muuntaa toiseksi malliksi.
-
-Projektin edetessä konseptista toteutukseksi huomataan, että vähintään kahdenlaisia dokumentteja tarvitaan.
-Toteuttava dokumentti saattaa olla ainoa, joka näkee päivänvalon. 
-
-Yleisin tapa tuottaa kaavioita lienee niitten käsin tekeminen.
-Valmiiden grafiikkakirjastojen käyttöä on tutkinut Kääriäinen, jonka mukaan työssä .
-next generation systems…
-
-http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
-%%%%%%%
-%REMOVE ME LATER %
-\addcontentsline{toc}{section}{Viitteet} %
-\bibliography{kandi} %
-\makeindex %
- \end{document} %
-%%%%%%%%%%%
+% http://mv-sirius.fh-offenburg.de/ecmIC/SensorActuatorObj-Worksheet/atr_2001.pdf
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\clearpage
 	\section{Hierarkinen graafinpiirto}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% http://www.cs.brown.edu/~rt/gdhandbook/
+%%%%%%%%%%%%%%%%%%%%%
 
-Kerrostetut suunnatut graafit ovat luonteeltaan hierarkisia, kuten logiikkakaaviot suoritusjärjestyksensä puolesta.
-Hierarkisuudella viitataan siihen, että 
-Hierarkisen lähestymistavan kerrostettujen suunnattujen graafien piirtämiseen esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
+Hierarkisen lähestymistavan kerrostettujen suunnattujen graafien piirtämiseen esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}. Tämä lähestymistapa on osoittautunut tehokkaaksi ja on ollut jatkokehityksen- ja tutkimuksen kohteena \cite{RefWorks:28}.
 
-Tämä lähestymistapa on tehokas ja intuitiivinen ja ollut jatkokehityksen- ja tutkimuksen kohteena \cite{RefWorks:28}.
-Hierarkinen lähestymistapa koostuu kolmesta vaiheesta: kerrostamisesta, risteämisten vähentämisestä ja poikittaisasettelusta.
+Hierarkinen lähestymistapa koostuu kolmesta vaiheesta: kerrostamisesta, risteämisten vähentämisestä ja poikittaisasettelusta. Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
 
-Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu.
-Valiidisti muotoiltu graafi sisältää 
+Automaatiokaavioiden suoritusjärjestys on määritelty standardissa IEC 61131-3 ylhäältä alas, vasemmalta oikealle. Lisäksi funktioblokkia ei toteuteta ennen kuin kaikki sitä edeltävät funktioblokit on suoritettu. Suoritusjärjestysvaatimus asettaa toteutukselle rajoituksia. Jos tätä ei oteta huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
 
-http://www.cs.brown.edu/~rt/gdhandbook/
+Kun kuvauksessa määritellään suoritusjärjestyksessä ensimmäinen. Risteyksien vähennysvaihe on ainoa osio jossa uudelleenjärjestely saattaa muuttaa suoritusjärjestystä. 
 
-Automaatiokaavioiden suoritusjärjestys on määritelty standardissa IEC 61131-3 ylhäältä alas, vasemmalta oikealle.
-Suoritusjärjestysvaatimus asettaa toteutukselle rajoituksia 
-Jos tätä ei oteta huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
-Tämän vuoksi on otettu käyttöön tätä tilannetta varten tehty algoritmi.
+Tämän vuoksi on otettu käyttöön tätä tilannetta varten tehty algoritmi. Tämä työ olettaa lisäksi , että eri ohjelmien suoritusjärjestys niillä kohdin, kuin se on olennaista, on tiedossa ja merkittynä tietokantaan. Koska suoritusjärjestyksen eteneminen on määritelty tavalla X, voidaan käyttää algoritmia sillä rajoituksella, että Y. 
 
-Koska suoritusjärjestyksen eteneminen on määritelty tavalla X, voidaan käyttää algoritmia sillä rajoituksella, että Y
-Automaatiokaavioiden automaattinen piirto voi tuottaa ongelmia suoritusjärjestystä mietittäessä. 
-
-Tämä työ olettaa, että eri ohjelmien suoritusjärjestys niillä kohdin, kuin se on olennaista, on tiedossa ja merkittynä tietokantaan.
+Logiikkakaavioissa on usein 
 
 		\subsection{Syklien poisto}
 
@@ -236,33 +205,24 @@ Tätä varten on kehitetty useita erilaisia algoritmeja.
 
 		\subsection{Kerrostus}
 
-Jos lähdegraafi sisältää takaisinkytkentöjä, vaatii
-Kerrostuksen tulee täyttää tietyt ehdot.
-Sen tulee olla kompakti.
+Kerrostetuksen graafin tulee olla olla kompakti. Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. Graafin pituuden alaraja on pisimmän . Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
 
+Leveyden ja pituuden minimointi on  rinnastettavissa multiprosessoriajastusongelmaan ja siten NP- täydellinen ongelma. \cite{RefWorks:39}. Multiprosessoriongelmaa varten suunniteltu algoritmi, Coffman-Graham-kerrostusmenetelmä (Coffman, Optimal scheduling for two processor systems, 1972) tarjoaa ratkaisun tähän ongelmaan.
 
-Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio.
-Graafin pituuden alaraja voidaan laskea on maksimimäärä lankoja alkunoodista loppunoodiin.
-On olemassa menetelmä, jonka avulla graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
-
-Leveyden ja pituuden minimointi taas on NP- täydellinen ongelma, seuraavasta syystä.
-Jos jokainen solmi suunnatussa kerrostetussa verkossa G esittää yhden aikayksikön työtä yhdessä multiprosessorin prosessorissa, lanka (u, v) esittää rajoitetta, jonka mukaan suorituksen u täytyy edeltää suoritusta. (Battista, 273)
-Tällöin voidaan löytää isomorfismi multiprosessoriajastusongelmalle, jossa tehtävänä on jakaa tehtävät prosessorien kesken siten, että tehtävä tulee suoritettua ajassa H.
-Koska multiprosessoriajastusongelma on NP-täydellinen (M.R. Garey and D.S. Johnson, Computers and Intractibility: A guide to the theory of NP-completeness. 1979) , seuraa, että kerrostusongelmakin on.
-Yhteys multiprosessoriongelmaan on kiinnostava käsittelemämme sovelluksen, PLC-ohjelmoinnin kannalta.
-Multiprosessoriongelmaa varten tehty algoritmi, Coffman-Graham-kerrostusmenetelmä (Coffman, Optimal scheduling for two processor systems, 1972) tarjoaa ratkaisun tähän ongelmaan.
 Se palauttaa graafin, jolla on jokin minimileveys, alkuperäisessä toteutuksessa prosessorien määrä, omassa tapauksessamme arkin korkeus. 
 Algoritmin tavoitteena on varmistaa, että 
 
+
 		\subsection{Risteyksien vähentäminen}
 
-Risteyksien vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen.
-Ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa ongelman ratkaisemista. 
-Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma (M.R. Garey ”Crossing problem is NP-complete”) siinäkin tapauksessa että kerroksia no vain kaksi.
+Risteyksien vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen. Ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa ongelman ratkaisemista. Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa että kerroksia no vain kaksi \cite{RefWorks:40}
 
-Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkojen vaihtelu keskenään, sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka on siihen yhtyneiden solmujen puolivälissä.
+Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkojen vaihtelu keskenään sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka on siihen yhtyneiden solmujen puolivälissä.
 
-Monet tutkijat ovat Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” ) tutkineet eri risteysalgoritmeja. Yhtä selkeästi parasta menetelmää ei ole löytynyt. Sen sijaan paras lähestymistapa on osoittautunut algoritmeja yhdisteleväksi hybridilähestymiseksi.
+Monet tutkijat ovat
+%Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
+tutkineet eri risteysalgoritmeja. Yhtä selkeästi parasta menetelmää ei ole löytynyt. Sen sijaan paras lähestymistapa on osoittautunut algoritmeja yhdisteleväksi hybridialgoritmiksi.
+
 (Joku et al on) saavuttanut hyviä tuloksia iteroimalla joka iteraation yhteydessä ensin uudelleenjärjestää solmut mediaanimenetelmällä, tekee paikallisia transpositioita ja lopulta pitää parhaan tuloksen seuraavaa iterointia varten.
 
 
@@ -274,6 +234,14 @@ Solmujen poikittainen asettelun avulla solmujen välisten lankojen käännösten
 Risteyksien vähentämisvaiheessa saavutettu kombinatorinen ratkaisu ja sitä myötä risteysmäärä säilyy.
 Poikittainen asettelu on tärkeä lopputuloksen luettavuuden kannalta.
 
+
+%%%%%%%
+%REMOVE ME LATER %
+\addcontentsline{toc}{section}{Viitteet} %
+\bibliography{kandi} %
+\makeindex %
+ \end{document} %
+%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\clearpage
