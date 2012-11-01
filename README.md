@@ -7,8 +7,8 @@ Johdanto
 Tehdasmalli
 	Ontologia
 	Tietokanta
-	Suunnittelu
-PLC-ohjelmointi
+	Suunnitteluprosessi
+Automaatiojärjestelmän logiikka
 	Logiikkakaaviot
 	Logiikkakaavioiden tuotanto
 	Suoritusjärjestys
@@ -16,7 +16,7 @@ Hierarkinen graafinpiirto
  	Kerrostus
 	Risteyksien vähentäminen
 	Poikittainen asettelu
-Tutkimusmenetelmät
+Menetelmät ja esimerkki
 	Kaavioiden tuottamismenetelmät
 		Vaihtoehdot
 		KIELER
