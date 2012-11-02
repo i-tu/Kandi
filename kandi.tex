@@ -95,7 +95,17 @@ Otaniemi, 16.3.2010
 	\tableofcontents
 
 
-	%% Symbolit ja lyhenteet
+%% Käsitteet
+	\mysection{Käsitteet}
+
+	\begin{tabular}{ll}
+Solmu       & Distributed Control System \\
+	     	      & Hajautettu ohjausjärjestelmä
+Lanka        & Distributed Control System \\
+	     	      & Hajautettu ohjausjärjestelmä
+	\end{tabular}{ll}
+
+%% Lyhenteet
 	\mysection{Lyhenteet}
 
 	\begin{tabular}{ll}
@@ -113,6 +123,7 @@ DCS        & Distributed Control System \\
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
 
+%% KANDI BEGINNETH
 	\section{Johdanto}
 	\thispagestyle{empty}
 
@@ -317,8 +328,8 @@ on siihen yhtyneiden solmujen puolivälissä.
 %Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in
 %2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical
 %graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
-Monet ovat tutkineet erilaisia risteysalgoritmeja on tutkittu laajalti.
-Yhtä selkeästi parasta menetelmää ei ole kuitenkaan löytynyt
+Monet ovat tutkineet erilaisia risteysalgoritmeja.
+Yhtä selkeästi parasta menetelmää ei ole kuitenkaan löytynyt.
 Sen sijaan paras lähestymistapa on osoittautunut algoritmeja
 yhdisteleväksi heuristiseksi hybridialgoritmiksi.
 
@@ -332,12 +343,14 @@ Ratkaisua voisi luonnehtia tietynlaiseksi geneettiseksi algoritmiksi.
 
 		\subsection{Poikittainen asettelu}
 
-Solmujen poikittainen asettelun avulla solmujen välisten lankojen käännösten
+Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvyssä.
+Asettelun merkitys korostuu kun lankoja on paljon.
+Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten
 määrää pyritään vähentämään jotta kaavion luettavuus paranee.
-Risteyksien vähentämisvaiheessa saavutettu kombinatorinen ratkaisu ja sitä myötä
-risteysmäärä säilyy.
-Poikittainen asettelu on tärkeä lopputuloksen luettavuuden kannalta. Asettelun merkitys korostuu kun lankoja on paljon.
-Jokainen mutka langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvyssä.
+Koska risteysten määrä riippyy solmujen keskinäisestä järjestyksestä ja
+risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilyy, poikittaisasettelussa,
+ei risteysten määrä muutu poikittaisasetteluvaiheessa.
+Poikittainen asettelu on tärkeä lopputuloksen luettavuuden kannalta.
 
 %%%%%%%
 %REMOVE ME LATER %
