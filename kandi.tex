@@ -1,4 +1,4 @@
-	\documentclass[finnish,12pt]{article}
+e	\documentclass[finnish,12pt]{article}
 	\usepackage{aaltothesis}
 	
 %       \usepackage[T1]{inputenc}
@@ -159,7 +159,7 @@ suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan
 hyödyntää.
 
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia
-voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon. Esittelemme
+voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon. Työssä esitellään
 Sugiyaman et. al. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan
 perustuvan algoritmin jonka avulla lopullinen kaavio piirretään.
 
@@ -170,10 +170,10 @@ perustuvan algoritmin jonka avulla lopullinen kaavio piirretään.
 	\section{Tehtaan mallit ja mallinnustavat}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Tehdasmalli on kuvaus joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja
-ylläpidon. Se on tietomalli joka kuvaa laajuudestaan riippuen tehtaan toimintaa,
+Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja
+ylläpidon. Se on tietomalli, joka kuvaa laajuudestaan riippuen tehtaan toimintaa,
 sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja. Tehdasmalli
-koostuu pohjimmiltaan tehdasobjekteista, niitten ominaisuuksista ja niitten
+koostuu pohjimmiltaan tehdasobjekteista, niiden ominaisuuksista ja niiden
 välisistä relaatioista. \cite{RefWorks:41}
 
 Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmallin
@@ -217,10 +217,12 @@ toteuttaa tehokkaasti. Funktionaalisuuden suunnitteluprosessin tuloksena on usei
 PI-kaavio joka yleensä toimii esisuunnittelutietona muille näkymille.
 
 Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kenttäväylät,
-ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan järjestelmän fyysiseen käyttöönottoon.
+ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan 
+järjestelmän fyysiseen käyttöönottoon.
 
 Ohjelmistonäkymä kattaa funktionaalisen suunnittelun toteutuksen ohjelmamuodossa.
-Ohjelmistototeutus jää suunnitteluprosessissa harvinaisen vähäiselle formaaliuden asteelle, vaikka pyrkimyksiä siihen suuntaan on ollut.
+Ohjelmistototeutus jää suunnitteluprosessissa harvinaisen vähäiselle formaaliuden asteelle,
+vaikka pyrkimyksiä siihen suuntaan on ollut.
 
 Projektin edetessä konseptista toteutukseksi huomataan, että tuotetut dokumentit ovat kahdenlaisia.
 Ne voitaisiin luonnehtia suunnittelutyön sivutulokseksi sekä lopputulokseksi.
@@ -232,6 +234,8 @@ toisiksi, käyttökelpoisiksi malleiksi kuten logiikkadiagrammeiksi.
 	\subsection{Logiikkadiagrammit}
 %%%
 
+% IEC 61804, dokumentoinnin standardit.
+
 Hajautetun ohjausjärjestelmän logiikan suunnittelulle ja toteutukselle ei ole
 laajassa käytössä olevaa standardia, pikemminkin joukko standardeja joita
 käytetään vaihtelevasti. Suunnitteluohjelmistojen valmistajat myös jättävät usein
@@ -239,7 +243,7 @@ standardinmukaiseksi kutsutuista ohjelmistoista standardin ominaisuuksia toteutt
 
 IEC~61131-3 ja myöhemmin sitä täydentänyt IEC~61499 ovat pyrkimyksiä tuottaa
 avoin standardi joka määrittelee automaatiojärjestelmän ohjelmoinimenetelmät ja
-on riittävän joustava mihin tahansa tarkoitukseen. Se sisältää 6 eri
+on riittävän joustava mihin tahansa tarkoitukseen. Se sisältää 4+1 eri
 ohjelmointikieltä, joista tässä työssä käsitellään erityisesti FBDtä.
 
 Logiikkadiagrammit pelkistävät syöttöjen ja lähtöjen välisen logiikan
@@ -251,7 +255,7 @@ toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpid
 ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista
 dokumentaatiota.
 
-Funktioblokit kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä
+Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä
 ja niitten relaatioita toisiinsa. Funktioblokki voi tilastaan riippuen lähettää
 tapahtumia jotka vaikuttavat muitten blokkien toimintaan. Sen tekemien
 laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista
@@ -277,13 +281,20 @@ esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}. Tämä lähestymistapa
 osoittautunut tehokkaaksi ja on ollut jatkokehityksen- ja tutkimuksen kohteena
 \cite{RefWorks:28}.
 
-Hierarkinen lähestymistapa koostuu kolmesta vaiheesta: kerrostamisesta,
-risteämisten vähentämisestä ja poikittaisasettelusta. Lisäksi piirrettävän
-graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
+Hierarkinen lähestymistapa koostuu kolmesta vaiheesta:
+\begin{enumerate}
+  \item Syklien poisto
+  \item Kerrostus
+  \item Risteysten vähentäminen
+  \item Poikittainen asettelu
+\end{enumerate}
+Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
 
-Automaatiokaavioiden suoritusjärjestys on määritelty standardissa IEC 61131-3
-ylhäältä alas ja vasemmalta oikealle. Lisäksi funktioblokkia ei ajeta ennen
+Automaatiokaavioiden suoritusjärjestyd etenee standardin IEC 61131-3 mukaan
+vasemmalta oikealle. Lisäksi funktioblokkia ei ajeta ennen
 kuin kaikki sitä edeltävät funktioblokit on suoritettu.
+Keskinäisen suoritusjärjestyksen täytyy myös tulla esille toteuttavassa ohjelmistossa.
+
 Suoritusjärjestysvaatimus asettaa myös toteutukselle rajoituksia. Jos tätä ei oteta
 huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
 
@@ -351,15 +362,6 @@ Koska risteysten määrä riippyy solmujen keskinäisestä järjestyksestä ja
 risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilyy, poikittaisasettelussa,
 ei risteysten määrä muutu poikittaisasetteluvaiheessa.
 Poikittainen asettelu on tärkeä lopputuloksen luettavuuden kannalta.
-
-%%%%%%%
-%REMOVE ME LATER %
-\clearpage
-\addcontentsline{toc}{section}{Viitteet} %
-\bibliography{kandi} %
-%\makeindex %
- \end{document} %
-%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\clearpage
