@@ -231,6 +231,29 @@ Tässä työssä tarkastellaan tapoja joilla suunnittelutyön tuottamia malleja 
 toisiksi, käyttökelpoisiksi malleiksi kuten logiikkadiagrammeiksi.
 
 %%%
+	\subsection{Logiikan formaali kuvaus}
+
+Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin.
+
+
+Formaaliksi kuvaukseksi on esitetty XML-pohjaisia kuvauskieliä. Tällainen on esimerkiksi OpenPLC, joka on XML-kuvaus
+IEC 61131-3 mukaisesta FBD-kaaviosta.
+
+Tämän työn tavoitteena on muuntaa
+
+formaali kuvaus määritelmän perusteella
+laatia algoritmeja, joiden avulla kuvaus muunnetaan eri muotoon. 
+
+sille suorittaa muunnoksia.
+
+----
+
+Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus
+muuntaa määritelmään nojaavien sääntöjen perusteella. Muunnos graafiseksi
+
+%%%
+
+%%%
 	\subsection{Logiikkadiagrammit}
 %%%
 
@@ -290,17 +313,17 @@ Hierarkinen lähestymistapa koostuu kolmesta vaiheesta:
 \end{enumerate}
 Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
 
-Automaatiokaavioiden suoritusjärjestyd etenee standardin IEC 61131-3 mukaan
-vasemmalta oikealle. Lisäksi funktioblokkia ei ajeta ennen
-kuin kaikki sitä edeltävät funktioblokit on suoritettu.
+Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan
+vasemmalta oikealle. Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
 Keskinäisen suoritusjärjestyksen täytyy myös tulla esille toteuttavassa ohjelmistossa.
 
-Suoritusjärjestysvaatimus asettaa myös toteutukselle rajoituksia. Jos tätä ei oteta
+Suoritusjärjestysvaatimus asettaa myös toteutukselle rajoituksia. Jos niitä ei oteta
 huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
 
 Tämä työ olettaa että eri ohjelmien suoritusjärjestys niillä kohdin kuin se on
 olennaista on tiedossa ja merkittynä tietokantaan.
-Myös mahdollisten takaisinkytkentöjen tapauksessa täytyy olla huolellinen, jottei syklien poistovaiheessa kaavion järjestys muutu dramaattisesti.
+Myös mahdollisten takaisinkytkentöjen tapauksessa täytyy olla huolellinen,
+jottei syklien poistovaiheessa kaavion järjestys muutu dramaattisesti.
 
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä. Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta. Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
 
