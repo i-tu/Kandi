@@ -1,4 +1,4 @@
-e	\documentclass[finnish,12pt]{article}
+	\documentclass[finnish,12pt]{article}
 	\usepackage{aaltothesis}
 	
 %       \usepackage[T1]{inputenc}
@@ -233,28 +233,26 @@ toisiksi, käyttökelpoisiksi malleiksi kuten logiikkadiagrammeiksi.
 %%%
 	\subsection{Logiikan formaali kuvaus}
 
-Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin. Malli, jonka mukaan logiikka tallennetaan täytyy olla yhdenmukainen,
-jotta 
+Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
+Malli, jonka mukaan logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä.
+Suunnitteluohjelmsitot ovat vähintään yhteensopivia itsensä kanssa. työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
+Näitä ovat käytännössä tietokoneella käytettävät suunnitteluohjelmistot.
 
-Formaaliksi kuvaukseksi on esitetty XML-pohjaisia kuvauskieliä. Tällainen on esimerkiksi PLCOpen, joka on XML-kuvaus
-IEC 61131-3 mukaisesta FBD-kaaviosta.
+Jos halutaan yhteensopivuutta eri ohjelmien kesken joudutaan.
 
+Logiikkaa kuvataan usein XML-pohjaisilla kuvauksilla.
 
-
-
- työn tavoitteena on muuntaa
-
-formaali kuvaus määritelmän perusteella
-laatia algoritmeja, joiden avulla kuvaus muunnetaan eri muotoon. 
-
-sille suorittaa muunnoksia.
-
-----
+Tällainen on esimerkiksi PLCOpen, joka määrittelee XML-kuvauksen IEC 61131-3 mukaisista ohjelmointikielistä.
+Se on myös AutomationML-standardin hyväksymä esitys.
+AutomationML on useiden \footnote{ABB, KUKA, Rockwell Automation, Siemens, netAllied, Zühlke, Karlsruhen Yliopisto ja Magdeburgin Yliopisto} automaatioalan yritysten ajama standardi, joka kuvaa sisällyttää automaatio-objektiin kaikki sen eri näkymät standardilla tavalla.
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus
 muuntaa määritelmään nojaavien sääntöjen perusteella. Muunnos graafiseksi
 
-%%%
+PLCopen -standardin mukainen XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi
+toimilohkon sijainnin, koon ja jopa lankojen reititykset.
+
+PLCopen -standardin mukainen esitys voidaan tällöin laatia stein, että se on tuotettavan kaavion kannalta täysin yksiselitteinen.
 
 %%%
 	\subsection{Logiikkadiagrammit}
@@ -265,9 +263,6 @@ muuntaa määritelmään nojaavien sääntöjen perusteella. Muunnos graafiseksi
 Hajautetun ohjausjärjestelmän logiikan suunnittelulle ja toteutukselle ei ole
 laajassa käytössä olevaa standardia, pikemminkin joukko standardeja joita
 käytetään vaihtelevasti.
-
-AutomationML on useiden \footnote{ABB, KUKA, Rockwell Automation, Siemens, netAllied, Zühlke, Karlsruhen Yliopisto ja Magdeburgin Yliopisto}
-automaatioalan yritysten ajama standardi, joka esittää osana 
 
 Suunnitteluohjelmistojen valmistajat myös jättävät usein
 standardinmukaiseksi kutsutuista ohjelmistoista standardin
@@ -309,7 +304,7 @@ esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}. Tämä lähestymistapa
 osoittautunut tehokkaaksi ja on ollut jatkokehityksen- ja tutkimuksen kohteena
 \cite{RefWorks:28}.
 
-Hierarkinen lähestymistapa koostuu kolmesta vaiheesta:
+Hierarkinen lähestymistapa koostuu seuraavista eesta:
 \begin{enumerate}
   \item Syklien poisto
   \item Kerrostus
@@ -329,7 +324,7 @@ huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioo
 Tämä työ olettaa että eri ohjelmien suoritusjärjestys niillä kohdin kuin se on
 olennaista on tiedossa ja merkittynä tietokantaan.
 Myös mahdollisten takaisinkytkentöjen tapauksessa täytyy olla huolellinen,
-jottei syklien poistovaiheessa kaavion järjestys muutu dramaattisesti.
+jottei syklien poistovaiheessa kaavion järjestys muutu.
 Verkossa ensimmäiseksi toteutettavat solmut määritellään etukäteen suunnitteluvaiheessa.
 
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
