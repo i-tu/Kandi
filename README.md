@@ -5,22 +5,22 @@ Automaatiokaavioiden generointi
 
 Johdanto
 Tehdasmalli
-	Ontologia
-	Tietokanta
-	Suunnitteluprosessi
+- Ontologia
+- Tietokanta
+- Suunnitteluprosessi
 Automaatiojärjestelmän logiikka
-	Logiikkakaaviot
-	Logiikkakaavioiden tuotanto
-	Suoritusjärjestys
+- Logiikkakaaviot
+- Logiikkakaavioiden tuotanto
+- Suoritusjärjestys
 Hierarkinen graafinpiirto
- 	Kerrostus
-	Risteyksien vähentäminen
-	Poikittainen asettelu
+- Kerrostus
+- Risteyksien vähentäminen
+- Poikittainen asettelu
 Menetelmät ja esimerkki
-	Kaavioiden tuottamismenetelmät
-		Vaihtoehdot
-		KIELER
-	Arviointiperusteet
+- Kaavioiden tuottamismenetelmät
+- Vaihtoehdot
+- KIELER
+- Arviointiperusteet
 Tulokset
 Yhteenveto
 Viitteet
