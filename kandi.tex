@@ -209,7 +209,7 @@ tuntemusta instrumentoinnista tai ohjelmistokehityksestä. Kun päätökset on t
 abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos
 toteuttaa tehokkaasti.
 Tällaisen määrittelyn avulla on mahdollista käyttää formaaleja verifiointimenetelmiä joitten avulla
-voidaan osoittaa että järjestelmän suunnitelma toteuttaa sille asetetut vaatimukset.
+voidaan osoittaa, että järjestelmän suunnitelma toteuttaa sille asetetut vaatimukset.
 Näin suunnitelman oikeellisuus voidaan osoittaa ennen mittavia investointeja toteutukseen.
 Funktionaalisen näkymän suunnitteluprosessin tuloksena on usein
 PI-kaavio joka yleensä toimii esisuunnittelutietona muille näkymille.
@@ -241,9 +241,9 @@ Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnitteluty
 
 Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä ja muuntaa algoritmillisesti.
 
-tarkoittaa li tallennettuna jonkin tarkkaan määritellyn syntaksin mukaisesti.
+Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausata.
 Tällöin tulee mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
- 
+
 Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
 
 Suunnitteluohjelmistot ovat vähintään yhteensopivia itsensä kanssa.
@@ -260,7 +260,7 @@ AutomationML on useiden \footnote{ABB, KUKA, Rockwell Automation, Siemens, netAl
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
 
-PLCopen -standardin mukainen XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
+PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
 PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
 
 Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
@@ -273,7 +273,7 @@ Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
 Hajautetun ohjausjärjestelmän logiikan suunnittelulle ja toteutukselle ei ole laajassa käytössä olevaa standardia, pikemminkin joukko standardeja joita käytetään vaihtelevasti.
 
 Suunnitteluohjelmistojen valmistajat myös jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista standardin ominaisuuksia toteuttamatta.\cite{RefWorks:42}
-Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista osan, ja mainitsee mitä se jättää toteuttamatta.
+Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista osan, ja mainitsee mitä se jättää toteuttamatta. 
 
 IEC~61131-3 on avoin standardi joka määrittelee automaatiojärjestelmän ohjelmoinimenetelmät ja
  pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen. Se sisältää 4+1 eri
@@ -353,11 +353,11 @@ Multiprosessoriongelmaa varten suunniteltu algoritmi, Coffman-Graham-kerrostusme
 
 		\subsection{Risteyksien vähentäminen}
 
-Risteyksien vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan
-niitten keskinäiseen järjestykseen. Ongelma on siis luonteeltaan kombinatorinen
-eikä geometrinen, mikä huomattavasti yksinkertaistaa ongelman ratkaisemista.
-Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma siinäkin
-tapauksessa että kerroksia no vain kaksi. \cite{RefWorks:40}
+Lankojen risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta. \cite{RefWorks:47}
+Risteysmäärän vähentäminen on tällöin mille tahansa luettavuutteen tähtäävälle asettelualgoritmille tärkeä tavoite.
+
+Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen. Tämä tarkoittaa sitä, että ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa ongelman ratkaisemista.
+Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa että kerroksia no vain kaksi. \cite{RefWorks:40}
 
 Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkojen
 vaihtelu keskenään sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka
@@ -366,29 +366,27 @@ on siihen yhtyneiden solmujen puolivälissä.
 %Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in
 %2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical
 %graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
+
 Monet ovat tutkineet erilaisia risteysalgoritmeja.
 Yhtä selkeästi parasta menetelmää ei ole kuitenkaan löytynyt.
-Sen sijaan paras lähestymistapa on osoittautunut algoritmeja
-yhdisteleväksi heuristiseksi hybridialgoritmiksi.
+Sen sijaan paras lähestymistapa on osoittautunut algoritmeja yhdisteleväksi heuristiseksi hybridialgoritmiksi. [?]
 
 Tässä menetelmässä solmut uudelleenjärjestetään joka iteraation yhteydessä mediaanimenetelmällä.
 Sen jälkeen luodaan joukko lähes identtisiä järjestelyitä joissa esiintyy paikallisia transpositioita.
 Lopulta valitaan paras tulos seuraavaa iteraatiota varten.
-Ratkaisua voisi luonnehtia tietynlaiseksi geneettiseksi algoritmiksi.
+Ratkaisua voisi luonnehtia geneettiseksi algoritmiksi.
 
 %Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis,
 %Christian-Albrechts-Universität zu Kiel, Department of Computer Science
 
 		\subsection{Poikittainen asettelu}
 
-Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvyssä. \cite{RefWorks:47}
-Asettelun merkitys korostuu kun lankoja on paljon.	
-Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten
-määrää pyritään vähentämään jotta kaavion luettavuus paranee.
-Koska risteysten määrä riippyy solmujen keskinäisestä järjestyksestä ja
-risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilyy, poikittaisasettelussa,
-ei risteysten määrä muutu poikittaisasetteluvaiheessa.
-Poikittainen asettelu on tärkeä lopputuloksen luettavuuden kannalta.
+Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47} Asettelualgoritmin tulee tällöin pyrkiä minimoimaan lankojen kulmat.
+Asettelun merkitys korostuu kun lankoja on paljon.
+Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
+Koska risteysten määrä riippyy solmujen keskinäisestä järjestyksestä ja risteysten vähentämisvaiheessa saavutettu  kombinatorinen ratkaisu säilyy, ei risteysten määrä muutu poikittaisasetteluvaiheessa.
+
+Poikittaiseen asetteluun ????
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
@@ -445,19 +443,11 @@ Tapa X on kivempi kuin tapa Y.
 	\section{Yhteenveto ja tulevaisuudennäkymät}
 
 Tehtaan automaatiosuunnittelun yhtenäistämiseksi on vuosien varrella esitetty akateemisissa piireissä
-runsaasti mielipiteitä. Nämä jäävät usein abstraktille, suunnittelijat vieraannuttavalle tasolle.
+runsaasti ehdotuksia. Nämä jäävät usein abstraktille, suunnittelijat vieraannuttavalle tasolle.
 Nykyhetken suurimpana haasteena ei ole, mikä on oikea tapa hahmottaa järjestelmä, vaan pikemmin
 miten asia voidaan toteuttaa.
 
 Tämä kandidaatintyö on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, graafinpiirtoon. 
-
-Vaikka automaatiokaavioiden tuottamisen automatisointi onnistuttaisiin tekemään,
-on se vain yksi viidestä erilaisesta suunnitelunäkymästä.
-
-Automaatiosuunnittelu on siirtynyt yhä enemmän tietopohjaisesta tutkimuksesta
-
-RDF:ää voidaan käyttää tehtaan PI-kaavion miettimiseen.
-Graph theory - An RDF model is a labeled, directed multi-graph
 
 
 \clearpage
