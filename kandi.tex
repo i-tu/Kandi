@@ -302,18 +302,36 @@ Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemma
 	
 % http://www.cs.brown.edu/~rt/gdhandbook/
 
-Hierarkisen lähestymistavan kerrostettujen suunnattujen graafien piirtämiseen
-esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}. Tämä lähestymistapa on
-osoittautunut tehokkaaksi ja on ollut jatkokehityksen- ja tutkimuksen kohteena
-\cite{RefWorks:28}.
+Suunnattujen graafien piirtämiseen käytettävän kerrostetun menetelmän
+esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
 
-Hierarkinen lähestymistapa koostuu seuraavista eesta:
+Hierarkinen lähestymistapa koostuu seuraavista vaiheista:
 \begin{enumerate}
   \item Syklien poisto
   \item Kerrostus
   \item Risteysten vähentäminen
   \item Poikittainen asettelu
 \end{enumerate}
+
+Suunnattujen graafien kerrostaminen siten, että noodien langat osoittavat järjestyksessä seuraavaan kerrokseen,
+on osoittautunut luontevaksi tavaksi esittää tietovirtoja. Sugiyaman lähestymistapaa ei kuitenkaan voi käyttää sellaisenaan tietovirtakaavioiden kuvaamiseen. Aseteltavissa tietovirroissa esiintyvät noodit sisältävät useita portteja, joiden keskinäisellä järjestyksellä on merkitystä. Lisäksi Sugiyaman lähestymistavassa langat eivät ole nykyisen käytännön mukaan ortogonaalisia, jolloin tarvitaan erillinen reititysalgoritmi.
+
+Kerrostamista seuraa noodien keskinäisen järjestyksen määrittely ja mahdollisesti lankojen reititys
+
+Koska aseteltavat graafit sisältävät useita portteja ja lankoja, täytyy tämä ottaa huomioon. Porttirajoitteisten noodien
+
+"Improved layout for Data Flow Diagrams with Port Constraints"
+- Gansner et. al: Noodien asettelualgoritmeja voi mukauttaa toimimaan porttirajoitteisten noodien asettelussa
+- Sander: Sander esitti väliaikaisnoodien lisäämisen lankojen reitittämiseksi
+- Risteysvähentämistä porttirajoitteilla tutki Waddle, joka otti käyttöön noodien porttijärjestyksen huomioivan järjestelyheuristiikan.
+
+Nämä lähestymistava eivät tue käänteisiä portteja (?) eikä muita porttirajoitteita joten ne eivät ole riittäviä datavirtauskaavioiden asetteluun.
+
+Useat (Schreiber, Siebenhalöler,)
+
+"A previous approach [19] for layout of data  ow diagrams applied local rout- ing not only to the side ports of a node, but also to inverted ports, which leads to layouts such as the one shown in Fig. 3(a). Although it simplies the crossing minimization phase, the obvious drawback is that it cannot take into account the global structure of the graph, and thus leads to an unnecessarily high number of edge crossings and bend points. In this paper we therefore employ a  ierent ap- proach based on dummy nodes, which is able to route the feedback edge (d; c) in Fig. 3(b) with four bend points and without any crossings, as opposed to six bend points and three crossings for the previous approach. Other previous contribu- tions adapt the barycenter heuristic for handling dierent port constraints [19], and add a specialized node placement for FixedRatio constraints [8, 9]. This type of constraint allows changing the size of nodes in order to minimize the number of bend points of incident edges [9].
+
+\cite{RefWorks:28}.
 
 Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
 
