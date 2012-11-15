@@ -112,7 +112,7 @@ Lanka        & Distributed Control System \\
 DCS        & Distributed Control System \\
 %	     & Hajautettu ohjausjärjestelmä
 %FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä logiikkaohjelmointikieli
-%IEC          & Internation Electrotechnical Commission
+%IEC          & International Electrotechnical Commission
 %PLC         & Programmable Logic Circuit \\
 %	      & Ohjelmoitava logiikkapiiri
 
@@ -231,8 +231,8 @@ Tässä työssä tarkastellaan tapoja joilla suunnittelutyön tuottamia malleja 
 
 	Ohjauslogiikalla on viime kappaleessa kuvatun näkymäjaon mukaan ainakin kaksi kuvausta: funktionaalinen kuvaus ja toteutettu kuvaus.
 	
-	Funktionaalinen kuvaus voi olla formaali tai epäformaali riippuen työssä käytetyistä menetelmistä. 	
-	
+	Funktionaalinen kuvaus voi olla formaali tai epäformaali riippuen työssä käytetyistä menetelmistä.
+
 		\subsubsection{Formaali logiikan kuvaus}
 	
 Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
@@ -288,6 +288,15 @@ toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpid
 ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista
 dokumentaatiota.
 
+Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan
+vasemmalta oikealle. Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
+Keskinäisen suoritusjärjestyksen täytyy myös tulla esille toteuttavassa ohjelmistossa.
+Suoritusjärjestys kulkee usein ylhäältä alas, mutta tätä ei voi olettaa aina todeksi.
+
+Suoritusjärjestysvaatimus asettaa seuraavassa kappaleessa tarkasteltavalle graafinpiirrolle rajoituksia.
+Jos niitä ei oteta huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
+Mahdollisten takaisinkytkentöjen tapauksessa vaaditaan huolellisuutta, jottei syklien poistovaiheessa kaavion järjestys muutu.
+
 Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä
 ja niitten relaatioita toisiinsa. Toimilohko voi tilastaan riippuen lähettää
 tapahtumia jotka vaikuttavat muitten blokkien toimintaan. Sen tekemien
@@ -305,18 +314,14 @@ Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemma
 Suunnattujen graafien piirtämiseen käytettävän kerrostetun menetelmän
 esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
 
-Hierarkinen lähestymistapa koostuu seuraavista vaiheista:
-\begin{enumerate}
-  \item Syklien poisto
-  \item Kerrostus
-  \item Risteysten vähentäminen
-  \item Poikittainen asettelu
-\end{enumerate}
-
 Suunnattujen graafien kerrostaminen siten, että noodien langat osoittavat järjestyksessä seuraavaan kerrokseen,
 on osoittautunut luontevaksi tavaksi esittää tietovirtoja. Sugiyaman lähestymistapaa ei kuitenkaan voi käyttää sellaisenaan tietovirtakaavioiden kuvaamiseen. Aseteltavissa tietovirroissa esiintyvät noodit sisältävät useita portteja, joiden keskinäisellä järjestyksellä on merkitystä. Lisäksi Sugiyaman lähestymistavassa langat eivät ole nykyisen käytännön mukaan ortogonaalisia, jolloin tarvitaan erillinen reititysalgoritmi.
 
 Kerrostamista seuraa noodien keskinäisen järjestyksen määrittely ja mahdollisesti lankojen reititys
+
+Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
+Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
+Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
 
 Koska aseteltavat graafit sisältävät useita portteja ja lankoja, täytyy tämä ottaa huomioon. Porttirajoitteisten noodien
 
@@ -335,32 +340,36 @@ Useat (Schreiber, Siebenhalöler,)
 
 Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
 
-Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan
-vasemmalta oikealle. Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
-Keskinäisen suoritusjärjestyksen täytyy myös tulla esille toteuttavassa ohjelmistossa.
-Suoritusjärjestys kulkee usein ylhäältä alas, mutta tätä ei voi olettaa aina todeksi.
+Työssä käytetty algoritmi seuraa Klauske et. al. kehittämää  datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa. Se yhdistelee useita graafinpiirron tuloksia.
 
-Suoritusjärjestysvaatimus asettaa toteutukselle rajoituksia.
-Jos niitä ei oteta huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
-
-Mahdollisten takaisinkytkentöjen tapauksessa vaaditaan huolellisuutta, jottei syklien poistovaiheessa kaavion järjestys muutu.
-
-Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
-Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
-Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
+Se koostuu viidestä vaiheesta:
+\begin{enumerate}
+  \item Syklien poisto. Seuraa Eades et al.\cite{RefWorks:48}
+  \item Kerrostus. Seuraa Gansner et. al., minimoi lankojen pituuen \cite{RefWorks:28}
+  \item Risteysten vähentäminen noodeja järjestämällä seuraa \cite{RefWorks:9}
+  \item Poikittainen asettelu Seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
+  \item Lankojen ortogonaalinen reititys. Seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
+\end{enumerate}
 
 		\subsection{Syklien poisto}
 
-Jos graafissa on syklejä, eli graafi ei ole suunnattu, käännetään syklin aiheuttavien lankojen suunta ja tehdyt muutokset merkitään muistiin.
-Syklin aiheuttavat langat ovat takaisinkytkentöjä. Ne tunnistetaan 
-Graafi pystytään suuntaamaan oikein, kun tunnetaan graafissa ensimmäisenä ajettavat solmut.
-Graafinpiirron lopuksi syklit käännetään takaisin oikein päin.
+Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
+Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topologinen kerrostus.
+
+Syklejä ei voi kuitenkaan poistaa. Tämän vuoksi syklit rikotaan kääntämällä yksi sen langoista. 
+Syklillisen graafin muuntaminen syklittömäksi tavalla joka minimoi käännettävien lankojen määrän on np-vaikea.
+
+Käsittelemämme ongelma kuitenkin sisältää esitietona jokaisen puun ensimmäisenä suoritettavat noodit, jolloin graafin suuntaamisesta tuleekin triviaali toimenpide. [?]
+
+Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin.
 
 		\subsection{Kerrostus}
 
-Kerrostetuksen graafin tulee olla olla kompakti.
+Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on. Poikkeuksena tästä on kun noodi kytkeytyy itseensä.
+
+Kerrostetuksen graafin tulee myös olla kompakti.
 Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio.
-Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolle graafi on tarkoitus tulostaa.
+Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta graafia on tarkoitus tarkastella.
 
 Graafin pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus. Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
 
@@ -399,12 +408,20 @@ Ratkaisua voisi luonnehtia geneettiseksi algoritmiksi.
 
 		\subsection{Poikittainen asettelu}
 
-Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47} Asettelualgoritmin tulee tällöin pyrkiä minimoimaan lankojen kulmat.
+Siinä missä vaihe 3 vaikuttaa lankojen risteysten määrään, vaihe 4 vaikuttaa lankojen kulmien määrään.
+Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47}
+Asettelualgoritmin tulee tällöin pyrkiä minimoimaan lankojen kulmat.
 Asettelun merkitys korostuu kun lankoja on paljon.
 Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
 Koska risteysten määrä riippyy solmujen keskinäisestä järjestyksestä ja risteysten vähentämisvaiheessa saavutettu  kombinatorinen ratkaisu säilyy, ei risteysten määrä muutu poikittaisasetteluvaiheessa.
 
-Poikittaiseen asetteluun ????
+Poikittaiseen asetteluun, kutn
+
+		\subsection{Lankojen reititys}
+
+Lankojen
+
+Keskeneräinen: Tässä selitetään Sanderin "Layout of directed hypergraphs with orthogonal hyperedges" \cite{RefWorks:17}
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
@@ -439,8 +456,7 @@ Kaavioiden tuottamista
 
 			\subsubsection{KIELER}
 
-Koeohjelmistoksi valittiin --- 
-Kerrotaan tarkemmin ohjelmistosta jolla koe on suoritettu
+Piirtoalgoritmiksi valitun algoritmin koonneet ovat myös toteuttaneet kyseisen algoritmin osan KIELER-projektia.
 
 		\subsection{Tulosten arviointiperusteet}
 
