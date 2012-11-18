@@ -340,35 +340,38 @@ Useat (Schreiber, Siebenhalöler,)
 
 Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
 
-Työssä käytetty algoritmi seuraa Klauske et. al. kehittämää  datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa. Se yhdistelee useita graafinpiirron tuloksia.
+Työssä käytetty algoritmi seuraa Klauske et. al. kehittämää  datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa \cite{RefWorks:50} joka yhdistelee useita sopivia graafinpiirron menetelmiä.
 
 Se koostuu viidestä vaiheesta:
 \begin{enumerate}
-  \item Syklien poisto. Seuraa Eades et al.\cite{RefWorks:48}
-  \item Kerrostus. Seuraa Gansner et. al., minimoi lankojen pituuen \cite{RefWorks:28}
-  \item Risteysten vähentäminen noodeja järjestämällä seuraa \cite{RefWorks:9}
-  \item Poikittainen asettelu Seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
-  \item Lankojen ortogonaalinen reititys. Seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
+  \item Syklien poisto, seuraa Eades et al.\cite{RefWorks:48}
+  \item Kerrostus, seuraa Gansner et. al., lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
+  \item Järjestely, seuraa Sugiyama et. al alkuperäistä menetelmää. \cite{RefWorks:9}
+  \item Poikittaisasettelu, seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
+  \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
 \end{enumerate}
 
 		\subsection{Syklien poisto}
 
 Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
-Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topologinen kerrostus.
+Syklittömyys tarkoittaa sitä että mihinkään noodiin ei voi palata seuraamalla siitä suunnattuja lankoja.
+Säätötekniikassa yleiset takaisinkytkennät ovat esimerkkejä sykleistä.
 
-Syklejä ei voi kuitenkaan poistaa. Tämän vuoksi syklit rikotaan kääntämällä yksi sen langoista. 
-Syklillisen graafin muuntaminen syklittömäksi tavalla joka minimoi käännettävien lankojen määrän on np-vaikea.
+Syklejä ei voida asettelualgoritmin syklittömyysvaatimuksesta huolimatta poistaa.
+Tämän vuoksi syklit rikotaan kääntämällä yksi syklin sisältämistä langoista.
+Tätä jatketaan kunnes graafi on asyklinen.
+Syklillisen graafin muuntaminen syklittömäksi, eli käännettävien lankojen valinta siten että niitä on mahdollisimmanvähän on NP-vaikea.
 
-Käsittelemämme ongelma kuitenkin sisältää esitietona jokaisen puun ensimmäisenä suoritettavat noodit, jolloin graafin suuntaamisesta tuleekin triviaali toimenpide. [?]
+Syklien poistovaiheessa käsiteltävä tietomalli kuitenkin sisältää syklipoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan noodin. Tämä merkittävästi helpottaa syklinpoistovaihetta, ja graafin suuntaamisesta tuleekin triviaali toimenpide. [?]
 
 Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin.
+Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topologinen kerrostus.
 
 		\subsection{Kerrostus}
 
 Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on. Poikkeuksena tästä on kun noodi kytkeytyy itseensä.
 
-Kerrostetuksen graafin tulee myös olla kompakti.
-Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio.
+Kerrostetuksen graafin tulee myös olla kompakti. Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta graafia on tarkoitus tarkastella.
 
 Graafin pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus. Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
@@ -383,8 +386,8 @@ Multiprosessoriongelmaa varten suunniteltu algoritmi, Coffman-Graham-kerrostusme
 Lankojen risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta. \cite{RefWorks:47}
 Risteysmäärän vähentäminen on tällöin mille tahansa luettavuutteen tähtäävälle asettelualgoritmille tärkeä tavoite.
 
-Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen. Tämä tarkoittaa sitä, että ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa ongelman ratkaisemista.
-Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa että kerroksia no vain kaksi. \cite{RefWorks:40}
+Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen. Tämä tarkoittaa sitä, että ongelma on luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa hyvän ratkaisun löytämistä.
+Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa että kerroksia on vain kaksi. \cite{RefWorks:40}
 
 Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkojen
 vaihtelu keskenään sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka
@@ -394,95 +397,100 @@ on siihen yhtyneiden solmujen puolivälissä.
 %2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical
 %graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
 
-Monet ovat tutkineet erilaisia risteysalgoritmeja.
-Yhtä selkeästi parasta menetelmää ei ole kuitenkaan löytynyt.
-Sen sijaan paras lähestymistapa on osoittautunut algoritmeja yhdisteleväksi heuristiseksi hybridialgoritmiksi. [?]
+Erilaisten järjestelyalgoritmien tutkimus ei ole tuottanut yhtä selkeästi parasta menetelmää.
+Sen sijaan parhaat tulokset on saavutettu menetelmiä yhdistelevillä heuristisilla hybridialgoritmiksi. [?]
 
-Tässä menetelmässä solmut uudelleenjärjestetään joka iteraation yhteydessä mediaanimenetelmällä.
+Tässä menetelmässä [?] solmut uudelleenjärjestetään joka iteraation yhteydessä mediaanimenetelmällä.
 Sen jälkeen luodaan joukko lähes identtisiä järjestelyitä joissa esiintyy paikallisia transpositioita.
 Lopulta valitaan paras tulos seuraavaa iteraatiota varten.
-Ratkaisua voisi luonnehtia geneettiseksi algoritmiksi.
+Tätä lähestymistapaa voisi luonnehtia geneettiseksi algoritmiksi.
 
 %Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis,
 %Christian-Albrechts-Universität zu Kiel, Department of Computer Science
 
 		\subsection{Poikittainen asettelu}
 
-Siinä missä vaihe 3 vaikuttaa lankojen risteysten määrään, vaihe 4 vaikuttaa lankojen kulmien määrään.
 Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47}
 Asettelualgoritmin tulee tällöin pyrkiä minimoimaan lankojen kulmat.
-Asettelun merkitys korostuu kun lankoja on paljon.
+Siinä missä noodikerroksien noodikombinaatiot vaikuttavat lankojen risteysten määrään, vaikuttaa niiden tarkka poikittainen asettelu langoissa olevien kulmien määrään.
 Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
-Koska risteysten määrä riippyy solmujen keskinäisestä järjestyksestä ja risteysten vähentämisvaiheessa saavutettu  kombinatorinen ratkaisu säilyy, ei risteysten määrä muutu poikittaisasetteluvaiheessa.
+Asettelun merkitys korostuu kun lankoja on paljon, kuten automaatiologiikkakaaviolle on tyypillistä.
 
-Poikittaiseen asetteluun, kutn
+Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetään poikittaisasetteluvaiheessa.
 
 		\subsection{Lankojen reititys}
 
-Lankojen
+Insinöörialojen logiikkakaavioiden langat on reititetty ortogonaalisesti.
 
-Keskeneräinen: Tässä selitetään Sanderin "Layout of directed hypergraphs with orthogonal hyperedges" \cite{RefWorks:17}
+Sanderin ratkaisu sijoittaa noodit aluksi ruudukolle. Lopullisen luettavuuden parantamiseksi ruudukko hävitetään. Ruudukkoesitys mahdollistaa monta kerrosta ylittävien lankojen reitittämisen helposti ilman kulmia langoissa.
+\cite{RefWorks:17}
+
+Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
+
+Ruudukon samassa ruudussa olevat langat ryhmitellään omaan joukkoonsa.
+Ne pyritään sitten jakamaan ruutuun koordinaattien k ja k+1 välille.
+Risteysten minimoimiseksi luodaan segmenttiylitysgraafi ruudulle S^H_k. Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia. Jokaiselle segmenttiparille s_1, s_2 lasketaan risteysmäärät C_1 ja C_2. Jos C_1 < C_2, lisätään reuna segmentin s_1 ja s_2 välille hintaan C_2 - C_1. Muussa tapauksessa lisätään lanka s_2 ja s_1 välille hintaan C_1 - C_2.
+
+Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Yässä tapauksessa 
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
 
 		\subsection{Kaavioiden tuottaminen}
 
-Käytännön toteutuksia hierarkisesta graafinpiirtomenetelmästä on useita
-(viittaa: graphviz, tulip, kieler)
-An open graph visualization system and its applications to software engineering
-(2000) 
-
 Automatic generation of PLC automation projects
 
-from component-based models
-Elisabet Estévez
 Käytännönläheinen selostus siitä, kuinka aiempaa teoriaa sovelletaan.
 
-		\subsection{Kaavioiden tuottaminen}
-			\subsubsection{Vertaillut vaihtoehdot}
-	
-Funktioblokkien editointiin on olemassa useita työkaluja.
-Rockwell Automationin ilmainen funktioblokkieditori, FBDK on tutkimuksessa
-laajassa käytössä.
-FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
-FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin
-kärsii samoista puutteista kuin FBDK.
-PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin.
-Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä.
-ISaGRAF ja NxtControl ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
+Verkossa sijaitseva kaavioiden asettelupalvelu soveltuu...
 
-Kaavioiden tuottamista 
+Kun asettelualgoritmi toimii keskitetysti, asettelun tilaavien
+
+Näin vältytään myös versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
+
+		\subsection{Kaavioiden tuottaminen}
+			\subsubsection{Vertaillut vaihtoehdot (tarpeellisuus?)}
+
+Funktioblokkien editointiin on olemassa useita työkaluja:
+\begin{description}
+\item[FBDK] Rockwell Automationin ilmainen funktioblokkieditori, FBDK on akateemisessa tutkimuksessa laajassa käytössä. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
+\item[FBench] FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin kärsii samoista puutteista kuin FBDK.
+\item[4DIAC] PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin.
+Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä. 
+\item[ISaGRAF ja NxtControl] ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
 
 			\subsubsection{KIELER}
 
 Piirtoalgoritmiksi valitun algoritmin koonneet ovat myös toteuttaneet kyseisen algoritmin osan KIELER-projektia.
+KIELER rakentuu [?] Eclipse-projektin päälle. Se pyrkii sisällyttämään itseensä olennaisilta osilta riittävän määrän algoritmeja mallipohjaisen suunnittelun apuvälineiksi.
 
 		\subsection{Tulosten arviointiperusteet}
 
-Lankojen risteämismäärien minimointi !
-Ortogonaalisuus!
-Graph Layout Aesthetics in UML Diagrams: User Preferences
+Graafien luettavuutta on pyritty kartoittamaan. \cite{RefWorks:47}
+(tähän myös "The Aesthetics of Graph Visualization"?)
 
-The Aesthetics of Graph Visualization
+Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
+\begin{enumerate}
+  \item Lankojen risteysmäärä
+  \item jne. (kesken)
+\end{enumerate}
+
 
 	\clearpage
 	\section{Tulokset}
 	
-Olemme osoittaneet yhteyden graafiteorian suunnatuilla puilla ja
-logiikkadiagrammeilla ja näyttäneet miten graafipiirtoalgoritmeja voidaan
-käyttää automaatiokaavioiden generointiin.
-Tapa X on kivempi kuin tapa Y.
+(Ei vielä tiedossa.)
 
 	\section{Yhteenveto ja tulevaisuudennäkymät}
 
-Tehtaan automaatiosuunnittelun yhtenäistämiseksi on vuosien varrella esitetty akateemisissa piireissä
-runsaasti ehdotuksia. Nämä jäävät usein abstraktille, suunnittelijat vieraannuttavalle tasolle.
-Nykyhetken suurimpana haasteena ei ole, mikä on oikea tapa hahmottaa järjestelmä, vaan pikemmin
-miten asia voidaan toteuttaa.
+Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä suunnattujen graafien asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
+Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa esitetyn esimerkin lisäksi erilaisiin teollisuuden tarpeisiin.
 
-Tämä kandidaatintyö on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, graafinpiirtoon. 
+Teollisuuden automaatiosuunnittelun yhtenäistämistä on akateemisissa julkaisuissa kartoitettu runsaasti.
+Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat vieraannuttavalle tasolle.
 
+Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, graafinpiirtoon.
+Ensisijainen pyrkimys on ollut tuottaa yksinkertaisesti toteutettava ratkaisu joka voidaan helposti integroida suunnitteluprosessiin.
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
