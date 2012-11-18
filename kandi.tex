@@ -142,7 +142,7 @@ suunnittelun apuvälineillä. Suunnittelumetodiikat eivät ole
 ilmeisistä standardoimiseduista huolimatta yhtenäistyneet, ja yhteistyö alan
 tutkimuksessa on vähäistä. Vaikka lähestymistavat ovat vaihtelevia, on
 tehdassuunnittelussa kuitenkin nähtävissä yhtenäinen siirtymä kohti 
-tietomalleja. Automaatiosuunnittelun kannalta tämä tarkoittaa sitä, että
+jaettuja tietomalleja. Automaatiosuunnittelun kannalta tämä tarkoittaa sitä, että
 suunnittelujärjestelmään syntyy projektin edetessä tehtaan
 tietomalli johon tehtaan kaikki sähköistys ja instrumentointi
 automaatiojärjestelmineen ja kenttälaitteineen on merkitty. Erilaiset kaaviot
@@ -162,8 +162,10 @@ hyödyntää.
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia
 voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon. Työssä esitellään
 Sugiyaman et. al. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan
-perustuvan algoritmin jonka avulla lopullinen kaavio piirretään.
+perustuva, tietovirtakaavioiden esittämiseen muokkaamiseen soveltuva algoritmi.
 
+Lisäksi esitetään esimerkki tyypillisestä teollisuuden logiikkakaaviosta ja asetellaan se
+käyttäen esiteltyä algoritmia.
 
 	\clearpage
 	\section{Tehtaan mallit}
@@ -178,84 +180,93 @@ Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmalli
 suhteen. Työn kohde on monitahoinen eikä mikään yksi malli pysty kattamaan
 kaikkia suunniteltavan järjestelmän näkymiä. Tehdasta tulee kuvata useilta eri
 näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti.
-Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaisen
-systeemin.
+Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaismallin.
 
 Jokaisella mallilla on myös metamalli. Se määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä mallin objektien välillä on.
 Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja ja järjestystä.
-Ne kuvaavat millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja.
-Ne määräävät myös suunnittelujärjestelmän laajuuden. Metamallin määritteleminen tekee suunnittelutyön tuloksesta ennakoitavan ja mahdollistaa suunnittelun apuvälineiden kehittämisen. Suunnittelutyön formalisoimisella myös suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan formalismiin perustuvat työkalut ja suunnittelukäytännöt. Tällaisia ovat esimerkiksi uudelleenkäytettävää koodia sisältävät kirjastot ja erilaiset mallimuunnokset.
+Ne kuvaavat millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja ja
+määräävät suunnittelujärjestelmän laajuuden. Metamallin määritteleminen tekee suunnittelutyön tuloksesta ennakoitavan ja mahdollistaa suunnittelun apuvälineiden kehittämisen. Suunnittelutyön formalisoimisella myös suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan formalismiin perustuvat työkalut ja suunnittelukäytännöt. Tällaisia ovat esimerkiksi uudelleenkäytettävää koodia sisältävät kirjastot ja erilaiset mallimuunnokset.
 
 Suunnittelutyössä käytettävät metamallit valitaan siten, etteivät ne ole
 ristiriidassa ja muodostavat yhdessä toisiaan täydentävän kokonaisuuden.
 Tällöin metamallien konfiguraatio muodostaa itsessään mallin.
 
-Ohjelmointikirjastot sisältävät tyyppiratkaisuja yleisiin ongelmiin.
-Näitä voidaan sitten suunnittelutyön yhteydessä käyttää tarvittaessa hyväksi ja täydentää.
-Mallimuunnoksessa jokin malli muunnetaan toiseksi.
-
-Valmiiden grafiikkakirjastojen käyttöä on tutkinut Kääriäinen, jonka mukaan
-työssä .
 
 	\subsection{Automaatiojärjestelmän näkymät}
 
 Teollisuuden hajautettujen ohjausjärjestelmien suunnittelussa on havaittu
-tarpeelliseksi ainakin kolme näkymää \cite{RefWorks:38}: funktionaalinen näkymä, fyysinen näkymä sekä ohjelmistonäkymä.
+tarpeelliseksi ainakin kolme näkymää \cite{RefWorks:38}: funktionaalinen näkymä,
+fyysinen näkymä sekä ohjelmistonäkymä.
 
+		\subsubsection{Funktioonaalinen näkymä}
 Funktionaalinen näkymä määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut vaatimukset. Se on formaali spesifikaatio eli kuvaus ohjelmistosta tai laitteistosta, joka voidaan sen avulla toteuttaa. Se kuvaa mitä järjestelmän tulisi tehdä, muttei välttämättä kuinka järjestelmän tulisi se toteuttaa.
 
 Tätä näkymää määritettäessä voivat eri alojen suunnittelijat osallistua työhön ilman
 tuntemusta instrumentoinnista tai ohjelmistokehityksestä. Kun päätökset on tehty
 abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos
 toteuttaa tehokkaasti.
+
 Tällaisen määrittelyn avulla on mahdollista käyttää formaaleja verifiointimenetelmiä joitten avulla
 voidaan osoittaa, että järjestelmän suunnitelma toteuttaa sille asetetut vaatimukset.
 Näin suunnitelman oikeellisuus voidaan osoittaa ennen mittavia investointeja toteutukseen.
 Funktionaalisen näkymän suunnitteluprosessin tuloksena on usein
 PI-kaavio joka yleensä toimii esisuunnittelutietona muille näkymille.
 
+		\subsubsection{Fyysinen näkymä}
 Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kenttäväylät,
 ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan 
 järjestelmän fyysiseen käyttöönottoon.
 
+%Fyysisen näkymän suunnittelua myös yhtenäistettävä
+
+		\subsubsection{Ohjelmistonäkymä}
+
 Ohjelmistonäkymä kattaa funktionaalisen suunnittelun toteutuksen ohjelmamuodossa.
-Ohjelmistonäkymän toteuttamisen ei enää pitäisi olla suunnittelutyötä.
-Ohjelmistototeutus jää suunnitteluprosessissa harvinaisen vähäiselle formaaliuden asteelle, vaikka pyrkimyksiä siihen suuntaan on ollut.
-
-Projektin edetessä konseptista toteutukseksi huomataan, että suunnittelutyön aikana tuotettua tietoa on kahdenlaista. Työllä on lopputulos, joka lähetetään asiakkaalle. Se sisältää tehtaan virallisen dokumentaation. Lisäksi suunnittelijoille jää ajatuksia, kokemuksia ja päättelyketjuja jotka eivät sinänsä päädy lopulliseen tuotokseen, mutta jonka ideat. 
-
-Suunnittelutyön tavoitteen toteuttava dokumentti saattaa olla ainoa joka näkee päivänvalon.
-Tässä työssä tarkastellaan tapoja joilla suunnittelutyön tuottamia malleja voidaan muuntaa toisiksi, käyttökelpoisiksi malleiksi kuten logiikkadiagrammeiksi.
+Asiakkaalla on yleensä omat toiveensa sen suhteen, millaiseen muotoon ohjelma tehdään.
+Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä - toisin sanoen funktionaalisen näkymän määrittelyjen täytyy olla riittävän tarkkoja jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
+Ohjelmistototeutus jää suunnitteluprosessissa yleisesti vähäiselle formaaliuden asteelle, vaikka pyrkimyksiä sen integroimiseksi suunnitteluprosessiin entistä vahvemmin on ollut.
+Ohjelmointityöstä usein puuttuu yhtenäiset työtavat ja nimeämiskäytännöt.
+Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäiselle asteelle.
 
 	\subsection{Logiikan kuvaukset}
 
-	Ohjauslogiikalla on viime kappaleessa kuvatun näkymäjaon mukaan ainakin kaksi kuvausta: funktionaalinen kuvaus ja toteutettu kuvaus.
-	
-	Funktionaalinen kuvaus voi olla formaali tai epäformaali riippuen työssä käytetyistä menetelmistä.
+Loogista järjestelmää voidaan kuvata monin erilaisin tavoin.
+Nämä erilaiset kuvaukset voivat näyttää erilaisilta,
+mutta olla silti täysin yksiselitteisiä suhteessa kuvattuun järjestelmään.
+Kuvaukset sisältävät tällöin samat tiedot eri muodoissa.
+
+Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty
+tarkasti selkeyden, turvallisuuden ja ennustettavan toiminnan vuoksi.
+Myös esitystavan sisältö on määritelty ensisijaisesti ennaltamainittujen kriteerien mukaisesti.
+Vaikka määritelty esitystapa saavuttaisikin tavoitteensa, ei se kuitenkaan välttämättä ole
+suunnittelijan kannalta helppo toteuttaa.
+
+Jos tietokoneen avulla toteutettava algoritmillinen muunnos toisenlaisesta kuvauksesta lopulliseen muotoon onnistuu ilman suunnittelutyölle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
+%Kuten myöhemmin työssä huomataan, saattaa muunnos olla projektin edetessä jopa hyötyä.
+
+%----
+%Kun tarkastellaan projektin edetessä konseptista toteutukseksi, huomataan että suunnittelutyön aikana tuotetaan monia erilaisia dokumentteja.
+%Työllä on lopputulos, joka lähetetään asiakkaalle. Se sisältää tehtaan virallisen dokumentaation.
+%Lisäksi suunnittelijoille jää ajatuksia, kokemuksia ja päättelyketjuja jotka eivät sinänsä päädy lopulliseen tuotokseen, mutta jonka ideat.
+% Suunnittelutyön tavoitteen toteuttava dokumentti saattaa olla ainoa joka näkee päivänvalon.
+%---
+
+Tässä työssä tarkastellaan tapoja joilla suunnittelutyön yhteydessä tuotettuja logiikan kuvauksia voidaan muuntaa logiikkadiagrammeiksi.
 
 		\subsubsection{Formaali logiikan kuvaus}
-	
+% Epäformaalin tiedon asema?
+
 Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
-Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä.
-% Logiikan suunnittelijat usein tuottavat epäformaalia tietoa. [?]
-
-Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä ja muuntaa algoritmillisesti.
-
-Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausata.
-Tällöin tulee mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
-
+Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
+Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä algoritmillisesti.
+Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
+Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
 Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
-
-Suunnitteluohjelmistot ovat vähintään yhteensopivia itsensä kanssa.
-Työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
-Näitä ovat käytännössä tietokoneella käytettävät suunnitteluohjelmistot.
-
-Jos halutaan yhteensopivuutta eri ohjelmien kesken joudutaan.
 
 Logiikkaohjelman formaaliksi kuvaukseksi on ehdotettu PLCopen-standardia.
 Se määrittelee XML-kuvauksen standardin IEC 61131-3 mukaisista ohjelmointikielistä.
-Se on myös AutomationML-standardin hyväksymä esitys.
-AutomationML on useiden \footnote{ABB, KUKA, Rockwell Automation, Siemens, netAllied, Zühlke, Karlsruhen Yliopisto ja Magdeburgin Yliopisto} automaatioalan yritysten ajama standardi, joka kuvaa sisällyttää automaatio-objektiin kaikki sen eri näkymät standardilla tavalla.
+%Se on myös AutomationML-standardin hyväksymä esitys.
+%AutomationML on useiden \footnote{ABB, KUKA, Rockwell Automation, Siemens, netAllied, Zühlke, Karlsruhen Yliopisto ja Magdeburgin Yliopisto} automaatioalan yritysten ajama standardi, joka kuvaa sisällyttää automaatio-objektiin kaikki sen eri näkymät standardilla tavalla.
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
@@ -264,7 +275,6 @@ PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toi
 PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
 
 Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
-
 
 	\subsubsection{Logiikkadiagrammit}
 
