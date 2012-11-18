@@ -334,8 +334,6 @@ Nämä lähestymistava eivät tue käänteisiä portteja (?) eikä muita porttir
 
 Useat (Schreiber, Siebenhalöler,)
 
-"A previous approach [19] for layout of data  ow diagrams applied local rout- ing not only to the side ports of a node, but also to inverted ports, which leads to layouts such as the one shown in Fig. 3(a). Although it simplies the crossing minimization phase, the obvious drawback is that it cannot take into account the global structure of the graph, and thus leads to an unnecessarily high number of edge crossings and bend points. In this paper we therefore employ a  ierent ap- proach based on dummy nodes, which is able to route the feedback edge (d; c) in Fig. 3(b) with four bend points and without any crossings, as opposed to six bend points and three crossings for the previous approach. Other previous contribu- tions adapt the barycenter heuristic for handling dierent port constraints [19], and add a specialized node placement for FixedRatio constraints [8, 9]. This type of constraint allows changing the size of nodes in order to minimize the number of bend points of incident edges [9].
-
 \cite{RefWorks:28}.
 
 Lisäksi piirrettävän graafin täytyy olla etukäteen valiidisti muotoiltu ja syklitön.
@@ -429,7 +427,7 @@ Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
 
 Ruudukon samassa ruudussa olevat langat ryhmitellään omaan joukkoonsa.
 Ne pyritään sitten jakamaan ruutuun koordinaattien k ja k+1 välille.
-Risteysten minimoimiseksi luodaan segmenttiylitysgraafi ruudulle S^H_k. Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia. Jokaiselle segmenttiparille s_1, s_2 lasketaan risteysmäärät C_1 ja C_2. Jos C_1 < C_2, lisätään reuna segmentin s_1 ja s_2 välille hintaan C_2 - C_1. Muussa tapauksessa lisätään lanka s_2 ja s_1 välille hintaan C_1 - C_2.
+Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle. Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia. Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
 
 Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Yässä tapauksessa 
 
@@ -438,26 +436,20 @@ Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää t
 
 		\subsection{Kaavioiden tuottaminen}
 
-Automatic generation of PLC automation projects
-
-Käytännönläheinen selostus siitä, kuinka aiempaa teoriaa sovelletaan.
-
-Verkossa sijaitseva kaavioiden asettelupalvelu soveltuu...
-
-Kun asettelualgoritmi toimii keskitetysti, asettelun tilaavien
-
-Näin vältytään myös versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
+Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaaviopalvelimella.
+Verkossa sijaitseva kaavioipalvelin soveltuu suurten järjestelmien suunnitteluun erityisen hyvin, kun suunnittelijoita on monta. Kaikki suunnittelijat pystyvät hakemaan keskitetystä suunnittelujärjestelmästä ajantasaisimman version kaaviosta ilman, että kaaviot tarvitsee ladata järjestelmään erikseen.
+Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
 		\subsection{Kaavioiden tuottaminen}
 			\subsubsection{Vertaillut vaihtoehdot (tarpeellisuus?)}
 
 Funktioblokkien editointiin on olemassa useita työkaluja:
 \begin{description}
-\item[FBDK] Rockwell Automationin ilmainen funktioblokkieditori, FBDK on akateemisessa tutkimuksessa laajassa käytössä. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
-\item[FBench] FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin kärsii samoista puutteista kuin FBDK.
-\item[4DIAC] PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin.
-Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä. 
-\item[ISaGRAF ja NxtControl] ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
+	\item[FBDK] Rockwell Automationin ilmainen funktioblokkieditori, FBDK on akateemisessa tutkimuksessa laajassa käytössä. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
+	\item[FBench] FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin kärsii samoista puutteista kuin FBDK.
+	\item[4DIAC] PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin. Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä. 
+	\item[ISaGRAF ja NxtControl] ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
+\end{description}
 
 			\subsubsection{KIELER}
 
@@ -474,7 +466,6 @@ Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan:
   \item Lankojen risteysmäärä
   \item jne. (kesken)
 \end{enumerate}
-
 
 	\clearpage
 	\section{Tulokset}
