@@ -210,7 +210,7 @@ Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kentt�
 ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan 
 järjestelmän fyysiseen käyttöönottoon.
 
-%Fyysisen näkymän suunnittelua myös yhtenäistettävä
+\emph{Tarvitaanko lisää?}
 
 
 		\subsubsection{Ohjelmistonäkymä}
@@ -254,14 +254,6 @@ Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeist
 IEC~61131-3 on laajassa käytössä oleva avoin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja  pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
 Se sisältää viisi erilaista ohjelmointikieltä \emph{(muuntaminen koodityypistä toiseksi?)}, joista tässä työssä käsitellään erityisesti FBD:tä.
 
-Logiikkaohjelman formaaliksi kuvaukseksi on ehdotettu PLCopen-standardia.
-Se määrittelee XML-kuvauksen standardin IEC 61131-3 mukaisista ohjelmointikielistä.
-
-PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
-PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
-
-Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
-
 Suunnitteluohjelmistojen valmistajat myös jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista standardin ominaisuuksia toteuttamatta.\cite{RefWorks:42}
 Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista osan, ja mainitsee mitä se jättää toteuttamatta. 
 
@@ -290,6 +282,14 @@ Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä al
 Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
 Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
 Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
+
+Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseksi on ehdotettu PLCopen-standardia.
+
+PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
+PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
+
+Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
+
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
