@@ -234,12 +234,12 @@ Nämä erilaiset kuvaukset voivat näyttää erilaisilta, mutta olla silti täys
 Tämä tarkoittaa, että kuvaukset sisältävät samat tiedot eri muodoissa.
 
 Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmälläpitäen.
-Syöttöjen ja lähtöjen välistä logiikkaa esittävät kaaviot ovat yleisiä.
-Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä käytännönläheistä laatia.
-Kun kaavioista tulee monimutkaisia, kuluu niitten esteettiseen asetteluun huomattavan paljon aikaa. \emph{[lähde on, pitää kaivaa]}
+Syöttöjen ja lähtöjen välistä logiikkaa kuvaavat kaaviot ovat yleisiä.
+Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä helppoa laatia.
+Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio. \emph{[lähde on, pitää kaivaa]}
 Jos tietokoneen avulla toteutettava algoritmillinen muunnos toisenlaisesta kuvauksesta lopulliseen kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa,
 kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
-Näin laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
+Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
 
 
 		\subsubsection{Toimintakaaviot}
@@ -247,15 +247,20 @@ Näin laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähd
 Toimintakaavio on funktionaalisen näkymän toteutus, joka tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta.
 Se määrittelee ohjausjärjestelmän toiminnot ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
 Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
-
+\emph{Onko standardi, missä määritelty?}
 
 		\subsubsection{Ohjelmakoodi}
 
-IEC~61131-3 on laajassa käytössä oleva avoin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja  pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
+Ohjelmakoodi on ohjelmanäkymän toteutus.
+IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
 Se sisältää viisi erilaista ohjelmointikieltä \emph{(muuntaminen koodityypistä toiseksi?)}, joista tässä työssä käsitellään erityisesti FBD:tä.
 
-Suunnitteluohjelmistojen valmistajat myös jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista standardin ominaisuuksia toteuttamatta.\cite{RefWorks:42}
-Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista osan, ja mainitsee mitä se jättää toteuttamatta. 
+FBD-kieli koostuu toimilohkoista ja niiden välisistä langoista.
+Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä.
+Langat kuvaavat niitten relaatioita toisiinsa.
+Toimilohko voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
+Sen tekemien laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
+Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden.
 
 Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan
 vasemmalta oikealle. Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
@@ -265,13 +270,6 @@ Suoritusjärjestys kulkee usein ylhäältä alas, mutta tätä ei voi olettaa ai
 Suoritusjärjestysvaatimus asettaa seuraavassa kappaleessa tarkasteltavalle graafinpiirrolle rajoituksia.
 Jos niitä ei oteta huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
 Mahdollisten takaisinkytkentöjen tapauksessa vaaditaan huolellisuutta, jottei syklien poistovaiheessa kaavion järjestys muutu.
-
-Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä
-ja niitten relaatioita toisiinsa. Toimilohko voi tilastaan riippuen lähettää
-tapahtumia jotka vaikuttavat muitten blokkien toimintaan. Sen tekemien
-laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista
-syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
-Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden.
 
 
 		\subsubsection{Logiikan tietokantakuvaukset}
@@ -284,17 +282,18 @@ Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muu
 Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
 
 Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseksi on ehdotettu PLCopen-standardia.
-
 PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
 PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
-
 Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
 
+\emph{Toimintakaavioiden kuvaamisesta jotain?}
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
 
-
+Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kohdata haasteita, jos se perustuu ohjelmien standardinmukaisuuteen.
+Valmistajat jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.\cite{RefWorks:42}
+Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista jonkin osan ja mainitsee mitä se jättää toteuttamatta. 
 
 	\clearpage
 	\section{Hierarkinen graafinpiirto}
@@ -305,32 +304,28 @@ Suunnattujen graafien piirtämiseen käytettävän kerrostetun menetelmän
 esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
 
 Suunnattujen graafien kerrostaminen siten, että noodien langat osoittavat järjestyksessä seuraavaan kerrokseen,
-on osoittautunut luontevaksi tavaksi esittää tietovirtoja. Sugiyaman lähestymistapaa ei kuitenkaan voi käyttää sellaisenaan tietovirtakaavioiden kuvaamiseen. Aseteltavissa tietovirroissa esiintyvät noodit sisältävät useita portteja, joiden keskinäisellä järjestyksellä on merkitystä. Lisäksi Sugiyaman lähestymistavassa langat eivät ole nykyisen käytännön mukaan ortogonaalisia, jolloin tarvitaan erillinen reititysalgoritmi.
-
-Kerrostamista seuraa noodien keskinäisen järjestyksen määrittely ja mahdollisesti lankojen reititys
+on osoittautunut luontevaksi tavaksi esittää tietovirtoja. Sugiyaman lähestymistapaa ei kuitenkaan voi käyttää sellaisenaan tietovirtakaavioiden kuvaamiseen. Aseteltavissa tietovirroissa esiintyvät noodit sisältävät useita portteja, joiden keskinäisellä järjestyksellä on merkitystä. Lisäksi Sugiyaman lähestymistavassa langat eivät ole nykyisen käytännön mukaan ortogonaalisia, jolloin tarvitaan erillinen reititysalgoritmi langoille.
 
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
 Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
 
-Koska aseteltavat graafit sisältävät useita portteja ja lankoja, täytyy tämä ottaa huomioon. Porttirajoitteisten noodien
+%"Improved layout for Data Flow Diagrams with Port Constraints"
+%\begin{itemize}
+ % \item Gansner et. al: Noodien asettelualgoritmeja voi mukauttaa toimimaan porttirajoitteisten noodien asettelussa
+ % \item Sander: Sander esitti väliaikaisnoodien lisäämisen lankojen reitittämiseksi
+ % \item Risteysvähentämistä porttirajoitteilla tutki Waddle, joka otti käyttöön noodien porttijärjestyksen huomioivan järjestelyheuristiikan.
+%\end{itemize}
 
-"Improved layout for Data Flow Diagrams with Port Constraints"
-\begin{itemize}
-  \item Gansner et. al: Noodien asettelualgoritmeja voi mukauttaa toimimaan porttirajoitteisten noodien asettelussa
-  \item Sander: Sander esitti väliaikaisnoodien lisäämisen lankojen reitittämiseksi
-  \item Risteysvähentämistä porttirajoitteilla tutki Waddle, joka otti käyttöön noodien porttijärjestyksen huomioivan järjestelyheuristiikan.
-\end{itemize}
+%Nämä lähestymistavat eivät tue porttirajoitteita joten ne eivät ole riittäviä datavirtauskaavioiden asetteluun.
 
-Nämä lähestymistavat eivät tue porttirajoitteita joten ne eivät ole riittäviä datavirtauskaavioiden asetteluun.
+Työssä käytetty algoritmi seuraa Klauske ym. kehittämää datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa joka yhdistelee useita sopivia graafinpiirron menetelmiä \cite{RefWorks:50}.
 
-Työssä käytetty algoritmi seuraa Klauske et. al. kehittämää  datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa \cite{RefWorks:50} joka yhdistelee useita sopivia graafinpiirron menetelmiä.
-
-Se koostuu viidestä vaiheesta:
+Se koostuu viidestä eri vaiheesta:
 \begin{enumerate}
   \item Syklien poisto, seuraa Eades et al.\cite{RefWorks:48}
   \item Kerrostus, seuraa Gansner et. al., lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
-  \item Järjestely, seuraa Sugiyama et. al alkuperäistä menetelmää. \cite{RefWorks:9}
+  \item Järjestely, seuraa Sugiyama ym alkuperäistä menetelmää. \cite{RefWorks:9}
   \item Poikittaisasettelu, seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
   \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
 \end{enumerate}
@@ -339,12 +334,12 @@ Se koostuu viidestä vaiheesta:
 
 Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
 Syklittömyys tarkoittaa sitä että mihinkään noodiin ei voi palata seuraamalla siitä suunnattuja lankoja.
-Säätötekniikassa yleiset takaisinkytkennät ovat esimerkkejä sykleistä.
+Säätötekniikassa yleiset takaisinkytkennät ovat määritelmänsä mukaisesti syklejä.
 
 Syklejä ei voida asettelualgoritmin syklittömyysvaatimuksesta huolimatta poistaa.
 Tämän vuoksi syklit rikotaan kääntämällä yksi syklin sisältämistä langoista.
 Tätä jatketaan kunnes graafi on asyklinen.
-Syklillisen graafin muuntaminen syklittömäksi, eli käännettävien lankojen valinta siten että niitä on mahdollisimmanvähän on NP-vaikea.
+Syklillisen graafin muuntaminen syklittömäksi, eli käännettävien lankojen valinta siten että niitä on mahdollisimmanvähän on NP-vaikea.\emph{[lähde]}
 
 Syklien poistovaiheessa käsiteltävä tietomalli kuitenkin sisältää syklipoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan noodin. Tämä merkittävästi helpottaa syklinpoistovaihetta, ja graafin suuntaamisesta tuleekin triviaali toimenpide. [?]
 
@@ -353,17 +348,18 @@ Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topolo
 
 		\subsection{Kerrostus}
 
-Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on. Poikkeuksena tästä on kun noodi kytkeytyy itseensä.
+Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on.
+Poikkeuksena tästä on kun noodi kytkeytyy itseensä.
 
 Kerrostetuksen graafin tulee myös olla kompakti. Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta graafia on tarkoitus tarkastella.
-
 Graafin pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus. Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
 
 Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
 
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
-Multiprosessoriongelmaa varten suunniteltu algoritmi, Coffman-Graham-kerrostusmenetelmä tarjoaa tällöin ratkaisun tähän ongelmaan.
+
+\emph{TODO: avaa Gansner et. al.}
 
 		\subsection{Risteyksien vähentäminen}
 
@@ -382,7 +378,7 @@ on siihen yhtyneiden solmujen puolivälissä.
 %graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
 
 Erilaisten järjestelyalgoritmien tutkimus ei ole tuottanut yhtä selkeästi parasta menetelmää.
-Sen sijaan parhaat tulokset on saavutettu menetelmiä yhdistelevillä heuristisilla hybridialgoritmiksi. [?]
+Sen sijaan parhaat tulokset on saavutettu menetelmiä yhdistelevillä heuristisilla hybridialgoritmeilla. [?]
 
 Tässä menetelmässä [?] solmut uudelleenjärjestetään joka iteraation yhteydessä mediaanimenetelmällä.
 Sen jälkeen luodaan joukko lähes identtisiä järjestelyitä joissa esiintyy paikallisia transpositioita.
@@ -402,20 +398,24 @@ Asettelun merkitys korostuu kun lankoja on paljon, kuten automaatiologiikkakaavi
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetään poikittaisasetteluvaiheessa.
 
+\emph{TODO: avaa tätä vaihetta myös}
+
 		\subsection{Lankojen reititys}
 
-Insinöörialojen logiikkakaavioiden langat on reititetty ortogonaalisesti.
+%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
 
-Sanderin ratkaisu sijoittaa noodit aluksi ruudukolle. Lopullisen luettavuuden parantamiseksi ruudukko hävitetään. Ruudukkoesitys mahdollistaa monta kerrosta ylittävien lankojen reitittämisen helposti ilman kulmia langoissa.
-\cite{RefWorks:17}
-
-Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
+Kaavion langat reititetään lopulta ortogonaalisesti.
+Sanderin ratkaisu sijoittaa noodit aluksi ruudukolle.
+Ruudukkoesitys mahdollistaa monta kerrosta ylittävien lankojen reitittämisen helposti ilman kulmia langoissa.
 
 Ruudukon samassa ruudussa olevat langat ryhmitellään omaan joukkoonsa.
 Ne pyritään sitten jakamaan ruutuun koordinaattien k ja k+1 välille.
 Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle. Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia. Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
 
-Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Tässä tapauksessa.
+Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Tässä tapauksessa.\cite{RefWorks:17}
+
+\emph{Tätä pitää selkeyttää vielä paljon}
+
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
@@ -426,25 +426,25 @@ Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokon
 Verkossa sijaitseva kaavioipalvelin soveltuu suurten järjestelmien suunnitteluun erityisen hyvin, kun suunnittelijoita on monta. Kaikki suunnittelijat pystyvät hakemaan keskitetystä suunnittelujärjestelmästä ajantasaisimman version kaaviosta ilman, että kaaviot tarvitsee ladata järjestelmään erikseen.
 Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
-		\subsection{Vertaillut vaihtoehdot (tarpeellisuus?) }
+		\subsection{Vertaillut ohjelmistot (tarpeellisuus?) }
 
 Funktioblokkien editointiin on olemassa useita työkaluja:
+
 \begin{description}
 	\item[FBDK] Rockwell Automationin ilmainen funktioblokkieditori, FBDK on akateemisessa tutkimuksessa laajassa käytössä. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
 	\item[FBench] FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin kärsii samoista puutteista kuin FBDK.
 	\item[4DIAC] PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin. Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä. 
 	\item[ISaGRAF ja NxtControl] ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
+	\item[KIELER] on [?] Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
 \end{description}
 
-			\subsubsection{KIELER}
-
-Piirtoalgoritmiksi valitun algoritmin koonneet ovat myös toteuttaneet kyseisen algoritmin osan KIELER-projektia.
-KIELER rakentuu [?] Eclipse-projektin päälle. Se pyrkii sisällyttämään itseensä olennaisilta osilta riittävän määrän algoritmeja mallipohjaisen suunnittelun apuvälineiksi.
+		\subsection{Esimerkki}
+			\emph{Tähän tulee esimerkkikaavio}
 
 		\subsection{Tulosten arviointiperusteet}
 
-Graafien luettavuutta on pyritty kartoittamaan. \cite{RefWorks:47}
-(tähän myös "The Aesthetics of Graph Visualization"?)
+Graafien luettavuutta on pyritty kartoittamaan ja on huomattu... \cite{RefWorks:47}
+\emph{(tähän myös "The Aesthetics of Graph Visualization"?)}
 
 Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
 \begin{enumerate}
@@ -455,12 +455,12 @@ Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan:
 	\clearpage
 	\section{Tulokset}
 	
-(Ei vielä tiedossa.)
+\emph{(Ei vielä tiedossa.)}
 
 	\section{Yhteenveto ja tulevaisuudennäkymät}
 
 Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä suunnattujen graafien asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
-Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa esitetyn esimerkin lisäksi erilaisiin teollisuuden tarpeisiin.
+Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa erilaisiin teollisuuden tarpeisiin.
 
 Teollisuuden automaatiosuunnittelun yhtenäistämistä on akateemisissa julkaisuissa kartoitettu runsaasti.
 Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat vieraannuttavalle tasolle.
