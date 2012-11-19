@@ -161,25 +161,22 @@ Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mitt
 	\clearpage
 	\section{Tehtaan mallit}
 
-Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja
-ylläpidon. Se on tietomalli, joka kuvaa laajuudestaan riippuen tehtaan toimintaa,
-sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja. Tehdasmalli
-koostuu pohjimmiltaan tehdasobjekteista, niiden ominaisuuksista ja niiden
-välisistä relaatioista. \cite{RefWorks:41}
+Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon. Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
+Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen sekä niiden välisistä relaatioista. \cite{RefWorks:41}
 
-Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmallin
-suhteen. Työn kohde on monitahoinen eikä mikään yksi malli pysty kattamaan
-kaikkia suunniteltavan järjestelmän näkymiä. Tehdasta tulee kuvata useilta eri
-näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti.
+Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmallin suhteen.
+Työn kohde on monitahoinen eikä mikään yksi malli pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä.
+Tehdasta tulee kuvata useilta eri näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti.
 Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaismallin.
 
-Jokaisella mallilla on myös metamalli. Se määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä mallin objektien välillä on.
+Jokaisella mallilla on myös metamalli. Se määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on.
 Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja ja järjestystä.
 Ne kuvaavat millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja ja
-määräävät suunnittelujärjestelmän laajuuden. Metamallin määritteleminen tekee suunnittelutyön tuloksesta ennakoitavan ja mahdollistaa suunnittelun apuvälineiden kehittämisen. Suunnittelutyön formalisoimisella myös suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan formalismiin perustuvat työkalut ja suunnittelukäytännöt. Tällaisia ovat esimerkiksi uudelleenkäytettävää koodia sisältävät kirjastot ja erilaiset mallimuunnokset.
+määräävät sen laajuuden. Metamallin määritteleminen tekee työn tuloksesta ennakoitavan ja mahdollistaa tehokkaiden apuvälineiden kehittämisen.
+Määrittelyllä myös suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan määrittelyyn perustuvat työkalut ja suunnittelukäytännöt.
+Tällaisia ovat esimerkiksi uudelleenkäytettävää koodia sisältävät kirjastot ja erilaiset mallimuunnokset.
 
-Suunnittelutyössä käytettävät metamallit valitaan siten, etteivät ne ole
-ristiriidassa ja muodostavat yhdessä toisiaan täydentävän kokonaisuuden.
+Suunnittelussa käytettävät metamallit valitaan siten, etteivät ne ole ristiriidassa ja muodostavat yhdessä toisiaan täydentävän kokonaisuuden.
 Tällöin metamallien konfiguraatio muodostaa itsessään mallin.
 
 
@@ -188,7 +185,9 @@ Tällöin metamallien konfiguraatio muodostaa itsessään mallin.
 Teollisuuden hajautettujen ohjausjärjestelmien suunnittelussa on havaittu
 tarpeelliseksi ainakin kolme näkymää: funktionaalinen, fyysinen sekä ohjelmistollinen \cite{RefWorks:38}.
 
+
 		\subsubsection{Funktionaalinen näkymä}
+
 Funktionaalinen näkymä määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut vaatimukset.
 Se on formaali spesifikaatio eli kuvaus ohjelmistosta tai laitteistosta, joka voidaan sen avulla toteuttaa
  Se kuvaa mitä järjestelmän tulisi tehdä, muttei välttämättä kuinka järjestelmän tulisi se toteuttaa.
@@ -204,12 +203,15 @@ Näin suunnitelman oikeellisuus voidaan osoittaa ennen mittavia investointeja to
 Funktionaalisen näkymän suunnitteluprosessin tuloksena on usein
 PI-kaavio joka tyypillisesti toimii esisuunnittelutietona muille näkymille.
 
+
 		\subsubsection{Fyysinen näkymä}
+
 Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kenttäväylät,
 ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan 
 järjestelmän fyysiseen käyttöönottoon.
 
 %Fyysisen näkymän suunnittelua myös yhtenäistettävä
+
 
 		\subsubsection{Ohjelmistonäkymä}
 
@@ -221,74 +223,47 @@ vaikka pyrkimyksiä toteutustapojen nitten integroimiseksi suunnitteluprosessiin
 Toteutustapa jää yksittäisten suunnittelijoiden määriteltäväksi, mistä seuraa että yhtenäistä työtapaa harvoin on.
 Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäiselle asteelle.
 
+
 	\subsection{Logiikan kuvaukset}
+
+Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja
+ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
 
 Loogista järjestelmää voidaan kuvata monin erilaisin tavoin.
 Nämä erilaiset kuvaukset voivat näyttää erilaisilta, mutta olla silti täysin yksiselitteisiä suhteessa kuvattuun järjestelmään.
 Tämä tarkoittaa, että kuvaukset sisältävät samat tiedot eri muodoissa.
 
-Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty
-tarkasti selkeyden, turvallisuuden ja ennustettavan toiminnan vuoksi.
-Myös esitystavan sisältö on määritelty ensisijaisesti ennaltamainittujen kriteerien mukaisesti.
-Vaikka määritelty esitystapa saavuttaisikin tavoitteensa, ei se kuitenkaan välttämättä ole
-suunnittelijan kannalta helppo toteuttaa.
+Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmälläpitäen.
+Syöttöjen ja lähtöjen välistä logiikkaa esittävät kaaviot ovat yleisiä.
+Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä käytännönläheistä laatia.
+Kun kaavioista tulee monimutkaisia, kuluu niitten esteettiseen asetteluun huomattavan paljon aikaa. \emph{[lähde on, pitää kaivaa]}
+Jos tietokoneen avulla toteutettava algoritmillinen muunnos toisenlaisesta kuvauksesta lopulliseen kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa,
+kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
+Näin laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
 
-Jos tietokoneen avulla toteutettava algoritmillinen muunnos toisenlaisesta kuvauksesta lopulliseen muotoon onnistuu ilman suunnittelutyölle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
-%Kuten myöhemmin työssä huomataan, saattaa muunnos olla projektin edetessä jopa hyötyä.
 
-%----
-%Kun tarkastellaan projektin edetessä konseptista toteutukseksi, huomataan että suunnittelutyön aikana tuotetaan monia erilaisia dokumentteja.
-%Työllä on lopputulos, joka lähetetään asiakkaalle. Se sisältää tehtaan virallisen dokumentaation.
-%Lisäksi suunnittelijoille jää ajatuksia, kokemuksia ja päättelyketjuja jotka eivät sinänsä päädy lopulliseen tuotokseen, mutta jonka ideat.
-% Suunnittelutyön tavoitteen toteuttava dokumentti saattaa olla ainoa joka näkee päivänvalon.
-%---
+		\subsubsection{Toimintakaaviot}
 
-Tässä työssä tarkastellaan tapoja joilla suunnittelutyön yhteydessä tuotettuja logiikan kuvauksia voidaan muuntaa logiikkadiagrammeiksi.
+Toimintakaavio on funktionaalisen näkymän toteutus, joka tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta.
+Se määrittelee ohjausjärjestelmän toiminnot ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
+Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
 
-		\subsubsection{Formaali logiikan kuvaus}
-% Epäformaalin tiedon asema?
 
-Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
-Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
-Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä algoritmillisesti.
-Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
-Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
-Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
+		\subsubsection{Ohjelmakoodi}
+
+IEC~61131-3 on laajassa käytössä oleva avoin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja  pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
+Se sisältää viisi erilaista ohjelmointikieltä \emph{(muuntaminen koodityypistä toiseksi?)}, joista tässä työssä käsitellään erityisesti FBD:tä.
 
 Logiikkaohjelman formaaliksi kuvaukseksi on ehdotettu PLCopen-standardia.
 Se määrittelee XML-kuvauksen standardin IEC 61131-3 mukaisista ohjelmointikielistä.
-%Se on myös AutomationML-standardin hyväksymä esitys.
-%AutomationML on useiden \footnote{ABB, KUKA, Rockwell Automation, Siemens, netAllied, Zühlke, Karlsruhen Yliopisto ja Magdeburgin Yliopisto} automaatioalan yritysten ajama standardi, joka kuvaa sisällyttää automaatio-objektiin kaikki sen eri näkymät standardilla tavalla.
-
-Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
-Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
 
 PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
 PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
 
 Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
 
-	\subsubsection{Logiikkadiagrammit}
-
-% IEC 61804, dokumentoinnin standardit.
-
-Hajautetun ohjausjärjestelmän logiikan suunnittelulle ja toteutukselle ei ole laajassa käytössä olevaa standardia, pikemminkin joukko standardeja joita käytetään vaihtelevasti.
-
 Suunnitteluohjelmistojen valmistajat myös jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista standardin ominaisuuksia toteuttamatta.\cite{RefWorks:42}
 Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista osan, ja mainitsee mitä se jättää toteuttamatta. 
-
-IEC~61131-3 on avoin standardi joka määrittelee automaatiojärjestelmän ohjelmoinimenetelmät ja
- pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen. Se sisältää viisi erilaista
-ohjelmointikieltä, joista tässä työssä käsitellään erityisesti FBDtä.
-
-Logiikkadiagrammit pelkistävät syöttöjen ja lähtöjen välisen logiikan
-yksinkertaiseksi ja intuitiiviseksi esitykseksi. Vaikka ohjausjärjestelmän
-ohjelmointi toteutettaisiinkin muunlaisella esityksellä, esimerkiksi
-tikapuukaaviolla, on silti usein helpompaa ymmärtää ohjelman rakenne
-logiikkadiagrammien avulla. Lisäksi logiikkadiagrammit helpottavat tehtaan
-toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon
-ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista
-dokumentaatiota.
 
 Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan
 vasemmalta oikealle. Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
@@ -306,7 +281,20 @@ laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista
 syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
 Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden.
 
-% Toimintakaavio määrittelee ohjausjärjestelmän toimintoja. Se tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta. Toimintakaaviota pidetään ajantasaisena järjestelmän suunnittelun edetessä. Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
+
+		\subsubsection{Logiikan tietokantakuvaukset}
+
+Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
+Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
+Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä algoritmillisesti.
+Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
+Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
+Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
+
+Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
+Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
+
+
 
 	\clearpage
 	\section{Hierarkinen graafinpiirto}
@@ -427,7 +415,7 @@ Ruudukon samassa ruudussa olevat langat ryhmitellään omaan joukkoonsa.
 Ne pyritään sitten jakamaan ruutuun koordinaattien k ja k+1 välille.
 Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle. Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia. Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
 
-Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Tässä tapauksessa....
+Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Tässä tapauksessa.
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
