@@ -5,7 +5,7 @@
 
 
 	%% Use this if you run latex and use eps-format pictures
-	%\usepackage[dvips]{graphicx}
+	\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
 	\makeindex
 	\usepackage[pdfpagemode=None,colorlinks=true,urlcolor=red,linkcolor=blue,
@@ -349,15 +349,24 @@ Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topolo
 		\subsection{Kerrostus}
 
 Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on.
-Poikkeuksena tästä on kun noodi kytkeytyy itseensä.
-
-Kerrostetuksen graafin tulee myös olla kompakti. Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
+Poikkeuksena tästä on tilanne, jossa noodi kytkeytyy itseensä.
+Kerrostetuksen graafin tulee olla kompakti.
+Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta graafia on tarkoitus tarkastella.
 Graafin pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus. Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
 
 Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
 
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
+
+Network simplex layering algorithm
+
+Vaikka sen lyhyyttä ei ole todistettu, on se käytännössä nopea eikä vaadi montaa iterointia.
+
+Ensin valitaan alkuperänen noodi ja asetetaan se ensimmäiseen kerrokseen.
+Jokaiseen siihen kytkeytyvään noodiin 
+
+Tätä prosessia jatketaan kunnes jokainen noodi on asetettu johonkin kerrokseen.
 
 \emph{TODO: avaa Gansner et. al.}
 
