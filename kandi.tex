@@ -5,7 +5,7 @@
 
 
 	%% Use this if you run latex and use eps-format pictures
-	\usepackage[dvips]{graphicx}
+	%\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
 	\makeindex
 	\usepackage[pdfpagemode=None,colorlinks=true,urlcolor=red,linkcolor=blue,
@@ -96,19 +96,13 @@ Otaniemi, 16.3.2010
 
 
 %% Käsitteet
-	\mysection{Käsitteet}
+	\mysection{Käsitteet ja lyhenteet}
 
 	\begin{tabular}{ll}
 Solmu       & Distributed Control System \\
 %	     	      & Hajautettu ohjausjärjestelmä
 Lanka        & Distributed Control System \\
 %	     	      & Hajautettu ohjausjärjestelmä
-	\end{tabular}
-
-%% Lyhenteet
-	\mysection{Lyhenteet}
-
-	\begin{tabular}{ll}
 DCS        & Distributed Control System \\
 %	     & Hajautettu ohjausjärjestelmä
 %FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä logiikkaohjelmointikieli
@@ -296,19 +290,50 @@ Valmistajat jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista m�
 Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista jonkin osan ja mainitsee mitä se jättää toteuttamatta. 
 
 	\clearpage
-	\section{Hierarkinen graafinpiirto}
+
 	
+	\section{Graafit ja niiden asettelu}
+
+	\subsection{Graafi}
 % http://www.cs.brown.edu/~rt/gdhandbook/
 
-Suunnattujen graafien piirtämiseen käytettävän kerrostetun menetelmän
-esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
+Lähdetään liikkeelle graafin määritelmästä Battistin mukaan. \cite{RefWorks:39}
+Graafi on yleisemmin ilmaistuna joukko solmuja ja niitä yhteenliittäviä lankoja.
+Lankoja kutsutaan usein myös kaariksi, reunoiksi, väleiksi tai linkeiksi. Solmuja kutsutaan myös noodeiksi.
+Matemaattisesti esitettynä graafi on joukko $G = (V, E)$., missä V on rajoitettu solmujoukko ja E on rajoitettu joukko lankoja.
 
-Suunnattujen graafien kerrostaminen siten, että noodien langat osoittavat järjestyksessä seuraavaan kerrokseen,
-on osoittautunut luontevaksi tavaksi esittää tietovirtoja. Sugiyaman lähestymistapaa ei kuitenkaan voi käyttää sellaisenaan tietovirtakaavioiden kuvaamiseen. Aseteltavissa tietovirroissa esiintyvät noodit sisältävät useita portteja, joiden keskinäisellä järjestyksellä on merkitystä. Lisäksi Sugiyaman lähestymistavassa langat eivät ole nykyisen käytännön mukaan ortogonaalisia, jolloin tarvitaan erillinen reititysalgoritmi langoille.
+Graafin kerrostus on alajoukkoihin jaottelu $\mathfrak{L} = (L_1, L_2, ..., L_h)$, joka sisältää kaikki solmut $V$.
+Graafin korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä $h$.
+Graafin leveys\footnote{Tietovirtakaavioissa ylhäältä alas} on suurimman kerrosjoukon $L_i$ koko.
+
+Laajennetaan määritelmää ja lisätään joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
+Langat koostuvat tulo- ja lähtöporteista, eli $e = (p_1, p_2)$
+os $(u, v) \in E$, missä jos $u \in L_i$ ja 
+
+Se koostuu solmujoukosta \emph{V}, porttijokosta \emph{P}, lankajoukosta \emph{E} ja funkyiosta P->V joka kartoittaa portit niitä vastaaviin solmuihin
+
+	\subsection{Liittyvä työ}
+
+Suunnattujen graafien piirtämiseen käytettävän kerrostetun menetelmän esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
+Menetelmässä graafi, kerrostetaan siten, että solmujen langat osoittavat järjestyksessä seuraavaan kerrokseen.
+Tämä on osoittautunut luontevaksi tavaksi esittää graafin yhdeltä puolelta toiselle etenevää tietovirtaa.
+Sugiyaman lähestymistapaa ei kuitenkaan useista syistä voi käyttää sellaisenaan tietovirtakaavioiden asetteluun.
+Aseteltavissa tietovirtakaavioissa esiintyvät toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
+Lisäksi Sugiyaman lähestymistavassa langat eivät ole tietovirtakaavioissa yleisen käytännön mukaisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
+
+Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
+Sander ym. esitti reititysongelmaan ratkaisun, jossa 
 
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
 Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
+
+Toimilohkojen syötöt ovat yleensä lohkon vasemmalla ja ulostulot oikealla puolella.
+Näin on FBD-ohjelmointikielen tapauksessa aina.
+Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon jos sitä halutaan käyttää.
+Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä varten asetetaan valesolmuja. \cite{RefWorks:51}
+ 
+Sivuporttien 
 
 %"Improved layout for Data Flow Diagrams with Port Constraints"
 %\begin{itemize}
@@ -318,6 +343,9 @@ Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitu
 %\end{itemize}
 
 %Nämä lähestymistavat eivät tue porttirajoitteita joten ne eivät ole riittäviä datavirtauskaavioiden asetteluun.
+
+
+		\subsection{Graafinasettelualgoritmi}
 
 Työssä käytetty algoritmi seuraa Klauske ym. kehittämää datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa joka yhdistelee useita sopivia graafinpiirron menetelmiä \cite{RefWorks:50}.
 
@@ -330,7 +358,11 @@ Se koostuu viidestä eri vaiheesta:
   \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
 \end{enumerate}
 
-		\subsection{Syklien poisto}
+Nämä vaiheet ovat toisistaan erillisiä ja voidaan tilanteen mukaan vaihtaa toisiksi tai jättää suorittamatta.
+Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia lankojen reititykset automaattisesti, voitaisiin päättää ajaa pelkästään algoritmin viides osio.
+
+		
+		\subsubsection{Syklien poisto}
 
 Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
 Syklittömyys tarkoittaa sitä että mihinkään noodiin ei voi palata seuraamalla siitä suunnattuja lankoja.
@@ -346,12 +378,12 @@ Syklien poistovaiheessa käsiteltävä tietomalli kuitenkin sisältää syklipoi
 Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin.
 Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topologinen kerrostus.
 
-		\subsection{Kerrostus}
+		\subsubsection{Kerrostus}
 
 Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on.
-Poikkeuksena tästä on tilanne, jossa noodi kytkeytyy itseensä.
-Kerrostetuksen graafin tulee olla kompakti.
-Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
+Poikkeuksena tästä on kun noodi kytkeytyy itseensä.
+
+Kerrostetuksen graafin tulee myös olla kompakti. Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta graafia on tarkoitus tarkastella.
 Graafin pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus. Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
 
@@ -359,18 +391,9 @@ Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kus
 
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
 
-Network simplex layering algorithm
-
-Vaikka sen lyhyyttä ei ole todistettu, on se käytännössä nopea eikä vaadi montaa iterointia.
-
-Ensin valitaan alkuperänen noodi ja asetetaan se ensimmäiseen kerrokseen.
-Jokaiseen siihen kytkeytyvään noodiin 
-
-Tätä prosessia jatketaan kunnes jokainen noodi on asetettu johonkin kerrokseen.
-
 \emph{TODO: avaa Gansner et. al.}
 
-		\subsection{Risteyksien vähentäminen}
+		\subsubsection{Risteyksien vähentäminen}
 
 Lankojen risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta. \cite{RefWorks:47}
 Risteysmäärän vähentäminen on tällöin mille tahansa luettavuutteen tähtäävälle asettelualgoritmille tärkeä tavoite.
@@ -382,9 +405,9 @@ Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkoje
 vaihtelu keskenään sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka
 on siihen yhtyneiden solmujen puolivälissä.
 
-%Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in
-%2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical
-%graphs”, M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
+% Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in
+% 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical %graphs”,
+% M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
 
 Erilaisten järjestelyalgoritmien tutkimus ei ole tuottanut yhtä selkeästi parasta menetelmää.
 Sen sijaan parhaat tulokset on saavutettu menetelmiä yhdistelevillä heuristisilla hybridialgoritmeilla. [?]
@@ -397,7 +420,7 @@ Tätä lähestymistapaa voisi luonnehtia geneettiseksi algoritmiksi.
 %Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis,
 %Christian-Albrechts-Universität zu Kiel, Department of Computer Science
 
-		\subsection{Poikittainen asettelu}
+		\subsubsection{Poikittainen asettelu}
 
 Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47}
 Asettelualgoritmin tulee tällöin pyrkiä minimoimaan lankojen kulmat.
@@ -409,7 +432,7 @@ Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetä�
 
 \emph{TODO: avaa tätä vaihetta myös}
 
-		\subsection{Lankojen reititys}
+		\subsubsection{Lankojen reititys}
 
 %Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
 
@@ -450,7 +473,10 @@ Funktioblokkien editointiin on olemassa useita työkaluja:
 		\subsection{Esimerkki}
 			\emph{Tähän tulee esimerkkikaavio}
 
+
 		\subsection{Tulosten arviointiperusteet}
+
+
 
 Graafien luettavuutta on pyritty kartoittamaan ja on huomattu... \cite{RefWorks:47}
 \emph{(tähän myös "The Aesthetics of Graph Visualization"?)}
@@ -460,6 +486,11 @@ Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan:
   \item Lankojen risteysmäärä
   \item jne. (kesken)
 \end{enumerate}
+
+Graafin luettavuuden kannalta tärkeät ominaisuudet ovat usein ristiriidassa.
+Graafit jotka pystytään asettelemaan ilman kompromissia ovat 
+Jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen tekemään mutkia.
+
 
 	\clearpage
 	\section{Tulokset}
@@ -476,6 +507,27 @@ Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat v
 
 Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, graafinpiirtoon.
 Ensisijainen pyrkimys on ollut tuottaa yksinkertaisesti toteutettava ratkaisu joka voidaan helposti integroida suunnitteluprosessiin.
+
+Automaatiojärjestelmien suunnitteluprosessi on monimutkainen, kallis ja pitkä prosessi.
+Suunnittelun työvälineisiin kohdistuu suuria vaatimuksia.
+Jos menetelmästä saavutettu hyöty ei ole riittävä,
+
+HAASTEET:
+Vaikeaa integroida
+odottamattomat haasteet
+Mitä
+
+Kriteerit:
+
+Tämän kandidaatintyön aikana olen toivottavasti osoittanut että työ on mahdollinen
+
+Lisäksi on esitetty useita syitä sille, miksi ratkaisu on käytännöllinen eli 
+
+On huomattava määrä teknologisia uudistuksia, jotka eivät päädy käyttöön.
+Kriteeri, jonka ratkaisun on täytettävä ennen tuotannon aloittamista, on kannattavuus.
+
+Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, täytyy olla vielä viimeinen
+Tahto.
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
