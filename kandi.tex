@@ -349,7 +349,7 @@ Se koostuu viidestä eri vaiheesta:
 \begin{enumerate}
   \item Syklien poisto, seuraa Eades et al.\cite{RefWorks:48}
   \item Kerrostus, seuraa Gansner et. al., lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
-  \item Järjestely, seuraa Sugiyama ym. alkuperäistä menetelmää. \cite{RefWorks:9}
+  \item Risteysten vähentäminen, seuraa Sugiyama ym. alkuperäistä menetelmää. \cite{RefWorks:9}
   \item Poikittaisasettelu, seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
   \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
 \end{enumerate}
@@ -396,29 +396,32 @@ Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa mul
 	\item 
 \end{enumerate}
 
+
 		\subsubsection{Risteyksien vähentäminen}
-
-Lankojen risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta. \cite{RefWorks:47}
-Risteysmäärän vähentäminen on tällöin mille tahansa luettavuutteen tähtäävälle asettelualgoritmille tärkeä tavoite.
-
-Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen. Tämä tarkoittaa sitä, että ongelma on luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa hyvän ratkaisun löytämistä.
-Tästä helpotuksesta huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa että kerroksia on vain kaksi. \cite{RefWorks:40}
-
-Lähestymistapoja risteyksien vähentämiseen on vierekkäisten noodien paikkojen
-vaihtelu keskenään sekä mediaanimenetelmä, jossa noodi asetetaan paikalle, joka
-on siihen yhtyneiden solmujen puolivälissä.
 
 % Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in
 % 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical %graphs”,
 % M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
 
-Erilaisten järjestelyalgoritmien tutkimus ei ole tuottanut yhtä selkeästi parasta menetelmää.
-Sen sijaan parhaat tulokset on saavutettu menetelmiä yhdistelevillä heuristisilla hybridialgoritmeilla. [?]
+Lankojen risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta. \cite{RefWorks:47}
+Risteysmäärän vähentäminen pieneksi on tällöin mille tahansa luettavuutteen tähtäävälle asettelualgoritmille tärkeä tavoite.
 
-Tässä menetelmässä [?] solmut uudelleenjärjestetään joka iteraation yhteydessä mediaanimenetelmällä.
-Sen jälkeen luodaan joukko lähes identtisiä järjestelyitä joissa esiintyy paikallisia transpositioita.
-Lopulta valitaan paras tulos seuraavaa iteraatiota varten.
-Tätä lähestymistapaa voisi luonnehtia geneettiseksi algoritmiksi.
+Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen.
+Ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa hyvän ratkaisun löytämistä.
+Graafi on myös muokattu kerrostamisvaiheessa kelvolliseksi, minkä seurauksena ongelmaa ratkaistessa voidaan keskittyä vuorotellen vain kerrosparin $L_i$ ja $L_{i+1}$ välisiin lankoihin.
+Näistä helpotuksista huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa että koko graafissa on kerroksia vain kaksi. \cite{RefWorks:40}
+
+Parhaan mahdollisen kombinaation löytämiseksi joudutaan yksinkertaisen ratkaisun puutteessa käyttämään heuristisia menetelmiä.
+Eräs suosittu lähestymistapa perustuu solmun seuraajasolmujen sijoittamiseen mahdollisimman lähelle lähdettään.
+Teorian kannalta tällä nk. mediaanimenetelmällä on useita hyviä ominaisuuksia.
+Sen avulla tuotettu ratkaisun risteysmäärä on vakiossa suhteessa optimaaliseen.
+Lisäksi algoritmi voidaan suorittaa polynomisessa ajassa.
+Käytännön kokeiluissa satunnaisilla graafeilla on kuitenkin todettu, ettei mediaaneihin perustuva menetelmä ole käyttökelpoisin. \cite{RefWorks:52}
+Battisti ym. suosittelevatkin eri menetelmiä yhdisteleviä hybridialgoritmeja, kuten mediaanimenetelmän ja satunnaisten tranpositioiden yhdistämistä\cite{RefWorks:39}.
+
+Työssä käytetty algoritmi arpoo ensimmäisen kerroksen $L_1$ järjestyksen.
+Se sitten etenee kerroksittain eteen- ja taaksepäin tehden järjestykseen transpositioita.
+Risteysten määrät lasketaan eri tuloksista ja ratkaisu, jossa on vähiten risteyksiä valitaan lopulliseksi.
 
 %Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis,
 %Christian-Albrechts-Universität zu Kiel, Department of Computer Science
@@ -433,24 +436,37 @@ Asettelun merkitys korostuu kun lankoja on paljon, kuten automaatiologiikkakaavi
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetään poikittaisasetteluvaiheessa.
 
+\cite{RefWorks:49}
+
 \emph{TODO: avaa tätä vaihetta myös}
 
 		\subsubsection{Lankojen reititys}
 
 %Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
 
-Kaavion langat reititetään lopulta ortogonaalisesti.
-Sanderin ratkaisu sijoittaa noodit aluksi ruudukolle.
-Ruudukkoesitys mahdollistaa monta kerrosta ylittävien lankojen reitittämisen helposti ilman kulmia langoissa.
+Kaavion langat reititetään lopulta ortogonaalisesti..\cite{RefWorks:17}
+Kun jokaiselle solmulle on tiedossa niiden lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmien koordinaattien välillä.
+Poikittaiset segmentit jotka asetetaan tyhjään tilaan rivien $j$ ja $j+1$ välille saavat koordinaatikseen $j+0.5$.
+Tämä toistetaan pystysuuntaisille segmenteille.
 
-Ruudukon samassa ruudussa olevat langat ryhmitellään omaan joukkoonsa.
-Ne pyritään sitten jakamaan ruutuun koordinaattien k ja k+1 välille.
-Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle. Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia. Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
+Langat ryhmitellään lähtöporttien mukaan \emph{hyper}langoiksi, joilla voi olla useita lähteitä.
 
-Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti. Tässä tapauksessa risteysmäärä on vähin mahdollinen. Ylitysgraafi kuitenkin yleensä sisältää risteyksiä. Tässä tapauksessa.\cite{RefWorks:17}
+Jokaiselle lankajoukolle luodaan ne yhdistävä pystysegmentti.
 
-\emph{Tätä pitää selkeyttää vielä paljon}
+Kaikki samassa ruudussa tai sarakkeessa $k$ olevat segmentit kootaan ryhmäksi joukkoon $S$.
+Tavoitteena on levittää ne koordinaateille välillä $[k,k+1]$.
 
+Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
+Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia.
+Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
+
+Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti.
+Tässä tapauksessa risteysmäärä on vähin mahdollinen.
+Ylitysgraafi kuitenkin yleensä sisältää syklejä. Tässä tapauksessa syklit rikotaan, jo tunnetulla tavalla \cite{RefWorks:48}.
+
+Lopulta segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
+Segmentti jonka sijoitus on $r \in \{1,...,r_{max}\}$ saa koordinaatikseen $k + r/(r_{max} +1)$.
+Kun tämä vaihe on suoritettu kaikille poikittaisille segmenteille, sama tehdään kaikille poikittaisille segmenteille.
 
 	\clearpage
 	\section{Menetelmät ja esimerkki}
