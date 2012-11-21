@@ -294,32 +294,38 @@ Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmuka
 	
 	\section{Graafit ja niiden asettelu}
 
-	\subsection{Graafi}
+	\subsection{Määritelmiä}
 % http://www.cs.brown.edu/~rt/gdhandbook/
 
-Lähdetään liikkeelle graafin määritelmästä Battistin mukaan. \cite{RefWorks:39}
-Graafi on yleisemmin ilmaistuna joukko solmuja ja niitä yhteenliittäviä lankoja.
-Lankoja kutsutaan usein myös kaariksi, reunoiksi, väleiksi tai linkeiksi. Solmuja kutsutaan myös noodeiksi.
-Matemaattisesti esitettynä graafi on joukko $G = (V, E)$., missä V on rajoitettu solmujoukko ja E on rajoitettu joukko lankoja.
+Lähdetään liikkeelle graafin määritelmästä \cite{RefWorks:39}.
+Graafi on yleisen määritelmänsä mukaan joukko solmuja ja niitä yhteen liittäviä lankoja.
+Lankoja kutsutaan usein myös kaariksi, reunoiksi, väleiksi tai linkeiksi. Solmusta käytetään myös ilmaisua noodi.
+Matemaattisesti esitettynä graafi on joukko $G = (V, E)$, missä V on rajoitettu solmujoukko ja E on rajoitettu lankajoukko.
 
-Graafin kerrostus on alajoukkoihin jaottelu $\mathfrak{L} = (L_1, L_2, ..., L_h)$, joka sisältää kaikki solmut $V$.
-Graafin korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä $h$.
-Graafin leveys\footnote{Tietovirtakaavioissa ylhäältä alas} on suurimman kerrosjoukon $L_i$ koko.
+Graafin kerrostus on jaottelu $\mathfrak{L} = (L_1, L_2, ..., L_h)$, jonka alajoukot sisältävät yhdessä kaikki solmut $V$.
+Solmujoukon erilaisia kerrostuksia vertaillaan jaottelun \emph{leveyden} ja \emph{korkeuden} avulla.
+Korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä $h$ ja leveys\footnote{Tietovirtakaavioissa ylhäältä alas} on suurimman kerrosjoukon $L_i$ koko.
 
-Laajennetaan määritelmää ja lisätään joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
-Langat koostuvat tulo- ja lähtöporteista, eli $e = (p_1, p_2)$
-os $(u, v) \in E$, missä jos $u \in L_i$ ja 
+Laajennetaan määritelmää ja sisällytetään graafin määritelmään joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
 
-Se koostuu solmujoukosta \emph{V}, porttijokosta \emph{P}, lankajoukosta \emph{E} ja funkyiosta P->V joka kartoittaa portit niitä vastaaviin solmuihin
+Langat koostuvat lähtö- ja tuloporteista jotka se yhdistää, ts. $e = (p_1, p_2)$, missä $p_1$ on lähtö- ja $p_2$ tuloportti.
+Solmu $v_j$ on solmun $v_i$ \emph{seuraaja} silloin, kun on olemassa lanka $e \in E$, jolle $\mathsf{n}(p_1) = v_i$ ja $\mathsf{n}(p_2) = v_j$.
+Polku on solmusekvenssi $(v_1, v_2, ..., v_k)$ jolle pätee, että $k>1$ ja jokainen sekvenssin solmu $v_{i+1}$ on solmun $v_i$ seuraaja.
 
+Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua enemmän kuin kerran.
+Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \mathsf{n}(p_2)$.
+
+Kerrostus on \emph{kunnollinen} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluuvat kerrostusjoukkoon $L_{i+1}$.
+ 
 	\subsection{Liittyvä työ}
 
-Suunnattujen graafien piirtämiseen käytettävän kerrostetun menetelmän esittivät Sugiyama et. al vuonna 1981 \cite{RefWorks:9}.
-Menetelmässä graafi, kerrostetaan siten, että solmujen langat osoittavat järjestyksessä seuraavaan kerrokseen.
-Tämä on osoittautunut luontevaksi tavaksi esittää graafin yhdeltä puolelta toiselle etenevää tietovirtaa.
-Sugiyaman lähestymistapaa ei kuitenkaan useista syistä voi käyttää sellaisenaan tietovirtakaavioiden asetteluun.
+Suunnattujen graafien piirtämiseen kehitetyn kerrostamiseen perustuvan menetelmän esittivät Sugiyama ym. \cite{RefWorks:9}.
+Sugiyaman lähestymistapa on osoittautunut luontevaksi tavaksi esittää graafin yhdeltä puolelta toiselle etenevää tietovirtaa.
+
+Sitä ei kuitenkaan useista syistä voi käyttää sellaisenaan tietovirtakaavioiden asetteluun.
 Aseteltavissa tietovirtakaavioissa esiintyvät toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
 Lisäksi Sugiyaman lähestymistavassa langat eivät ole tietovirtakaavioissa yleisen käytännön mukaisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
+Menetelmän vahvuuksiin kuuluu kuitenkin työn jakaminen erilaisiin, tarkasti määriteltyihin vaiheisiin, joita voidaan tutkia erillisinä ongelmina.
 
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
 Sander ym. esitti reititysongelmaan ratkaisun, jossa 
@@ -335,16 +341,6 @@ Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä var
  
 Sivuporttien 
 
-%"Improved layout for Data Flow Diagrams with Port Constraints"
-%\begin{itemize}
- % \item Gansner et. al: Noodien asettelualgoritmeja voi mukauttaa toimimaan porttirajoitteisten noodien asettelussa
- % \item Sander: Sander esitti väliaikaisnoodien lisäämisen lankojen reitittämiseksi
- % \item Risteysvähentämistä porttirajoitteilla tutki Waddle, joka otti käyttöön noodien porttijärjestyksen huomioivan järjestelyheuristiikan.
-%\end{itemize}
-
-%Nämä lähestymistavat eivät tue porttirajoitteita joten ne eivät ole riittäviä datavirtauskaavioiden asetteluun.
-
-
 		\subsection{Graafinasettelualgoritmi}
 
 Työssä käytetty algoritmi seuraa Klauske ym. kehittämää datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa joka yhdistelee useita sopivia graafinpiirron menetelmiä \cite{RefWorks:50}.
@@ -353,7 +349,7 @@ Se koostuu viidestä eri vaiheesta:
 \begin{enumerate}
   \item Syklien poisto, seuraa Eades et al.\cite{RefWorks:48}
   \item Kerrostus, seuraa Gansner et. al., lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
-  \item Järjestely, seuraa Sugiyama ym alkuperäistä menetelmää. \cite{RefWorks:9}
+  \item Järjestely, seuraa Sugiyama ym. alkuperäistä menetelmää. \cite{RefWorks:9}
   \item Poikittaisasettelu, seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
   \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
 \end{enumerate}
@@ -365,7 +361,7 @@ Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia la
 		\subsubsection{Syklien poisto}
 
 Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
-Syklittömyys tarkoittaa sitä että mihinkään noodiin ei voi palata seuraamalla siitä suunnattuja lankoja.
+Syklittömyys on määritelty tarkemmin osiossa \emph{3.1}.
 Säätötekniikassa yleiset takaisinkytkennät ovat määritelmänsä mukaisesti syklejä.
 
 Syklejä ei voida asettelualgoritmin syklittömyysvaatimuksesta huolimatta poistaa.
@@ -392,6 +388,13 @@ Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kus
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
 
 \emph{TODO: avaa Gansner et. al.}
+
+% Network simplex algorithm
+
+\begin{enumerate}
+	\item 
+	\item 
+\end{enumerate}
 
 		\subsubsection{Risteyksien vähentäminen}
 
