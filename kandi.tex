@@ -155,6 +155,10 @@ Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mitt
 	\clearpage
 	\section{Tehtaan mallit}
 
+Joku muu SAS:ilta? "Laatu automaatiossa - Parhaat käytännöt?"
+Kiinnostavaa, referenssit tampereelle: Rauhamäki, UML-mallipohjaisen sovelluskehityksen ohjeistus automaatio-ohjelmistolle.
+% http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/6349/rauhamaki.pdf?sequence=3
+
 Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon. Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
 Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen sekä niiden välisistä relaatioista. \cite{RefWorks:41}
 
@@ -220,6 +224,11 @@ Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäisell
 
 	\subsection{Logiikan kuvaukset}
 
+
+McAvinew ym. \cite{RefWorks:53}
+Meier, automation body of knowledge: \cite{RefWorks:54}
+%http://www.geocities.ws/andrikuncoro/Instrumentation/1811_06.pdf
+
 Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja
 ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
 
@@ -247,7 +256,7 @@ Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeist
 
 Ohjelmakoodi on ohjelmanäkymän toteutus.
 IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
-Se sisältää viisi erilaista ohjelmointikieltä \emph{(muuntaminen koodityypistä toiseksi?)}, joista tässä työssä käsitellään erityisesti FBD:tä.
+Se sisältää viisi erilaista ohjelmointikieltä \emph{(muuntaminen koodityypistä toiseksi?)}, joista tässä työssä käsitellään erityisesti FBD:tä. \cite{RefWorks:55}
 
 FBD-kieli koostuu toimilohkoista ja niiden välisistä langoista.
 Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä.
@@ -325,10 +334,11 @@ Sugiyaman lähestymistapa on osoittautunut luontevaksi tavaksi esittää graafin
 Sitä ei kuitenkaan useista syistä voi käyttää sellaisenaan tietovirtakaavioiden asetteluun.
 Aseteltavissa tietovirtakaavioissa esiintyvät toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
 Lisäksi Sugiyaman lähestymistavassa langat eivät ole tietovirtakaavioissa yleisen käytännön mukaisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
-Menetelmän vahvuuksiin kuuluu kuitenkin työn jakaminen erilaisiin, tarkasti määriteltyihin vaiheisiin, joita voidaan tutkia erillisinä ongelmina.
+Menetelmän pääasiallinen kontribuutio nykyaikana ei olekaan sen esittämä varsinainen algoritmi, vaan tapa jolla ongelmaa lähestytään.
+Työ jaetaan tarkasti määriteltyihin vaiheisiin, joita voidaan tutkia erillisinä ongelmina.
 
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
-Sander ym. esitti reititysongelmaan ratkaisun, jossa 
+Sander ym. esitti reititysongelmaan ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttiryhmää omana graafiongelmanaan, johon sovelletaan suurempaan ongelmaankin käytettäviä graafinpiirron menetelmiä. \cite:{RefWorks}
 
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
