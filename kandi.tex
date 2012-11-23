@@ -8,7 +8,7 @@
 	%\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
 	\makeindex
-	\usepackage[pdfpagemode=None,colorlinks=true,urlcolor=red,linkcolor=blue,
+	\usepackage[pdfpagemode=None,colorlinks=false,urlcolor=red,linkcolor=blue,
 citecolor=black,pdfstartview=FitH]{hyperref}
 
 	%% Use this if you do not like hyperref package - this defines url environment and formats it correctly
@@ -476,7 +476,7 @@ Langat ryhmitellään lähtöporttien mukaan \emph{hyper}langoiksi, joilla voi o
 Jokaiselle lankajoukolle luodaan ne yhdistävä pystysegmentti.
 
 Kaikki samassa ruudussa tai sarakkeessa $k$ olevat segmentit kootaan ryhmäksi joukkoon $S$.
-Tavoitteena on levittää ne koordinaateille välillä $[k,k+1]$.
+Tavoitteena on levittää ne koordinaateille välillä $[k, k+1]$.
 
 Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
 Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia.
@@ -503,15 +503,23 @@ Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuv�
 
 
 		\subsection{Esimerkki}
-			\emph{Tähän tulee esimerkkikaavio}
+
+Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
+
+Putkeen liittyy useita 
+
+			\subsubsection{Sulkuventtiilin ohjauslogiikka}
+
+Tyypillinen 
+
+			\subsubsection{Sulkuventtiilin lukituskaavio}
 
 
 		\subsection{Tulosten arviointiperusteet}
 
-Graadin esteetiikka erittelee ominaisuudet mitä graafiin halutaan mahdollisimman paljon, jota se olisi mahdollismman luettava.
-
-Graafien luettavuutta on pyritty kartoittamaan ja on huomattu... \cite{RefWorks:47}
-\emph{(tähän myös "The Aesthetics of Graph Visualization"?)}
+Asetteluista halutaan mahdollisimman esteettisiä.
+Estetiikka erittelee ominaisuudet mitä graafiin halutaan mahdollisimman paljon, jota se olisi mahdollismman luettava.
+Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä. \cite{RefWorks:47}
 
 Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
 \begin{enumerate}
@@ -520,13 +528,15 @@ Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan:
   \item Lankojen yhteispituus
   \item Pisin lankapituus
   \item Symmetria
-
 \end{enumerate}
 
-Graafin luettavuuden kannalta tärkeät ominaisuudet ovat usein ristiriidassa.
-Graafit jotka pystytään asettelemaan ilman kompromissia ovat 
-Jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen tekemään mutkia.
+Näistä ominaisuuksista lankojen risteysmäärä muodostui tärkeimmäksi. Myös lankojen pituus oli merkittävässä asemassa luettavuuden kannalta.
 
+Esteettiset ominaisuudet ovat usein ristiriidassa keskenään.
+Jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen usein tekemään mutkia.
+Kompromisoimattoman esteettiset kaaviot ovat harvinaisuuksia.
+
+Valmiin kaavion asettelua voidaan arvioida automatisoidusti laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä, kuten lankojen risteysmääriä.
 
 	\clearpage
 	\section{Tulokset}
