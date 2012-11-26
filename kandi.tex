@@ -223,11 +223,13 @@ Jatkuva prosessiohjaus voidaan esittää selkeästi järjestelmän PI-kaavioissa
 
 Logiikkadiagrammit kuvaavat syöttöjen ja lähtöjen välistä logiikkaa.
 Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä helppoa laatia.
-Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio. \emph{[lähde on, pitää kaivaa]}
-Jos tietokoneen avulla toteutettava algoritmillinen muunnos toisenlaisesta kuvauksesta lopulliseen kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa,
-kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
-Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
 
+Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
+Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%. \cite{Refworks:63}
+Koska työaika on yrityksessä rajallinen voimavara, 
+
+Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
+Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
 
 		\subsubsection{Toimintakaaviot}
 
@@ -235,12 +237,13 @@ Toimintakaavio on funktionaalisen näkymän toteutus, joka tavallisesti valmiste
 Se määrittelee ohjausjärjestelmän toiminnot ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
 Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
 
+\emph{Suomen automaatioseura}
 
 		\subsubsection{Ohjelmakoodi}
 
 Ohjelmakoodi on ohjelmanäkymän toteutus.
-IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
-Se sisältää viisi erilaista ohjelmointikieltä, joista tässä työssä käsitellään erityisesti FBD:tä. \cite{RefWorks:62}
+IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen. \cite{RefWorks:62}
+Se sisältää viisi erilaista ohjelmointikieltä, joista tässä työssä käsitellään erityisesti FBD:tä.
 
 FBD-kieli koostuu toimilohkoista ja niiden välisistä langoista.
 Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä.
@@ -249,10 +252,9 @@ Toimilohko voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitt
 Sen tekemien laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
 Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden. \cite{RefWorks:55}
 
-Funktioblokkien editointiin on olemassa useita työkaluja:
-FBDK, Rockwell Automationin ilmainen funktioblokkieditori, FBDK on akateemisessa tutkimuksessa laajassa käytössä. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
-FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin kärsii samoista puutteista kuin FBDK. 4DIAC PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin. Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä. 
-ISaGRAF ja NxtControl ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
+Funktioblokkien editointiin on olemassa useita työkaluja.
+Näistä mainitsemisen arvoisia ovat ainakin FBDK, 4DIAC ISaGRAF ja NxtControl.
+Ne eivät kuitenkaan tarjoa graafien asetteluun kuin alkeellisia työkaluja, jotka pikemmin helpottavat suunnittelijan asettelua kuin tuottavat itsessään ratkaisuja.
 
 Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan vasemmalta oikealle.
 Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
@@ -276,15 +278,15 @@ Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvauksek
 Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseksi on ehdotettu PLCopen-standardia.
 PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
 PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
-Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
+Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona. \cite{RefWorks:64}
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
 Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämien tietojen pohjalta voidaan tuottaa XSL-muunnoksilla. \cite{RefWorks:61}
 
 Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kohdata haasteita, jos se perustuu ohjelmien standardinmukaisuuteen.
-Valmistajat jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.\cite{RefWorks:42}
-Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista jonkin osan ja mainitsee mitä se jättää toteuttamatta. 
+Valmistajat jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.
+Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista jonkin osan ja mainitsee mitä se jättää toteuttamatta. \cite{RefWorks:42}
 
 	\clearpage
 		
@@ -371,8 +373,9 @@ Toimilohkojen syötöt ovat yleensä lohkon vasemmalla ja ulostulot oikealla puo
 Näin on FBD-ohjelmointikielen tapauksessa aina.
 Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon jos sitä halutaan käyttää.
 Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä varten asetetaan valesolmuja. \cite{RefWorks:51}
- 
-Sivuporttien 
+
+Sovelluksia graafinasettelualgoritmeille mallipohjaisessa suunnittelussa ovat kehittäneet ainakin Klauske...
+
 
 		\subsection{Graafinasettelualgoritmi}
 
@@ -477,9 +480,21 @@ Asettelun merkitys korostuu kun lankoja on paljon, kuten automaatiologiikkakaavi
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetään poikittaisasetteluvaiheessa.
 
+
+Seurauksena lanka, joka ennen poikittaista sijoittamista sisälsi mutkia, voidaan piirtää suoraksi saman lineaarisen osion sisällä.
+Noodit, jotka eivät ole muussa segmentissä, ovat omassaan.
+
+\begin{enumerate}
+	\item Segmentteihin jako kerroksen sisällä
+	\item 
+
+\end{enumerate
+
+
 \cite{RefWorks:49}
 
-\emph{TODO: avaa tätä vaihetta myös}
+
+
 
 		\subsubsection{Lankojen reititys}
 
