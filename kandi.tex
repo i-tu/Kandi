@@ -152,12 +152,9 @@ Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mitt
 	\clearpage
 	\section{Tehtaan mallit}
 
-Joku muu SAS:ilta? "Laatu automaatiossa - Parhaat käytännöt?"
-Kiinnostavaa, referenssit tampereelle: Rauhamäki, UML-mallipohjaisen sovelluskehityksen ohjeistus automaatio-ohjelmistolle.
-% http://dspace.cc.tut.fi/dpub/bitstream/handle/123456789/6349/rauhamaki.pdf?sequence=3
-
-Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon. Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
-Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen sekä niiden välisistä relaatioista. \cite{RefWorks:41}
+Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
+Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
+Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen sekä niitten välisistä relaatioista. \cite{RefWorks:41}
 
 Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmallin suhteen.
 Työn kohde on monitahoinen eikä mikään yksi malli pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä.
@@ -175,29 +172,23 @@ Suunnittelussa käytettävät metamallit valitaan siten, etteivät ne ole ristir
 Tällöin metamallien konfiguraatio muodostaa itsessään mallin.
 
 
-	\subsection{Automaatiojärjestelmän näkymät}
+	\subsection{Automaatiojärjestelmän kuvaukset}
 
 Teollisuuden hajautettujen ohjausjärjestelmien suunnittelussa on havaittu
-tarpeelliseksi ainakin kolme näkymää: funktionaalinen, fyysinen sekä ohjelmistollinen \cite{RefWorks:38}.
+tarpeellisiksi ainakin kolme kuvausta: toiminnallinen, fyysinen sekä ohjelmistollinen \cite{RefWorks:38}.
 
+		\subsubsection{Toiminnallinen kuvaus}
 
-		\subsubsection{Funktionaalinen näkymä}
+Toiminnallinen kuvaus määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut \emph{käyttäjävaatimukset}.
+Se kuvaa järjestelmän toimintaa ja, muttei välttämättä määrittele sen tarkkaa teknistä toteutusta. \cite{RefWorks:60}
 
-Funktionaalinen näkymä määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut vaatimukset.
-Se on formaali spesifikaatio eli kuvaus ohjelmistosta tai laitteistosta, joka voidaan sen avulla toteuttaa
- Se kuvaa mitä järjestelmän tulisi tehdä, muttei välttämättä kuinka järjestelmän tulisi se toteuttaa.
-
-Tätä näkymää määritettäessä voivat eri alojen suunnittelijat osallistua työhön ilman
+Tätä näkymää määrittäessä voivat eri alojen suunnittelijat osallistua työhön ilman
 tuntemusta instrumentoinnista tai ohjelmistokehityksestä. Kun päätökset on tehty
 abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos
 toteuttaa tehokkaasti.
-
 Tällaisen määrittelyn avulla on mahdollista käyttää formaaleja verifiointimenetelmiä joitten avulla
 voidaan osoittaa, että järjestelmän suunnitelma toteuttaa sille asetetut vaatimukset.
-Näin suunnitelman oikeellisuus voidaan osoittaa ennen mittavia investointeja toteutukseen.
-Funktionaalisen näkymän suunnitteluprosessin tuloksena on usein
-PI-kaavio joka tyypillisesti toimii esisuunnittelutietona muille näkymille.
-
+Näin suunnitelman oikeellisuus voidaan osoittaa ennen investointeja toteutukseen. \cite:{RefWorks:41}
 
 		\subsubsection{Fyysinen näkymä}
 
@@ -205,36 +196,32 @@ Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kentt�
 ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan 
 järjestelmän fyysiseen käyttöönottoon.
 
-\emph{Tarvitaanko lisää?}
-
 
 		\subsubsection{Ohjelmistonäkymä}
 
 Ohjelmistonäkymä kattaa funktionaalisen suunnittelun toteutuksen ohjelmamuodossa.
 Asiakkaalla on yleensä omat toiveensa sen suhteen, millaiseen muotoon ohjelma tehdään.
-Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä - toisin sanoen funktionaalisen näkymän määrittelyjen täytyy olla riittävän tarkkoja jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
+Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä - toisin sanoen toiminnallisen kuvauksen määrittelyjen täytyy olla riittävän tarkkoja jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
+
 Ohjelmistototeutuksen työtavat jäävät usein määrittelemättömiksi ja muusta suunnittelutyöstä irrallisiksi,
 vaikka pyrkimyksiä toteutustapojen nitten integroimiseksi suunnitteluprosessiin entistä vahvemmin on ollut.
 Toteutustapa jää yksittäisten suunnittelijoiden määriteltäväksi, mistä seuraa että yhtenäistä työtapaa harvoin on.
-Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäiselle asteelle.
+Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäiselle asteelle. \cite{RefWorks:42}
 
 
 	\subsection{Logiikan kuvaukset}
 
-
-McAvinew ym. \cite{RefWorks:53}
-Meier, automation body of knowledge: \cite{RefWorks:54}
+%McAvinew ym. \cite{RefWorks:53}
+%Meier, automation body of knowledge: \cite{RefWorks:54}
 %http://www.geocities.ws/andrikuncoro/Instrumentation/1811_06.pdf
 
-Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja
-ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
-
+Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
 Loogista järjestelmää voidaan kuvata monin erilaisin tavoin.
 Nämä erilaiset kuvaukset voivat näyttää erilaisilta, mutta olla silti täysin yksiselitteisiä suhteessa kuvattuun järjestelmään.
-Tämä tarkoittaa, että kuvaukset sisältävät samat tiedot eri muodoissa.
-
 Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmälläpitäen.
-Syöttöjen ja lähtöjen välistä logiikkaa kuvaavat kaaviot ovat yleisiä.
+Jatkuva prosessiohjaus voidaan esittää selkeästi järjestelmän PI-kaavioissa, mutta diskreetin ohjauksen esittämiseen tarvitaan erilaisia esityksiä, kuten logiikkadiagrammeja. \cite{RefWorks:54}
+
+Logiikkadiagrammit kuvaavat syöttöjen ja lähtöjen välistä logiikkaa.
 Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä helppoa laatia.
 Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio. \emph{[lähde on, pitää kaivaa]}
 Jos tietokoneen avulla toteutettava algoritmillinen muunnos toisenlaisesta kuvauksesta lopulliseen kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa,
@@ -247,30 +234,30 @@ Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  
 Toimintakaavio on funktionaalisen näkymän toteutus, joka tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta.
 Se määrittelee ohjausjärjestelmän toiminnot ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
 Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
-\emph{Onko standardi, missä määritelty?}
+
 
 		\subsubsection{Ohjelmakoodi}
 
 Ohjelmakoodi on ohjelmanäkymän toteutus.
 IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava mihin tahansa tarkoitukseen.
-Se sisältää viisi erilaista ohjelmointikieltä \emph{(muuntaminen koodityypistä toiseksi?)}, joista tässä työssä käsitellään erityisesti FBD:tä. \cite{RefWorks:55}
+Se sisältää viisi erilaista ohjelmointikieltä, joista tässä työssä käsitellään erityisesti FBD:tä. \cite{RefWorks:62}
 
 FBD-kieli koostuu toimilohkoista ja niiden välisistä langoista.
 Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä.
 Langat kuvaavat niitten relaatioita toisiinsa.
 Toimilohko voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
 Sen tekemien laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
-Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden.
+Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden. \cite{RefWorks:55}
 
 Funktioblokkien editointiin on olemassa useita työkaluja:
 FBDK, Rockwell Automationin ilmainen funktioblokkieditori, FBDK on akateemisessa tutkimuksessa laajassa käytössä. FBDK ei kuitenkaan tarjoa tapoja muuttaa kaavion asettelua algoritmillisesti.
 FBench on avoimen lähdekoodin standardimukainen ohjelmisto, joka kuitenkin kärsii samoista puutteista kuin FBDK. 4DIAC PROFACTORin kehittämä 4DIAC tarjoaa standardeja noudattavan funktioblokkieditorin. Se ei kuitenkaan mahdollista blokkien välisten lankojen reitittämistä. 
 ISaGRAF ja NxtControl ovat kaupallisesti tuotettuja ohjelmistoja joita ei valitettavasti voitu työtä varten arvioida.
 
-Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan
-vasemmalta oikealle. Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
+Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan vasemmalta oikealle.
+Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
 Keskinäisen suoritusjärjestyksen täytyy myös tulla esille toteuttavassa ohjelmistossa.
-Suoritusjärjestys kulkee usein ylhäältä alas, mutta tätä ei voi olettaa aina todeksi.
+Suoritusjärjestys kulkee usein ylhäältä alas, mutta tätä ei voi olettaa aina todeksi. \cite{RefWorks:62}
 
 Suoritusjärjestysvaatimus asettaa seuraavassa kappaleessa tarkasteltavalle graafinpiirrolle rajoituksia.
 Jos niitä ei oteta huomioon, saattaa graafin algoritmillinen piirto johtaa vääränlaiseen kaavioon.
@@ -291,18 +278,16 @@ PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toi
 PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
 Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
 
-\emph{Toimintakaavioiden kuvaamisesta jotain?}
-
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
+Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämien tietojen pohjalta voidaan tuottaa XSL-muunnoksilla. \cite{RefWorks:61}
 
 Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kohdata haasteita, jos se perustuu ohjelmien standardinmukaisuuteen.
 Valmistajat jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.\cite{RefWorks:42}
 Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista jonkin osan ja mainitsee mitä se jättää toteuttamatta. 
 
 	\clearpage
-
-	
+		
 	\section{Graafit ja niiden asettelu}
 
 	\subsection{Määritelmiä}
@@ -328,7 +313,31 @@ Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua
 Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \mathsf{n}(p_2)$.
 
 Kerrostus on \emph{kunnollinen}\footnote{eng. proper} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluuvat kerrost
- 
+
+
+ 		\subsection{Tulosten arviointiperusteet}
+
+Asetteluista halutaan mahdollisimman esteettisiä.
+Estetiikka erittelee ominaisuudet mitä graafiin halutaan mahdollisimman paljon, jota se olisi mahdollismman luettava.
+Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä. \cite{RefWorks:47}
+
+Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
+\begin{enumerate}
+  \item Lankojen risteysmäärä
+  \item Kaavion koko
+  \item Lankojen yhteispituus
+  \item Pisin lankapituus
+  \item Symmetria
+\end{enumerate}
+
+Näistä ominaisuuksista lankojen risteysmäärä muodostui tärkeimmäksi. Myös lankojen pituus oli merkittävässä asemassa luettavuuden kannalta.
+
+Esteettiset ominaisuudet ovat usein ristiriidassa keskenään.
+Jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen usein tekemään mutkia.
+Kompromisoimattoman esteettiset kaaviot ovat harvinaisuuksia.
+
+Valmiin kaavion asettelua voidaan arvioida automatisoidusti laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä, kuten lankojen risteysmääriä.
+
 	\subsection{Liittyvä työ}
 
 Suurin osa graafinpiirrollisista lähestymistavoista on suunniteltu ennalta tuntemattomien verkkojen piirtämiseen. Ne pyrkivät tuottamaan keskimäärin hyvän asettelun, oli graafi millainen hyvänsä.
@@ -353,7 +362,7 @@ Lisäksi Sugiyaman lähestymistavassa langat eivät ole tietovirtakaavioissa yle
 
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
 Sander ym. esitti reititysongelmaan ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttiryhmää omana graafiongelmanaan, johon sovelletaan suurempaan ongelmaankin käytettäviä graafinpiirron menetelmiä. \cite:{RefWorks}
-
+a
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
 Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
@@ -400,8 +409,8 @@ Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topolo
 
 		\subsubsection{Kerrostus}
 
-Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että jokaisen noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on.
-Vaadimme lisäksi, että se on \emph{kunnollinen} osion 3.1 mukaisesti.
+%Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että jokaisen noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on.
+Kerrostukselta vaaditaan, että se on \emph{kunnollinen} osion 3.1 mukaisesti.
 Tämän saavuttamiseksi graafiin lisätään \emph{vale}solmuja pitkien lankojen katkaisemiseksi.
 Kerrostukseen halutaan valesolmuja mahdollisimman vähän.
 
@@ -420,14 +429,13 @@ Työssä käytetään Gansner ym. esittäämää lineaariseen ohjemointiin perus
 
 Graafin virityspuu määrittelee myös kerrostuksen. Kerrostamisessa valitaan ensin lähdesolmu, jonka kerros on $L_0$. Jokainen solmun seuraaja asetetaan kerrokseen $L_1$ ja niin edelleen
 
-Kun mahdollinen virityspuu on laadittu, käytetään hyväksi virityspuiden ominaisuutta, että jos jokin sen lanka poistetaan, tuotetaan kaksi toisistaan erillistä puuta. Jokaiselle langalle määritellään \emph{leikkausarvo}. Leikkausarvolla tarkoitetaan kaikkien  
+Kun mahdollinen virityspuu on laadittu, käytetään hyväksi virityspuiden ominaisuutta, että jos jokin sen lanka poistetaan, tuotetaan kaksi toisistaan erillistä puuta. Jokaiselle langalle määritellään \emph{leikkausarvo}. Leikkausarvolla tarkoitetaan kaikkien lankojen summaa päänoodista loppunoodiin, josta vähennetään 
 
 \begin{itemize}
 	\item Mahdollinen virityspuu.
-	
+	\item 
 
 \end{itemize}
-
 
 
 		\subsubsection{Risteyksien vähentäminen}
@@ -512,7 +520,6 @@ Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio ase
 
 Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
 
-
 		\subsection{Esimerkki}
 
 Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
@@ -526,28 +533,7 @@ Tyypillinen
 			\subsubsection{Sulkuventtiilin lukituskaavio}
 
 
-		\subsection{Tulosten arviointiperusteet}
 
-Asetteluista halutaan mahdollisimman esteettisiä.
-Estetiikka erittelee ominaisuudet mitä graafiin halutaan mahdollisimman paljon, jota se olisi mahdollismman luettava.
-Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä. \cite{RefWorks:47}
-
-Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
-\begin{enumerate}
-  \item Lankojen risteysmäärä
-  \item Kaavion koko
-  \item Lankojen yhteispituus
-  \item Pisin lankapituus
-  \item Symmetria
-\end{enumerate}
-
-Näistä ominaisuuksista lankojen risteysmäärä muodostui tärkeimmäksi. Myös lankojen pituus oli merkittävässä asemassa luettavuuden kannalta.
-
-Esteettiset ominaisuudet ovat usein ristiriidassa keskenään.
-Jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen usein tekemään mutkia.
-Kompromisoimattoman esteettiset kaaviot ovat harvinaisuuksia.
-
-Valmiin kaavion asettelua voidaan arvioida automatisoidusti laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä, kuten lankojen risteysmääriä.
 
 	\clearpage
 	\section{Tulokset}
