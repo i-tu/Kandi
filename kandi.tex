@@ -416,8 +416,19 @@ Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kus
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
 Kun halutaankin mahdollisimman lyhyitä kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59} Käyttöön tarkoitetun graafin pituuden rajoittaminen ei kuitenkaan ole tavoitteena, 
 
-Työssä käytetään Gansner ym. esittäämää "Network Simplex"-algoritmia, joka
-\emph{TO DO: SELITÄ TÄMÄ}
+Työssä käytetään Gansner ym. esittäämää lineaariseen ohjemointiin perustuvaa lineaarisen ohjelmoinnin menetelmää, \emph{Network Simplex}- algoritmia. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan nopeaksi.
+
+Graafin virityspuu määrittelee myös kerrostuksen. Kerrostamisessa valitaan ensin lähdesolmu, jonka kerros on $L_0$. Jokainen solmun seuraaja asetetaan kerrokseen $L_1$ ja niin edelleen
+
+Kun mahdollinen virityspuu on laadittu, käytetään hyväksi virityspuiden ominaisuutta, että jos jokin sen lanka poistetaan, tuotetaan kaksi toisistaan erillistä puuta. Jokaiselle langalle määritellään \emph{leikkausarvo}. Leikkausarvolla tarkoitetaan kaikkien  
+
+\begin{itemize}
+	\item Mahdollinen virityspuu.
+	
+
+\end{itemize}
+
+
 
 		\subsubsection{Risteyksien vähentäminen}
 
