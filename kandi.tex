@@ -19,6 +19,8 @@ citecolor=black,pdfstartview=FitH]{hyperref}
 
 	\usepackage{setspace}
 	\onehalfspacing
+	\setlength\parindent{0pt}
+	\usepackage[parfill]{parskip}
 	
   \usepackage{lmodern}
 	
@@ -429,25 +431,39 @@ Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein
 Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä, voidaan käyttää Berger-Shor algoritmiin \cite{RefWorks:68} perustuvaa ahnetta algoritmia \cite{RefWorks:48}.
 
 		\subsubsection{Kerrostus}
+Kerrostukselta vaaditaan, että se on \emph{kunnollinen} osion 3.1 mukaisesti, sekä \emph{tiivis}\footnote{eng. compact}.
+Tiiviydellä tarkoitetaan, että kerrostuksen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 
-%Kerrostusvaiheessa ratkaistava vähimmäisongelma on, että jokaisen noodin seuraajanoodin täytyy olla suurempaa kerroslukua kuin mitä se itse on.
-Kerrostukselta vaaditaan, että se on \emph{kunnollinen} osion 3.1 mukaisesti, eli että 
-Tämän saavuttamiseksi graafiin lisätään \emph{vale}solmuja pitkien lankojen katkaisemiseksi.
-Kerrostukseen halutaan valesolmuja mahdollisimman vähän.
+Tämän saavuttamiseksi graafiin lisätään valesolmuja pitkien lankojen katkaisemiseksi.
+Valesolmut ovat verkkoon lisättäviä kuvitteellisia solmuja joita ei piirretä lopulliseen kaavioon, mutta jotka helpottavat verkon algoritmillista käsittelyä.
+Kerrostukseen halutaan valesolmuja mahdollisimman vähän tiiviyden, lyhyiden lankapituuksien sekä nopean laskennallisen suoritusajan varmistamiseksi.
 
-Mahdollisimman kompakti kerrostus on haluttava.
-Tämä tarkoittaa että sen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
-Käytännössä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta graafia on tarkoitus tarkastella.
-Graafin pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus.
-Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
+Tiiviyden äärimmäisenä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta aseteltua verkkoa on tarkoitus tarkastella.
+Verkon pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus.
 
 Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
-
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
-Kun halutaankin mahdollisimman lyhyitä kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
-Käyttöön tarkoitetun graafin pituuden rajoittaminen ei kuitenkaan ole tavoitteena, 
 
-Työssä käytetään lineaarisen ohjelmoinnin menetelmää, \emph{Network Simplex}- algoritmia.
+Yksinkertainen tapa tuottaa kerrostus on pisimmän reitin tapa. Se asettaa ensin kaikki solmut, joilla ei ole seuraajia kerrokseen $L_1$.
+Tämän jälkeen jokainen muu solmu asetetaan kerrokseen $L_{p+1}$, missä $p$ on lähin etäisyys johonkin kerroksen $L_1$ solmuista.
+Tällä tavalla laaditut kerrostukset sisältävät mahdollisimman vähän kerroksia.
+Tämä lähestymistapa ei tuota hyviä asetteluja, sillä joistakin kerroksista tulee huomattavan suuria.
+
+Kun halutaan mahdollisimman kapeita kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
+Ongelmana on ajastaa eri tehtävät $W$ kappaleelle prosessoreita siten, että kaikki tehtävät suoritetaan ajassa $H$.
+Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
+
+On olemassa myös tapa laatia kerrostus, joka minimoi valesolmujen määrän.
+Se löydetään kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä jolla minimoidaan
+
+$$f=\displaystyle\sum\limits_{(v_1,v_2) \in V} (i - j - 1),$$
+
+, missä $v_1 \in L_i$ ja $v_2 \in L_j$.
+
+Huomionarvoista on se, että $f$ on sama kuin valesolmujen määrä.
+
+ nk. \emph{Network Simplex}- algoritmiin.
+
 Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan nopeaksi.
 
 Menetelmässä laaditaan ensiksi graafin virityspuu \emph{(ks. osio 3.1)}.
@@ -536,7 +552,6 @@ $$
 Kun solmujen sijainnit on tasapainotettu, jaotellaan asetteluun käytössä oleva tila ruudukoksi ja asetetaan solmut niitten tasapainotettuja sijainteja lähinnä oleviin ruudukkopisteisiin.
 Tällainen ruudukointi tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduukointi selkeyttää luettavuutta.
 
-
 \cite{RefWorks:49}
 
 
@@ -596,41 +611,26 @@ Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuv�
 
 
 	\clearpage
-	\section{Tulokset}
-	
-\emph{(Ei vielä tiedossa.)}
 
 	\section{Yhteenveto ja tulevaisuudennäkymät}
-
-Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä suunnattujen graafien asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
-Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa erilaisiin teollisuuden tarpeisiin.
 
 Teollisuuden automaatiosuunnittelun yhtenäistämistä on akateemisissa julkaisuissa kartoitettu runsaasti.
 Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat vieraannuttavalle tasolle.
 
-Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, graafinpiirtoon.
-Ensisijainen pyrkimys on ollut tuottaa yksinkertaisesti toteutettava ratkaisu joka voidaan helposti integroida suunnitteluprosessiin.
+Automaatiojärjestelmien suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä eivätkä sen .
+Suunnittelussa käytettäviä työvälineitä tehostamalla voidaan saavuttaa merkittäviä säästöjä ja nopeuttaa toimihenkilöiden työtä.
 
-Automaatiojärjestelmien suunnitteluprosessi on monimutkainen, kallis ja pitkä prosessi.
-Suunnittelun työvälineisiin kohdistuu suuria vaatimuksia.
-Jos menetelmästä saavutettu hyöty ei ole riittävä,
+Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, visuaalisen suunnittelun ja ohjelmoinnin kaavioiden asetteluun.
+Ensisijainen pyrkimys on ollut kuvailla yksinkertaisesti toteutettava ratkaisu joka voidaan helposti integroida suunnitteluprosessiin.
 
-HAASTEET:
-Vaikeaa integroida
-odottamattomat haasteet
-Mitä
-
-Kriteerit:
-
-Tämän kandidaatintyön aikana olen toivottavasti osoittanut että työ on mahdollinen
-
-Lisäksi on esitetty useita syitä sille, miksi ratkaisu on käytännöllinen eli 
+Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä suunnattujen graafien asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
+Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa edelleen erilaisiin teollisuuden tarpeisiin.
 
 On huomattava määrä teknologisia uudistuksia, jotka eivät päädy käyttöön.
-Kriteeri, jonka ratkaisun on täytettävä ennen tuotannon aloittamista, on kannattavuus.
+Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, tarvitaab niitten lisäksi toimijoiden tahtotila olemassaolevien prosessien muuttamiseen ja uuden opetteluun.
+Työssä esitelty ja sitä vastaavat menetelmät voivat olla vaikeita toteuttaa käytännössä.
+Tästä huolimatta täytyy suunnittelualan yritysten pyrkiä kohti entistä enemmän integroidumpaa ja virtaviivaistettua suunnitteluprosessia jos halutaan pysyä perässä teollisuuden kilpailussa.
 
-Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, täytyy olla vielä viimeinen
-Tahto.
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
