@@ -98,26 +98,22 @@ Otaniemi,
 	\mysection{Käsitteet ja lyhenteet}
 
 	\begin{tabular}{ll}
-Lanka        & Distributed Control System \\
-	     	      & Hajautettu ohjausjärjestelmä \\ \\
+Lanka        & ... \\
+	     	      & ... \\ \\
 	     	    
 DCS        & Distributed Control System \\
         &   Hajautettu ohjausjärjestelmä \\ \\
         
-FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä logiikkaohjelmointikieli\\\\
+FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä ohjelmointikieli\\\\
 IEC          & International Electrotechnical Commission\\\\
 PLC         & Programmable Logic Circuit \\
 	      & Ohjelmoitava logiikkapiiri\\\\
-
-% XSL
-%Valesolmu & 
-%Solmu
-%Lanka
-%Lineaarinen segmentti
-%DFS
-
-
 	\end{tabular}
+
+{\bf Lisättävä:
+XML, XSL, Solmu, Valesolmu, DFS, jne. jne.
+}
+
 
 	\cleardoublepage
 	\storeinipagenumber
@@ -536,19 +532,20 @@ Tietovirtakaavioiden toimilohkoissa on useita portteja ja niitten sisältämät 
 Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa.
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
 
-Reititysongelmaan ovat esittäneet Sander ym. ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttien muodostaman ryhmän paikallista asettelua erillisenä graafina.
-Ruutujen lankasegmentteihin sovelletaan tässäkin työssä kuvattuja graafinpiirron menetelmiä. \cite{RefWorks:17}
-
 Kun jokaiselle solmulle on tiedossa niiden lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmien koordinaattien välillä.
 Poikittaiset segmentit jotka asetetaan tyhjään tilaan rivien $j$ ja $j+1$ välille saavat koordinaatikseen $j+0.5$.
-Tämä toistetaan pystysuuntaisille segmenteille. \cite{RefWorks:17}
-%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
+Tämä toistetaan pystysuuntaisille segmenteille.
 
 Kaikki samassa ruudussa tai sarakkeessa $k$ olevat segmentit kootaan ryhmäksi joukkoon $S$.
 Tavoitteena on levittää ne koordinaateille välillä $[k, k+1]$.
+Reititysongelmaan ovat esittäneet Sander ym. ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttien muodostaman ryhmän paikallista asettelua erillisenä graafina. \cite{RefWorks:17}
+Ruutujen lankasegmentteihin sovelletaan tässäkin työssä kuvattuja kaavioasettelun menetelmiä.
 
-Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
-Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
+%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
+
+
+%Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
+%Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
 
 %Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
 
