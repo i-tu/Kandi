@@ -225,11 +225,13 @@ Logiikkadiagrammit kuvaavat syöttöjen ja lähtöjen välistä logiikkaa.
 Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä helppoa laatia.
 
 Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
-Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%. \cite{Refworks:63}
-Koska työaika on yrityksessä rajallinen voimavara, 
+Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%.
+Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävä työaikaa lyhentää parhaimillaan puoleen. \cite{Refworks:63}
 
+Koska työaika on yrityksessä rajallinen voimavara,
 Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
 Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
+
 
 		\subsubsection{Toimintakaaviot}
 
@@ -316,12 +318,15 @@ Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \math
 Kerrostus on \emph{kunnollinen}\footnote{eng. proper} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluuvat kerrost
 
 \emph{Virityspuu} on verkon aliverkko joka sisältää verkon kaikki solmut, siten että se sisältää mahdollisimman vähän lankoja.
-Voidaan osoittaa, että
+Se on aina syklitön
+Jos virityspuusta poistetaan yksi lanka, jakaantuu puu kahdeksi.
 
  		\subsection{Tulosten arviointiperusteet}
 
 Asetteluista halutaan mahdollisimman esteettisiä.
 Estetiikka erittelee ominaisuudet mitä graafiin halutaan mahdollisimman paljon, jota se olisi mahdollismman luettava.
+Asettelulle voidaan muodostaa 
+
 Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä. \cite{RefWorks:47}
 
 Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
@@ -341,27 +346,29 @@ Kompromisoimattoman esteettiset kaaviot ovat harvinaisuuksia.
 
 Valmiin kaavion asettelua voidaan arvioida automatisoidusti laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä, kuten lankojen risteysmääriä.
 
+
 	\subsection{Liittyvä työ}
 
-Suurin osa graafinpiirrollisista lähestymistavoista on suunniteltu ennalta tuntemattomien verkkojen piirtämiseen. Ne pyrkivät tuottamaan keskimäärin hyvän asettelun, oli graafi millainen hyvänsä.
-Suunnatun verkon rakenteen huomioonottavat algoritmit tuottavat parempia tuloksia, kun on ennalta tunnettua että verkko on suunnattu.
+Suurin osa graafinpiirrollisista lähestymistavoista on suunniteltu ennalta tuntemattomien verkkojen piirtämiseen.
+Ne pyrkivät tuottamaan keskimäärin hyvän asettelun, oli graafi millainen hyvänsä.
+Suunnatun verkon rakenteen huomioonottavat algoritmit tuottavat parempia tuloksia.
 
 Suunnattuja graafeja käytetään laajalti riippuvuussuhteiden mallintamiseen.
 Esimerkkejä suunnatuista graafeista ovat projektinhallintaverkot, ontologioiden määrittelykaaviot (kuuluu ryhmään), ohjelmien kutsupuut, syy-seurausdiagrammit sekä aiemmin osioissa 2.2.1 ja 2.2.2 käsittelemämme toiminta- ja ohjelmakoodikaaviot.
+
+Ylivoimaisesti suosituin tapa suunnattujen graafien piirtoon on Sugiyaman menetelmä. \cite{RefWorks:9}
+Alkuperäinen ajatus graafien kerrostamisesta voidaan johtaa Warfieldin \cite{RefWorks:58} ja Carpanon \cite{RefWorks:57} esittämiin ajatuksiin graafinpiirrosta.
 Kerroksittainen tapa esittää syklittömiä ja suunnattuja verkkoja on intuitiivinen ja helppolukuinen.
+Sugiyaman algoritmia ei voi kuitenkaan käyttää sellaisenaan tietovirtakaavioiden asetteluun.
+Aseteltavissa tietovirtakaavioissa esiintyvät toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
+Lisäksi langat ovat tietovirtakaavioissa yleisen käytännön mukaisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
+Sugiyama ym. lähestymistapa jaottelee algoritmin vaiheisiin, joista jokaista voidaan tutkia erillisenä ongelmana.
 
-Varhaisimpia algoritmeja kerrostettujen graafien asetteluun ovat kehittäneet Warfield \cite{RefWorks:58}, Carpano \cite{RefWorks:57} ja Sugiyama ym. \cite{RefWorks:9}.
-Näistä viimeiseksi mainittu jaottelee algoritmin vaiheisiin, joista jokaista voidaan tutkia erillisenä ongelmana. Sugiyama ym. alkuperäistä algoritmia käytetään nykyaikaisissa algoritmeissa vain vähäisin osin.
-
-Sen määrittelemä työvaiheiden jaotetlu on kuitenkin säilynyt hierarkisen graafinpiirron tutkimuskentässä.
-Vaiheet ovat järjestyksessä kerrosten vähennys.
-Myöhemmin käsiteltävä suuntaus ja lankojen reititys ovat jälkikäteen lisättyjä osioita.
+Sen määrittelemä jaottelu on säilynyt hierarkisen graafinpiirron tutkimuskentässä ajankohtaisena, vaikkei sen esittämiä algoritmeja käytetäkään.
+Vaiheet ovat järjestyksessä \emph{kerrostus}, \emph{risteysten vähennys} ja \emph{lopullinen asettelu}.
+Myöhemmin tietovirtakaavioiden piirtoon on kehitetty lisävaiheet \emph{suuntaus} ja  \emph{lankojen reititys}.
 
 %[GKNV93, Car80, ES91, GNV88, GM89, MES88, MRH91, PT90]
-
-Sitä ei kuitenkaan useista syistä voi käyttää sellaisenaan tietovirtakaavioiden asetteluun.
-Aseteltavissa tietovirtakaavioissa esiintyvät toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
-Lisäksi Sugiyaman lähestymistavassa langat eivät ole tietovirtakaavioissa yleisen käytännön mukaisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
 
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
 Sander ym. esitti reititysongelmaan ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttiryhmää omana graafiongelmanaan, johon sovelletaan suurempaan ongelmaankin käytettäviä graafinpiirron menetelmiä. \cite:{RefWorks}
@@ -380,12 +387,12 @@ Sovelluksia graafinasettelualgoritmeille mallipohjaisessa suunnittelussa ovat ke
 
 		\subsection{Graafinasettelualgoritmi}
 
-Työssä käytetty algoritmi seuraa Klauske ym. kehittämää datavirtauskaavioiden rajoitukset huomioon ottavaa lähestymistapaa joka yhdistelee useita sopivia graafinpiirron menetelmiä \cite{RefWorks:50}.
+Algoritmin eri vaiheiden algoritmit on valittu ottaen huomioon datavirtauskaavioiden rajoitukset ja erityiset tarpeet sekä niitten rakenteelliset ominaisuudet. Laajoja käytännön tutkimuksia datavirtakaavioiden asettelusta on tehnyt Klauske ym.\cite{RefWorks:50}.
 
 Se koostuu viidestä eri vaiheesta:
 \begin{enumerate}
-  \item Syklien poisto, seuraa Eades et al.\cite{RefWorks:48}
-  \item Kerrostus, seuraa Gansner et. al., lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
+  \item Syklien poisto, seuraa DFS-hakua \cite{RefWorks:69} tai Eades ym. ahnetta algoritmia \cite{RefWorks:48}
+  \item Kerrostus, seuraa Gansner ym. lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
   \item Risteysten vähentäminen, seuraa Sugiyama ym. alkuperäistä menetelmää. \cite{RefWorks:9}
   \item Poikittaisasettelu, seuraa Sanderin lineaaristen segmenttien menetelmää. \cite{RefWorks:49}
   \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia. \cite{RefWorks:17}
@@ -398,18 +405,21 @@ Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia la
 		\subsubsection{Syklien poisto}
 
 Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
-Syklittömyys on määritelty tarkemmin osiossa \emph{3.1}.
-Säätötekniikassa yleiset takaisinkytkennät ovat määritelmänsä mukaisesti syklejä.
+Syklit eli takaisinkytkennät ovat kuitenkin välttämätön osa kaavioita, eikä niitä voida kokonaan poistaa.
+Tämän vuoksi syklit rikotaan kääntämällä yksi tai useampi syklin sisältämistä langoista.
 
-Syklejä ei voida asettelualgoritmin syklittömyysvaatimuksesta huolimatta poistaa.
-Tämän vuoksi syklit rikotaan kääntämällä yksi syklin sisältämistä langoista.
-Tätä jatketaan kunnes graafi on asyklinen.
-Syklillisen graafin muuntaminen syklittömäksi, eli käännettävien lankojen valinta siten että niitä on mahdollisimmanvähän on NP-vaikea.\emph{[lähde]}
+Tarkemmin määriteltynä tavoitteena on löytää mahdollisimman pieni lankajoukko $FS \subset E $ jotka kääntämällä verkossa ei ole syklejä.
+Tämä ongelman on osoitettu olevan NP-vaikea. \cite{RefWorks:65}
 
-Syklien poistovaiheessa käsiteltävä tietomalli kuitenkin sisältää syklipoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan noodin. Tämä merkittävästi helpottaa syklinpoistovaihetta, ja graafin suuntaamisesta tuleekin triviaali toimenpide. [?]
+Syklien poistovaiheessa käsiteltävä tietomalli sisältää syklinpoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan solmun.
+Koska suorituspuun ensimmäinen kerros on jo ennen asettelua tiedossa, voidaan riittävän pieni lankajoukko $FS$ löytää DFS-haulla. 
+DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kunnes on luotua polkua $(e_1,e_2...e_h)$ ei voida enää jatkaa.
+Tämän jälkeen palataan takaisin kunnes löydetään solmu josta lähtee 
+\cite{RefWorks:69}
 
-Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin.
-Kun graafissa ei ole syklejä, voidaan määritellä noodien keskinäinen topologinen kerrostus.
+Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin käyttäen hyväksi lankajoukkoa $FS$.
+
+Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä, voidaan käyttää Berger-Shor algoritmiin \cite{RefWorks:68} perustuvaa ahnetta algoritmia \cite{RefWorks:48}.
 
 		\subsubsection{Kerrostus}
 
@@ -433,7 +443,7 @@ Käyttöön tarkoitetun graafin pituuden rajoittaminen ei kuitenkaan ole tavoitt
 Työssä käytetään lineaarisen ohjelmoinnin menetelmää, \emph{Network Simplex}- algoritmia.
 Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan nopeaksi.
 
-Menetelmässä laaditaan ensiksi graafin \emph{virityspuu}.
+Menetelmässä laaditaan ensiksi graafin virityspuu \emph{(ks. osio 3.1)}.
 Kerrostamisessa valitaan ensin lähdesolmu, jonka kerros on $L_0$.
 Jokainen solmun seuraaja asetetaan kerrokseen $L_1$ ja niin edelleen
 
@@ -444,7 +454,6 @@ Leikkausarvolla tarkoitetaan kaikkien lankojen summaa päänoodista loppunoodiin
 \begin{itemize}
 	\item Mahdollinen virityspuu.
 	\item 
-
 \end{itemize}
 
 
@@ -483,11 +492,10 @@ Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvy
 Esteettistä lopputulosta tavoittelevan asettelualgoritmin tulee siis pyrkiä minimoimaan lankojen kulmat.
 Siinä missä noodikerroksien noodikombinaatiot vaikuttavat lankojen risteysten määrään, vaikuttaa niiden tarkka poikittainen asettelu langoissa olevien kulmien määrään.
 Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
-Asettelun merkitys korostuu kun lankoja on paljon, kuten automaatiologiikkakaaviolle on tyypillistä.
+Asettelun merkitys korostuu kun lankoja on paljon, kuten automaation logiikkakaavioille on tyypillistä.
 
-Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetään poikittaisasetteluvaiheessa.
-
-Poikittainen asettelu tuottaa pitkittäiset noodipositiot $1...m$ sekä poikittaiset positiot $1...n$.
+Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu pyritään säilyttämään poikittaisasetteluvaiheessa.
+Poikittainen asettelu tuottaa pitkittäisten kerrospositioitden $1 ... h$ lisäksi poikittaiset noodipositiot $1 ... n $
 Samalla poikittaisella positiolla olevien noodien välille voidaan reitittää suoria lankoja, joten solmujen seuraajat pyritään sijoittamaan samalle poikittaispositiolle jos mahdollista.
 
 Aluksi pyritään tuottamaan asettelu, joka on ylipäänsä mahdollinen.
@@ -503,10 +511,16 @@ Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
 Liikutettavat asiat ovat eivät ole yksittäisiä noodeja vaan lineaarisia segmenttejä.
 Ne pysyvät suorina linjoina.
 
-Pallot löytävät tasapainopisteensä.
-Mallinnettavat 
+Solmun seuraajan poikkeama voidaan laskea 
 
-seuraavat ehdot:
+$$
+D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
+$$
+
+$$
+D_p(e) = x(s) - x(t)
+$$
+
 
 \begin{enumerate}
 	\item Asette\end{enumerate}
@@ -523,8 +537,6 @@ Noodit, jotka eivät ole muussa segmentissä, ovat omassaan.
 
 
 \cite{RefWorks:49}
-
-
 
 
 		\subsubsection{Lankojen reititys}
@@ -561,24 +573,25 @@ Kun tämä vaihe on suoritettu kaikille poikittaisille segmenteille, sama tehdä
 		\subsection{Kaavioiden tuottaminen}
 
 Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaaviopalvelimella.
-Verkossa sijaitseva kaavioipalvelin soveltuu suurten järjestelmien suunnitteluun erityisen hyvin, kun suunnittelijoita on monta. Kaikki suunnittelijat pystyvät hakemaan keskitetystä suunnittelujärjestelmästä ajantasaisimman version kaaviosta ilman, että kaaviot tarvitsee ladata järjestelmään erikseen.
+Verkossa sijaitseva kaavioipalvelin soveltuu suurten järjestelmien suunnitteluun erityisen hyvin, kun suunnittelijoita on monta.
+Kaikki suunnittelijat pystyvät hakemaan keskitetystä suunnittelujärjestelmästä ajantasaisimman version kaaviosta ilman, että kaaviot tarvitsee ladata järjestelmään erikseen.
 Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
 Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
 
 		\subsection{Esimerkki}
 
-Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
+		\emph{Lopullisessa työssä on esimerkki. Opponointiversioon se ei ehtinyt.}
 
-Putkeen liittyy useita 
+%Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
 
-			\subsubsection{Sulkuventtiilin ohjauslogiikka}
+%Putkeen liittyy useita 
 
-Tyypillinen 
+%			\subsubsection{Sulkuventtiilin ohjauslogiikka}
 
-			\subsubsection{Sulkuventtiilin lukituskaavio}
+%Tyypillinen 
 
-
+%			\subsubsection{Sulkuventtiilin lukituskaavio}
 
 
 	\clearpage
