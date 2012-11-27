@@ -313,9 +313,10 @@ Polku on solmusekvenssi $(v_1, v_2, ..., v_k)$ jolle pätee, että $k>1$ ja joka
 
 Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua enemmän kuin kerran.
 Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \mathsf{n}(p_2)$.
-
 Kerrostus on \emph{kunnollinen}\footnote{eng. proper} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluuvat kerrost
 
+\emph{Virityspuu} on verkon aliverkko joka sisältää verkon kaikki solmut, siten että se sisältää mahdollisimman vähän lankoja.
+Voidaan osoittaa, että
 
  		\subsection{Tulosten arviointiperusteet}
 
@@ -426,13 +427,19 @@ Tarkastelemalla tätä pituutta saadaan kuva lopullisen kuvan leveydestä.
 Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
 
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
-Kun halutaankin mahdollisimman lyhyitä kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59} Käyttöön tarkoitetun graafin pituuden rajoittaminen ei kuitenkaan ole tavoitteena, 
+Kun halutaankin mahdollisimman lyhyitä kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
+Käyttöön tarkoitetun graafin pituuden rajoittaminen ei kuitenkaan ole tavoitteena, 
 
-Työssä käytetään Gansner ym. esittäämää lineaariseen ohjemointiin perustuvaa lineaarisen ohjelmoinnin menetelmää, \emph{Network Simplex}- algoritmia. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan nopeaksi.
+Työssä käytetään lineaarisen ohjelmoinnin menetelmää, \emph{Network Simplex}- algoritmia.
+Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan nopeaksi.
 
-Graafin virityspuu määrittelee myös kerrostuksen. Kerrostamisessa valitaan ensin lähdesolmu, jonka kerros on $L_0$. Jokainen solmun seuraaja asetetaan kerrokseen $L_1$ ja niin edelleen
+Menetelmässä laaditaan ensiksi graafin \emph{virityspuu}.
+Kerrostamisessa valitaan ensin lähdesolmu, jonka kerros on $L_0$.
+Jokainen solmun seuraaja asetetaan kerrokseen $L_1$ ja niin edelleen
 
-Kun mahdollinen virityspuu on laadittu, käytetään hyväksi virityspuiden ominaisuutta, että jos jokin sen lanka poistetaan, tuotetaan kaksi toisistaan erillistä puuta. Jokaiselle langalle määritellään \emph{leikkausarvo}. Leikkausarvolla tarkoitetaan kaikkien lankojen summaa päänoodista loppunoodiin, josta vähennetään 
+Kun mahdollinen virityspuu on laadittu, käytetään hyväksi virityspuun ominaisuutta, että jos jokin sen lanka poistetaan, tuotetaan kaksi toisistaan erillistä puuta,
+Jokaiselle langalle määritellään \emph{leikkausarvo}.
+Leikkausarvolla tarkoitetaan kaikkien lankojen summaa päänoodista loppunoodiin, josta vähennetään 
 
 \begin{itemize}
 	\item Mahdollinen virityspuu.
@@ -473,22 +480,46 @@ Risteysten määrät lasketaan eri tuloksista ja ratkaisu, jossa on vähiten ris
 		\subsubsection{Poikittainen asettelu}
 
 Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47}
-Asettelualgoritmin tulee tällöin pyrkiä minimoimaan lankojen kulmat.
+Esteettistä lopputulosta tavoittelevan asettelualgoritmin tulee siis pyrkiä minimoimaan lankojen kulmat.
 Siinä missä noodikerroksien noodikombinaatiot vaikuttavat lankojen risteysten määrään, vaikuttaa niiden tarkka poikittainen asettelu langoissa olevien kulmien määrään.
 Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
 Asettelun merkitys korostuu kun lankoja on paljon, kuten automaatiologiikkakaaviolle on tyypillistä.
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu säilytetään poikittaisasetteluvaiheessa.
 
+Poikittainen asettelu tuottaa pitkittäiset noodipositiot $1...m$ sekä poikittaiset positiot $1...n$.
+Samalla poikittaisella positiolla olevien noodien välille voidaan reitittää suoria lankoja, joten solmujen seuraajat pyritään sijoittamaan samalle poikittaispositiolle jos mahdollista.
+
+Aluksi pyritään tuottamaan asettelu, joka on ylipäänsä mahdollinen.
+Tämä tehdään jakamalla poikittais- ja pystypositiot yksinkertaisesti pienimmästä suurimpaan.
+Tämän jälkeen graafin solmut lajitellaan topologisesti.
+Suunnatun graafin topologinen lajittelu
+
+Kun on saavutettu yksinkertaisin mahdollinen asettelu, voidaan siirtyä tasapainottamaan asettelua.
+Solmuasettelu tasapainoitetaan mallintamalla solmuja levossa olevina heilureina.
+Solmut ovat heilurin päässä oleva paino ja lanka painoa kannatteleva naru.
+Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
+
+Liikutettavat asiat ovat eivät ole yksittäisiä noodeja vaan lineaarisia segmenttejä.
+Ne pysyvät suorina linjoina.
+
+Pallot löytävät tasapainopisteensä.
+Mallinnettavat 
+
+seuraavat ehdot:
+
+\begin{enumerate}
+	\item Asette\end{enumerate}
 
 Seurauksena lanka, joka ennen poikittaista sijoittamista sisälsi mutkia, voidaan piirtää suoraksi saman lineaarisen osion sisällä.
 Noodit, jotka eivät ole muussa segmentissä, ovat omassaan.
 
 \begin{enumerate}
 	\item Segmentteihin jako kerroksen sisällä
-	\item 
-
-\end{enumerate
+	\item Asetetaan alkuperäiset sijainnit, jotka mahjdollisimman pienet
+	\item Heilurimenetelmä (Poikkeamat-segmentointi-sijoittelu)
+	\item Ruudukkoon asettelu
+\end{enumerate}
 
 
 \cite{RefWorks:49}
