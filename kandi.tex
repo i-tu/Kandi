@@ -68,21 +68,21 @@ muuntaminen standardeita noudattavaksi logiikkakaavioksi.
 	\vspace{10cm}
 	\mysection{Esipuhe}
 
-Ilman seuraavia ihmisiä en olisi onnistunut tässä työssä.
+%Ilman seuraavia ihmisiä en olisi onnistunut tässä työssä.
 
-Ohjaajaani Mika Strömmania hyvistä huomioista ja asiallisesta palautteesta ja skarpista ohjauksesta.
+%Ohjaajaani Mika Strömmania hyvistä huomioista ja asiallisesta palautteesta ja skarpista ohjauksesta.
 
-Petri Kokkoa ja Pekka Niemistä ideoinnista ja suunnannäyttämisestä.
+%Petri Kokkoa ja Pekka Niemistä ideoinnista ja suunnannäyttämisestä.
 
-Kandiryhmäni jäseniä Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, Peter 'Bembu'  Kronströmiä ja Lauri Andleria.
+%Kandiryhmäni jäseniä Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, Peter 'Bembu'  Kronströmiä ja Lauri Andleria.
 
-Aalto- yliopiston henkilökuntaa hyvästä työstä.
-Vanhempiani tuesta ja kannustuksesta.
+%Aalto- yliopiston henkilökuntaa hyvästä työstä.
+%Vanhempiani tuesta ja kannustuksesta.
 
 	\vspace{5cm}
 
 Otaniemi, 
-Itsenäisyyspäivänä 6.12.2012
+%Itsenäisyyspäivänä 6.12.2012
 
 	\vspace{5mm}
 	{\hfill Ian Tuomi \hspace{1cm}}
@@ -109,10 +109,12 @@ IEC          & International Electrotechnical Commission\\\\
 PLC         & Programmable Logic Circuit \\
 	      & Ohjelmoitava logiikkapiiri\\\\
 
+% XSL
 %Valesolmu & 
 %Solmu
 %Lanka
 %Lineaarinen segmentti
+%DFS
 
 
 	\end{tabular}
@@ -139,7 +141,6 @@ Lisäksi vaaditut toteutusajat ovat jatkuvasti lyhentyneet.
 Suunnitteluprosessiin kohdistuneista vaatimuksesta johtuen työtä on pyritty tehostamaan automatisoiduilla apuvälineillä.
 Alan metodiikka ei ole ilmeisistä standardoimiseduista huolimatta yhtenäistynyt ja yhteistyö alan tutkimuksessa on vähäistä.
 Vaikka lähestymistavat ovat vaihtelevia, alalla on kuitenkin nähtävissä yhtenäinen siirtymä kohti jaettuja tietomalleja.
-
 Automaatiojärjestelmien suunnittelun näkökulmasta jaettujen tietomallien käyttö tarkoittaa,
 että suunnittelujärjestelmään tallentuu projektin edetessä kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen.
 Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokannasta.
@@ -153,7 +154,6 @@ Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, 
 
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon.
 Työssä esitellään Sugiyaman ym. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuva, tietovirtakaavioiden esittämiseen soveltuva algoritmi.
-
 Esimerkki tyypillisestä teollisuuden logiikkakaaviosta esitellään ja se asetellaan se käyttäen esiteltyä algoritmia.
 Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mittakaavalla.
 
@@ -196,14 +196,13 @@ abstraktilla tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja tulos
 toteuttaa tehokkaasti.
 Tällaisen määrittelyn avulla on mahdollista käyttää formaaleja verifiointimenetelmiä joitten avulla
 voidaan osoittaa, että järjestelmän suunnitelma toteuttaa sille asetetut vaatimukset.
-Näin suunnitelman oikeellisuus voidaan osoittaa ennen investointeja toteutukseen. \cite:{RefWorks:41}
+Näin suunnitelman oikeellisuus voidaan osoittaa ennen investointeja toteutukseen. \cite{RefWorks:41}
 
 		\subsubsection{Fyysinen näkymä}
 
 Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kenttäväylät,
 ohjauskeskukset, toimilaitteiden sijainnit sekä ylipäänsä kaikki mitä vaaditaan 
-järjestelmän fyysiseen käyttöönottoon.
-
+järjestelmän fyysiseen käyttöönottoon. Sen käsittely ei kuulu tämän työn laajuteen.
 
 		\subsubsection{Ohjelmistonäkymä}
 
@@ -224,22 +223,15 @@ Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäisell
 %http://www.geocities.ws/andrikuncoro/Instrumentation/1811_06.pdf
 
 Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
-Loogista järjestelmää voidaan kuvata monin erilaisin tavoin.
-Nämä erilaiset kuvaukset voivat näyttää erilaisilta, mutta olla silti täysin yksiselitteisiä suhteessa kuvattuun järjestelmään.
 Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmälläpitäen.
+Joskus loogista järjestelmää voidaan kuvailla kertomalla esimerkinomaisesti sen toiminnasta eri olosuhteissa.
+Tällainen lähestymistapa ei kuitenkaan yleensä ole riittävä.
+Lisäksi määritellään yleensä ainakin muuttujia, säätöpiirejä, sekvenssejä sekä niitten välisiä kytkentöjä.\cite{RefWorks:41}
+
 Jatkuva prosessiohjaus voidaan esittää selkeästi järjestelmän PI-kaavioissa, mutta diskreetin ohjauksen esittämiseen tarvitaan erilaisia esityksiä, kuten logiikkadiagrammeja. \cite{RefWorks:54}
 
 Logiikkadiagrammit kuvaavat syöttöjen ja lähtöjen välistä logiikkaa.
 Määrittelyn mukaisia kaavioita ei kuitenkaan ole välttämättä helppoa laatia.
-
-Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
-Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%.
-Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävä työaikaa lyhentää parhaimillaan puoleen. \cite{Refworks:63}
-
-Koska työaika on yrityksessä rajallinen voimavara,
-Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
-Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt  \emph{[lähde on, pitää kaivaa]}
-
 
 		\subsubsection{Toimintakaaviot}
 
@@ -247,7 +239,8 @@ Toimintakaavio on funktionaalisen näkymän toteutus, joka tavallisesti valmiste
 Se määrittelee ohjausjärjestelmän toiminnot ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
 Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
 
-\emph{Suomen automaatioseura}
+Nykyaikaisessa automaation ohjelmistosuunnittelussa käytetään usein ohjelmointikieliä jotka ovat muodoltaan lähellä toiminnallisia logiikan kuvauksia ja dokumentoivat itsensä hyvin.
+T'ämän vuoksi toiminnallinen kuvaus usein jätetään tekemättä, jolloin syntyy säästöjä. \cite{RefWorks:41}
 
 		\subsubsection{Ohjelmakoodi}
 
@@ -260,11 +253,11 @@ Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköit
 Langat kuvaavat niitten relaatioita toisiinsa.
 Toimilohko voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
 Sen tekemien laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
-Toisiinsa liitetyt funktioblokit muodostavat verkon, joka määrittelee laajemman toiminnallisuuden. \cite{RefWorks:55}
+Toisiinsa liitetyt toimilohkot muodostavat verkon, joka määrittelee laajemman toiminnallisuuden. \cite{RefWorks:55}
 
-Funktioblokkien editointiin on olemassa useita työkaluja.
+Toimilohkojen muokkaamiseen on olemassa useita työkaluja.
 Näistä mainitsemisen arvoisia ovat ainakin FBDK, 4DIAC ISaGRAF ja NxtControl.
-Ne eivät kuitenkaan tarjoa graafien asetteluun kuin alkeellisia työkaluja, jotka pikemmin helpottavat suunnittelijan asettelua kuin tuottavat itsessään ratkaisuja.
+Ne eivät kuitenkaan tarjoa kaavioiden asetteluun kuin yksinkertaisia työkaluja, joitten tavoitteet ovat selkeästi erilaiset kuin tässä työssä esitetyillä menetelmillä.
 
 Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan vasemmalta oikealle.
 Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
@@ -292,34 +285,32 @@ Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona.
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
-Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämien tietojen pohjalta voidaan tuottaa XSL-muunnoksilla. \cite{RefWorks:61}
+Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämien tietojen pohjalta voidaan tuottaa minkä tahansa muotoisia dokumentteja käyttäen hyväksi XSL-muunnoksia \cite{RefWorks:61}. Eri XML-pohjaisia tiedostoformaatteja käyttävien suunnitteluvälineiden välinen integraatio on tällöin helposti toteutettavissa.
 
-Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kohdata haasteita, jos se perustuu ohjelmien standardinmukaisuuteen.
-Valmistajat jättävät usein standardinmukaiseksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.
-Tämä johtuu standardinmukaisuuden määritelmästä: ohjelma on standardinmukainen, jos se toteuttaa standardista jonkin osan ja mainitsee mitä se jättää toteuttamatta. \cite{RefWorks:42}
+Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kuitenkin kohdata haasteita, jos luotetaan liikaa ohjelmien standardinmukaisuuteen.
+Valmistajat jättävät usein standardinmukaisiksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.
+Tämä siitä, että ohjelma on määritelty standardinmukaiseksi, jos se toteuttaa siitä jonkin osan ja mainitsee mitä se jättää toteuttamatta. \cite{RefWorks:42}
 
 	\clearpage
 		
 	\section{Graafit ja niiden asettelu}
 
 	\subsection{Määritelmiä}
-% http://www.cs.brown.edu/~rt/gdhandbook/
 
 Lähdetään liikkeelle graafin määritelmästä \cite{RefWorks:39}.
-Graafi on yleisen määritelmänsä mukaan joukko solmuja ja niitä yhteen liittäviä lankoja.
+Graafi tai verkko on yleisen määritelmänsä mukaan joukko solmuja ja niitä yhteen liittäviä lankoja.
 Lankoja kutsutaan usein myös kaariksi, reunoiksi, väleiksi tai linkeiksi. Solmusta käytetään myös ilmaisua noodi.
 Matemaattisesti esitettynä graafi on joukko $G = (V, E)$, missä V on rajoitettu solmujoukko ja E on rajoitettu lankajoukko.
 
-Kerrostus on jaottelu $\mathfrak{L} = (L_1, L_2, ..., L_h)$, jonka alajoukot sisältävät yhdessä kaikki solmut $V$.
+Kerrostus on jaottelu $\mathfrak{L} = (L_1, L_2, \dots, L_h)$, jonka alajoukot sisältävät yhdessä kaikki solmut $V$.
 Solmujoukon erilaisia kerrostuksia vertaillaan jaottelun \emph{leveyden} ja \emph{korkeuden} avulla.
 Korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä $h$ ja leveys\footnote{Tietovirtakaavioissa ylhäältä alas} on suurimman kerrosjoukon $L_i$ koko.
 
 Laajennetaan määritelmää ja sisällytetään graafin määritelmään joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
-
 Lanka koostuu porttiparista, joita se yhdistää. Graafi on \emph{suunnattu} silloin, kun sen langat ovat järjestettyjä pareja, joista toinen on tulo- ja toinen lähtöpiste. Toisinsanoen, $e = (p_1, p_2)$, missä $p_1$ on lähtö- ja $p_2$ tuloportti.
 
 Solmu $v_j$ on solmun $v_i$ \emph{seuraaja} silloin, kun on olemassa lanka $e \in E$, jolle $\mathsf{n}(p_1) = v_i$ ja $\mathsf{n}(p_2) = v_j$.
-Polku on solmusekvenssi $(v_1, v_2, ..., v_k)$ jolle pätee, että $k>1$ ja jokainen sekvenssin solmu $v_{i+1}$ on solmun $v_i$ seuraaja.
+Polku on solmusekvenssi $(v_1, v_2, \dots , v_k)$ jolle pätee, että $k>1$ ja jokainen sekvenssin solmu $v_{i+1}$ on solmun $v_i$ seuraaja.
 
 Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua enemmän kuin kerran.
 Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \mathsf{n}(p_2)$.
@@ -337,7 +328,7 @@ Asettelulle voidaan muodostaa
 
 Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä. \cite{RefWorks:47}
 
-Tärkeimmät ominaisuudet järjestyksessä Purchase et. al. mukaan: 
+Tärkeimmät ominaisuudet järjestyksessä Purchase ym. mukaan: 
 \begin{enumerate}
   \item Lankojen risteysmäärä
   \item Kaavion koko
@@ -357,30 +348,25 @@ Valmiin kaavion asettelua voidaan arvioida automatisoidusti laskemalla kaavioist
 
 	\subsection{Liittyvä työ}
 
+Suunnattuja graafeja käytetään laajalti riippuvuussuhteiden mallintamiseen.
+Esimerkkejä suunnatuista graafeista ovat projektinhallintaverkot, ontologioiden määrittelykaaviot, ohjelmien kutsupuut, syy-seurausdiagrammit sekä aiemmin osioissa 2.2.1 ja 2.2.2 käsittelemämme toimintakaaviot ja FBD-kieliset kaaviot.
+
 Suurin osa graafinpiirrollisista lähestymistavoista on suunniteltu ennalta tuntemattomien verkkojen piirtämiseen.
 Ne pyrkivät tuottamaan keskimäärin hyvän asettelun, oli graafi millainen hyvänsä.
 Suunnatun verkon rakenteen huomioonottavat algoritmit tuottavat parempia tuloksia.
+Tällaisia ovat kerrostetut asetteluemenetelmät.
 
-Suunnattuja graafeja käytetään laajalti riippuvuussuhteiden mallintamiseen.
-Esimerkkejä suunnatuista graafeista ovat projektinhallintaverkot, ontologioiden määrittelykaaviot (kuuluu ryhmään), ohjelmien kutsupuut, syy-seurausdiagrammit sekä aiemmin osioissa 2.2.1 ja 2.2.2 käsittelemämme toiminta- ja ohjelmakoodikaaviot.
-
-Ylivoimaisesti suosituin tapa suunnattujen graafien piirtoon on Sugiyaman menetelmä. \cite{RefWorks:9}
-Alkuperäinen ajatus graafien kerrostamisesta voidaan johtaa Warfieldin \cite{RefWorks:58} ja Carpanon \cite{RefWorks:57} esittämiin ajatuksiin graafinpiirrosta.
 Kerroksittainen tapa esittää syklittömiä ja suunnattuja verkkoja on intuitiivinen ja helppolukuinen.
+Alkuperäinen ajatus graafien kerrostamisesta voidaan johtaa Warfieldin \cite{RefWorks:58} ja Carpanon \cite{RefWorks:57} esittämiin ajatuksiin graafiaasettelusta.
+Ylivoimaisesti suosituin tapa suunnattujen graafien piirtoon on tällä Sugiyaman menetelmä. \cite{RefWorks:9}
 Sugiyaman algoritmia ei voi kuitenkaan käyttää sellaisenaan tietovirtakaavioiden asetteluun.
+Sitä onkin kehitetty valtavasti eteenpäin ja siihen on tehty sopivia laajennuksia riippuen käyttötarkoituksesta.
+Tätä helpottaa menetemöän tkeähestymistapa jaottelee algoritmin vaiheisiin, joista jokaista voidaan tutkia erillisenä ongelmana.
+Sen määrittelemä jaottelu on säilynyt hierarkisen graafinpiirron tutkimuskentässä ajankohtaisena, vaikkei sen esittämiä algoritmeja käytetäkään.
+
 Aseteltavissa tietovirtakaavioissa esiintyvät toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
 Lisäksi langat ovat tietovirtakaavioissa yleisen käytännön mukaisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
-Sugiyama ym. lähestymistapa jaottelee algoritmin vaiheisiin, joista jokaista voidaan tutkia erillisenä ongelmana.
 
-Sen määrittelemä jaottelu on säilynyt hierarkisen graafinpiirron tutkimuskentässä ajankohtaisena, vaikkei sen esittämiä algoritmeja käytetäkään.
-Vaiheet ovat järjestyksessä \emph{kerrostus}, \emph{risteysten vähennys} ja \emph{lopullinen asettelu}.
-Myöhemmin tietovirtakaavioiden piirtoon on kehitetty lisävaiheet \emph{suuntaus} ja  \emph{lankojen reititys}.
-
-%[GKNV93, Car80, ES91, GNV88, GM89, MES88, MRH91, PT90]
-
-Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
-Sander ym. esitti reititysongelmaan ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttiryhmää omana graafiongelmanaan, johon sovelletaan suurempaan ongelmaankin käytettäviä graafinpiirron menetelmiä. \cite:{RefWorks}
-a
 Työvaiheista kerrostus ja risteyksien vähennysvaihe saattavat muuttaa suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
 Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
@@ -390,12 +376,12 @@ Näin on FBD-ohjelmointikielen tapauksessa aina.
 Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon jos sitä halutaan käyttää.
 Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä varten asetetaan valesolmuja. \cite{RefWorks:51}
 
-Sovelluksia graafinasettelualgoritmeille mallipohjaisessa suunnittelussa ovat kehittäneet ainakin Klauske...
+Laajoja käytännön tutkimuksia datavirtakaavioiden asettelusta on tehnyt Klauske ym.\cite{RefWorks:50}.
+% TÄHÄN MYÖS JOKU MUU TAI OLET YHTÄ VAKUUTTAVA KUIN KASA PASKAA
 
+		\subsection{Asettelualgoritmi}
 
-		\subsection{Graafinasettelualgoritmi}
-
-Algoritmin eri vaiheiden algoritmit on valittu ottaen huomioon datavirtauskaavioiden rajoitukset ja erityiset tarpeet sekä niitten rakenteelliset ominaisuudet. Laajoja käytännön tutkimuksia datavirtakaavioiden asettelusta on tehnyt Klauske ym.\cite{RefWorks:50}.
+Algoritmin eri vaiheiden algoritmit on valittu ottaen huomioon datavirtauskaavioiden rajoitukset ja erityiset tarpeet sekä niitten rakenteelliset ominaisuudet.
 
 Se koostuu viidestä eri vaiheesta:
 \begin{enumerate}
@@ -408,6 +394,7 @@ Se koostuu viidestä eri vaiheesta:
 
 Nämä vaiheet ovat toisistaan erillisiä ja voidaan tilanteen mukaan vaihtaa toisiksi tai jättää suorittamatta.
 Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia lankojen reititykset automaattisesti, voitaisiin päättää ajaa pelkästään algoritmin viides osio.
+Seuraavaksi esitellään jokaisen vaiheen tavoitteet, niihin liittyvää tutkimustyötä sekä
 
 		
 		\subsubsection{Syklien poisto}
@@ -420,10 +407,9 @@ Tarkemmin määriteltynä tavoitteena on löytää mahdollisimman pieni lankajou
 Tämä ongelman on osoitettu olevan NP-vaikea. \cite{RefWorks:65}
 
 Syklien poistovaiheessa käsiteltävä tietomalli sisältää syklinpoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan solmun.
-Koska suorituspuun ensimmäinen kerros on jo ennen asettelua tiedossa, voidaan riittävän pieni lankajoukko $FS$ löytää DFS-haulla.
-
-DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kunnes on luotua polkua $(e_1,e_2...e_h)$ ei voida enää jatkaa.
-Tämän jälkeen palataan takaisin kunnes löydetään solmu josta lähtee 
+Yksinkertainen tapa löytää pieni lankajoukko $FS$ löytää DFS-haku.
+DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kääntäen matkalla kohdatut käänteiset langat kunnes luotua polkua $(e_1,e_2...e_h)$ ei voida enää jatkaa.
+Tämän jälkeen palataan takaisin kunnes löydetään solmu josta lähtee lanka jota ei olla vielä seurattu.
 \cite{RefWorks:69}
 
 Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin käyttäen hyväksi lankajoukkoa $FS$.
@@ -431,49 +417,49 @@ Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein
 Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä, voidaan käyttää Berger-Shor algoritmiin \cite{RefWorks:68} perustuvaa ahnetta algoritmia \cite{RefWorks:48}.
 
 		\subsubsection{Kerrostus}
-Kerrostukselta vaaditaan, että se on \emph{kunnollinen} osion 3.1 mukaisesti, sekä \emph{tiivis}\footnote{eng. compact}.
+
+Kerrostukselta vaaditaan, että se on kunnollinen sekä tiivis\footnote{eng. compact}.
 Tiiviydellä tarkoitetaan, että kerrostuksen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 
 Tämän saavuttamiseksi graafiin lisätään valesolmuja pitkien lankojen katkaisemiseksi.
-Valesolmut ovat verkkoon lisättäviä kuvitteellisia solmuja joita ei piirretä lopulliseen kaavioon, mutta jotka helpottavat verkon algoritmillista käsittelyä.
-Kerrostukseen halutaan valesolmuja mahdollisimman vähän tiiviyden, lyhyiden lankapituuksien sekä nopean laskennallisen suoritusajan varmistamiseksi.
+Valesolmut ovat graafiin lisättäviä kuvitteellisia solmuja joita ei piirretä lopulliseen kaavioon, mutta jotka helpottavat sen algoritmillista käsittelyä.
+Kerrostukseen halutaan valesolmuja mahdollisimman vähän tiiviyden, lyhyiden lankapituuksien sekä asettelun hyvän laskennallisen suoritusajan varmistamiseksi.
 
-Tiiviyden äärimmäisenä rajoituksena toimii tarkastelutavasta riippuen näyttöpääte tai paperi, jolta aseteltua verkkoa on tarkoitus tarkastella.
-Verkon pituuden alaraja on sen sisältämän pisimmän yhtenäisen ketjun pituus.
+Tiiviyden äärimmäisenä rajoituksena toimii lopullisesta tarkastelutavasta riippuen näyttöpääte tai paperi, jolta aseteltua kaaviota on tarkoitus tarkastella.
 
 Erilaisilla kerrostusmenetelmillä graafin pituus voidaan minimoida leveyden kustannuksella tai siitä voidaan tehdä mahdollisimman kapea pituuden kustannuksella.
 Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa multiprosessoriajastusongelmaan ja on siten NP-täydellinen ongelma. \cite{RefWorks:39}
 
 Yksinkertainen tapa tuottaa kerrostus on pisimmän reitin tapa. Se asettaa ensin kaikki solmut, joilla ei ole seuraajia kerrokseen $L_1$.
-Tämän jälkeen jokainen muu solmu asetetaan kerrokseen $L_{p+1}$, missä $p$ on lähin etäisyys johonkin kerroksen $L_1$ solmuista.
+Tämän jälkeen jokainen muu solmu asetetaan kerrokseen $L_{p+1}$, missä $p$ on lyhin etäisyys johonkin kerroksen $L_1$ solmuista.
 Tällä tavalla laaditut kerrostukset sisältävät mahdollisimman vähän kerroksia.
-Tämä lähestymistapa ei tuota hyviä asetteluja, sillä joistakin kerroksista tulee huomattavan suuria.
+Tämä lähestymistapa ei tuottaa usein huonoja tuloksia, sillä sen tuloksena osa kerroksista on usein huomattavan suuria.
 
 Kun halutaan mahdollisimman kapeita kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
 Ongelmana on ajastaa eri tehtävät $W$ kappaleelle prosessoreita siten, että kaikki tehtävät suoritetaan ajassa $H$.
-Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
+Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle, sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
 
-On olemassa myös tapa laatia kerrostus, joka minimoi valesolmujen määrän.
+Sekä leveys että korkeus ovat kuitenkin toisarvoisia
+Kun halutaan kompakteja graafeja, on valesolmujen määrän 
+On olemassa myös tapa laatia kerrostus, joka minimoi valesolmujen määrän ja voidaan vieläpä suorittaa polynomisessa ajassa.
 Se löydetään kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä jolla minimoidaan
 
 $$f=\displaystyle\sum\limits_{(v_1,v_2) \in V} (i - j - 1),$$
 
-, missä $v_1 \in L_i$ ja $v_2 \in L_j$.
+missä $v_1 \in L_i$ ja $v_2 \in L_j$. Minimoitava arvo $f$ on myös kerrostuksessa olevien valesolmujen määrä.
 
-Huomionarvoista on se, että $f$ on sama kuin valesolmujen määrä.
+Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu nk. \emph{Network Simplex}- algoritmiin\cite{RefWorks:28}
+. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi, minkä seurauksena se on valittu tässä työssä käytettäväksi algoritmiksi.
 
- nk. \emph{Network Simplex}- algoritmiin.
+Menetelmässä muodostetaan ensin verkon virityspuu.
+Kun virityspuusta poistetaan jokin lanka, tuloksena syntyy kaksi toisistaan erillistä puuta, joista molemmat sisältävät eri solmut joita katkaistu lanka yhdisti.
+Toinen sisältää langan lähde- ja toinen määränpääsolmun.
+Näitten kahden puun perusteella lasketaan jokaiselle langalle \emph{leikkausarvo}.
+Leikkausarvo on määränpääsolmun sisältävästä puusta ja lähdesolmun sisältävään puuhun kulkevien lankojen pituudet
+josta vähennetään päinvastaiseen suuntaan kulkevien lankojen pituudet.
 
-Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan nopeaksi.
-
-Menetelmässä laaditaan ensiksi graafin virityspuu \emph{(ks. osio 3.1)}.
-Kerrostamisessa valitaan ensin lähdesolmu, jonka kerros on $L_0$.
-Jokainen solmun seuraaja asetetaan kerrokseen $L_1$ ja niin edelleen
-
-Kun mahdollinen virityspuu on laadittu, käytetään hyväksi virityspuun ominaisuutta, että jos jokin sen lanka poistetaan, tuotetaan kaksi toisistaan erillistä puuta,
-Jokaiselle langalle määritellään \emph{leikkausarvo}.
-Leikkausarvolla tarkoitetaan kaikkien lankojen summaa päänoodista loppunoodiin, josta vähennetään 
-
+Negatiivinen leikkausarvo viittaa siihen, että kyseistä lankaa kannattaa todennäköisesti pidentää mahdollisimman paljon.
+Tuloksena saadusta kerrostuksesta muodostetaan uusi virityspuu, ja menetelmää jatketaan edelleen kunnes kaikki virityspuun leikkausarvoista ovat positiivisia.
 
 		\subsubsection{Risteyksien vähentäminen}
 
@@ -501,8 +487,7 @@ Työssä käytetty algoritmi arpoo ensimmäisen kerroksen $L_1$ järjestyksen.
 Se sitten etenee kerroksittain eteen- ja taaksepäin tehden järjestykseen transpositioita.
 Risteysten määrät lasketaan eri tuloksista ja ratkaisu, jossa on vähiten risteyksiä valitaan lopulliseksi.
 
-%Optimizing Automatic Layout for Data Flow Diagrams, 2011, Diploma thesis,
-%Christian-Albrechts-Universität zu Kiel, Department of Computer Science
+%Hej avaa tätä vähän...
 
 		\subsubsection{Poikittainen asettelu}
 
@@ -513,89 +498,88 @@ Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten
 Asettelun merkitys korostuu kun lankoja on paljon, kuten automaation logiikkakaavioille on tyypillistä.
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu pyritään säilyttämään poikittaisasetteluvaiheessa.
-Poikittainen asettelu tuottaa pitkittäisten kerrospositioitden $1 ... h$ lisäksi poikittaiset noodipositiot $1 ... n $
-Samalla poikittaisella positiolla olevien noodien välille voidaan reitittää suoria lankoja, joten solmujen seuraajat pyritään sijoittamaan samalle poikittaispositiolle jos mahdollista.
 
-Sander ehdottaa kaksivaiheista lähestymistapaa, jossa aluksi määritellä hyvä alkusijoittelu joka sitten tasapainoitetaan.
 
-% ALKUASETTELU
+\cite{RefWorks:49}
 
-Verkko jaetaan lineaarisiin segmentteihin.
-Lineaarinen segmentti sisältää joko peräkkäisiä valesolmuja tai yksittäisen solmun. Solmu $v$
+Sander ehdottaa kaksivaiheista lähestymistapaa, jossa aluksi määritellään hyvä alkusijoittelu joka sitten tasapainoitetaan.
+Solmujen suhteelliset sijainnit on jo määritelty aiemmissa vaiheissa.
+Alkuperäisasettelussa solmut yksinkertaisesti jaetaan järjestyksessä.
 
-Aluksi pyritään tuottamaan asettelu, joka on ylipäänsä mahdollinen.
-Tämä tehdään jakamalla poikittais- ja pystypositiot yksinkertaisesti pienimmästä suurimpaan.
-Tämän jälkeen graafin solmut lajitellaan topologisesti.
-Suunnatun graafin topologinen lajittelu
-
-% TASAPAINOITUS
-
-Kun on saavutettu yksinkertaisin mahdollinen asettelu, voidaan siirtyä tasapainottamaan asettelua.
+Kun on saavutettu yksinkertaisin mahdollinen asettelu, voidaan siirtyä tasapainottamaan sitä.
 Solmuasettelu tasapainoitetaan mallintamalla solmuja levossa olevina heilureina.
 Solmut ovat heilurin päässä oleva paino ja lanka painoa kannatteleva naru.
 Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
 
-Liikutettavat asiat ovat eivät ole yksittäisiä noodeja vaan lineaarisia segmenttejä.
-Ne pysyvät suorina linjoina.
+Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien tapauksessa siirretään niitten muodostamia osioita kauemmaksi toisistaan kunnes päällekkäisyyksiä ei enää esiinny.
 
-Solmun seuraajan poikkeama voidaan laskea 
+%Liikutettavat asiat ovat eivät ole yksittäisiä noodeja vaan lineaarisia segmenttejä.
+%Ne pysyvät suorina linjoina.
 
-$$
-D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
-$$
+%Solmun seuraajan poikkeama voidaan laskea kaavalla
 
-$$
-D_p(e) = x(s) - x(t)
-$$
+%$$
+%D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
+%$$
+
+%$$
+%D_p(e) = x(s) - x(t)
+%$$
 
 % LOPPUTAPUTTELU
 Kun solmujen sijainnit on tasapainotettu, jaotellaan asetteluun käytössä oleva tila ruudukoksi ja asetetaan solmut niitten tasapainotettuja sijainteja lähinnä oleviin ruudukkopisteisiin.
-Tällainen ruudukointi tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduukointi selkeyttää luettavuutta.
-
-\cite{RefWorks:49}
-
+Menettely tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduukointi tekee siitä luettavamman.
 
 		\subsubsection{Lankojen reititys}
 
-%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
+Tietovirtakaavioiden toimilohkoissa on useita portteja ja niitten sisältämät lankareititykset ovat ortogonaalisia.
+Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa.
+Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
 
-Kaavion langat reititetään lopulta ortogonaalisesti..\cite{RefWorks:17}
+Reititysongelmaan ovat esittäneet Sander ym. ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttien muodostaman ryhmän paikallista asettelua erillisenä graafina.
+Ruutujen lankasegmentteihin sovelletaan tässäkin työssä kuvattuja graafinpiirron menetelmiä. \cite{RefWorks:17}
+
 Kun jokaiselle solmulle on tiedossa niiden lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmien koordinaattien välillä.
 Poikittaiset segmentit jotka asetetaan tyhjään tilaan rivien $j$ ja $j+1$ välille saavat koordinaatikseen $j+0.5$.
-Tämä toistetaan pystysuuntaisille segmenteille.
-
-Langat ryhmitellään lähtöporttien mukaan \emph{hyper}langoiksi, joilla voi olla useita lähteitä.
-
-Jokaiselle lankajoukolle luodaan ne yhdistävä pystysegmentti.
+Tämä toistetaan pystysuuntaisille segmenteille. \cite{RefWorks:17}
+%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
 
 Kaikki samassa ruudussa tai sarakkeessa $k$ olevat segmentit kootaan ryhmäksi joukkoon $S$.
 Tavoitteena on levittää ne koordinaateille välillä $[k, k+1]$.
 
 Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
-Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin noodia.
-Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
+Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
 
-Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti.
-Tässä tapauksessa risteysmäärä on vähin mahdollinen.
-Ylitysgraafi kuitenkin yleensä sisältää syklejä. Tässä tapauksessa syklit rikotaan, jo tunnetulla tavalla \cite{RefWorks:48}.
+%Jokaiselle segmenttiparille s1, s2 lasketaan risteysmäärät C1 ja C2. Jos C1 < C2, lisätään reuna segmentin s1 ja s2 välille hintaan C2 - C1. Muussa tapauksessa lisätään lanka s2 ja s1 välille hintaan C1 - C2.
 
-Lopulta segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
-Segmentti jonka sijoitus on $r \in \{1,...,r_{max}\}$ saa koordinaatikseen $k + r/(r_{max} +1)$.
-Kun tämä vaihe on suoritettu kaikille poikittaisille segmenteille, sama tehdään kaikille poikittaisille segmenteille.
+%Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti.
+%Tässä tapauksessa risteysmäärä on vähin mahdollinen.
+%Ylitysgraafi kuitenkin yleensä sisältää syklejä. Tässä tapauksessa syklit rikotaan, jo tunnetulla tavalla \cite{RefWorks:48}.
+
+%Lopulta segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
+%Segmentti jonka sijoitus on $r \in \{1,...,r_{max}\}$ saa koordinaatikseen $k + r/(r_{max} +1)$.
+%Kun tämä vaihe on suoritettu kaikille poikittaisille segmenteille, sama tehdään kaikille poikittaisille segmenteille.
 
 	\clearpage
-	\section{Menetelmät ja esimerkki}
+	\section{Käytäntö}
 
 		\subsection{Kaavioiden tuottaminen}
+
+Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
+Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%.
+Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävä työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
+
+Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
+Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt.
 
 Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaaviopalvelimella.
 Verkossa sijaitseva kaavioipalvelin soveltuu suurten järjestelmien suunnitteluun erityisen hyvin, kun suunnittelijoita on monta.
 Kaikki suunnittelijat pystyvät hakemaan keskitetystä suunnittelujärjestelmästä ajantasaisimman version kaaviosta ilman, että kaaviot tarvitsee ladata järjestelmään erikseen.
 Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
-Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
-
 		\subsection{Esimerkki}
+
+Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
 
 		\emph{Lopullisessa työssä on esimerkki. Opponointiversioon se ei ehtinyt.}
 
