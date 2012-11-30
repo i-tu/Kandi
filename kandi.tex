@@ -97,8 +97,7 @@ Otaniemi,
 	\mysection{Käsitteet ja lyhenteet}
 
 	\begin{tabular}{ll}
-Lanka        & ... \\
-	     	      & ... \\ \\
+Lanka	& ... \\\\
 	     	    
 DCS        & Distributed Control System \\
         &   Hajautettu ohjausjärjestelmä \\ \\
@@ -107,7 +106,11 @@ FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä oh
 IEC          & International Electrotechnical Commission\\\\
 PLC         & Programmable Logic Circuit \\
 	      & Ohjelmoitava logiikkapiiri\\\\
-	\end{tabular}
+XML	& Extensible Markup Language \\
+	& 
+XSL
+
+\end{tabular}
 
 {\bf Lisättävä:
 XML, XSL, Solmu, Valesolmu, DFS, jne. jne.
@@ -321,9 +324,7 @@ Asetteluista halutaan mahdollisimman esteettisiä.
 Estetiikka erittelee ominaisuudet mitä graafiin halutaan mahdollisimman paljon, jota se olisi mahdollismman luettava.
 Asettelulle voidaan muodostaa 
 
-Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä. \cite{RefWorks:47}
-
-Tärkeimmät ominaisuudet järjestyksessä Purchase ym. mukaan: 
+Purchase ym. ovat tutkineet estetiikkaan vaikuttavia tekijöitä, ja he ovat määritelleet asettelun luettavuudelle tärkeimmikse seuraavat ominaisuudet: \cite{RefWorks:47} 
 \begin{enumerate}
   \item Lankojen risteysmäärä
   \item Kaavion koko
@@ -333,11 +334,8 @@ Tärkeimmät ominaisuudet järjestyksessä Purchase ym. mukaan:
 \end{enumerate}
 
 Näistä ominaisuuksista lankojen risteysmäärä muodostui tärkeimmäksi. Myös lankojen pituus oli merkittävässä asemassa luettavuuden kannalta.
-
 Esteettiset ominaisuudet ovat usein ristiriidassa keskenään.
 Jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen usein tekemään mutkia.
-Kompromisoimattoman esteettiset kaaviot ovat harvinaisuuksia.
-
 Valmiin kaavion asettelua voidaan arvioida automatisoidusti laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä, kuten lankojen risteysmääriä.
 
 
@@ -404,7 +402,7 @@ Tämä ongelman on osoitettu olevan NP-vaikea. \cite{RefWorks:65}
 Syklien poistovaiheessa käsiteltävä tietomalli sisältää syklinpoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan solmun.
 Yksinkertainen tapa löytää pieni lankajoukko $FS$ löytää DFS-haku.
 DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kääntäen matkalla kohdatut käänteiset langat kunnes luotua polkua $(e_1,e_2...e_h)$ ei voida enää jatkaa.
-Tämän jälkeen palataan takaisin kunnes löydetään solmu josta lähtee lanka jota ei olla vielä seurattu.
+Tämän jälkeen palataan polussa takaisin kunnes löydetään solmu josta lähtee lanka jota ei olla vielä seurattu.
 \cite{RefWorks:69}
 
 Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin käyttäen hyväksi lankajoukkoa $FS$.
@@ -428,20 +426,22 @@ Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa mul
 Yksinkertainen tapa tuottaa kerrostus on pisimmän reitin tapa. Se asettaa ensin kaikki solmut, joilla ei ole seuraajia kerrokseen $L_1$.
 Tämän jälkeen jokainen muu solmu asetetaan kerrokseen $L_{p+1}$, missä $p$ on lyhin etäisyys johonkin kerroksen $L_1$ solmuista.
 Tällä tavalla laaditut kerrostukset sisältävät mahdollisimman vähän kerroksia.
-Tämä lähestymistapa ei tuottaa usein huonoja tuloksia, sillä sen tuloksena osa kerroksista on usein huomattavan suuria.
+Tämä lähestymistapa tuottaa kerrostukseen huomattavan suuria kerroksia.
 
-Kun halutaan mahdollisimman kapeita kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseksi kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
+Kun halutaan mahdollisimman kapeita kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseen kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
 Ongelmana on ajastaa eri tehtävät $W$ kappaleelle prosessoreita siten, että kaikki tehtävät suoritetaan ajassa $H$.
 Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle, sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
 
-Sekä leveys että korkeus ovat kuitenkin toisarvoisia
-Kun halutaan kompakteja graafeja, on valesolmujen määrän 
+Nämä kerrostusmenetelmät voivat olla hyödyllisiä sellaisissa sovelluksissa, joissa aseteltavan kaavion muodolla on erityisiä kapeus- tai pituusvaatimuksia.
+Näitä ei sovelluksessamme ole, vaan tavoitteena on yksinkertaisesti 
+mahdollisimman tiivis asettelu.
+Huomataan, että kunnollisen kerrostuksen valesolmujen määrä on suoraan verrannollinen sen tiiviyteen.
 On olemassa myös tapa laatia kerrostus, joka minimoi valesolmujen määrän ja voidaan vieläpä suorittaa polynomisessa ajassa.
 Se löydetään kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä jolla minimoidaan
 
 $$f=\displaystyle\sum\limits_{(v_1,v_2) \in V} (i - j - 1),$$
 
-missä $v_1 \in L_i$ ja $v_2 \in L_j$. Minimoitava arvo $f$ on myös kerrostuksessa olevien valesolmujen määrä.
+missä $v_1 \in L_i$ ja $v_2 \in L_j$. Minimoitava arvo $f$ on samalla valesolmujen määrä.
 
 Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu nk. \emph{Network Simplex}- algoritmiin\cite{RefWorks:28}. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi, minkä seurauksena se on valittu tässä työssä käytettäväksi algoritmiksi.
 
@@ -596,7 +596,7 @@ Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuv�
 Teollisuuden automaatiosuunnittelun yhtenäistämistä on akateemisissa julkaisuissa kartoitettu runsaasti.
 Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat vieraannuttavalle tasolle.
 
-Automaatiojärjestelmien suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä eivätkä sen .
+Automaatiojärjestelmien suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä.
 Suunnittelussa käytettäviä työvälineitä tehostamalla voidaan saavuttaa merkittäviä säästöjä ja nopeuttaa toimihenkilöiden työtä.
 
 Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, visuaalisen suunnittelun ja ohjelmoinnin kaavioiden asetteluun.
@@ -606,10 +606,9 @@ Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välil
 Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa edelleen erilaisiin teollisuuden tarpeisiin.
 
 On huomattava määrä teknologisia uudistuksia, jotka eivät päädy käyttöön.
-Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, tarvitaab niitten lisäksi toimijoiden tahtotila olemassaolevien prosessien muuttamiseen ja uuden opetteluun.
+Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, tarvitaan niitten lisäksi toimijoiden tahtotila olemassaolevien prosessien muuttamiseen ja uuden opetteluun.
 Työssä esitelty ja sitä vastaavat menetelmät voivat olla vaikeita toteuttaa käytännössä.
-Tästä huolimatta täytyy suunnittelualan yritysten pyrkiä kohti entistä enemmän integroidumpaa ja virtaviivaistettua suunnitteluprosessia jos halutaan pysyä perässä teollisuuden kilpailussa.
-
+Tästä huolimatta täytyy suunnittelualan yritysten pyrkiä kohti entistä enemmän integroidumpaa ja virtaviivaistettua suunnitteluprosessia jotta on mahdollista pysyä kansainvälisen kilpailun vauhdissa.
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
