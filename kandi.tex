@@ -1,15 +1,14 @@
 	\documentclass[finnish,12pt]{article}
 	\usepackage{aaltothesis}
 	
-%       \usepackage[T1]{inputenc}
+      % \usepackage[T1]{inputenc}
 
 
 	%% Use this if you run latex and use eps-format pictures
 	%\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
 	\makeindex
-	\usepackage[pdfpagemode=None,colorlinks=false,urlcolor=red,linkcolor=blue,
-citecolor=black,pdfstartview=FitH]{hyperref}
+	\usepackage[pdfpagemode=None,colorlinks=false,urlcolor=red,linkcolor=blue,citecolor=black,pdfstartview=FitH]{hyperref}
 
 	%% Use this if you do not like hyperref package - this defines url environment and formats it correctly
 	%\usepackage{url}
@@ -22,7 +21,7 @@ citecolor=black,pdfstartview=FitH]{hyperref}
 	\setlength\parindent{0pt}
 	\usepackage[parfill]{parskip}
 	
-  \usepackage{lmodern}
+	\usepackage{lmodern}
 	
 	% Layout
 	\setlength{\hoffset}{-1in}
@@ -34,26 +33,26 @@ citecolor=black,pdfstartview=FitH]{hyperref}
 	\setlength{\headheight}{1em}
 	\setlength{\topmargin}{25mm-\headheight-\headsep}
 	\setlength{\textheight}{23cm}
-
-	
-	\begin{document}
-	
 	\bibliographystyle{unsrt}
 
-	\university{Aalto-yliopisto}
-	\school{Sähkötekniikan korkeakoulu}
 
-	\faculty{Automaatio- ja systeemitekniikan laitos}
-	\degreeprogram{Automaatio- ja systeemitekniikka}
+	\begin{document}
+
+	\uselogo{blue}{?}{tkk}	
+	\university{}{Aalto-yliopisto}
+	\school{}{Sähkötekniikan korkeakoulu}
+	\faculty{}{Automaatio- ja systeemitekniikan laitos}
+	\degreeprogram{}{Automaatio- ja systeemitekniikka}
 	\univdegree{BSc}
-	\author{Ian Tuomi}
-	\thesistitle{Automaatiokaavioiden generointi}
-%	\place{Espoo}
-%	\date{5.12.2012}
-%	\supervisor{DI Marek Matusiak}
-%	\instructor{DI Mika Strömman}
-%	\uselogo{red}{!}{tkk}
-%	\makecoverpage
+	\author{Ian Tuomi}{}
+	\thesistitle{Generation of automation diagrams}{Automaatiokaavioiden generointi}
+
+	\place{Espoo}
+	\date{5.12.2012}
+	\supervisor{}{DI Mika Strömman}
+	\instructor{}{DI Mika Stromman}
+
+	 \makecoverpage
 
 	\keywords{Automaatiojärjestelmä, Automatisoitu suunnittelu, ohjelmoitava logiikka, PLC, IEC 61131, FBD, graafinpiirto, suunnattu graafi}
 	
@@ -444,8 +443,7 @@ $$f=\displaystyle\sum\limits_{(v_1,v_2) \in V} (i - j - 1),$$
 
 missä $v_1 \in L_i$ ja $v_2 \in L_j$. Minimoitava arvo $f$ on myös kerrostuksessa olevien valesolmujen määrä.
 
-Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu nk. \emph{Network Simplex}- algoritmiin\cite{RefWorks:28}
-. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi, minkä seurauksena se on valittu tässä työssä käytettäväksi algoritmiksi.
+Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu nk. \emph{Network Simplex}- algoritmiin\cite{RefWorks:28}. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi, minkä seurauksena se on valittu tässä työssä käytettäväksi algoritmiksi.
 
 Menetelmässä muodostetaan ensin verkon virityspuu.
 Kun virityspuusta poistetaan jokin lanka, tuloksena syntyy kaksi toisistaan erillistä puuta, joista molemmat sisältävät eri solmut joita katkaistu lanka yhdisti.
