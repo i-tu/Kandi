@@ -7,6 +7,8 @@
 	%% Use this if you run latex and use eps-format pictures
 	%\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
+	\pdfoptionalwaysusepdfpagebox=5
+
 	\makeindex
 	\usepackage[pdfpagemode=None,colorlinks=false,urlcolor=red,linkcolor=blue,citecolor=black,pdfstartview=FitH]{hyperref}
 
@@ -388,8 +390,12 @@ Se koostuu viidestä eri vaiheesta:
 Nämä vaiheet ovat toisistaan erillisiä ja voidaan tilanteen mukaan vaihtaa toisiksi tai jättää suorittamatta.
 Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia lankojen reititykset automaattisesti, voitaisiin päättää ajaa pelkästään algoritmin viides osio.
 Seuraavaksi esitellään jokaisen vaiheen tavoitteet, niihin liittyvää tutkimustyötä sekä
+\newpage
+\begin{figure}[p]
+\includegraphics{hier.pdf}
+\caption{Sugiyaman menetelmän eri vaiheet. Lopullisessa asettelussa lankojen suunta on vasemmalta oikealle, eikä ylhäältä alas.}
+\end{figure}
 
-		
 		\subsubsection{Syklien poisto}
 
 Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
@@ -574,7 +580,7 @@ Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio ase
 
 		\subsection{Esimerkki}
 
-Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
+KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
 
 		\emph{Lopullisessa työssä on esimerkki. Opponointiversioon se ei ehtinyt.}
 
