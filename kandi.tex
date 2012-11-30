@@ -7,8 +7,9 @@
 	%% Use this if you run latex and use eps-format pictures
 	%\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
-	\pdfoptionalwaysusepdfpagebox=5
 
+	\pdfoptionalwaysusepdfpagebox=5
+	
 	\makeindex
 	\usepackage[pdfpagemode=None,colorlinks=false,urlcolor=red,linkcolor=blue,citecolor=black,pdfstartview=FitH]{hyperref}
 
@@ -51,8 +52,8 @@
 
 	\place{Espoo}
 	\date{5.12.2012}
-	\supervisor{}{DI Mika Strömman}
-	\instructor{}{DI Mika Stromman}
+	\supervisor{DI Mika Str\"{o}mman}{DI Marek Matusiak}
+	\instructor{}{DI Mika Str\"{o}mman}
 
 	 \makecoverpage
 
@@ -101,21 +102,22 @@ Otaniemi,
 	\begin{tabular}{ll}
 Lanka	& ... \\\\
 	     	    
-DCS        & Distributed Control System \\
-        &   Hajautettu ohjausjärjestelmä \\ \\
-        
-FBD         & Function Block Diagram, IEC 61131-3 -standardin määrittelemä ohjelmointikieli\\\\
-IEC          & International Electrotechnical Commission\\\\
-PLC         & Programmable Logic Circuit \\
-	      & Ohjelmoitava logiikkapiiri\\\\
-XML	& Extensible Markup Language \\
-	& 
-XSL
+DCS	& Distributed Control System \\
+	& Hajautettu ohjausjärjestelmä \\ \\
+DFS	& Depth-first search, tapa kulkea graafin läpi \\\\
+
+FBD	& Function Block Diagram, IEC 61131-3 -standardin määrittelemä ohjelmointikieli\\\\
+IEC	& International Electrotechnical Commission,\\
+	& Kansainvälinen sähköalan standarointiorganisaatio\\\\
+PLC	& Programmable Logic Circuit \\
+	& Ohjelmoitava logiikkapiiri\\\\
+XML	& Extensible Markup Language, merkintäkieli johon voidaan sisällyttää ja jolla voidaan jäsentää tietoa  \\\\
+XSL	& Extensible Stylesheet Language, XML-kieliperhe, jolla voidaan määritellä XML-formaatteja tai muuntaa sitä formaattien välillä \\\\
 
 \end{tabular}
 
 {\bf Lisättävä:
-XML, XSL, Solmu, Valesolmu, DFS, jne. jne.
+Solmu, Valesolmu
 }
 
 
@@ -378,7 +380,7 @@ Laajoja käytännön tutkimuksia datavirtakaavioiden asettelusta on tehnyt Klaus
 
 Algoritmin eri vaiheiden algoritmit on valittu ottaen huomioon datavirtauskaavioiden rajoitukset ja erityiset tarpeet sekä niitten rakenteelliset ominaisuudet.
 
-Se koostuu viidestä eri vaiheesta:
+Se koostuu viidestä eri vaiheesta, jotka on esitetty myös kuvassa 1:
 \begin{enumerate}
   \item Syklien poisto, seuraa DFS-hakua \cite{RefWorks:69} tai Eades ym. ahnetta algoritmia \cite{RefWorks:48}
   \item Kerrostus, seuraa Gansner ym. lankapituuden minimimoivaa menetelmää. \cite{RefWorks:28}
@@ -389,11 +391,14 @@ Se koostuu viidestä eri vaiheesta:
 
 Nämä vaiheet ovat toisistaan erillisiä ja voidaan tilanteen mukaan vaihtaa toisiksi tai jättää suorittamatta.
 Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia lankojen reititykset automaattisesti, voitaisiin päättää ajaa pelkästään algoritmin viides osio.
-Seuraavaksi esitellään jokaisen vaiheen tavoitteet, niihin liittyvää tutkimustyötä sekä
+Seuraavaksi esitellään jokaisen vaiheen tavoitteet, niihin liittyvää tutkimustyötä sekä esitellään algoritmit työhön sovellettavilta osin.
+
+
 \newpage
-\begin{figure}[p]
-\includegraphics{hier.pdf}
-\caption{Sugiyaman menetelmän eri vaiheet. Lopullisessa asettelussa lankojen suunta on vasemmalta oikealle, eikä ylhäältä alas.}
+\begin{figure}[!p]
+\centering
+\includegraphics[width=\textwidth]{hier.pdf}
+\caption{Sugiyaman menetelmän eri vaiheet. Lopullisessa asettelussa lankojen suunta on vasemmalta oikealle, eikä kuvan mukaisesti ylhäältä alas.}
 \end{figure}
 
 		\subsubsection{Syklien poisto}
@@ -406,8 +411,8 @@ Tarkemmin määriteltynä tavoitteena on löytää mahdollisimman pieni lankajou
 Tämä ongelman on osoitettu olevan NP-vaikea. \cite{RefWorks:65}
 
 Syklien poistovaiheessa käsiteltävä tietomalli sisältää syklinpoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan solmun.
-Yksinkertainen tapa löytää pieni lankajoukko $FS$ löytää DFS-haku.
-DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kääntäen matkalla kohdatut käänteiset langat kunnes luotua polkua $(e_1,e_2...e_h)$ ei voida enää jatkaa.
+Yksinkertainen tapa löytää pieni lankajoukko $FS$ on DFS-haku.
+DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kääntäen matkalla kohdatut käänteiset langat kunnes luotua polkua $(e_1,e_2, ..., e_h)$ ei voida enää jatkaa.
 Tämän jälkeen palataan polussa takaisin kunnes löydetään solmu josta lähtee lanka jota ei olla vielä seurattu.
 \cite{RefWorks:69}
 
@@ -439,8 +444,7 @@ Ongelmana on ajastaa eri tehtävät $W$ kappaleelle prosessoreita siten, että k
 Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle, sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
 
 Nämä kerrostusmenetelmät voivat olla hyödyllisiä sellaisissa sovelluksissa, joissa aseteltavan kaavion muodolla on erityisiä kapeus- tai pituusvaatimuksia.
-Näitä ei sovelluksessamme ole, vaan tavoitteena on yksinkertaisesti 
-mahdollisimman tiivis asettelu.
+Näitä ei sovelluksessamme ole, vaan tavoitteena on yksinkertaisesti mahdollisimman tiivis asettelu.
 Huomataan, että kunnollisen kerrostuksen valesolmujen määrä on suoraan verrannollinen sen tiiviyteen.
 On olemassa myös tapa laatia kerrostus, joka minimoi valesolmujen määrän ja voidaan vieläpä suorittaa polynomisessa ajassa.
 Se löydetään kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä jolla minimoidaan
@@ -580,7 +584,7 @@ Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio ase
 
 		\subsection{Esimerkki}
 
-KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
+Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
 
 		\emph{Lopullisessa työssä on esimerkki. Opponointiversioon se ei ehtinyt.}
 
