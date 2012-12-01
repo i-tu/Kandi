@@ -39,8 +39,6 @@
 
 	\bibliographystyle{unsrt}
 
-	\begin{document}
-
 	\uselogo{blue}{?}{tkk}	
 	\university{}{Aalto-yliopisto}
 	\school{}{Sähkötekniikan korkeakoulu}
@@ -55,15 +53,34 @@
 	\supervisor{DI Mika Str\"{o}mman}{DI Marek Matusiak}
 	\instructor{}{DI Mika Str\"{o}mman}
 
+	\keywords{Automaatiojärjestelmä, Automatisoitu suunnittelu, ohjelmoitava logiikka, PLC, IEC 61131, FBD, graafinpiirto, suunnattu graafi}
+
+	\begin{document}
+
 	 \makecoverpage
 
-	\keywords{Automaatiojärjestelmä, Automatisoitu suunnittelu, ohjelmoitava logiikka, PLC, IEC 61131, FBD, graafinpiirto, suunnattu graafi}
-	
+%	\newpage
 	\begin{abstractpage}[finnish]
   
-Tämän tutkimuksen kohteena on järjestelmän ohjauslogiikan formaalin kuvauksen
-muuntaminen standardeita noudattavaksi logiikkakaavioksi.
-  
+%Tämän tutkimuksen kohteena on järjestelmän ohjauslogiikan formaalin kuvauksen
+%muuntaminen standardeita noudattavaksi logiikkakaavioksi.
+    Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
+  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
+  sekä mitä tuloksia on saatu. 
+  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
+  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
+  sekä mitä tuloksia on saatu. 
+
+  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
+  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
+  sekä mitä tuloksia on saatu. 
+  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
+  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
+  sekä mitä tuloksia on saatu. 
+  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
+  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
+  sekä mitä tuloksia on saatu. 
+
 	\end{abstractpage}
 
 	\newpage
@@ -508,9 +525,9 @@ Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu pyritään s
 
 Sander ehdottaa kaksivaiheista lähestymistapaa, jossa aluksi määritellään hyvä alkusijoittelu joka sitten tasapainoitetaan.
 Solmujen suhteelliset sijainnit on jo määritelty aiemmissa vaiheissa.
-Alkuperäisasettelussa solmut yksinkertaisesti jaetaan järjestyksessä.
+Alkuperäisasettelussa solmut yksinkertaisesti jaetaan triviaalisti järjestyksessä .
 
-Kun on saavutettu yksinkertaisin mahdollinen asettelu, voidaan siirtyä tasapainottamaan sitä.
+Kun on saavutettu triviaali asettelu, voidaan siirtyä tasapainottamaan sitä.
 Solmuasettelu tasapainoitetaan mallintamalla solmuja levossa olevina heilureina.
 Solmut ovat heilurin päässä oleva paino ja lanka painoa kannatteleva naru.
 Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
@@ -549,8 +566,7 @@ Tavoitteena on levittää ne koordinaateille välillä $[k, k+1]$.
 Reititysongelmaan ovat esittäneet Sander ym. ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttien muodostaman ryhmän paikallista asettelua erillisenä graafina. \cite{RefWorks:17}
 Ruutujen lankasegmentteihin sovelletaan tässäkin työssä kuvattuja kaavioasettelun menetelmiä.
 
-%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka.
-
+%Jokaista lankajoukkoa kohden luodaan pystysuuntainen runkolanka
 
 %Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
 %Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
@@ -584,19 +600,13 @@ Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio ase
 
 		\subsection{Esimerkki}
 
-Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa.
+Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa. 
 
-		\emph{Lopullisessa työssä on esimerkki. Opponointiversioon se ei ehtinyt.}
+Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
 
-%Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
+Putkeen liittyy useita 
 
-%Putkeen liittyy useita 
 
-%			\subsubsection{Sulkuventtiilin ohjauslogiikka}
-
-%Tyypillinen 
-
-%			\subsubsection{Sulkuventtiilin lukituskaavio}
 
 
 	\clearpage
@@ -607,7 +617,7 @@ Teollisuuden automaatiosuunnittelun yhtenäistämistä on akateemisissa julkaisu
 Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat vieraannuttavalle tasolle.
 
 Automaatiojärjestelmien suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä.
-Suunnittelussa käytettäviä työvälineitä tehostamalla voidaan saavuttaa merkittäviä säästöjä ja nopeuttaa toimihenkilöiden työtä.
+Suunnittelussa käytettäviä työvälineitä tehostamalla voidaan saavuttaa merkittäviä säästöjä ja työtä nopeuttaa.
 
 Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, visuaalisen suunnittelun ja ohjelmoinnin kaavioiden asetteluun.
 Ensisijainen pyrkimys on ollut kuvailla yksinkertaisesti toteutettava ratkaisu joka voidaan helposti integroida suunnitteluprosessiin.
@@ -617,12 +627,14 @@ Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muoka
 
 On huomattava määrä teknologisia uudistuksia, jotka eivät päädy käyttöön.
 Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, tarvitaan niitten lisäksi toimijoiden tahtotila olemassaolevien prosessien muuttamiseen ja uuden opetteluun.
-Työssä esitelty ja sitä vastaavat menetelmät voivat olla vaikeita toteuttaa käytännössä.
+Työssä esitelty ja sitä vastaavat menetelmät voivat olla haastavia toteuttaa käytännössä.
 Tästä huolimatta täytyy suunnittelualan yritysten pyrkiä kohti entistä enemmän integroidumpaa ja virtaviivaistettua suunnitteluprosessia jotta on mahdollista pysyä kansainvälisen kilpailun vauhdissa.
+
+
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
 
 \bibliography{kandi}
-%\makeindex
+
 \end{document}
