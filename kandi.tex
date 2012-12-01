@@ -39,7 +39,7 @@
 
 	\bibliographystyle{unsrt}
 
-	\uselogo{blue}{?}{tkk}	
+	\uselogo{blue}{?}{tkk}
 	\university{}{Aalto-yliopisto}
 	\school{}{Sähkötekniikan korkeakoulu}
 	\faculty{}{Automaatio- ja systeemitekniikan laitos}
@@ -84,24 +84,26 @@
 	\end{abstractpage}
 
 	\newpage
-	\vspace{10cm}
+
 	\mysection{Esipuhe}
 
-Haluan kiittää seuraavia ihmisiä, joita ilman 
+On paljon ihmisiä, joita ilman tämä työ ei olisi toteutunut.
+Haluaisin kiittää erityisesti seuraavia ihmisiä.
 
-Ohjaajaani Mika Strömmania hyvistä huomioista ja hyvästä keskustelusta.
+Työn ohjaajaa Mika Strömmania tarkoista huomioista ja rakentavista keskusteluista.
 
-Petri Kokkoa ja Pekka Niemistä ideoinnista ja suunnannäyttämisestä.
+Petri Kokkoa ja Pekka Niemistä hyvistä ideoista.
 
-Kandiryhmäni jäseniä Peter 'Bembu' Kronströmiä, Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, ja Lauri Andleria.
+Kandiryhmäni jäseniä:
+Peter 'Bembu' Kronströmiä, Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, ja Lauri Andleria vertaistuesta, hyvästä yhteishengestä ja virvoituksesta.
 
-Aalto- yliopiston henkilökuntaa hyvästä työstä.
+Aalto-yliopiston henkilökuntaa ja erityisesti kurssin järjestäjiä hyvästä työstä.
 
 Vanhempiani tuesta ja kannustuksesta.
 
 	\vspace{5cm}
 
-Otaniemi, itsenäisyyspäivänä 6.12.2012
+Otaniemessä itsenäisyyspäivänä 6.12.2012
 
 \vspace{5mm}
 	{\hfill Ian Tuomi \hspace{1cm}}
@@ -137,7 +139,6 @@ XSL	& Extensible Stylesheet Language, XML-kieliperhe, jolla voidaan määritell�
 Solmu, Valesolmu
 }
 
-
 	\cleardoublepage
 	\storeinipagenumber
 	\pagenumbering{arabic}
@@ -149,17 +150,16 @@ Solmu, Valesolmu
 	\thispagestyle{empty}
 
 Teollisen automaatiojärjestelmän suunnittelutyön tulos koostuu suuresta määrästä erilaisia dokumentteja.
-Laajan järjestelmän tapauksessa kyse voi olla jopa tuhansista yksittäisistä kaavioista, asettelukuvista ja listauksista.
+Dokumentteja tuotetaan laajaa järjestelmää suunniteltaessa jopa tuhansia.
 Ne yhdessä muodostavat kuvauksen, joka mahdollistaa järjestelmän toteutuksen, käyttöönoton ja ylläpidon.
 Dokumentaation laatiminen käsin on suurissa projekteissa työlästä ja tehotonta.
-Nykyaikaisessa automaatio- ja instrumentointisuunnittelussa ongelma korostuu.
-Ratkaisuista on tullut monimutkaisempia ja laatu- ja joustavuusvaatimukset ovat lisääntyneet.
+Nykyaikaisessa automaatio- ja instrumentointisuunnittelussa ongelma korostuu \cite{RefWorks:41}.
+Ratkaisuista on tullut monimutkaisempia, ja laatu- ja joustavuusvaatimukset ovat lisääntyneet.
 Lisäksi vaaditut toteutusajat ovat jatkuvasti lyhentyneet.
-\cite{RefWorks:41}
 
 Suunnitteluprosessiin kohdistuneista vaatimuksesta johtuen työtä on pyritty tehostamaan automatisoiduilla apuvälineillä.
-Alan metodiikka ei ole ilmeisistä standardoimiseduista huolimatta yhtenäistynyt ja yhteistyö alan tutkimuksessa on vähäistä.
-Vaikka lähestymistavat ovat vaihtelevia, alalla on kuitenkin nähtävissä yhtenäinen siirtymä kohti jaettuja tietomalleja.
+Metodiikka ei ole kuitenkaan ilmeisistä standardoimiseduista huolimatta yhtenäistynyt ja yhteistyö alan tutkimuksessa on vähäistä.
+Vaikka lähestymistavat ovat vaihtelevia, suunnittelussa on nähtävissä yhtenäinen siirtymä kohti jaettuja tietomalleja.
 Automaatiojärjestelmien suunnittelun näkökulmasta jaettujen tietomallien käyttö tarkoittaa,
 että suunnittelujärjestelmään tallentuu projektin edetessä kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen.
 Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokannasta.
@@ -167,12 +167,12 @@ Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokann
 Tietomalliin perustuva lähestymistapa vaatii sen laajuuden ja rajoitukset määrittelevän metamallin.
 Se ohjaa ja määrittää suunnittelun kohteen lisäksi myös yleisesti suunnittelutöiden kulkua.
 
-Tämän tutkimuksen kohteena on hajautetun ohjausjärjestelmän logiikan tietomallin muuntaminen standardeja noudattavaksi kaavioksi.
+Tämän tutkimuksen kohteena on hajautetun ohjausjärjestelmän logiikan esityksen muuntaminen standardeja noudattavaksi kaavioksi.
 Logiikkakaavio on tapa pelkistää järjestelmän eri osien syöttöjen ja lähtöjen välillä vallitseva logiikka visuaaliseen ja helposti ymmärrettävään muotoon.
 Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan hyödyntää.
 
 Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon.
-Työssä esitellään Sugiyaman ym. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuva, tietovirtakaavioiden esittämiseen soveltuva algoritmi.
+Tässä työssä eritellään Sugiyaman ym. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuva, tietovirtakaavioiden esittämiseen soveltuva algoritmi.
 Esimerkki tyypillisestä teollisuuden logiikkakaaviosta esitellään ja se asetellaan se käyttäen esiteltyä algoritmia.
 Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mittakaavalla.
 
@@ -181,14 +181,14 @@ Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mitt
 
 Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
 Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia, organisaatiota, ihmisiä ja näitten aktiviteetteja.
-Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen sekä niitten välisistä relaatioista. \cite{RefWorks:41}
+Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen ja niitten välisistä relaatioista. \cite{RefWorks:41}
 
-Suunnittelijoilla on työtehtävistään riippuen erilaisia tarpeita tehdasmallin suhteen.
-Työn kohde on monitahoinen eikä mikään yksi malli pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä.
+Suunnittelijoilla on työtehtävistään erilaisia tarpeita tehdasmallin suhteen.
+Työn kohde on monitahoinen, eikä mikään yksi esitystapa pysty kattamaan kaikkia suunniteltavan järjestelmän näkymiä.
 Tehdasta tulee kuvata useilta eri näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti.
 Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaismallin.
 
-Jokaisella mallilla on myös metamalli. Se määrittelee millaisia objekteja malli voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on.
+Jokaisella mallilla on myös metamalli. Se määrittelee millaisia objekteja se voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on.
 Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja ja järjestystä.
 Ne kuvaavat millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja ja
 määräävät sen laajuuden. Metamallin määritteleminen tekee työn tuloksesta ennakoitavan ja mahdollistaa tehokkaiden apuvälineiden kehittämisen.
@@ -424,18 +424,21 @@ Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
 Syklit eli takaisinkytkennät ovat graafinpiirtoalgoritmien vaatimuksista huolimatta välttämätön osa kaavioita, eikä niitä voida kokonaan poistaa.
 Tämän vuoksi syklit rikotaan kääntämällä yksi tai useampi syklin sisältämistä langoista.
 
-Tarkemmin määriteltynä tavoitteena on löytää mahdollisimman pieni lankajoukko $FS \subset E $ jotka kääntämällä verkossa ei ole enää syklejä jäljellä.
-Tämä ongelman on osoitettu olevan NP-vaikea. \cite{RefWorks:65}
+Tarkemmin määriteltynä, tavoite on löytää mahdollisimman pieni lankajoukko $FS \subset E $ jonka sisältämät langat kääntämällä verkko on syklitön.
+Tämä ongelman on osoitettu olevan NP-vaikea \cite{RefWorks:65}. 
 
-Syklien poistovaiheessa käsiteltävä tietomalli sisältää syklinpoistoa helpottavaa tietoa, nimittäin jokaisessa puussa ensimmäisenä suoritettavan solmun.
-Yksinkertainen tapa löytää pieni lankajoukko $FS$ on DFS-haku.
-DFS-haussa edetään ensimmäisistä solmuista lankoja pitkin eteenpäin kääntäen matkalla kohdatut käänteiset langat kunnes luotua polkua $(e_1,e_2, ..., e_h)$ ei voida enää jatkaa.
-Tämän jälkeen palataan polussa takaisin kunnes löydetään solmu josta lähtee lanka jota ei olla vielä seurattu.
+Syklien poistovaiheessa käsiteltävä tietomalli sisältää tiedon jokaisessa puussa ensimmäisenä suoritettavista solmuista.
+Tämä mahdollistaa huomattavan yksinkertaisten algoritmien käytön.
+Yksi tällaisista menetelmistä mahdollisimman pienen lankajoukon $FS$ etsimiseen on DFS-haku.
+DFS-haussa edetään ensimmäisenä suoritettavista solmuista mielivaltaista polkua pitkin, kääntäen matkalla kohdatut käänteiset langat. Tätä jatketaan kunnes luotua polkua $(e_1,e_2, ..., e_h)$ ei voida enää jatkaa.
+Tämän jälkeen palataan polkua palataan taaksepäin lankaa $e_h$ pitkin ja yritetään edetä takaisin kunnes löydetään solmu josta lähtee lanka jota ei olla vielä seurattu.
 \cite{RefWorks:69}
 
 Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin käyttäen hyväksi lankajoukkoa $FS$.
 
 Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä, voidaan käyttää Berger-Shor algoritmiin \cite{RefWorks:68} perustuvaa ahnetta algoritmia \cite{RefWorks:48}.
+
+
 
 		\subsubsection{Kerrostus}
 
