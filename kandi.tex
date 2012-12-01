@@ -49,7 +49,7 @@
 	\thesistitle{Generation of automation diagrams}{Automaatiokaavioiden generointi}
 
 	\place{Espoo}
-	\date{5.12.2012}
+	\date{6.12.2012}
 	\supervisor{DI Mika Str\"{o}mman}{DI Marek Matusiak}
 	\instructor{}{DI Mika Str\"{o}mman}
 
@@ -88,16 +88,21 @@
 	\mysection{Esipuhe}
 
 On paljon ihmisiä, joita ilman tämä työ ei olisi toteutunut.
-Haluaisin kiittää erityisesti seuraavia ihmisiä.
+Haluan kiittää erityisesti seuraavia ihmisiä.
 
 Työn ohjaajaa Mika Strömmania tarkoista huomioista ja rakentavista keskusteluista.
 
-Petri Kokkoa ja Pekka Niemistä hyvistä ideoista.
+Petri Kokkoa ja Pekka Niemistä suunnannäytöstä ja ideoista.
 
-Kandiryhmäni jäseniä:
-Peter 'Bembu' Kronströmiä, Lauri Vepsäläistä, Heikki 'Taffis' Tahvanaista, Panu Kauppista, ja Lauri Andleria vertaistuesta, hyvästä yhteishengestä ja virvoituksesta.
+Kandiryhmäni jäseniä
+Peter 'Bembu' Kronströmiä,
+Lauri Vepsäläistä,
+Heikki 'Taffis' Tahvanaista,
+Panu Kauppista
+ja Lauri Andleria
+vertaistuesta ja hyvästä yhteishengestä.
 
-Aalto-yliopiston henkilökuntaa ja erityisesti kurssin järjestäjiä hyvästä työstä.
+Aalto-yliopiston henkilökuntaa ja kurssin järjestäjiä hyvästä työstä.
 
 Vanhempiani tuesta ja kannustuksesta.
 
@@ -105,7 +110,7 @@ Vanhempiani tuesta ja kannustuksesta.
 
 Otaniemessä itsenäisyyspäivänä 6.12.2012
 
-\vspace{5mm}
+\vspace{1mm}
 	{\hfill Ian Tuomi \hspace{1cm}}
 
 	\newpage
@@ -116,28 +121,28 @@ Otaniemessä itsenäisyyspäivänä 6.12.2012
 
 
 %% Käsitteet
-	\mysection{Käsitteet ja lyhenteet}
+	\mysection{Lyhenteet}
 
-	\begin{tabular}{ll}
-Lanka	& ... \\\\
-	     	    
+	\begin{tabular}{ll}	     	    
 DCS	& Distributed Control System \\
 	& Hajautettu ohjausjärjestelmä \\ \\
-DFS	& Depth-first search, tapa kulkea graafin läpi \\\\
+DFS	& Depth-first search\\
+	& tapa kulkea graafin läpi \\\\
 
-FBD	& Function Block Diagram, IEC 61131-3 -standardin määrittelemä ohjelmointikieli\\\\
+FBD	& Function Block Diagram\\
+	& IEC 61131-3 standardin määrittelemä ohjelmointikieli\\\\
 IEC	& International Electrotechnical Commission,\\
 	& Kansainvälinen sähköalan standarointiorganisaatio\\\\
+NP & Nondeterministic Polynomial time\\
+	& Epädeterministisellä Turingin koneella polynomiaalisessa\\&ajassa ratkeavien ongelmien joukko \\\\ 
 PLC	& Programmable Logic Circuit \\
 	& Ohjelmoitava logiikkapiiri\\\\
-XML	& Extensible Markup Language, merkintäkieli johon voidaan sisällyttää ja jolla voidaan jäsentää tietoa  \\\\
-XSL	& Extensible Stylesheet Language, XML-kieliperhe, jolla voidaan määritellä XML-formaatteja tai muuntaa sitä formaattien välillä \\\\
+XML	& Extensible Markup Language\\
+	& Merkintäkieli johon voidaan sisällyttää ja jolla voidaan jäsentää tietoa  \\\\
+XSL	& Extensible Stylesheet Language\\
+	& Kieliperhe, jolla voidaan määritellä XML-formaatteja tai tehdä XML-muunnoksia \\\\
 
 \end{tabular}
-
-{\bf Lisättävä:
-Solmu, Valesolmu
-}
 
 	\cleardoublepage
 	\storeinipagenumber
@@ -149,32 +154,32 @@ Solmu, Valesolmu
 	\section{Johdanto}
 	\thispagestyle{empty}
 
-Teollisen automaatiojärjestelmän suunnittelutyön tulos koostuu suuresta määrästä erilaisia dokumentteja.
-Dokumentteja tuotetaan laajaa järjestelmää suunniteltaessa jopa tuhansia.
+Teollista automaatiojärjestelmää suunnitteltaessa tuotetaan suuri määrä erilaisia dokumentteja.
 Ne yhdessä muodostavat kuvauksen, joka mahdollistaa järjestelmän toteutuksen, käyttöönoton ja ylläpidon.
 Dokumentaation laatiminen käsin on suurissa projekteissa työlästä ja tehotonta.
 Nykyaikaisessa automaatio- ja instrumentointisuunnittelussa ongelma korostuu \cite{RefWorks:41}.
 Ratkaisuista on tullut monimutkaisempia, ja laatu- ja joustavuusvaatimukset ovat lisääntyneet.
 Lisäksi vaaditut toteutusajat ovat jatkuvasti lyhentyneet.
 
-Suunnitteluprosessiin kohdistuneista vaatimuksesta johtuen työtä on pyritty tehostamaan automatisoiduilla apuvälineillä.
-Metodiikka ei ole kuitenkaan ilmeisistä standardoimiseduista huolimatta yhtenäistynyt ja yhteistyö alan tutkimuksessa on vähäistä.
+Johtuen suunnitteluprosessiin kohdistuneista vaatimuksesta, työtä on pyritty tehostamaan automatisoiduilla apuvälineillä.
+Metodiikka ei kuitenkaan ole ilmeisistä standardoimiseduista huolimatta yhtenäistynyt.
+Automaatiosuunnittelun tutkimuskenttä on hajanainen, ja yhteistyö on vähäistä.
 Vaikka lähestymistavat ovat vaihtelevia, suunnittelussa on nähtävissä yhtenäinen siirtymä kohti jaettuja tietomalleja.
-Automaatiojärjestelmien suunnittelun näkökulmasta jaettujen tietomallien käyttö tarkoittaa,
+Automaatiojärjestelmien näkökulmasta jaettujen tietomallien käyttö tarkoittaa,
 että suunnittelujärjestelmään tallentuu projektin edetessä kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen.
-Erilaiset kaaviot voidaan tuottaa suoraan tietomallin sisältävästä tietokannasta.
+Erilaiset kaaviot voidaan usein tuottaa suoraan tietomallin sisältävästä tietokannasta.
 
 Tietomalliin perustuva lähestymistapa vaatii sen laajuuden ja rajoitukset määrittelevän metamallin.
 Se ohjaa ja määrittää suunnittelun kohteen lisäksi myös yleisesti suunnittelutöiden kulkua.
 
-Tämän tutkimuksen kohteena on hajautetun ohjausjärjestelmän logiikan esityksen muuntaminen standardeja noudattavaksi kaavioksi.
+Tämän kandidaatintyön kohteena on ohjausjärjestelmän logiikan muuntaminen standardeja noudattavaksi kaavioksi.
 Logiikkakaavio on tapa pelkistää järjestelmän eri osien syöttöjen ja lähtöjen välillä vallitseva logiikka visuaaliseen ja helposti ymmärrettävään muotoon.
 Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin algoritmillisen graafinpiirron tuloksia voidaan hyödyntää.
 
-Algoritmillinen graafipiirto on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisten suunnattujen kaavioiden piirtoon.
-Tässä työssä eritellään Sugiyaman ym. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuva, tietovirtakaavioiden esittämiseen soveltuva algoritmi.
-Esimerkki tyypillisestä teollisuuden logiikkakaaviosta esitellään ja se asetellaan se käyttäen esiteltyä algoritmia.
-Lisäksi pohditaan miten työn menetelmät voitaisiin toteuttaa laajemmalla mittakaavalla.
+Algoritmillinen graafinasettelu on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisiin suunnattuihin graafeihin.
+Tässä työssä eritellään Sugiyaman ym. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuva, logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun soveltuva algoritmi.
+
+
 
 	\clearpage
 	\section{Tehtaan mallit}
@@ -206,7 +211,7 @@ tarpeellisiksi ainakin kolme kuvausta: toiminnallinen, fyysinen sekä ohjelmisto
 
 		\subsubsection{Toiminnallinen kuvaus}
 
-Toiminnallinen kuvaus määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut \emph{käyttäjävaatimukset}.
+Toiminnallinen kuvaus määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut käyttäjävaatimukset.
 Se kuvaa järjestelmän toimintaa ja, muttei välttämättä määrittele sen tarkkaa teknistä toteutusta. \cite{RefWorks:60}
 
 Tätä näkymää määrittäessä voivat eri alojen suunnittelijat osallistua työhön ilman
@@ -485,11 +490,8 @@ josta vähennetään päinvastaiseen suuntaan kulkevien lankojen pituudet.
 Negatiivinen leikkausarvo viittaa siihen, että kyseistä lankaa kannattaa todennäköisesti pidentää mahdollisimman paljon.
 Tuloksena saadusta kerrostuksesta muodostetaan uusi virityspuu, ja menetelmää jatketaan edelleen kunnes kaikki virityspuun leikkausarvoista ovat positiivisia.
 
-		\subsubsection{Risteyksien vähentäminen}
 
-% Tähän se väikkäri myös! (P. Eades, ”Heuristics for Reducing crossings in
-% 2-layered networks”, E. Mäkinen, ”experiments of drawing 2-level hierarchical %graphs”,
-% M. Jünger, ”2-layer straightline crossing minimization: Perf…” )
+		\subsubsection{Risteyksien vähentäminen}
 
 Lankojen risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta. \cite{RefWorks:47}
 Risteysmäärän vähentäminen pieneksi on tällöin mille tahansa luettavuutteen tähtäävälle asettelualgoritmille tärkeä tavoite.
@@ -523,9 +525,6 @@ Asettelun merkitys korostuu kun lankoja on paljon, kuten automaation logiikkakaa
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu pyritään säilyttämään poikittaisasetteluvaiheessa.
 
-
-\cite{RefWorks:49}
-
 Sander ehdottaa kaksivaiheista lähestymistapaa, jossa aluksi määritellään hyvä alkusijoittelu joka sitten tasapainoitetaan.
 Solmujen suhteelliset sijainnit on jo määritelty aiemmissa vaiheissa.
 Alkuperäisasettelussa solmut yksinkertaisesti jaetaan triviaalisti järjestyksessä .
@@ -535,6 +534,8 @@ Solmuasettelu tasapainoitetaan mallintamalla solmuja levossa olevina heilureina.
 Solmut ovat heilurin päässä oleva paino ja lanka painoa kannatteleva naru.
 Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
 
+
+
 Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien tapauksessa siirretään niitten muodostamia osioita kauemmaksi toisistaan kunnes päällekkäisyyksiä ei enää esiinny.
 
 %Liikutettavat asiat ovat eivät ole yksittäisiä noodeja vaan lineaarisia segmenttejä.
@@ -542,9 +543,9 @@ Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien t
 
 %Solmun seuraajan poikkeama voidaan laskea kaavalla
 
-%$$
-%D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
-%$$
+$$
+D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
+$$
 
 %$$
 %D_p(e) = x(s) - x(t)
@@ -608,9 +609,6 @@ Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuv�
 Työssä otettiin esimerkiksi prosessiautomaatiossa tyypillinen säätöventtiili, jota säädetään perustuen virtaussensorin tuottamaan tietoon virtausnopeudesta putkessa. Venttiilin tehtävänä on vakioida putkessa kulkeva virtaus.
 
 Putkeen liittyy useita 
-
-
-
 
 	\clearpage
 
