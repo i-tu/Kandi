@@ -59,14 +59,13 @@
 
 	 \makecoverpage
 
-	\begin{abstractpage}[finnish]
-
-Työssä esitellään automaatiosuunnitteluun liittyviä malleja, kuvauksia ja metamalleja.
-
-Esteettisen kaavion tunnusmerkit määritellään, ja esitellään menetelmä, jonka tuloksena sellainen voidaan laatia.
-Menetelmän vaiheet ja niihin liittyviä algoritmeja esitellään.
-
-	\end{abstractpage}
+%	\begin{abstractpage}[finnish]
+%Työssä esitellään automaatiosuunnitteluun liittyviä malleja, kuvauksia ja metamalleja, sekä niiden esitystapoja jaetussa suunnittelutietokannassa.
+%Logiikan kaaviomuotoista esitystä esitellään.
+%
+%Esteettisen kaavion tunnusmerkit määritellään, ja esitellään menetelmä, jonka tuloksena sellainen voidaan laatia.
+%Menetelmän vaiheet ja niihin liittyviä algoritmeja esitellään.
+%	\end{abstractpage}
 
 	\tableofcontents
 
@@ -80,7 +79,7 @@ Menetelmän vaiheet ja niihin liittyviä algoritmeja esitellään.
 DCS	& Distributed Control System \\
 	& Hajautettu ohjausjärjestelmä \\ \\
 DFS	& Depth-first search\\
-	& tapa kulkea graafin läpi \\\\
+	& Syvyyssuuntainen läpikäynti \\\\
 
 FBD	& Function Block Diagram\\
 	& IEC 61131-3 standardin määrittelemä ohjelmointikieli\\\\
@@ -88,6 +87,7 @@ IEC	& International Electrotechnical Commission,\\
 	& Kansainvälinen sähköalan standarointiorganisaatio\\\\
 NP & Nondeterministic Polynomial time\\
 	& Epädeterministisellä Turingin koneella polynomiaalisessa\\&ajassa ratkeavien ongelmien joukko \\\\ 
+PI	& Prosessien instrumentointi\\\\
 PLC	& Programmable Logic Circuit \\
 	& Ohjelmoitava logiikkapiiri\\\\
 XML	& Extensible Markup Language\\
@@ -249,17 +249,17 @@ Mahdollisten takaisinkytkentöjen tapauksessa vaaditaan huolellisuutta, jottei s
 
 		\subsubsection{Logiikan tietokantakuvaukset}
 
-Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
+Logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
 Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
 Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä algoritmillisesti.
 Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
 Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
 Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
 
-Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseksi on ehdotettu PLCopen-standardia.
-PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
-PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
-Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona. \cite{RefWorks:64}
+Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseen on ehdotettu PLCopen-standardia.
+Sen mukainen logiikan XML-muotoinen kuvaus voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien tietojen lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
+Esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
+Tällaista kuvausta voidaan silloin pitää dokumentaation lopullisena muotona. \cite{RefWorks:64}
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
@@ -276,21 +276,19 @@ Tämä siitä, että ohjelma on määritelty standardinmukaiseksi, jos se toteut
 Teollisen automaatiojärjestelmän suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä.
 Siinä käytettäviä työvälineitä tehostamalla työ nopeutuu, ja voidaan saavuttaa merkittäviä säästöjä.
 
-Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti viime vuosina.
+Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti.
 Tutkimukset ovat kuitenkin olleet usein turhan abstrakteja ja vieraannuttavia teollisille toimijoille.
-Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan konkreettisesti tehostaa, ja joka voidaan helposti integroida olemassaolevaan järjestelmään.
+Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan konkreettisesti tehostaa, ja joka voidaan helposti integroida olemassaoleviin järjestelmiin.
 
 Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä, sekä todettu niitten asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
-Esitelty algoritmi tuottaa hyviä tuloksia, ja on sovellettavissa edelleen erilaisiin tarpeisiin.
+Esitelty algoritmi tuottaa hyviä tuloksia, ja on muunneltavissa edelleen erilaisiin tarpeisiin.
 
-On huomattava määrä hyviäkin ideoita, joita ei toteuteta.
-Näin tulisikin asian olla, sillä vaikka idea olisi hyvä ja käytännöllinen, se ei välttämättä ole kannattava.
-Tätä 
-Lisäksi tarvitaan myös toimijoiden tahtotila.
+Vaikka idea olisi hyvä ja käytännöllinen, se ei välttämättä ole kannattava.
+Tästä johtuen on paljon hyviäkin ideoita, joita ei toteuteta.
+Jotta yritys voi varmistaa kilpailukykynsä myös tulevaisuudessa, tulee sen arvioida jatkuvasti toteutuskelpoisten kehitysprojektien kannattavuutta, ja toteuttaa niitä harkintansa mukaan.
 
-Yritysten tulee pyrkiä kohti entistä integroidumpaa ja ketterää suunnitteluprosessia, jotta on mahdollista kilpailla palvelun nopeudella ja hinnalla.
+Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä, ja on todennäköistä että se muuttuu edelleen.
 
-Kaavioasettelun automatisoinnin myötä nousee kysymys, voidaanko automatisoidun koodigeneroinnin menetelmillä luoda automaatiojärjestelmien suunnitelmia korkeamman tason kuvauksilla, joista matalemman tason kuvaukset tuotetaan.
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
