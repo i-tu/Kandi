@@ -46,7 +46,7 @@
 	\degreeprogram{}{Automaatio- ja systeemitekniikka}
 	\univdegree{BSc}
 	\author{Ian Tuomi}{}
-	\thesistitle{Generation of automation diagrams}{Automaatiokaavioiden generointi}
+	\thesistitle{}{Teollisen ohjausjärjestelmän logiikkakuvauksen muuntaminen esteettiseksi kaavioksi}
 
 	\place{Espoo}
 	\date{6.12.2012}
@@ -59,61 +59,13 @@
 
 	 \makecoverpage
 
-%	\newpage
-	\begin{abstractpage}[finnish]
-  
-%Tämän tutkimuksen kohteena on järjestelmän ohjauslogiikan formaalin kuvauksen
-%muuntaminen standardeita noudattavaksi logiikkakaavioksi.
-    Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
-  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
-  sekä mitä tuloksia on saatu. 
-  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
-  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
-  sekä mitä tuloksia on saatu. 
-
-  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
-  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
-  sekä mitä tuloksia on saatu. 
-  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
-  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
-  sekä mitä tuloksia on saatu. 
-  Tiivistelmässä on lyhyt selvitys (noin 100 sanaa)
-  kirjoituksen tärkeimmästä sisällöstä: mitä ja miten on tutkittu,
-  sekä mitä tuloksia on saatu. 
-
-	\end{abstractpage}
-
-	\newpage
-
-	\mysection{Esipuhe}
-
-On paljon ihmisiä, joita ilman tämä työ ei olisi toteutunut.
-Haluan kiittää erityisesti seuraavia ihmisiä.
-
-Työn ohjaajaa Mika Strömmania tarkoista huomioista ja rakentavista keskusteluista.
-
-Petri Kokkoa ja Pekka Niemistä suunnannäytöstä ja ideoista.
-
-Kandiryhmäni jäseniä
-Peter 'Bembu' Kronströmiä,
-Lauri Vepsäläistä,
-Heikki 'Taffis' Tahvanaista,
-Panu Kauppista
-ja Lauri Andleria
-vertaistuesta ja hyvästä yhteishengestä.
-
-Aalto-yliopiston henkilökuntaa ja kurssin järjestäjiä hyvästä työstä.
-
-Vanhempiani tuesta ja kannustuksesta.
-
-	\vspace{5cm}
-
-Otaniemessä itsenäisyyspäivänä 6.12.2012
-
-\vspace{1mm}
-	{\hfill Ian Tuomi \hspace{1cm}}
-
-	\newpage
+%	\begin{abstractpage}[finnish]
+%Työssä esitellään automaatiosuunnitteluun liittyviä malleja, kuvauksia ja metamalleja, sekä niiden esitystapoja jaetussa suunnittelutietokannassa.
+%Logiikan kaaviomuotoista esitystä esitellään.
+%
+%Esteettisen kaavion tunnusmerkit määritellään, ja esitellään menetelmä, jonka tuloksena sellainen voidaan laatia.
+%Menetelmän vaiheet ja niihin liittyviä algoritmeja esitellään.
+%	\end{abstractpage}
 
 	\tableofcontents
 
@@ -127,7 +79,7 @@ Otaniemessä itsenäisyyspäivänä 6.12.2012
 DCS	& Distributed Control System \\
 	& Hajautettu ohjausjärjestelmä \\ \\
 DFS	& Depth-first search\\
-	& tapa kulkea graafin läpi \\\\
+	& Syvyyssuuntainen läpikäynti \\\\
 
 FBD	& Function Block Diagram\\
 	& IEC 61131-3 standardin määrittelemä ohjelmointikieli\\\\
@@ -135,6 +87,7 @@ IEC	& International Electrotechnical Commission,\\
 	& Kansainvälinen sähköalan standarointiorganisaatio\\\\
 NP & Nondeterministic Polynomial time\\
 	& Epädeterministisellä Turingin koneella polynomiaalisessa\\&ajassa ratkeavien ongelmien joukko \\\\ 
+PI	& Prosessien instrumentointi\\\\
 PLC	& Programmable Logic Circuit \\
 	& Ohjelmoitava logiikkapiiri\\\\
 XML	& Extensible Markup Language\\
@@ -161,9 +114,9 @@ Nykyaikaisessa automaatio- ja instrumentointisuunnittelussa ongelma korostuu \ci
 Ratkaisuista on tullut monimutkaisempia, ja laatu- ja joustavuusvaatimukset ovat lisääntyneet.
 Lisäksi vaaditut toteutusajat ovat jatkuvasti lyhentyneet.
 
-Johtuen suunnitteluprosessiin kohdistuneista vaatimuksesta, työtä on pyritty tehostamaan automatisoiduilla apuvälineillä.
+Johtuen suunnitteluprosessiin kohdistuneista vaatimuksista, työtä on pyritty tehostamaan automatisoiduilla apuvälineillä.
 Metodiikka ei kuitenkaan ole ilmeisistä standardoimiseduista huolimatta yhtenäistynyt.
-Automaatiosuunnittelun tutkimuskenttä on hajanainen, ja yhteistyö on vähäistä.
+Automaatiosuunnittelun tutkimuskenttä on lisäksi hajanainen, ja yhteistyö on vähäistä.
 Vaikka lähestymistavat ovat vaihtelevia, suunnittelussa on nähtävissä yhtenäinen siirtymä kohti jaettuja tietomalleja.
 Automaatiojärjestelmien näkökulmasta jaettujen tietomallien käyttö tarkoittaa,
 että suunnittelujärjestelmään tallentuu projektin edetessä kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen.
@@ -179,7 +132,8 @@ Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, 
 Algoritmillinen graafinasettelu on perusteellisesti tutkittu ala, jonka tuloksia voidaan käyttää kaikenlaisiin suunnattuihin graafeihin.
 Tässä työssä eritellään Sugiyaman ym. \cite{RefWorks:9} esittämään hierarkiseen lähestymistapaan perustuva, logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun soveltuva algoritmi.
 
-
+Työssä on myös kokeellinen osio, jossa laadittua algoritmia käytetään konkreettisen kaavion asetteluun.
+Lopuksi pohditaan tapoja sisällyttää menetelmä käytännön suunnittelutyöhön.
 
 	\clearpage
 	\section{Tehtaan mallit}
@@ -212,7 +166,7 @@ tarpeellisiksi ainakin kolme kuvausta: toiminnallinen, fyysinen sekä ohjelmisto
 		\subsubsection{Toiminnallinen kuvaus}
 
 Toiminnallinen kuvaus määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut käyttäjävaatimukset.
-Se kuvaa järjestelmän toimintaa ja, muttei välttämättä määrittele sen tarkkaa teknistä toteutusta. \cite{RefWorks:60}
+Se kuvaa järjestelmän toimintaa, muttei määrää sen tarkkaa teknistä toteutusta. \cite{RefWorks:60}
 
 Tätä näkymää määrittäessä voivat eri alojen suunnittelijat osallistua työhön ilman
 tuntemusta instrumentoinnista tai ohjelmistokehityksestä. Kun päätökset on tehty
@@ -246,7 +200,7 @@ Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäisell
 %Meier, automation body of knowledge: \cite{RefWorks:54}
 %http://www.geocities.ws/andrikuncoro/Instrumentation/1811_06.pdf
 
-Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan ylläpidon ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
+Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärrystä suunnittelu- ja rakennusvaiheen lisäksi tehtaan n ja huollon yhteydessä ja ovat siksi tärkeä osa tehtaan lopullista dokumentaatiota.
 Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmälläpitäen.
 Joskus loogista järjestelmää voidaan kuvailla kertomalla esimerkinomaisesti sen toiminnasta eri olosuhteissa.
 Tällainen lähestymistapa ei kuitenkaan yleensä ole riittävä.
@@ -275,13 +229,13 @@ Se sisältää viisi erilaista ohjelmointikieltä, joista tässä työssä käsi
 FBD-kieli koostuu toimilohkoista ja niiden välisistä langoista.
 Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä.
 Langat kuvaavat niitten relaatioita toisiinsa.
-Toimilohko voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten blokkien toimintaan.
+Toimilohko voi tilastaan riippuen lähettää tapahtumia jotka vaikuttavat muitten toimilohkojen toimintaan.
 Sen tekemien laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään blokin oikealta puolelta.
 Toisiinsa liitetyt toimilohkot muodostavat verkon, joka määrittelee laajemman toiminnallisuuden. \cite{RefWorks:55}
 
 Toimilohkojen muokkaamiseen on olemassa useita työkaluja.
 Näistä mainitsemisen arvoisia ovat ainakin FBDK, 4DIAC ISaGRAF ja NxtControl.
-Ne eivät kuitenkaan tarjoa kaavioiden asetteluun kuin yksinkertaisia työkaluja, joitten tavoitteet ovat selkeästi erilaiset kuin tässä työssä esitetyillä menetelmillä.
+Ne eivät kuitenkaan tarjoa kaavioiden asetteluun kuin yksinkertaisia työkaluja, jos ollenkaan.
 
 Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan vasemmalta oikealle.
 Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
@@ -295,17 +249,17 @@ Mahdollisten takaisinkytkentöjen tapauksessa vaaditaan huolellisuutta, jottei s
 
 		\subsubsection{Logiikan tietokantakuvaukset}
 
-Suunniteltu logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
+Logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
 Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen yhtenäisten suunnittelun apuvälineiden avulla.
 Lisäksi kuvauksen tulee olla formaali jotta logiikkaa voitaisiin käsitellä algoritmillisesti.
 Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
 Tällöin tulee myös mahdolliseksi toteuttaa helposti tietoa käsitteleviä muunnosalgoritmeja.
 Muunnoksella tarkoitetaan jonkin tiedon kuvauksen muuttamista toiseksi kuvaukseksi.
 
-Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseksi on ehdotettu PLCopen-standardia.
-PLCopen -standardin mukainen logiikan XML-esitys voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien asioiden lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
-PLCopen -standardin mukainen esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
-Tällaista esitystä voidaan silloin pitää dokumentaation lopullisena muotona. \cite{RefWorks:64}
+Standardin IEC 61131-3 mukaisten ohjelmointikielten kuvaamiseen on ehdotettu PLCopen-standardia.
+Sen mukainen logiikan XML-muotoinen kuvaus voi sisältää toimilohkon toiminnallisuuden kannalta välttämättömien tietojen lisäksi toimilohkon sijainnin, koon ja jopa lankojen reititykset.
+Esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta täysin yksiselitteinen.
+Tällaista kuvausta voidaan silloin pitää dokumentaation lopullisena muotona. \cite{RefWorks:64}
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
@@ -314,6 +268,7 @@ Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämien tietojen pohj
 Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kuitenkin kohdata haasteita, jos luotetaan liikaa ohjelmien standardinmukaisuuteen.
 Valmistajat jättävät usein standardinmukaisiksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.
 Tämä siitä, että ohjelma on määritelty standardinmukaiseksi, jos se toteuttaa siitä jonkin osan ja mainitsee mitä se jättää toteuttamatta. \cite{RefWorks:42}
+
 
 	\clearpage
 		
@@ -612,25 +567,23 @@ Putkeen liittyy useita
 
 	\clearpage
 
-	\section{Yhteenveto ja tulevaisuudennäkymät}
+	\section{Yhteenveto}
 
-Teollisuuden automaatiosuunnittelun yhtenäistämistä on akateemisissa julkaisuissa kartoitettu runsaasti.
-Nämä pyrkimykset ovat kuitenkin usein jääneet abstraktille, suunnittelijat vieraannuttavalle tasolle.
+Teollisen automaatiojärjestelmän suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä.
+Siinä käytettäviä työvälineitä tehostamalla työ nopeutuu, ja voidaan saavuttaa merkittäviä säästöjä.
 
-Automaatiojärjestelmien suunnittelu- ja toteutusprosessi on monimutkainen, kallis ja pitkä.
-Suunnittelussa käytettäviä työvälineitä tehostamalla voidaan saavuttaa merkittäviä säästöjä ja työtä nopeuttaa.
+Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti.
+Tutkimukset ovat kuitenkin olleet usein turhan abstrakteja ja vieraannuttavia teollisille toimijoille.
+Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan konkreettisesti tehostaa, ja joka voidaan helposti integroida olemassaoleviin järjestelmiin.
 
-Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun konkreettiseen suunnittelutyön ongelmaan, visuaalisen suunnittelun ja ohjelmoinnin kaavioiden asetteluun.
-Ensisijainen pyrkimys on ollut kuvailla yksinkertaisesti toteutettava ratkaisu joka voidaan helposti integroida suunnitteluprosessiin.
+Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä, sekä todettu niitten asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
+Esitelty algoritmi tuottaa hyviä tuloksia, ja on muunneltavissa edelleen erilaisiin tarpeisiin.
 
-Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä suunnattujen graafien asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
-Työ esitteli logiikkakaavioiden asetteluun soveltuvan algoritmin, joka on muokattavissa edelleen erilaisiin teollisuuden tarpeisiin.
+Vaikka idea olisi hyvä ja käytännöllinen, se ei välttämättä ole kannattava.
+Tästä johtuen on paljon hyviäkin ideoita, joita ei toteuteta.
+Jotta yritys voi varmistaa kilpailukykynsä myös tulevaisuudessa, tulee sen arvioida jatkuvasti toteutuskelpoisten kehitysprojektien kannattavuutta, ja toteuttaa niitä harkintansa mukaan.
 
-On huomattava määrä teknologisia uudistuksia, jotka eivät päädy käyttöön.
-Vaikka tuote olisikin mahdollinen, käytännöllinen ja kannattava, tarvitaan niitten lisäksi toimijoiden tahtotila olemassaolevien prosessien muuttamiseen ja uuden opetteluun.
-Työssä esitelty ja sitä vastaavat menetelmät voivat olla haastavia toteuttaa käytännössä.
-Tästä huolimatta täytyy suunnittelualan yritysten pyrkiä kohti entistä enemmän integroidumpaa ja virtaviivaistettua suunnitteluprosessia jotta on mahdollista pysyä kansainvälisen kilpailun vauhdissa.
-
+Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä, ja on todennäköistä että se muuttuu edelleen.
 
 
 \clearpage
