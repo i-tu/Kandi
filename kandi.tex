@@ -1,11 +1,6 @@
 	\documentclass[finnish,12pt]{article}
 	\usepackage{aaltothesis}
 	
-      % \usepackage[T1]{inputenc}
-
-
-	%% Use this if you run latex and use eps-format pictures
-	%\usepackage[dvips]{graphicx}
 	\usepackage[pdftex]{graphicx} 
 	\usepackage{subfigure}
 
@@ -47,11 +42,11 @@
 	\degreeprogram{}{Automaatio- ja systeemitekniikka}
 	\univdegree{BSc}
 	\author{Ian Tuomi}{}
-	\thesistitle{}{Teollisen ohjausjärjestelmän logiikkakuvauksen muuntaminen esteettiseksi kaavioksi}
+	\thesistitle{}{Kaavioiden esteettinen generointi tehdassuunnittelun apuvälineenä}
 
 	\place{Espoo}
 	\date{6.12.2012}
-	\supervisor{DI Mika Str\"{o}mman}{DI Marek Matusiak}
+	\supervisor{DI Mika Str\"{o}mman}{DI Pekka Forsman}
 	\instructor{}{DI Mika Str\"{o}mman}
 
 	\keywords{Automaatiojärjestelmä, Automatisoitu suunnittelu, ohjelmoitava logiikka, PLC, IEC 61131, FBD, graafinpiirto, suunnattu graafi}
@@ -72,14 +67,14 @@ Menetelmän vaiheet ja niihin liittyviä algoritmeja esitellään.
 
 	\mysection{Esipuhe}
 
-On paljon ihmisiä, joita ilman tämä työ ei olisi toteutunut.
-Haluan kiittää erityisesti seuraavia ihmisiä.
+On joitain ihmisiä, joita ilman tämä työ ei olisi toteutunut, ja monia joita ilman se olisi ollut vaikeampaa.
+Haluan kiittää näistä erityisesti seuraavia ihmisiä:
 
 Työn ohjaajaa Mika Strömmania tarkoista huomioista ja rakentavista keskusteluista.
 
 Petri Kokkoa ja Pekka Niemistä suunnannäytöstä ja ideoista.
 
-Kandiryhmäni jäseniä
+Kandiryhmäni 6BÄKin mainioita jäseniä
 Peter 'Bembu' Kronströmiä,
 Lauri Vepsäläistä,
 Heikki 'Taffis' Tahvanaista,
@@ -87,7 +82,7 @@ Panu Kauppista
 ja Lauri Andleria
 vertaistuesta ja hyvästä yhteishengestä.
 
-Aalto-yliopiston henkilökuntaa ja kurssin järjestäjiä hyvästä työstä.
+Aalto-yliopiston henkilökuntaa, kurssin järjestäjiä ja erityisesti kurssin assistenttia Marek Matusiakia hyvästä työstä.
 
 Vanhempiani tuesta ja kannustuksesta.
 
@@ -433,7 +428,7 @@ Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä,
 
 		\subsubsection{Kerrostus}
 
-Kerrostukselta vaaditaan, että se on kunnollinen sekä tiivis\footnote{eng. compact}.
+Kerrostukselta vaaditaan, että se on kunnollinen ja tiivis\footnote{eng. compact}.
 Tiiviydellä tarkoitetaan, että kerrostuksen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 
 Tämän saavuttamiseksi graafiin lisätään valesolmuja pitkien lankojen katkaisemiseksi.
@@ -448,9 +443,9 @@ Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa mul
 Yksinkertainen tapa tuottaa kerrostus on pisimmän reitin tapa. Se asettaa ensin kaikki solmut, joilla ei ole seuraajia kerrokseen $L_1$.
 Tämän jälkeen jokainen muu solmu asetetaan kerrokseen $L_{p+1}$, missä $p$ on lyhin etäisyys johonkin kerroksen $L_1$ solmuista.
 Tällä tavalla laaditut kerrostukset sisältävät mahdollisimman vähän kerroksia.
-Tämä lähestymistapa tuottaa kerrostukseen huomattavan suuria kerroksia.
+Tämä lähestymistapa tuottaa huomattavan suuria yksittäisiä kerroksia.
 
-Kun halutaan mahdollisimman kapeita kerrostuksia, on suotavaa käyttää multiprosessoriajastusongelman ratkaisemiseen kehitettyä Coffmann-Graham -algoritmia. \cite{RefWorks:59}
+Kun kerrostuksesta halutaan mahdollisimman kapea, kannattaa käyttää multiprosessoriajastusongelman ratkaisemiseen kehitettyä Coffmann-Graham -algoritmia \cite{RefWorks:59}.
 Ongelmana on ajastaa eri tehtävät $W$ kappaleelle prosessoreita siten, että kaikki tehtävät suoritetaan ajassa $H$.
 Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle, sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
 
@@ -464,17 +459,16 @@ $$f=\displaystyle\sum\limits_{(v_1 ,v_2) \in V} (i - j - 1), \hspace{1.5cm} v_1 
 
 Minimoitava arvo $f$ on samalla valesolmujen määrä.
 
-Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu nk. \emph{Network Simplex}- algoritmiin\cite{RefWorks:28}. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi, minkä seurauksena se on valittu tässä työssä käytettäväksi algoritmiksi.
+Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu niinkutsuttuun Network Simplex- algoritmiin \cite{RefWorks:71}. Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi, minkä seurauksena se on valittu tässä työssä käytettäväksi algoritmiksi.
 
 Menetelmässä muodostetaan ensin verkon virityspuu.
 Kun virityspuusta poistetaan jokin lanka, tuloksena syntyy kaksi toisistaan erillistä puuta, joista molemmat sisältävät eri solmut joita katkaistu lanka yhdisti.
 Toinen sisältää langan lähde- ja toinen määränpääsolmun.
-Näitten kahden puun perusteella lasketaan jokaiselle langalle \emph{leikkausarvo}.
+Näitten kahden puun perusteella lasketaan jokaiselle langalle leikkausarvo.
 Leikkausarvo on määränpääsolmun sisältävästä puusta ja lähdesolmun sisältävään puuhun kulkevien lankojen pituudet
 josta vähennetään päinvastaiseen suuntaan kulkevien lankojen pituudet.
-
 Negatiivinen leikkausarvo viittaa siihen, että kyseistä lankaa kannattaa todennäköisesti pidentää mahdollisimman paljon.
-Tuloksena saadusta kerrostuksesta muodostetaan uusi virityspuu, ja menetelmää jatketaan edelleen kunnes kaikki virityspuun leikkausarvoista ovat positiivisia.
+Tuloksena saadusta kerrostuksesta muodostetaan uusi virityspuu, ja menetelmää jatketaan edelleen kunnes kaikki virityspuun leikkausarvoista ovat positiivisia. \cite{RefWorks:28}
 
 
 		\subsubsection{Risteyksien vähentäminen}
@@ -493,12 +487,12 @@ Eräs suosittu lähestymistapa perustuu solmun seuraajasolmujen sijoittaminen se
 Teorian kannalta mediaanimenetelmällä on useita hyviä ominaisuuksia.
 Sen avulla tuotetun ratkaisun risteysmäärän suhde parhaaseen mahdolliseen on vakio.
 Lisäksi algoritmi voidaan suorittaa polynomisessa ajassa.
-Käytännön kokeiluissa satunnaisilla graafeilla on kuitenkin todettu, ettei mediaaneihin perustuva menetelmä ole käyttökelpoisin. \cite{RefWorks:52}
-Battisti ym. suosittelevatkin eri menetelmiä yhdisteleviä hybridialgoritmeja, kuten mediaanimenetelmän ja satunnaisten tranpositioiden yhdistämistä\cite{RefWorks:39}.
+Käytännön kokeiluissa satunnaisilla graafeilla on kuitenkin todettu, ettei mediaaneihin perustuva menetelmä ole käyttökelpoisin \cite{RefWorks:52}. 
+Battisti ym. suosittelevatkin eri menetelmiä yhdisteleviä hybridialgoritmeja, kuten mediaanimenetelmän ja satunnaisten tranpositioiden yhdistämistä \cite{RefWorks:39}.
 
 		\subsubsection{Poikittainen asettelu}
 
-Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle. \cite{RefWorks:47}
+Jokainen kulma langassa aiheuttaa ylimääräisen rasitteen ihmisen hahmotuskyvylle \cite{RefWorks:47}. 
 Esteettistä lopputulosta tavoittelevan asettelualgoritmin tulee siis pyrkiä minimoimaan lankojen kulmat.
 Siinä missä noodikerroksien noodikombinaatiot vaikuttavat lankojen risteysten määrään, vaikuttaa niiden tarkka poikittainen asettelu langoissa olevien kulmien määrään.
 Solmujen poikittaisen asettelun avulla solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
@@ -560,32 +554,37 @@ Kun tämä vaihe on suoritettu kaikille poikittaisille segmenteille, sama tehdä
 
 	\clearpage
 	\section{Käytäntö}
+	
+	
+	
 
 		\subsection{Kaavioiden tuottaminen}
 
-Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
+Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun käsin huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
 Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%.
 Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävä työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
 
 Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
 Algoritmillisesti laaditut kaaviot voivat olla jopa parempia kuin käsintehdyt.
 
-Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaaviopalvelimella.
-Verkossa sijaitseva kaavioipalvelin soveltuu suurten järjestelmien suunnitteluun erityisen hyvin, kun suunnittelijoita on monta.
-Kaikki suunnittelijat pystyvät hakemaan keskitetystä suunnittelujärjestelmästä ajantasaisimman version kaaviosta ilman, että kaaviot tarvitsee ladata järjestelmään erikseen.
-Lisäksi näin vältytään versioinnin tuottamilta haasteilta - uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
+Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
+Verkossa sijaitsevan palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
+Versioinnin tuottamilta haasteilta vältytään, ja uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
 		\subsection{Esimerkkejä}
 
-KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä. Sitä kehitetään Kielin yliopistossa. 
-Seuraa esimerkkejä laadituista kaavioista.
+KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä.
 
+Menetelmän soveltuvuutta logiikkakaavioiden asetteluun tutkittiin luomalla satunnaisia verkkoja joita algoritmin avulla aseteltiin.
 Esimerkkejä on kolme
+
 \begin{figure}[ht]
+
 \centering
 \subfigure[Yksinkertaisen verkon asettelu. Toimilohkoissa on 1-2 lähtöä ja syklejä ei ole.]{
 	\includegraphics[width=\textwidth]{esim1.pdf}
 }
+
 \subfigure[Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 1-4 lähtöä.]{
 	\includegraphics[width=\textwidth]{esim2.pdf}
 }
@@ -596,6 +595,7 @@ Esimerkkejä on kolme
 
 \caption{Esimerkkejä algoritmin tuottamista reitityksistä. }
 \end{figure}
+
 	\clearpage
 
 	\section{Yhteenveto}
