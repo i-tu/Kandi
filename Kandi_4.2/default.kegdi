@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:keg="http://kieler.cs.cau.de/KEG" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_PaYA8TvyEeKjw40zjM27ZA" type="Graphs" name="default.kegdi" measurementUnit="Pixel">
-  <styles xmi:type="notation:DiagramStyle" xmi:id="_PaYA8jvyEeKjw40zjM27ZA"/>
-  <element xmi:type="keg:Node" href="default.keg#/"/>
-</notation:Diagram>
