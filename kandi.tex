@@ -14,9 +14,7 @@
 
 	% Math stuff
 	\usepackage{amsfonts,amssymb,amsbsy}
-
 	\usepackage{setspace}
-	\onehalfspacing
 	\setlength\parindent{0pt}
 	\usepackage[parfill]{parskip}
 	
@@ -36,18 +34,18 @@
 	\bibliographystyle{unsrt}
 
 	\uselogo{blue}{?}{tkk}
-	\university{}{Aalto-yliopisto}
-	\school{}{Sähkötekniikan korkeakoulu}
-	\faculty{}{Automaatio- ja systeemitekniikan laitos}
-	\degreeprogram{}{Automaatio- ja systeemitekniikka}
+	\university{Aalto-university}{Aalto-yliopisto}
+	\school{School of Electrical Engineering}{Sähkötekniikan korkeakoulu}
+	\faculty{Department of Automation and Systems Technology}{Automaatio- ja systeemitekniikan laitos}
+	\degreeprogram{Automation and Systems Technology}{Automaatio- ja systeemitekniikka}
 	\univdegree{BSc}
-	\author{Ian Tuomi}{}
-	\thesistitle{}{Logiikkakaavioiden generointi tehdassuunnittelussa}
+	\author{Ian Tuomi}
+	\thesistitle{Logic Diagram Generation in Factory Design}{Logiikkakaavioiden generointi tehdassuunnittelussa}
 
 	\place{Espoo}
 	\date{6.12.2012}
-	\supervisor{DI Mika Str\"{o}mman}{DI Pekka Forsman}
-	\instructor{}{DI Mika Str\"{o}mman}
+	\supervisor{Pekka Forsman, D.Sc.}{TkT Pekka Forsman}
+	\instructor{Mika Str\"{o}mman, M.Sc.}{DI Mika Str\"{o}mman}
 
 	\keywords{Automaatiojärjestelmä, Automatisoitu suunnittelu, ohjelmoitava logiikka, PLC, IEC 61131, FBD, graafinpiirto, suunnattu graafi}
 
@@ -56,15 +54,31 @@
 	 \makecoverpage
 
 	\begin{abstractpage}[finnish]
+
 Työssä esitellään ohjauslogiikan automaatiosuunnitteluun liittyviä malleja, kuvauksia ja metamalleja.
 Lisäksi tarkastellaan suunnittelun työtapoja ja logiikan kaaviomuotoisia esityksiä.
 
-Esteettisen kaavion tunnusmerkit määritellään. Lisäksi esitellään graafinasettelualgoritmi, jonka avulla voidaan tuottaa näitä tunnusmerkkejä noudattavia kaavioita tehdassuunnittelun tarpeisiin.
+Esteettisen kaavion tunnusmerkit määritellään.
+Lisäksi esitellään graafinasettelualgoritmi, jonka avulla voidaan tuottaa näitä tunnusmerkkejä noudattavia kaavioita tehdassuunnittelun tarpeisiin.
 
 Lisäksi pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja haasteita, ja esitetään esimerkkejä algoritmin tuloksena syntyneistä kaavioista.
 
 	\end{abstractpage}
+	
+	\keywords{Automation system, Automated design, Programmable Logic, PLC, IEC 61131-3, FBD, Graph layout, Directed Graph}
+	
+	\begin{abstractpage}[english]
+	
+This work presents models, descriptions and frameworks dealing with the design of automation control system logic.
+In addition, the practices of automation design work and diagrammatic representations of logic are discussed.
 
+The properties of an aesthetic diagram are defined.
+A graph layout algorithm capable of generating aesthetic diagrams for the purposes of control system design is described in detail.
+
+In addition, the pros and cons following from the use of such a system are discussed, and examples of layouted diagrams are presented.
+
+	\end{abstractpage}
+	
 	\newpage
 
 	\mysection{Esipuhe}
@@ -72,9 +86,9 @@ Lisäksi pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja h
 On joitain ihmisiä, joita ilman tämä työ ei olisi toteutunut, ja monia joita ilman se olisi ollut vaikeampaa.
 Haluan kiittää näistä erityisesti seuraavia ihmisiä:
 
-Työn ohjaajaa Mika Strömmania tarkoista huomioista ja rakentavista keskusteluista.
+Työn ohjaajaa Mika Strömmania tarkoista huomioista, rakentavista keskusteluista ja asiantuntevasta ohjauksesta.
 
-Petri Kokkoa ja Pekka Niemistä suunnannäytöstä ja ideoista.
+Petri Kokkoa ja Pekka Niemistä johdatuksesta aiheen piiriin työpaikalla, suunnannäytöstä ja ideoista.
 
 Kandiryhmäni 6BÄKin mainioita jäseniä
 Peter 'Bembu' Kronströmiä,
@@ -84,7 +98,9 @@ Panu Kauppista
 ja Lauri Andleria
 vertaistuesta ja hyvästä yhteishengestä.
 
-Aalto-yliopiston henkilökuntaa, kurssin järjestäjiä ja erityisesti kurssin assistenttia Marek Matusiakia hyvästä työstä.
+Kämppiksiäni Emmaa, Emmiä, Ennaa, Katria, Niinaa, Nikkeä, Ollia, Sariannaa, Spördeä, Teemua, Tuomasta ja Vesaa arjen merkittävästä parantamisesta sekä juttu- ja kahviseurasta.
+
+Tyttöystävääni Marjoa kärsivällisyydestä työn aiheuttamien kiireiden aikana.
 
 Vanhempiani tuesta ja kannustuksesta.
 
@@ -155,6 +171,11 @@ Erilaiset kaaviot voidaan usein tuottaa suoraan tietomallin sisältävästä tie
 Tämän kandidaatintyön kohteena on ohjausjärjestelmän logiikan muuntaminen standardeja noudattavaksi kaavioksi.
 Logiikkakaavio on tapa pelkistää järjestelmän eri osien syöttöjen ja lähtöjen välillä vallitseva logiikka visuaaliseen ja helposti ymmärrettävään muotoon.
 Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin voidaan hyödyntää algoritmillisen graafiasettelun tuloksia.
+
+Kaavioiden asetteluun käsin kuluu huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
+Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu ajasta n. 30\%.
+Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävää työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
+Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelutyön kohdistua kuvauksen laatimiseen.
 
 Tässä työssä eritellään hierarkisen graafiasettelun idea, sen vaiheet ja niihin liittyvät ongelmat, sekä algoritmillisia ratkaisuja kyseisiin ongelmiin.
 Hierarkinen graafiasettelu soveltuu erityisen hyvin logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun.
@@ -365,7 +386,6 @@ Näin on FBD-ohjelmointikielen tapauksessa aina. % SFS-VIITTAUS
 Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon jos niitä halutaan käyttää.
 Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä varten asetetaan valesolmuja. \cite{RefWorks:51}
 
-\newpage
 
 \begin{figure}[!p]
 \centering
@@ -436,7 +456,10 @@ Koska tiiviys korreloi valesolmujen vähäisen määrän kanssa, voidaan lähest
 On olemassa myös tapa laatia kerrostus, joka tekee tämän ja voidaan suorittaa polynomisessa ajassa.
 Se löydetään kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä jolla minimoidaan
 
-$$f=\displaystyle\sum\limits_{(p_1 ,p_2) \in E} (i - j - 1), \hspace{1.5cm} \mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j$$
+\begin{equation}
+f=\displaystyle\sum\limits_{(p_1 ,p_2) \in E} (i - j - 1), \hspace{1cm}
+\mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j
+\end{equation}
 
 , missä minimoitava arvo $f$ on samalla valesolmujen määrä.
 
@@ -486,15 +509,23 @@ Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
 
 Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien tapauksessa siirretään niitten muodostamia osioita kauemmaksi toisistaan kunnes päällekkäisyyksiä ei enää esiinny.
 
-$$
-D_p(e)=x(v_1)-x(v_2), \hspace{2cm} D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
-$$
+\begin{equation}
+	D_p(e)=x(v_1)-x(v_2)
+\end{equation}
+
+ \begin{equation}
+ 	D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
+\end{equation}
 
 Segmentin siirtymä on sen sisältämien solmujen siirtymien summa, ja segmenttijoukon siirtymä on sen kaikkien segmenttien siirtymien keskiarvo
 
-$$
-D_p(S)=\sum_{v \in L} D_p(v),\hspace{2cm} D_p(v)=\frac{\sum_{i \in {1,...,k}}D_p(S_i)}{k}
-$$
+\begin{equation}
+	D_p(S)=\sum_{v \in L} D_p(v)
+\end{equation}
+
+\begin{equation}
+	D_p(v)=\frac{\sum_{i \in {1,...,k}}D_p(S_i)}{k}
+\end{equation}
 
 
 Kun solmujen sijainnit on tasapainotettu, jaotellaan asetteluun käytössä oleva tila ruudukoksi ja asetetaan solmut niitten tasapainotettuja sijainteja lähinnä oleviin ruudukkopisteisiin.
@@ -503,7 +534,7 @@ Menettely tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduuk
 		\subsubsection{Lankojen reititys}
 
 Tietovirtakaavioiden toimilohkoissa on useita portteja ja niitten sisältämät lankareititykset ovat ortogonaalisia.
-Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa.
+Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa huomioon.
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
 
 Kun jokaiselle solmulle on tiedossa niiden lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmujen koordinaattien välillä.
@@ -513,59 +544,53 @@ Tämä toistetaan pystysuuntaisille segmenteille.
 Kaikki samassa ruudussa tai sarakkeessa $k$ olevat segmentit kootaan ryhmäksi joukkoon $S$.
 Tavoitteena on levittää ne koordinaateille välillä $[k, k+1]$.
 Sander ym. ovat esittäneet reititysongelman ratkaisun, jossa käsitellään yksitellen jokaisen ruudun ylittävien lankasegmenttien muodostaman ryhmän paikallista asettelua erillisenä graafina. \cite{RefWorks:17}
-Menetelmässä luodaan jokaiselle ruudulle erillinen segmenttiylitysgraafi.
-
-Segmenttiylitysgraafiin sovelletaan tämän jälkeen tässäkin työssä kuvattuja kaavioasettelun menetelmiä.
+Menetelmässä luodaan jokaiselle ruudulle erillinen segmenttiylitysgraafi, johon sovelletaan tässäkin työssä kuvattuja kaavioasettelun menetelmiä.
 
 Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
-Jokainen ruutuun kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
-Asyklisen segmenttiylitysgraafin tapauksessa ylitysgraafi voidaan järjestää topologisesti.
-Tässä tapauksessa risteysmäärä on vähin mahdollinen.
-Ylitysgraafi kuitenkin yleensä sisältää syklejä. Tässä tapauksessa syklit rikotaan, jo tunnetulla tavalla \cite{RefWorks:48}.
+Jokainen graafiin kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
+Segmenttiylitysgraafin syklit vastaavat asettelussa olevia risteyksiä.
+Asyklinen segmenttiylitysgraafi ei silloin sisällä syklejä ja se voidaan järjestää topologisesti.
+Muussa tapauksessa sen sisältämät syklit rikotaan käyttäen syklinpoistoon soveltuvaa algoritmia. \cite{RefWorks:48}.
 
 Lopulta segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
 Segmentti jonka sijoitus on $r \in \{1,...,r_{max}\}$ saa koordinaatikseen $k + r/(r_{max} +1)$.
-Kun tämä vaihe on suoritettu kaikille poikittaisille segmenteille, sama tehdään kaikille poikittaisille segmenteille.
 
 	\clearpage
-	\section{Käytäntö}
+	\section{Esimerkkejä}
 	
-		\subsection{Kaavioiden tuottaminen}
+Menetelmän soveltuvuutta logiikkakaavioiden asetteluun tutkittiin luomalla satunnaisia graafeja, jotka aseteltiin KIELER- sovelluksen avulla.
+KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä jota kehitetään Kielin yliopistossa. \cite{RefWorks:123}
+Se toteuttaa useimmat esitetyistä kaavioasettelun algoritmeista, eikä sitä tarvinnut muokata merkittävästi haluttujen tulosten saavuttamiseksi.
+Tässä esitellään kolme erityyppistä verkkoa, joiden kaltaisia algoritmi saattaisi kohdata.
 
-Kun kaavioista tulee monimutkaisia, kuluu niitten asetteluun käsin huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
-Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu suunittelijoiden ajasta n. 30\%.
-Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävä työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
-
-Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelijan laatia kahdesta kuvaustyypistä helpompi ja antaa algoritmin hoitaa lopullisen kuvauksen laatiminen.
-
-Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
-Verkossa sijaitsevan palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
-Versioinnin tuottamilta haasteilta vältytään, ja uusi versio asettelualgoritmista voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
-
-		\subsection{Esimerkkejä}
-
-KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä.
-
-Menetelmän soveltuvuutta logiikkakaavioiden asetteluun tutkittiin luomalla satunnaisia verkkoja joita algoritmin avulla aseteltiin.
-Esimerkkejä on kolme
+Kuvassa 2 on yksinkertaiselle, yksi tai kaksi lähtöä sisältävien syklittömälle solmujen verkolle tehty asettelu.
+Suurin osa aseteltavista kaavioista on monimutkaisuudessaan todennäköisesti tätä luokkaa, ja huomataan että algoritmi suoriutuu tehtävästä erinomaisesti.
 
 \begin{figure}[ht]
-
-\centering
-\subfigure[Yksinkertaisen verkon asettelu. Toimilohkoissa on 1-2 lähtöä ja syklejä ei ole.]{
 	\includegraphics[width=\textwidth]{esim1.pdf}
-}
-
-\subfigure[Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 1-4 lähtöä.]{
-	\includegraphics[width=\textwidth]{esim2.pdf}
-}
-
-\subfigure[Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisesta toimilohkosta lähtee neljä lankaa.]{
-	\includegraphics[width=\textwidth]{esim3.pdf}
-}
-
-\caption{Esimerkkejä algoritmin tuottamista reitityksistä. }
+	\caption{Yksinkertaisen verkon asettelu. Toimilohkoissa on 1-2 lähtöä ja syklejä ei ole.}
 \end{figure}
+
+Kuvassa kolme nähdään paljon vaihtelua sisältävä verkko.
+Toimilohkoissa on lähtöjä välillä 0-4 ja takaisinkytkentöjä on paljon.
+Verkon kuvaama tietovirta ei ole sikäli todenmukainen, että siinä olevat yhteydet ovat täysin satunnaisia, eivätkä luonnostaan kerrostuneita mitenkään.
+Algoritmi onnistuu kuitenkin luomaan jotain järkeä täysin satunnaiseen kaavioon.
+
+\begin{figure}[ht]
+	\includegraphics[width=\textwidth]{esim2.pdf}
+	\caption{Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 0-4 lähtöä.}
+\end{figure}
+
+Viimeinen esimerkki on huomattavan vaikea, eikä siltä odotettukaan kovin luettavaa esitystä.
+Jokaisessa toimilohkossa on neljä lähtöä, minkä seurauksena kuvassa on 32 yksittäistä ja täysin satunnaista lankaa.
+Valmiin kaavion luettavuus alkaa olemaan huomattavan vaikeaa, ja huomataan että parhaatkaan algoritmit eivät suoriudu näin haastavasta tehtävästä.
+On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauksessa tuottamaan edes vastaavaa tulos.
+
+\begin{figure}[ht]
+	\includegraphics[width=\textwidth]{esim3.pdf}
+	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisesta toimilohkosta lähtee neljä lankaa}
+\end{figure}
+
 
 	\clearpage
 
@@ -583,7 +608,14 @@ Tästä johtuen on paljon hyviäkin ideoita, joita ei toteuteta.
 Jotta yritys voi varmistaa kilpailukykynsä myös tulevaisuudessa, tulee sen arvioida jatkuvasti toteutuskelpoisten kehitysprojektien kannattavuutta, ja toteuttaa niitä harkintansa mukaan.
 
 Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä, ja on todennäköistä että se muuttuu edelleen.
+Pyrkimys kohti turhan työn vähentämistä ja välttämättömän työn tehostamista on voimakasta.
 
+Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
+Palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
+Versioinnin tuottamilta haasteilta vältytään, ja sama työkalu voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille 
+yhdenaikaisesti.
+
+\emph{(Tätä osiota jatketaan vielä)}
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
