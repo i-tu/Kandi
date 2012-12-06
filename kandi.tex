@@ -177,10 +177,8 @@ Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu ajasta n. 30\%.
 Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävää työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
 Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelutyön kohdistua kuvauksen laatimiseen.
 
-Tässä työssä eritellään hierarkisen graafiasettelun idea, sen vaiheet ja niihin liittyvät ongelmat, sekä algoritmillisia ratkaisuja kyseisiin ongelmiin.
 Hierarkinen graafiasettelu soveltuu erityisen hyvin logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun.
-Työssä on myös kokeellinen osio, jossa laadittua algoritmia käytetään konkreettisen kaavion asetteluun.
-Lopuksi pohditaan tapoja sisällyttää menetelmä käytännön suunnittelutyöhön.
+Tässä työssä eritellään hierarkisen graafiasettelun idea, sen vaiheet ja niihin liittyvät ongelmat, sekä algoritmillisia ratkaisuja kyseisiin ongelmiin.
 
 	\clearpage
 	\section{Tehtaan mallit}
@@ -588,7 +586,7 @@ On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauks
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim3.pdf}
-	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisesta toimilohkosta lähtee neljä lankaa}
+	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisella toimilohkolla on neljä lähtöä.}
 \end{figure}
 
 
@@ -596,26 +594,28 @@ On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauks
 
 	\section{Yhteenveto}
 
+Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä, ja on todennäköistä että se muuttuu edelleen.
+Turhaa työtä pyritään vähentämään ja välttämätöntä työtä tehostamaan uusilla käytännöillä ja menetelmillä.
+Näitä ovat eri työvaiheiden- ja tehtävien saumaton yhteistyö jaettujen työkalujen ja mallien avulla, mallien uudelleenkäytettävyyden parantaminen sekä yhtenäisempi suunnitteluprosessi.
+Olemassaolevissa suunnitteluprosesseissa suunnittelutyökalut- ja mallit ovat usein pelkästään kapeasti erikoistuneiden alojen käytössä.
+Tarvitaan yhtenäisempää suunnitteluprosessia.
+
+Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti.
+Tutkimukset ovat kuitenkin olleet usein abstrakteja ja vieraannuttavia teollisille toimijoille.
+Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan konkreettisesti tehostaa, ja joka voidaan helposti integroida olemassaoleviin järjestelmiin.
+
+Käytännön ratkaisuna asettelualgoritmi parannettujen tietomallien kanssa mahdollistaa huomattavan tehokkaat suunnittelukäytännöt.% Laajenna
+
 Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä, sekä todettu niitten asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
 Esitelty algoritmi tuottaa hyviä tuloksia, ja on muunneltavissa edelleen erilaisiin tarpeisiin.
 
-Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti.
-Tutkimukset ovat kuitenkin olleet usein turhan abstrakteja ja vieraannuttavia teollisille toimijoille.
-Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan konkreettisesti tehostaa, ja joka voidaan helposti integroida olemassaoleviin järjestelmiin.
+Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
+Palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
+Versioinnin tuottamilta haasteilta vältytään, ja sama työkalu voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
 Vaikka idea olisi hyvä ja käytännöllinen, se ei välttämättä ole kannattava.
 Tästä johtuen on paljon hyviäkin ideoita, joita ei toteuteta.
 Jotta yritys voi varmistaa kilpailukykynsä myös tulevaisuudessa, tulee sen arvioida jatkuvasti toteutuskelpoisten kehitysprojektien kannattavuutta, ja toteuttaa niitä harkintansa mukaan.
-
-Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä, ja on todennäköistä että se muuttuu edelleen.
-Pyrkimys kohti turhan työn vähentämistä ja välttämättömän työn tehostamista on voimakasta.
-
-Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
-Palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
-Versioinnin tuottamilta haasteilta vältytään, ja sama työkalu voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille 
-yhdenaikaisesti.
-
-\emph{(Tätä osiota jatketaan vielä)}
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
