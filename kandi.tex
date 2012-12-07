@@ -185,7 +185,7 @@ Työssä esitellään myös algoritmin tuottamia asetteluja.
 	\section{Tehtaan mallit}
 
 Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
-Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia ja laajuudestaan riippuen myös sen organisaatiota, ihmisiä ja näitten aktiviteetteja.
+Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia ja laajuudestaan riippuen myös sen organisaatiota, ihmisiä ja toimintaa.
 Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen ja niitten välisistä relaatioista. \cite{RefWorks:41}
 
 Suunnittelijoilla on erilaisten työtehtäviensä myötä erilaisia tarpeita myös tehdasmallin suhteen.
@@ -193,9 +193,9 @@ Työn kohde on monitahoinen, eikä mikään yksi esitystapa pysty kattamaan kaik
 Tehdasta tulee kuvata useilta eri näkökannoilta erilaisilla tarkkuuksilla kunkin näkymän vaatimuksien mukaisesti.
 Tehdasmalliin kuuluu siis useita malleja, jotka yhdessä muodostavat kokonaismallin.
 
-Jokaisella mallilla on myös metamalli. Se määrittelee millaisia objekteja se voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on.
+Jokaisella mallilla on myös metamalli. Se määrittelee, millaisia objekteja se voi sisältää, mitä ominaisuuksia sillä voi tai täytyy olla ja millaisia yhteyksiä objektien välillä on.
 Metamallin loogiset riippuvuudet määrittelevät suunnittelun työtapoja ja järjestystä.
-Ne kuvaavat millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja ja
+Ne kuvaavat, millaiset tietomallit ovat suunnittelujärjestelmän kannalta hyväksyttäviä tehdasmalleja ja
 määräävät sen laajuuden. Metamallin määritteleminen tekee työn tuloksesta ennakoitavan ja mahdollistaa tehokkaiden apuvälineiden kehittämisen.
 Määrittelyllä myös suljetaan pois eriäviä tapoja kuvata tehdasta ja mahdollistetaan määrittelyyn perustuvat työkalut ja suunnittelukäytännöt.
 Tällaisia ovat esimerkiksi uudelleenkäytettävää koodia sisältävät kirjastot ja erilaiset mallimuunnokset.
@@ -212,70 +212,70 @@ tarpeellisiksi ainakin kolme kuvausta: toiminnallinen, fyysinen sekä ohjelmisto
 		\subsubsection{Toiminnallinen kuvaus}
 
 Toiminnallinen kuvaus määrittelee säätöjärjestelmän toiminnan tavalla, joka toteutettuna täyttää sille asetetut käyttäjävaatimukset.
-Se kuvaa järjestelmän toimintaa, muttei määrää sen tarkkaa teknistä toteutusta. \cite{RefWorks:60}
+Se kuvaa järjestelmän toimintaa muttei määrää sen tarkkaa teknistä toteutusta. \cite{RefWorks:60}
 
-Tätä näkymää määrittäessä eri alojen asiantuntijat voivat osallistua työn suunnitteluun ilman, että heillä on tuntemusta instrumentoinnista tai ohjelmistokehityksestä.
+Tätä näkymää määritettäessä eri alojen asiantuntijat voivat osallistua työn suunnitteluun ilman, että heillä on tuntemusta instrumentoinnista tai ohjelmistokehityksestä.
 Kun päätökset on tehty toiminnalisella tasolla, voidaan hankinnat räätälöidä sen mukaisesti ja toteuttaa tehokkaasti.
-Tällaisen määrittelyn avulla on mahdollista käyttää formaaleja verifiointimenetelmiä joitten avulla
+Tällaisen määrittelyn avulla on mahdollista käyttää formaaleja verifiointimenetelmiä, joitten avulla
 voidaan osoittaa, että järjestelmän suunnitelma toteuttaa sille asetetut vaatimukset.
 Näin suunnitelman oikeellisuus voidaan osoittaa ennen investointeja toteutukseen. \cite{RefWorks:41}
 
 		\subsubsection{Fyysinen näkymä}
 
 Fyysiseen näkymään suunnitellaan järjestelmän johdotukset, kaapelit, kenttäväylät,
-ohjauskeskukset, toimilaitteiden sijainnit ja ylipäänsä kaikki mitä vaaditaan 
+ohjauskeskukset, toimilaitteiden sijainnit ja ylipäänsä kaikki, mitä vaaditaan 
 järjestelmän fyysiseen käyttöönottoon ja ylläpitoon. Sen käsittely ei kuulu tämän työn laajuteen.
 
 		\subsubsection{Ohjelmistonäkymä}
 
 Ohjelmistonäkymä kattaa funktionaalisen suunnittelun toteutuksen ohjelmamuodossa.
 Asiakkaalla on yleensä omat toiveensa sen suhteen, millaiseen muotoon ohjelma tehdään.
-Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä - toisin sanoen toiminnallisen kuvauksen määrittelyjen täytyy olla riittävän tarkkoja jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
+Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä \textemdash toisin sanoen toiminnallisen kuvauksen määrittelyjen täytyy olla riittävän tarkkoja, jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
 
 Ohjelmistototeutuksen työtavat jäävät usein määrittelemättömiksi ja muusta suunnittelutyöstä irrallisiksi,
-vaikka pyrkimyksiä nitten integroimiseksi suunnitteluprosessiin entistä vahvemmin on ollut.
-Toteutustapa jää silloin yksittäisten suunnittelijoiden määriteltäväksi, mistä seuraa että yhtenäistä työtapaa on harvoin.
-Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäiselle asteelle. \cite{RefWorks:42}
+vaikka pyrkimyksiä niitten integroimiseksi suunnitteluprosessiin entistä vahvemmin on ollut.
+Toteutustapa jää silloin yksittäisten suunnittelijoiden määriteltäväksi, mistä seuraa, että yhtenäistä työtapaa on harvoin.
+Toteutetun ohjelmakoodin uudelleenkäyttö jää myös tyypillisesti vähäiseksi. \cite{RefWorks:42}
 
 
 	\subsection{Logiikan kuvaukset}
 
 Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärtämistä suunnittelu- ja rakennusvaiheen lisäksi tehtaan toiminnan ja huollon yhteydessä ja ovat siksi tärkeä osa dokumentaatiota.
-Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmälläpitäen.
+Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmällä pitäen.
 Joskus loogista järjestelmää voidaan kuvailla kertomalla esimerkinomaisesti sen toiminnasta eri olosuhteissa.
 Tällainen lähestymistapa ei kuitenkaan yleensä ole riittävä.
 Lisäksi määritellään yleensä ainakin muuttujia, säätöpiirejä, sekvenssejä sekä niitten välisiä kytkentöjä.\cite{RefWorks:41}
 % SFS-VIITE ETSI SE! "Riittävä"
-Jatkuva prosessiohjaus voidaan esittää selkeästi järjestelmän PI-kaavioissa, mutta diskreetin ohjauksen esittämiseen tarvitaan erilaisia esityksiä, kuten logiikkadiagrammeja \cite{RefWorks:54}. 
+Jatkuva prosessiohjaus voidaan esittää selkeästi järjestelmän PI-kaavioissa, mutta diskreetin ohjauksen kuvaamiseen tarvitaan erilaisia esityksiä, kuten logiikkadiagrammeja \cite{RefWorks:54}. 
 Logiikkadiagrammit kuvaavat syöttöjen ja lähtöjen välistä logiikkaa.
 
 		\subsubsection{Toimintakaaviot}
 
 Toimintakaavio on funktionaalisen näkymän toteutus, joka tavallisesti valmistellaan järjestelmän suunnittelun varhaisessa vaiheessa prosessikaaviosta.
-Se määrittelee ohjausjärjestelmän toiminnot ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
+Se määrittelee ohjausjärjestelmän toiminnot, ja sitä pidetään ajantasaisena järjestelmän suunnittelun edetessä.
 Se toimii suunnittelun apuna ja on lopulta osa lopullisen järjestelmän ohjeistusta.
 
-Nykyaikaisessa automaation ohjelmistosuunnittelussa käytetään usein ohjelmointikieliä jotka ovat muodoltaan lähellä toiminnallisia logiikan kuvauksia ja dokumentoivat itsensä hyvin.
+Nykyaikaisessa automaation ohjelmistosuunnittelussa käytetään usein ohjelmointikieliä, jotka ovat muodoltaan lähellä toiminnallisia logiikan kuvauksia ja dokumentoivat itsensä hyvin.
 Tämän vuoksi toiminnallinen kuvaus usein jätetään tekemättä, jolloin syntyy säästöjä. \cite{RefWorks:41}
 
 		\subsubsection{Ohjelmakoodi}
 
 Ohjelmakoodi on ohjelmanäkymän toteutus.
-IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava kaikkiin PLC-ohjelmoinnin tarkoituksiin.
+IEC~61131-3 on laajassa käytössä oleva avoin ohjelmakoodin standardi, joka määrittelee automaatiologiikan ohjelmointimenetelmät ja pyrkii olemaan riittävän joustava kaikkiin PLC-ohjelmoinnin tarkoituksiin.
 Se sisältää viisi erilaista ohjelmointikieltä, joista tässä työssä käsitellään erityisesti FBD:tä. \cite{RefWorks:62}
 
 FBD-kieli koostuu toimilohkoista ja niiden välisistä langoista.
-Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä ja langat kuvaavat niitten relaatioita toisiinsa.
+Toimilohkot kuvaavat toisistaan erillisiä itsenäisiä laskennallisia yksiköitä, ja langat kuvaavat niitten relaatioita toisiinsa.
 Toimilohko lähettää tilastaan riippuen tapahtumia jotka vaikuttavat muitten toimilohkojen toimintaan.
 Sen tekemien laskutoimitusten tulos riippuu sen vasemmalta puolelta tulevista syöttötiedoista ja sen suorittaman laskennan tulokset lähetetään toimilohkon oikealta puolelta.
 Toisiinsa liitetyt toimilohkot muodostavat verkon, joka määrittelee laajemman toiminnallisuuden. \cite{RefWorks:55}
 
 Toimilohkojen muokkaamiseen on olemassa useita työkaluja.
 Näistä mainitsemisen arvoisia ovat ainakin FBDK, 4DIAC, ISaGRAF ja NxtControl.
-Ne eivät kuitenkaan tarjoa kaavioiden asetteluun kuin yksinkertaisia työkaluja. \cite{RefWorks:35}
+Ne eivät kuitenkaan tarjoa kaavioiden asetteluun muuta kuin yksinkertaisia työkaluja. \cite{RefWorks:35}
 
 Automaatiokaavioiden suoritusjärjestys etenee standardin IEC 61131-3 mukaan vasemmalta oikealle.
-Lisäksi toimilohkoa ei ajeta ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
+Lisäksi toimilohkoa ei ajeta, ennen kuin kaikki sitä edeltävät toimilohkot on suoritettu.
 Keskinäisen suoritusjärjestyksen täytyy myös tulla esille toteuttavassa ohjelmistossa.
 Suoritusjärjestys kulkee usein ylhäältä alas, mutta tätä ei voi olettaa aina todeksi. \cite{RefWorks:62}
 
@@ -287,7 +287,7 @@ Mahdollisten takaisinkytkentöjen tapauksessa vaaditaan huolellisuutta, jottei s
 		\subsubsection{Logiikan tietokantakuvaukset}
 
 Logiikka tallennetaan jaettuun suunnittelumalliin, johon kaikilla järjestelmän suunnittelijoilla on yhteys.
-Tapa jolla logiikka tallennetaan täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen apuvälineiden avulla.
+Tavan, jolla logiikka tallennetaan, täytyy olla yhdenmukainen, jotta suunnittelutyössä voidaan tehdä tehokasta yhteistyötä työpaikalla jaettujen apuvälineiden avulla.
 Lisäksi kuvauksen tulee olla formaali, jotta logiikkaa voitaisiin käsitellä algoritmillisesti.
 Formaalilla tarkoitetaan tietynlaista, tarkkaan määritetyn syntaksin mukaista kuvausta.
 Tällöin tulee mahdolliseksi toteuttaa tietoa käsitteleviä muunnosalgoritmeja.
@@ -298,13 +298,13 @@ Sen mukainen logiikan XML-muotoinen kuvaus voi sisältää toimilohkon toiminnal
 Esitys voidaan tällöin laatia siten, että se on tuotettavan kaavion asettelun kannalta yksiselitteinen.
 Tällaista kuvausta voidaan pitää dokumentaation lopullisena muotona. \cite{RefWorks:64}
 
-Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään nojaavien sääntöjen perusteella.
+Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään perustuvien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
-Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämien tietojen pohjalta voidaan tuottaa minkä tahansa muotoisia dokumentteja käyttäen hyväksi XSL-muunnoksia \cite{RefWorks:61}. Eri XML-pohjaisia tiedostoformaatteja käyttävien suunnitteluvälineiden välinen integraatio on tällöin helposti toteutettavissa.
+Erilaisia XML-kuvauksia on helppoa laatia. Niitten sisältämien tietojen pohjalta voidaan tuottaa minkä tahansa muotoisia dokumentteja käyttäen hyväksi XSL-muunnoksia \cite{RefWorks:61}. Eri XML-pohjaisia tiedostoformaatteja käyttävien suunnitteluvälineiden välinen integraatio on tällöin helposti toteutettavissa.
 
 Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kuitenkin kohdata haasteita, jos luotetaan liikaa ohjelmien standardinmukaisuuteen.
-Valmistajat jättävät usein standardinmukaisiksi kutsutuista ohjelmistoista määrittelyn mukaisia ominaisuuksia toteuttamatta.
-Tämä johtuu siitä, että ohjelma on määritelty standardinmukaiseksi, jos se toteuttaa siitä jonkin osan ja mainitsee mitä se jättää toteuttamatta. \cite{RefWorks:42}
+Valmistajat jättävät usein standardinmukaisiksi kutsutuissa ohjelmistoissa määrittelyn mukaisia ominaisuuksia toteuttamatta.
+Tämä johtuu siitä, että ohjelma on määritelty standardinmukaiseksi, jos se toteuttaa siitä jonkin osan ja mainitsee, mitä se jättää toteuttamatta. \cite{RefWorks:42}
 
 
 	\clearpage
@@ -323,17 +323,17 @@ Korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä
 
 Laajennetaan määritelmää ja sisällytetään graafin määritelmään joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
 Lanka koostuu porttiparista, joita se yhdistää. Graafi on \emph{suunnattu} silloin, kun sen langat ovat järjestettyjä pareja, joista toinen on tulo- ja toinen lähtöportti.
-Toisin sanoen, $e = (p_1, p_2)$, missä $p_1$ on lähtö- ja $p_2$ tuloportti.
+Toisin sanoen $e = (p_1, p_2)$, missä $p_1$ on lähtö- ja $p_2$ tuloportti.
 
 Solmu $v_j$ on solmun $v_i$ \emph{seuraaja} silloin, kun on olemassa lanka $e \in E$, jolle $\mathsf{n}(p_1) = v_i$ ja $\mathsf{n}(p_2) = v_j$.
-Polku on solmusekvenssi $(v_1, v_2, \dots , v_k)$ jolle pätee, että $k>1$ ja jokainen sekvenssin solmu $v_{i+1}$ on solmun $v_i$ seuraaja.
+Polku on solmusekvenssi $(v_1, v_2, \dots , v_k)$, jolle pätee, että $k>1$ ja jokainen sekvenssin solmu $v_{i+1}$ on solmun $v_i$ seuraaja.
 
-Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua enemmän kuin kerran.
+Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua useammin kuin kerran.
 Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \mathsf{n}(p_2)$.
-Kerrostus on \emph{kunnollinen}\footnote{eng. proper} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluuvat kerrokseen $L_{i+1}$.
+Kerrostus on \emph{kunnollinen}\footnote{eng. proper} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluvat kerrokseen $L_{i+1}$.
 
 \emph{Virityspuu} on verkon aliverkko $G_s$ joka sisältää verkon kaikki solmut siten, että se sisältää mahdollisimman vähän lankoja.
-Virityspuussa ei ole syklejä, koska mikä tahansa virityspuuksi ehdotetussa verkossa sijaitseva sykli $v_i, ... , v_i$ voidaan rikkoa poistamalla mikä tahansa yksittäinen sen sisältämistä langoista ilman, että sen sisältämän solmujoukon $E$ koko muuttuu.
+Virityspuussa ei ole syklejä, koska mikä tahansa virityspuuksi ehdotetussa verkossa sijaitseva sykli $v_i, ... , v_i$ voidaan rikkoa poistamalla mikä tahansa sen sisältämä yksittäinen lanka ilman, että sen sisältämän solmujoukon $E$ koko muuttuu.
 Kun virityspuusta poistetaan lanka, jakaantuu puu kahdeksi.
 
 Graafin \emph{asettelu} on tieto jokaisen solmun suhteellisista koordinaateista ja koosta, sen porttien sijainneista ja lankojen piirtoreiteistä. 
@@ -352,7 +352,7 @@ Purchase ym. \cite{RefWorks:47} ovat tutkineet esteettisyyteen vaikuttavia tekij
 \end{enumerate}
 
 Näistä ominaisuuksista lankojen risteysmäärä muodostui tärkeimmäksi. Myös lankojen pituus oli merkittävässä asemassa luettavuuden kannalta.
-Esteettiset ominaisuudet ovat usein ristiriidassa keskenään - jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen tekemään mutkia.
+Esteettiset ominaisuudet ovat usein ristiriidassa keskenään \textemdash jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen tekemään mutkia.
 Valmiin kaavion asettelua voidaan arvioida laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä automatisoidusti.
 
 
@@ -363,42 +363,42 @@ Esimerkkejä suunnatuista graafeista ovat projektinhallintaverkot, ontologioiden
 
 Suurin osa asettelualgoritmeista on suunniteltu geneerisille graafeille.
 Ne pyrkivät tuottamaan keskimäärin hyvän asettelun, oli graafi millainen hyvänsä.
-Suunnatun verkon rakenteen huomioonottavat algoritmit tuottavat parempia tuloksia.
+Suunnatun verkon rakenteen huomioon ottavat algoritmit tuottavat parempia tuloksia.
 Tällaisia ovat kerrostetut asettelumenetelmät.
 
 Kerroksittainen tapa esittää syklittömiä ja suunnattuja verkkoja on intuitiivinen ja helppolukuinen.
 Alkuperäinen ajatus graafien kerrostamisesta voidaan johtaa Warfieldin \cite{RefWorks:58} ja Carpanon \cite{RefWorks:57} tekemään työhön.
 Ylivoimaisesti suosituin tapa lähestyä suunnattujen graafien piirtoa on Sugiyaman menetelmä, joka jakaa ongelman vaiheisiin \cite{RefWorks:9}.
-Sugiyama ym. määrittelemä jaottelu on säilynyt hierarkisen graafinpiirron tutkimuskentässä ajankohtaisena, vaikkei sen esittämiä algoritmeja juuri käytetäkään.
+Sugiyaman ym. määrittelemä jaottelu on säilynyt hierarkkisen graafinpiirron tutkimuskentässä ajankohtaisena, vaikkei sen esittämiä algoritmeja juuri käytetäkään.
 Kun jokaista vaihetta voidaan tutkia erillisenä ongelmana, tutkimustyö helpottuu.
 Sitä onkin kehitetty valtavasti eteenpäin ja siihen on tehty uusia käyttötarkoituksia palvelevia laajennuksia.
 
-Laajoja käytännön tutkimuksia tietovirtakaavioiden asettelusta on tehnyt Klauske ym.\cite{RefWorks:50}.
+Laajoja käytännön tutkimuksia tietovirtakaavioiden asettelusta ovat tehneet Klauske ym. \cite{RefWorks:50}.
 Tietovirtakaavioiden toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
-Lisäksi langat ovat tyypillisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgortimilla.
+Lisäksi langat ovat tyypillisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgoritmilla.
 Työvaiheista kerrostus ja risteysten vähennys saattavat muuttaa ohjelman suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
-Koska algoritmit ovat heuristisia, ovat siihen tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
+Koska algoritmit ovat heuristisia, ovat niihin tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
 
 Toimilohkojen syötöt ovat yleensä lohkon vasemmalla ja ulostulot oikealla puolella.
 Näin on FBD-ohjelmointikielen tapauksessa aina. % SFS-VIITTAUS
-Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon jos niitä halutaan käyttää.
+Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon, jos niitä halutaan käyttää.
 Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä varten asetetaan valesolmuja. \cite{RefWorks:51}
 
 
 \begin{figure}[!p]
 \centering
 \includegraphics[width=\textwidth]{hier.pdf}
-\caption{Sugiyaman menetelmän eri vaiheet (Healy ja Nikolov \cite{RefWorks:70}, lankareititys lisätty) . }
+\caption{Sugiyaman menetelmän eri vaiheet (Healy ja Nikolov \cite{RefWorks:70}, lankareititys lisätty). }
 \end{figure}
 
 		\subsection{Asettelualgoritmi}
 
 Sugiyaman menetelmään perustuva asettelu koostuu viidestä eri vaiheesta, jotka on esitetty myös kuvassa 1.
 \begin{enumerate}
-  \item Syklien poisto, seuraa DFS-hakua \cite{RefWorks:69} tai Eades ym. ahnetta algoritmia \cite{RefWorks:48}.
-  \item Kerrostus, seuraa Gansner ym. lankapituuden minimimoivaa menetelmää \cite{RefWorks:28}.
-  \item Risteysten vähentäminen, seuraa Sugiyama ym. alkuperäistä menetelmää \cite{RefWorks:9}.
+  \item Syklien poisto, seuraa DFS-hakua \cite{RefWorks:69} tai Eadesin ym. ahnetta algoritmia \cite{RefWorks:48}.
+  \item Kerrostus, seuraa Gansnerin ym. lankapituuden minimimoivaa menetelmää \cite{RefWorks:28}.
+  \item Risteysten vähentäminen, seuraa Sugiyaman ym. alkuperäistä menetelmää \cite{RefWorks:9}.
   \item Poikittaisasettelu, seuraa Sanderin lineaaristen segmenttien menetelmää \cite{RefWorks:49}.
   \item Lankareititys, seuraa Sanderin monilankareititysalgoritmia \cite{RefWorks:17}.
 
@@ -407,7 +407,7 @@ Sugiyaman menetelmään perustuva asettelu koostuu viidestä eri vaiheesta, jotk
 Asettelussa käytettävät algoritmit on valittu ottaen huomioon datavirtauskaavioiden rajoitukset ja rakenteelliset ominaisuudet.
 Nämä vaiheet ovat toisistaan erillisiä ja voidaan tilanteen mukaan vaihtaa toisiksi tai jättää suorittamatta.
 Jos esimerkiksi toimilohkojen paikat halutaan pitää paikallaan mutta laatia lankojen reititykset automaattisesti, voitaisiin ajaa pelkkä viides osio.
-Seuraavaksi esitellään jokaisen vaiheen tavoitteet, niihin liittyvää tutkimustyötä sekä esitellään algoritmit työhön sovellettavilta osin.
+Seuraavaksi esitellään jokaisen vaiheen tavoitteet, niihin liittyvää tutkimustyötä sekä kuvataan algoritmit työhön sovellettavilta osin.
 
 		\subsubsection{Syklien poisto}
 
@@ -415,25 +415,25 @@ Syklinpoistovaiheessa muotoillaan graafi siten, että se on syklitön.
 Syklit eli takaisinkytkennät ovat graafinpiirtoalgoritmien vaatimuksista huolimatta välttämätön osa kaavioita, eikä niitä voida kokonaan poistaa.
 Tämän vuoksi ne rikotaan kääntämällä yksi tai useampi syklin sisältämistä langoista.
 
-Tarkemmin määriteltynä, tavoite on löytää mahdollisimman pieni lankajoukko $FS \subset E $ jonka sisältämät langat kääntämällä verkko on syklitön.
+Tarkemmin määriteltynä tavoite on löytää mahdollisimman pieni lankajoukko $FS \subset E $, jonka sisältämät langat kääntämällä verkko on syklitön.
 Tämä ongelman on osoitettu olevan NP-vaikea \cite{RefWorks:65}. 
 
 Syklien poistovaiheessa käsiteltävä tietomalli sisältää tiedon jokaisessa puussa ensimmäisenä suoritettavista solmuista.
 Tämä mahdollistaa huomattavan yksinkertaisten algoritmien käytön.
 Yksi tällaisista menetelmistä mahdollisimman pienen lankajoukon $FS$ etsimiseen on DFS-haku.
-DFS-haussa edetään ensimmäisenä suoritettavista solmuista mielivaltaista polkua pitkin, kääntäen matkalla kohdatut käänteiset langat. Tätä jatketaan kunnes luotua polkua $(e_1,e_2, ..., e_h)$ ei voida enää jatkaa.
-Tämän jälkeen palataan takaisin lankaa $e_h$ pitkin ja jatketaan kunnes löydetään solmu josta lähtevää lankaa ei ole vielä seurattu. \cite{RefWorks:69}
+DFS-haussa edetään ensimmäisenä suoritettavista solmuista mielivaltaista polkua pitkin ja käännetään matkalla kohdatut käänteiset langat. Tätä jatketaan, kunnes luotua polkua $(e_1,e_2, ..., e_h)$ ei voida enää jatkaa.
+Tämän jälkeen palataan takaisin lankaa $e_h$ pitkin ja jatketaan, kunnes löydetään solmu, josta lähtevää lankaa ei ole vielä seurattu. \cite{RefWorks:69}
 Käännetyt langat käännetään lankojen reitittämisvaiheessa takaisin oikein päin käyttäen hyväksi lankajoukkoa $FS$.
-Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä, voidaan käyttää Berger-Shor algoritmiin \cite{RefWorks:68} perustuvaa ahnetta algoritmia \cite{RefWorks:48}.
+Jos ensimmäinen kerros ei ole valmiiksi tiedossa tai sillä ei ole merkitystä, voidaan käyttää Berger-Shorin algoritmiin \cite{RefWorks:68} perustuvaa ahnetta algoritmia \cite{RefWorks:48}.
 
 
 		\subsubsection{Kerrostus}
 
 Kerrostukselta vaaditaan, että se on kunnollinen ja tiivis\footnote{eng. compact}.
-Tiiviydellä tarkoitetaan, että kerrostuksen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
+Tiiviydellä tarkoitetaan sitä, että kerrostuksen leveys ja pituus ovat pieniä ja kerrosten välinen etäisyys on vakio. 
 
 Tämän saavuttamiseksi graafiin lisätään valesolmuja pitkien lankojen katkaisemiseksi.
-Valesolmut ovat graafiin lisättäviä kuvitteellisia solmuja, joita ei piirretä lopulliseen kaavioon, mutta jotka helpottavat sen algoritmillista käsittelyä.
+Valesolmut ovat graafiin lisättäviä kuvitteellisia solmuja, joita ei piirretä lopulliseen kaavioon mutta jotka helpottavat sen algoritmillista käsittelyä.
 Kerrostukseen halutaan valesolmuja mahdollisimman vähän tiiviyden, lyhyiden lankapituuksien sekä asettelun hyvän laskennallisen suoritusajan varmistamiseksi.
 
 Tiiviyden äärimmäisenä rajoituksena toimii lopullisesta tarkastelutavasta riippuen näyttöpääte tai paperi, jolta aseteltua kaaviota on tarkoitus tarkastella.
@@ -443,48 +443,48 @@ Sekä leveyden että pituuden minimointi samanaikaisesti on rinnastettavissa mul
 Yksinkertainen tapa tuottaa kerrostus on pisimmän reitin tapa.
 Se asettaa ensin kaikki solmut, joilla ei ole seuraajia kerrokseen $L_1$.
 Tämän jälkeen jokainen muu solmu asetetaan kerrokseen $L_{p+1}$, missä $p$ on lyhin etäisyys johonkin kerroksen $L_1$ solmuista.
-Pisimmän reitin tapa tuottaa mahdollisimman vähän kerroksia, mutta saattaa tuottaa huomattavan suuria yksittäisiä kerroksia.
+Pisimmän reitin tapa tuottaa mahdollisimman vähän kerroksia mutta saattaa tuottaa huomattavan suuria yksittäisiä kerroksia.
 
-Kun kerrostuksesta halutaan mahdollisimman kapea, käytetään multiprosessoriajastusongelman ratkaisemiseen kehitettyä Coffmann-Graham -algoritmia \cite{RefWorks:59}.
+Kun kerrostuksesta halutaan mahdollisimman kapea, käytetään multiprosessoriajastusongelman ratkaisemiseen kehitettyä Coffmann-Grahamin algoritmia \cite{RefWorks:59}.
 Ongelmana on ajastaa eri tehtävät $W$ kappaleelle prosessoreita siten, että kaikki tehtävät suoritetaan ajassa $H$.
-Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle, sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
+Löydämme vastaavuuden verkon kerroksien määrälle ja suoritusajalle sekä suurimmalle sallitulle kerroskoolle ja prosessorien määrälle.
 
 Nämä kerrostusmenetelmät voivat olla hyödyllisiä sellaisissa sovelluksissa, joissa aseteltavan kaavion muodolla on erityisiä kapeus- tai pituusvaatimuksia.
 Näitä ei sovelluksessamme ole, vaan tavoitteena on yksinkertaisesti mahdollisimman tiivis asettelu.
 Koska tiiviys korreloi valesolmujen vähäisen määrän kanssa, voidaan lähestyä ongelmaa valesolmujen määrän minimoinnin kautta.
-On olemassa myös tapa laatia kerrostus, joka tekee tämän ja voidaan suorittaa polynomisessa ajassa.
-Se löydetään kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä jolla minimoidaan
+On olemassa myös kerrostuksen laatimisen tapa, joka tekee tämän ja voidaan suorittaa polynomisessa ajassa.
+Se löydetään, kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimenetelmä, jolla minimoidaan
 
 \begin{equation}
 f=\displaystyle\sum\limits_{(p_1 ,p_2) \in E} (i - j - 1), \hspace{1cm}
 \mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j
-\end{equation}
+\end{equation},
 
-, missä minimoitava arvo $f$ on samalla valesolmujen määrä.
+missä minimoitava arvo $f$ on samalla valesolmujen määrä.
 
-Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa joka perustuu niinkutsuttuun Network Simplex- algoritmiin \cite{RefWorks:71}.
+Tälle lineaarisen ohjelmoinnin optimointiongelmalle on tehokas ratkaisutapa, joka perustuu niinkutsuttuun Network Simplex -algoritmiin \cite{RefWorks:71}.
 Sen aikakompleksisuutta ei ole pystytty osoittamaan, mutta se on käytännössä osoittautunut suoritusajaltaan erittäin nopeaksi  \cite{RefWorks:28}.
 Menetelmässä muodostetaan ensin verkon virityspuu.
 Kun virityspuusta poistetaan lanka $e=(p_1, p_2)$, tuloksena syntyy kaksi toisistaan erillistä puuta $G_1$ ja $G_2$, joille $G_1 \cup G_2 = G_s$ ja $G_1 \cap G_2 = \emptyset$ ja joista molemmat sisältävät toisen katkaistun langan yhdistämistä solmuista $\mathsf{n}(p_1) \in G_1$ ja $\mathsf{n}(p_2) \in G_2$.
 Näitten kahden puun perusteella lasketaan jokaiselle langalle leikkausarvo.
-Leikkausarvo on määränpääsolmun sisältävästä puusta ja lähdesolmun sisältävään puuhun kulkevien lankojen pituudet
+Leikkausarvo on määränpääsolmun sisältävästä puusta ja lähdesolmun sisältävään puuhun kulkevien lankojen pituudet,
 josta vähennetään päinvastaiseen suuntaan kulkevien lankojen pituudet.
 Negatiivinen leikkausarvo viittaa siihen, että kyseistä lankaa kannattaa todennäköisesti pidentää mahdollisimman paljon.
-Tuloksena saadusta kerrostuksesta muodostetaan uusi virityspuu, ja menetelmää jatketaan edelleen kunnes kaikki virityspuun leikkausarvoista ovat positiivisia.
+Tuloksena saadusta kerrostuksesta muodostetaan uusi virityspuu. Menetelmää jatketaan edelleen, kunnes kaikki virityspuun leikkausarvot ovat positiivisia.
 
 
 		\subsubsection{Risteyksien vähentäminen}
 
-Risteysten määrä on osoittautunut olemaan suurin yksittäinen tekijä graafin luettavuuden kannalta \cite{RefWorks:47}. 
-Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin, vaan niitten keskinäiseen järjestykseen.
-Kahden kerroksen ylitysongelmassa etsitään joukolle $L_i$ järjestys, joka minimoi risteysten määrän kun joukko $L_{i+1}$ pysyy paikallaan.
+Risteysten määrä on osoittautunut suurimmaksi yksittäiseksi tekijäksi graafin luettavuuden kannalta \cite{RefWorks:47}. 
+Graafin kokonaisristeysmäärän vähentäminen ei perustu solmujen tarkkoihin sijainteihin vaan niitten keskinäiseen järjestykseen.
+Kahden kerroksen ylitysongelmassa etsitään joukolle $L_i$ järjestys, joka minimoi risteysten määrän, kun joukko $L_{i+1}$ pysyy paikallaan.
 Ongelma on siis luonteeltaan kombinatorinen eikä geometrinen, mikä huomattavasti yksinkertaistaa hyvän ratkaisun löytämistä.
 Graafi on myös muokattu kerrostamisvaiheessa kelvolliseksi, minkä seurauksena ongelmaa ratkaistessa voidaan keskittyä vuorotellen vain kerrosparin $L_i$ ja $L_{i+1}$ välisiin lankoihin.
 Näistä helpotuksista huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa, että koko graafissa on kerroksia vain kaksi \cite{RefWorks:40}.
 
 Parhaan mahdollisen kombinaation löytämiseksi joudutaan yksinkertaisen ratkaisun puutteessa käyttämään heuristisia menetelmiä.
 Eräs suosittu lähestymistapa perustuu solmujen sijoittamiseen sen kohde- ja lähdesolmujen järjestyslukujen mediaaniin.
-Tätä toistetaan graafin jokaiselle solmulle kunnes järjestys ei enää muutu.
+Tätä toistetaan graafin jokaiselle solmulle, kunnes järjestys ei enää muutu.
 Teorian kannalta mediaanimenetelmällä on useita hyviä ominaisuuksia.
 Sen avulla tuotetun ratkaisun risteysmäärän suhde parhaaseen mahdolliseen on vakio.
 Lisäksi algoritmi voidaan suorittaa polynomisessa ajassa.
@@ -498,15 +498,15 @@ Esteettistä lopputulosta tavoittelevan asettelualgoritmin tulee siis pyrkiä mi
 
 Risteysten vähentämisvaiheessa saavutettu kombinatorinen ratkaisu pyritään säilyttämään poikittaisasetteluvaiheessa.
 Siinä missä kerrosten solmukombinaatiot vaikuttavat lankojen risteysten määrään, vaikuttaa niiden tarkka poikittainen asettelu langoissa olevien kulmien määrään.
-Solmujen välisten lankojen käännösten määrää pyritään vähentämään jotta kaavion luettavuus paranee.
-Asettelun merkitys korostuu kun lankoja on paljon, kuten automaation logiikkakaavioille on tyypillistä.
+Solmujen välisten lankojen käännösten määrää pyritään vähentämään, jotta kaavion luettavuus paranee.
+Asettelun merkitys korostuu, kun lankoja on paljon, kuten automaation logiikkakaavioille on tyypillistä.
 
-Risteysten vähennysvaiheessa laaditun järjestyksen pohjalta muodostetaan triviaali poikittaisasettelu jota tasapainoitetaan.
-Tasapainoitus tapahtuu mallintamalla solmuja levossa olevina heilureina.
+Risteysten vähennysvaiheessa laaditun järjestyksen pohjalta muodostetaan triviaali poikittaisasettelu, jota tasapainotetaan.
+Tasapainotus tapahtuu mallintamalla solmuja levossa olevina heilureina.
 Solmut ovat heilurin päässä oleva paino ja lanka painoa kannatteleva naru.
 Tasapainotettavaa kerrosta seuraava kerros pysyy kiinteänä paikoillaan.
 
-Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien tapauksessa siirretään niitten muodostamia osioita kauemmaksi toisistaan kunnes päällekkäisyyksiä ei enää esiinny.
+Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien tapauksessa siirretään niitten muodostamia osioita kauemmaksi toisistaan, kunnes päällekkäisyyksiä ei enää esiinny.
 
 \begin{equation}
 	D_p(e)=x(v_1)-x(v_2)
@@ -516,7 +516,7 @@ Solmujen poikkeamat lasketaan ja vierekkäisten solmujen päällekkäisyyksien t
  	D_p(v)=\frac{\sum_{e \in E}D_p(e)}{indeg(v)}
 \end{equation}
 
-Segmentin siirtymä on sen sisältämien solmujen siirtymien summa, ja segmenttijoukon siirtymä on sen kaikkien segmenttien siirtymien keskiarvo
+Segmentin siirtymä on sen sisältämien solmujen siirtymien summa, ja segmenttijoukon siirtymä on sen kaikkien segmenttien siirtymien keskiarvo.
 
 \begin{equation}
 	D_p(S)=\sum_{v \in L} D_p(v)
@@ -532,12 +532,12 @@ Menettely tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduuk
 
 		\subsubsection{Lankojen reititys}
 
-Tietovirtakaavioiden toimilohkoissa on useita portteja ja niitten sisältämät lankareititykset ovat ortogonaalisia.
+Tietovirtakaavioiden toimilohkoissa on useita portteja, ja niitten sisältämät lankareititykset ovat ortogonaalisia.
 Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa huomioon.
-Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu sijoittelun laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla.\cite{RefWorks:28}
+Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla. \cite{RefWorks:28}
 
-Kun jokaiselle solmulle on tiedossa niiden lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmujen koordinaattien välillä.
-Poikittaiset segmentit jotka asetetaan tyhjään tilaan rivien $j$ ja $j+1$ välille saavat koordinaatikseen $j+0.5$.
+Kun jokaiselle solmulle on tiedossa sen lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmujen koordinaattien välillä.
+Poikittaiset segmentit, jotka asetetaan tyhjään tilaan rivien $j$ ja $j+1$ välille, saavat koordinaatikseen $j+0.5$.
 Tämä toistetaan pystysuuntaisille segmenteille.
 
 Kaikki samassa ruudussa tai sarakkeessa $k$ olevat segmentit kootaan ryhmäksi joukkoon $S$.
@@ -551,44 +551,45 @@ Segmenttiylitysgraafin syklit vastaavat asettelussa olevia risteyksiä.
 Asyklinen segmenttiylitysgraafi ei silloin sisällä syklejä ja se voidaan järjestää topologisesti.
 Muussa tapauksessa sen sisältämät syklit rikotaan käyttäen syklinpoistoon soveltuvaa algoritmia. \cite{RefWorks:48}.
 
-Lopulta segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
-Segmentti jonka sijoitus on $r \in \{1,...,r_{max}\}$ saa koordinaatikseen $k + r/(r_{max} +1)$.
+Lopuksi segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
+Segmentti, jonka sijoitus on $r \in \{1,...,r_{max}\}$, saa koordinaatikseen $k + r/(r_{max} +1)$.
 
 	\clearpage
 	\section{Esimerkkejä}
 	
-Menetelmän soveltuvuutta logiikkakaavioiden asetteluun tutkittiin luomalla satunnaisia graafeja, jotka aseteltiin KIELER- sovelluksen avulla.
-KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä jota kehitetään Kielin yliopistossa. \cite{RefWorks:123}
+Menetelmän soveltuvuutta logiikkakaavioiden asetteluun tutkittiin luomalla satunnaisia graafeja, jotka aseteltiin KIELER-sovelluksen avulla.
+KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnittelun apuvälineitä, jota kehitetään Kielin yliopistossa. \cite{RefWorks:123}
 Se toteuttaa useimmat esitetyistä kaavioasettelun algoritmeista, eikä sitä tarvinnut muokata merkittävästi haluttujen tulosten saavuttamiseksi.
 Tässä esitellään kolme erityyppistä verkkoa, joiden kaltaisia algoritmi saattaisi kohdata.
 
-Kuvassa 2 on yksinkertaiselle, yksi tai kaksi lähtöä sisältävien syklittömälle solmujen verkolle tehty asettelu.
-Suurin osa aseteltavista kaavioista on monimutkaisuudessaan todennäköisesti tätä luokkaa, ja huomataan että algoritmi suoriutuu tehtävästä erinomaisesti.
+Kuvassa 2 on yksinkertaiselle, yksi tai kaksi lähtöä sisältävien solmujen syklittömälle verkolle tehty asettelu.
+Suurin osa aseteltavista kaavioista on monimutkaisuudessaan todennäköisesti tätä luokkaa. Huomataan että algoritmi suoriutuu tehtävästä erinomaisesti.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim1.pdf}
-	\caption{Yksinkertaisen verkon asettelu. Toimilohkoissa on 1-2 lähtöä ja syklejä ei ole.}
+	\caption{Yksinkertaisen verkon asettelu. Toimilohkoissa on 1\textendash2 lähtöä ja syklejä ei ole.}
 \end{figure}
 
-Kuvassa 3 nähdään paljon vaihtelua sisältävä verkko.
-Toimilohkoissa on lähtöjä välillä 0-4 ja takaisinkytkentöjä on paljon.
-Verkon kuvaama tietovirta ei ole sikäli todenmukainen, että siinä olevat yhteydet ovat täysin satunnaisia, eivätkä luonnostaan rakenteellisesti kerrostuneita.
-Algoritmi onnistuu kuitenkin luomaan jotain järkeä täysin satunnaiseen kaavioon.
+Kuvassa kolme nähdään paljon vaihtelua sisältävä verkko.
+Toimilohkoissa on lähtöjä välillä 0\textendash4 ja takaisinkytkentöjä on paljon.
+Verkon kuvaama tietovirta ei ole sikäli todenmukainen, että siinä olevat yhteydet ovat täysin satunnaisia eivätkä luonnostaan mitenkään kerrostuneita.
+Algoritmi onnistuu kuitenkin luomaan jotakin järkeä täysin satunnaiseen kaavioon.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim2.pdf}
-	\caption{Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 0-4 lähtöä.}
+	\caption{Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 0\textendash4 lähtöä.}
 \end{figure}
 
-Viimeinen esimerkki on huomattavan vaikea, eikä siltä odotettukaan kovin luettavaa esitystä.
-Jokaisessa toimilohkossa on neljä lähtöä, minkä seurauksena kuvassa on 32 satunnaista lankaa.
-Valmiin kaavion luettavuus alkaa olemaan huomattavan vaikeaa, ja huomataan että parhaatkaan algoritmit eivät suoriudu näin haastavasta tehtävästä.
+Viimeinen esimerkki on huomattavan vaikea, eikä tuloksena odotettukaan kovin luettavaa esitystä.
+Jokaisessa toimilohkossa on neljä lähtöä, minkä seurauksena kuvassa on 32 yksittäistä ja täysin satunnaista lankaa.
+Valmiin kaavion luettavuus on jo merkittävän huono. Huomataan, että parhaatkaan algoritmit eivät suoriudu näin haastavasta tehtävästä.
 On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauksessa tuottamaan edes vastaavaa tulosta.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim3.pdf}
-	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisella toimilohkolla on neljä lähtöä.}
+	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisesta toimilohkosta lähtee neljä lankaa}.
 \end{figure}
+
 
 
 	\clearpage
