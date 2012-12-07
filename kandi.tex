@@ -56,12 +56,12 @@
 	\begin{abstractpage}[finnish]
 
 Työssä esitellään ohjauslogiikan automaatiosuunnitteluun liittyviä malleja, kuvauksia ja metamalleja.
-Lisäksi tarkastellaan suunnittelun työtapoja ja logiikan kaaviomuotoisia esityksiä.
+Lisäksi tarkastellaan erilaisia logiikan esityksiä osana suunnitteluprojektia.
 
 Esteettisen kaavion tunnusmerkit määritellään.
-Lisäksi esitellään graafinasettelualgoritmi, jonka avulla voidaan tuottaa näitä tunnusmerkkejä noudattavia kaavioita tehdassuunnittelun tarpeisiin.
+Lisäksi esitellään asettelualgoritmi, jonka avulla voidaan tuottaa näitä tunnusmerkkejä noudattavia kaavioita tehdassuunnittelun tarpeisiin.
 
-Lisäksi pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja haasteita ja esitetään esimerkkejä algoritmin tuloksena syntyneistä kaavioista.
+Lisäksi  esitetään esimerkkejä algoritmin tuloksena syntyneistä kaavioista ja pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja haasteita.
 
 	\end{abstractpage}
 	
@@ -70,12 +70,11 @@ Lisäksi pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja h
 	\begin{abstractpage}[english]
 	
 This work presents models, descriptions and frameworks dealing with the design of automation control system logic.
-In addition, the practices of automation design work and diagrammatic representations of logic are discussed.
+In addition representations of logic in automation design.
 
-The properties of an aesthetic diagram are defined.
-A graph layout algorithm capable of generating aesthetic diagrams for the purposes of control system design is described in detail.
+The properties of an aesthetic diagram are defined and graph layout algorithm capable of generating aesthetic diagrams for the purposes of control system design is described in detail.
 
-In addition, the pros and cons following from the use of such a system are discussed, and examples of layouted diagrams are presented.
+In addition, examples of layouted diagrams are presented and the pros and cons following of such a system are discussed.
 
 	\end{abstractpage}
 	
@@ -86,9 +85,9 @@ In addition, the pros and cons following from the use of such a system are discu
 On joitakin ihmisiä, joita ilman tämä työ ei olisi toteutunut, ja monia, joita ilman se olisi ollut vaikeampaa.
 Haluan kiittää näistä erityisesti seuraavia ihmisiä:
 
-Työn ohjaajaa Mika Strömmania tarkoista huomioista, rakentavista keskusteluista ja asiantuntevasta ohjauksesta.
+Työn ohjaajaa Mika Strömmania tarkoista huomioista, rakentavista ja työlle arvokkaista keskusteluista sekä asiantuntevasta ohjauksesta.
 
-Petri Kokkoa ja Pekka Niemistä johdatuksesta aiheen piiriin työpaikalla, suunnannäytöstä ja ideoista.
+Petri Kokkoa ja Pekka Niemistä johdatuksesta aiheen piiriin Pöyryllä, suunnannäytöstä ja ideoista.
 
 Kandiryhmäni 6BÄKin mainioita jäseniä
 Peter “Bembu”  Kronströmiä,
@@ -100,7 +99,7 @@ vertaistuesta ja hyvästä yhteishengestä.
 
 Kämppiksiäni Emmaa, Emmiä, Ennaa, Katria, Niinaa, Nikkeä, Ollia, Sariannaa, Spördeä, Teemua, Tuomasta ja Vesaa arjen merkittävästä parantamisesta sekä juttu- ja kahviseurasta.
 
-Tyttöystävääni Marjoa kärsivällisyydestä työn aiheuttamien kiireiden aikana.
+Tyttöystävääni Marjoa kärsivällisyydestä ja tuesta työn aiheuttamien kiireiden aikana.
 
 Vanhempiani tuesta ja kannustuksesta.
 
@@ -171,16 +170,15 @@ Se ohjaa ja määrittää suunnittelun kohteen lisäksi myös yleisesti suunnitt
 Erilaiset kaaviot voidaan usein tuottaa suoraan tietomallin sisältävästä tietokannasta.
 Tämän kandidaatintyön kohteena on ohjausjärjestelmän logiikan muuntaminen standardeja noudattavaksi kaavioksi.
 Logiikkakaavio on tapa pelkistää järjestelmän eri osien syöttöjen ja lähtöjen välillä vallitseva logiikka visuaaliseen ja helposti ymmärrettävään muotoon.
-Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin voidaan hyödyntää algoritmillisen graafiasettelun tuloksia.
+Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, jolloin voidaan hyödyntää algoritmillisen graafiasettelun tuloksia, kuten logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun kehitettyä hierarkkistä lähestymistapaa.
 
 Kaavioiden asetteluun käsin kuluu huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
 Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu ajasta n. 30\%.
 Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävää työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
 Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai ajanhukkaa, kannattaa suunnittelutyön kohdistua kuvauksen laatimiseen.
 
-Tässä työssä eritellään hierarkkisen graafiasettelun idea, sen vaiheet ja niihin liittyvät ongelmat sekä algoritmillisia ratkaisuja kyseisiin ongelmiin.
-Hierarkkinen graafiasettelu soveltuu erityisen hyvin logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun.
-Työssä on myös kokeellinen osio, jossa laadittua algoritmia käytetään konkreettisen kaavion asetteluun.
+Tämän työn tavoitteena on osoittaa yhteys suunnattujen graafien ja automaatiosuunnittelun logiikkadiagrammien välillä, kertoa kuinka graafeja varten kehitetyt asettelualgoritmit voivat tehostaa automaatiosuunnittelua, ja esitellä asetteluun soveltuva algoritmi yksityiskohtaisesti.
+Työssä on myös kokeellinen osio, jossa laadittua algoritmia käytetään konkreettiseen kaavioasetteluun.
 
 	\clearpage
 	\section{Tehtaan mallit}
@@ -458,7 +456,7 @@ Se löydetään, kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimene
 
 \begin{equation}
 f=\displaystyle\sum\limits_{(p_1 ,p_2) \in E} (i - j - 1), \hspace{1cm}
-\mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j \hspace{2mm},
+\mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j,
 \end{equation}
 
 missä minimoitava arvo $f$ on samalla valesolmujen määrä.
@@ -563,8 +561,8 @@ KIELER on Eclipse-projektin päälle rakennettu kokoelma mallipohjaisen suunnitt
 Se toteuttaa useimmat esitetyistä kaavioasettelun algoritmeista, eikä sitä tarvinnut muokata merkittävästi haluttujen tulosten saavuttamiseksi.
 Tässä esitellään kolme erityyppistä verkkoa, joiden kaltaisia algoritmi saattaisi kohdata.
 
-Kuvassa 2 on yksinkertaiselle, yksi tai kaksi lähtöä sisältävien solmujen syklittömälle verkolle tehty asettelu.
-Suurin osa aseteltavista kaavioista on monimutkaisuudessaan todennäköisesti tätä luokkaa. Huomataan että algoritmi suoriutuu tehtävästä erinomaisesti.
+Kuvassa kaksi on yksinkertaiselle, yksi tai kaksi lähtöä sisältävien solmujen syklittömälle verkolle tehty asettelu.
+Suurin osa aseteltavista kaavioista on monimutkaisuudessaan todennäköisesti tätä luokkaa. Huomataan, että algoritmi suoriutuu tehtävästä erinomaisesti.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim1.pdf}
@@ -581,10 +579,10 @@ Algoritmi onnistuu kuitenkin luomaan jotakin järkeä täysin satunnaiseen kaavi
 	\caption{Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 0\textendash4 lähtöä.}
 \end{figure}
 
-Viimeinen esimerkki on huomattavan vaikea, eikä tuloksena odotettukaan kovin luettavaa esitystä.
+Kuvan neljä esimerkki on huomattavan vaikea, eikä tuloksena odotettukaan kovin luettavaa esitystä.
 Jokaisessa toimilohkossa on neljä lähtöä, minkä seurauksena kuvassa on 32 yksittäistä ja täysin satunnaista lankaa.
 Valmiin kaavion luettavuus on jo merkittävän huono. Huomataan, että parhaatkaan algoritmit eivät suoriudu näin haastavasta tehtävästä.
-On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauksessa tuottamaan edes vastaavaa tulosta.
+On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauksessa tuottamaan yhtä selkeää tulosta.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim3.pdf}
@@ -600,19 +598,29 @@ Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti v
 Turhaa työtä pyritään vähentämään ja välttämätöntä työtä tehostamaan uusilla käytännöillä ja menetelmillä.
 Näitä ovat eri työvaiheiden- ja tehtävien saumaton yhteistyö jaettujen työkalujen ja mallien avulla, mallien uudelleenkäytettävyyden parantaminen sekä entistä yhtenäisempi suunnitteluprosessi.
 
-Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti.
+Työvälineiden tehostamista on  kartoitettu runsaasti akateemisissa julkaisuissa.
 Tutkimukset ovat kuitenkin olleet usein abstrakteja ja vieraannuttavia teollisille toimijoille.
-Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan tehostaa, ja joka voidaan helposti lisätä jo olemassaoleviin järjestelmiin.
+Tämä työ on pyrkinyt tarjoamaan konkreettisen ratkaisun, jolla suunnittelutyötä voidaan tehostaa, ja joka voidaan helposti lisätä jo olemassaoleviin järjestelmiin.
 
-Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä todettu niitten asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
-Esitelty algoritmi tuottaa hyviä tuloksia ja on muunneltavissa edelleen erilaisiin tarpeisiin.
+Työssä on osoitettu yhteys graafiteorian suunnattujen graafien ja automaatiosuunnittelun logiikkadiagrammien välillä, sekä todettu graafien asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
+Asettelua on kehitetty pitkään ja se on käytännössä erittäin tehokasta --- asetellut kaaviot ovat luettavia ja näyttävät logiikan rakenteen selkeästi.
+Algoritmin vaiheittainen rakenne helpottaa sen muokkausta edelleen erilaisiin tarpeisiin.
+Graafiasettelun monipuolisen tutkimuskentän tarjoamasta kirjallisuudesta on tässä myös apua.
+
 Asettelualgoritmin käyttö erottaa varsinaisen logiikan sen kaaviomuotoisesta kuvauksesta.
 Sen lisäksi, että asetteluun ei kulu suunnittelijoilta aikaa, logiikan tietomalli helpottaa suunnittelua tehostavien muunnosten ja kirjastojen kehittämistä.
 Muunnosten avulla voidaan tietomallia muokata huomattavan nopeasti ja asettelun avulla tulokset ovat välittömästi asiakkaalle luettavassa muodossa.
 
-Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
+Kaavioiden laadinta voidaan suorittaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
 Palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
 Versioinnin tuottamilta haasteilta vältytään, ja sama työkalu voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
+
+Tämänhetkinen kehityssuunta antaa odottaa, että teollisuuden suunnitteluprosessi tulee olemaan nykyiseen verrattuna huomattavan automatisoitu ja saumaton.
+Muut kuin täysin välttämättömät työvaiheet korvataan ja suunnittelun eri työkalujen välistä viestintää parannetaan.
+Tämän kehityssuunnan valossa on vaikeaa kuvitella, että automaatiosuunnittelija laatisi kaaviot tulevaisuudessa edelleen käsin.
+Moni suunnittelija varmasti toivoo, että voisi keskittyä varsinaiseen suunnittelutyöhön ilman, että tarvitsisi uhrata aikaa työtavoista- ja käytännöistä johtuvaan ylimääräiseen työhön.
+Automaattinen asettelu on askel kohti tällaisia tehdassuunnittelun käytäntöjä.
+
 
 \clearpage
 \addcontentsline{toc}{section}{Viitteet}
