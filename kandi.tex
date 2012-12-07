@@ -1,8 +1,7 @@
 	\documentclass[finnish,12pt]{article}
 	\usepackage{aaltothesis}
-	
+	\usepackage[finnish]{babel}
 	\usepackage[pdftex]{graphicx} 
-	\usepackage{subfigure}
 
 	\pdfoptionalwaysusepdfpagebox=5
 	
@@ -31,10 +30,11 @@
 	\setlength{\topmargin}{25mm-\headheight-\headsep}
 	\setlength{\textheight}{23cm}
 
-	\bibliographystyle{unsrt}
+	%\bibliographystyle{unsrt}
+	\bibliographystyle{IEEEtran}
 
 	\uselogo{blue}{?}{tkk}
-	\university{Aalto-university}{Aalto-yliopisto}
+	\university{Aalto University}{Aalto-yliopisto}
 	\school{School of Electrical Engineering}{Sähkötekniikan korkeakoulu}
 	\faculty{Department of Automation and Systems Technology}{Automaatio- ja systeemitekniikan laitos}
 	\degreeprogram{Automation and Systems Technology}{Automaatio- ja systeemitekniikka}
@@ -61,7 +61,7 @@ Lisäksi tarkastellaan suunnittelun työtapoja ja logiikan kaaviomuotoisia esity
 Esteettisen kaavion tunnusmerkit määritellään.
 Lisäksi esitellään graafinasettelualgoritmi, jonka avulla voidaan tuottaa näitä tunnusmerkkejä noudattavia kaavioita tehdassuunnittelun tarpeisiin.
 
-Lisäksi pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja haasteita, ja esitetään esimerkkejä algoritmin tuloksena syntyneistä kaavioista.
+Lisäksi pohditaan kuvaillun järjestelmän käytöstä seuraavia hyötyjä ja haasteita ja esitetään esimerkkejä algoritmin tuloksena syntyneistä kaavioista.
 
 	\end{abstractpage}
 	
@@ -83,7 +83,7 @@ In addition, the pros and cons following from the use of such a system are discu
 
 	\mysection{Esipuhe}
 
-On joitain ihmisiä, joita ilman tämä työ ei olisi toteutunut, ja monia joita ilman se olisi ollut vaikeampaa.
+On joitakin ihmisiä, joita ilman tämä työ ei olisi toteutunut, ja monia, joita ilman se olisi ollut vaikeampaa.
 Haluan kiittää näistä erityisesti seuraavia ihmisiä:
 
 Työn ohjaajaa Mika Strömmania tarkoista huomioista, rakentavista keskusteluista ja asiantuntevasta ohjauksesta.
@@ -91,9 +91,9 @@ Työn ohjaajaa Mika Strömmania tarkoista huomioista, rakentavista keskusteluist
 Petri Kokkoa ja Pekka Niemistä johdatuksesta aiheen piiriin työpaikalla, suunnannäytöstä ja ideoista.
 
 Kandiryhmäni 6BÄKin mainioita jäseniä
-Peter 'Bembu' Kronströmiä,
+Peter “Bembu”  Kronströmiä,
 Lauri Vepsäläistä,
-Heikki 'Taffis' Tahvanaista,
+Heikki “Taffis”  Tahvanaista,
 Panu Kauppista
 ja Lauri Andleria
 vertaistuesta ja hyvästä yhteishengestä.
@@ -128,7 +128,7 @@ DFS	& Depth-first search\\
 	& Syvyyssuuntainen läpikäynti \\\\
 
 FBD	& Function Block Diagram\\
-	& IEC 61131-3 standardin määrittelemä ohjelmointikieli\\\\
+	& Standardin IEC 61131-3 määrittelemä ohjelmointikieli\\\\
 IEC	& International Electrotechnical Commission,\\
 	& Kansainvälinen sähköalan standarointiorganisaatio\\\\
 NP & Nondeterministic Polynomial time\\
@@ -140,6 +140,7 @@ XML	& Extensible Markup Language\\
 	& Merkintäkieli, johon voidaan sisällyttää ja jolla voidaan jäsentää tietoa  \\\\
 XSL	& Extensible Stylesheet Language\\
 	& Kieliperhe, jolla voidaan määritellä ja muuntaa XML-formaatteja\\\\
+
 
 \end{tabular}
 
@@ -153,17 +154,17 @@ XSL	& Extensible Stylesheet Language\\
 	\section{Johdanto}
 	\thispagestyle{empty}
 
-Teollista automaatiojärjestelmää suunnitteltaessa tuotetaan suuri määrä erilaisia dokumentteja, jotka
+Teollista automaatiojärjestelmää suunniteltaessa tuotetaan suuri määrä erilaisia dokumentteja, jotka
 yhdessä muodostavat järjestelmän toteutuksen, käyttöönoton ja ylläpidon mahdollistavan kuvauksen.
 Dokumentaation laatiminen käsin on suurissa projekteissa työlästä ja tehotonta.
 Nykyaikaisessa automaatio- ja instrumentointisuunnittelussa ongelma korostuu \cite{RefWorks:41}.
 Ratkaisuista on tullut monimutkaisempia, vaaditut toteutusajat ovat lyhentyneet ja laatu- ja joustavuusvaatimukset ovat lisääntyneet.
 
-Näistä vaatimuksista johtuen teolliset toimijat ovat pyrkineet tehostamaan työtä automatisoiduilla apuvälineillä.
+Näiden vaatimusten vuoksi teolliset toimijat ovat pyrkineet tehostamaan työtä automatisoiduilla apuvälineillä.
 Metodiikka ei kuitenkaan ole sen ilmeisistä eduista huolimatta yhtenäistynyt.
 Automaatiosuunnittelu akateemisena tutkimuskenttänä on lisäksi hajanainen ja yhteistyö on vähäistä.
 Vaikka lähestymistavat ovat vaihtelevia, suunnittelussa on nähtävissä yhtenäinen siirtymä kohti jaettuja tietomalleja.
-Käytännössä jaettujen tietomallien käyttö tarkoittaa, että suunnittelujärjestelmään tallentuu projektin edetessä kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen.
+Käytännössä jaettujen tietomallien käyttö tarkoittaa sitä, että suunnittelujärjestelmään tallentuu projektin edetessä kaikki sähköistys ja instrumentointi automaatiojärjestelmineen ja kenttälaitteineen.
 Tietomalliin perustuva lähestymistapa vaatii sen laajuuden ja rajoitukset määrittelevän metamallin.
 Se ohjaa ja määrittää suunnittelun kohteen lisäksi myös yleisesti suunnittelutöiden kulkua.
 
@@ -175,11 +176,11 @@ Se on määritelty yksiselitteisesti ja on tulkittavissa suunnatuksi graafiksi, 
 Kaavioiden asetteluun käsin kuluu huomattavan paljon aikaa silloin, kun tavoitteena on mahdollisimman luettava kaavio.
 Klausken ja Dziobekin mukaan kaavioiden asetteluun kuluu ajasta n. 30\%.
 Lisäksi he arvioivat, että kaavioiden asettelulla saavutettavan luettavuuden myötä voitaisiin toimilohkoihin perustuvaan suunnittelu- ja ohjelmointityöhön käytettävää työaikaa lyhentää parhaassa tapauksessa puoleen nykyisestä. \cite{Refworks:63}
-Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai aikaa, kannattaa suunnittelutyön kohdistua kuvauksen laatimiseen.
+Kun tietokoneen avulla toteutettava algoritmillinen muunnos kuvauksesta kaaviomuotoon onnistuu ilman suunnittelijalle siitä koituvaa vaivaa tai ajanhukkaa, kannattaa suunnittelutyön kohdistua kuvauksen laatimiseen.
 
-Hierarkinen graafiasettelu soveltuu erityisen hyvin logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun.
-Tässä työssä eritellään hierarkisen graafiasettelun idea, sen vaiheet ja niihin liittyvät ongelmat, sekä algoritmillisia ratkaisuja kyseisiin ongelmiin.
-Työssä esitellään myös algoritmin tuottamia asetteluja.
+Tässä työssä eritellään hierarkkisen graafiasettelun idea, sen vaiheet ja niihin liittyvät ongelmat sekä algoritmillisia ratkaisuja kyseisiin ongelmiin.
+Hierarkkinen graafiasettelu soveltuu erityisen hyvin logiikkakaavioiden kaltaisten tietovirtakaavioiden asetteluun.
+Työssä on myös kokeellinen osio, jossa laadittua algoritmia käytetään konkreettisen kaavion asetteluun.
 
 	\clearpage
 	\section{Tehtaan mallit}
@@ -244,8 +245,7 @@ Logiikan kuvaukset helpottavat tehtaan toiminnan ymmärtämistä suunnittelu- ja
 Teollisessa automaatiosuunnittelussa sallitut logiikan esitystavat on määritelty erityisesti selkeyttä, turvallisuutta ja ennustettavaa toimintaa silmällä pitäen.
 Joskus loogista järjestelmää voidaan kuvailla kertomalla esimerkinomaisesti sen toiminnasta eri olosuhteissa.
 Tällainen lähestymistapa ei kuitenkaan yleensä ole riittävä.
-Lisäksi määritellään yleensä ainakin muuttujia, säätöpiirejä, sekvenssejä sekä niitten välisiä kytkentöjä.\cite{RefWorks:41}
-% SFS-VIITE ETSI SE! "Riittävä"
+Lisäksi määritellään yleensä ainakin muuttujia, säätöpiirejä, sek\-venssejä sekä niitten välisiä kytkentöjä.\cite{RefWorks:41}
 Jatkuva prosessiohjaus voidaan esittää selkeästi järjestelmän PI-kaavioissa, mutta diskreetin ohjauksen kuvaamiseen tarvitaan erilaisia esityksiä, kuten logiikkadiagrammeja \cite{RefWorks:54}. 
 Logiikkadiagrammit kuvaavat syöttöjen ja lähtöjen välistä logiikkaa.
 
@@ -319,7 +319,7 @@ Matemaattisesti esitettynä graafi on joukko $G = (V, E)$, missä V on rajoitett
 
 Kerrostus on jaottelu $\mathfrak{L} = (L_1, L_2, \dots, L_h)$, jonka alajoukot sisältävät yhdessä kaikki solmut $V$.
 Solmujoukon erilaisia kerrostuksia vertaillaan jaottelun \emph{leveyden} ja \emph{korkeuden} avulla.
-Korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä $h$ ja leveys\footnote{Tietovirtakaavioissa ylhäältä alas} on suurimman kerrosjoukon $L_i$ koko.
+Korkeus\footnote{\ Tietovirtakaavioissa vasemmalta oikealle.} on kerrosten määrä $h$ ja leveys\footnote{\ Tietovirtakaavioissa ylhäältä alas.} on suurimman kerrosjoukon $L_i$ koko.
 
 Laajennetaan graafin määritelmää sisällyttämällä siihen joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
 Lanka koostuu porttiparista, joita se yhdistää. Graafi on \emph{suunnattu} silloin, kun sen langat ovat järjestettyjä pareja, joista toinen on tulo- ja toinen lähtöportti.
@@ -328,9 +328,9 @@ Toisin sanoen $e = (p_1, p_2)$, missä $p_1$ on lähtö- ja $p_2$ tuloportti.
 Solmu $v_j$ on solmun $v_i$ \emph{seuraaja} silloin, kun on olemassa lanka $e \in E$, jolle $\mathsf{n}(p_1) = v_i$ ja $\mathsf{n}(p_2) = v_j$.
 Polku on solmusekvenssi $(v_1, v_2, \dots , v_k)$, jolle pätee, että $k>1$ ja jokainen sekvenssin solmu $v_{i+1}$ on solmun $v_i$ seuraaja.
 
-Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua useammin kuin kerran.
+Graafi on \emph{syklitön} silloin, kun mikään polku ei sisällä samaa solmua u	seammin kuin kerran.
 Lanka $(p_1, p_2)$ on \emph{itseohjautuva} silloin, kun $\mathsf{n}(p_1) = \mathsf{n}(p_2)$.
-Kerrostus on \emph{kunnollinen}\footnote{eng. proper} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluvat kerrokseen $L_{i+1}$.
+Kerrostus on \emph{kunnollinen}\footnote{Engl. proper.} silloin, kun jokaisen kerrostusjoukon $L_i$ jokaisen solmun seuraajat kuuluvat kerrokseen $L_{i+1}$.
 
 \emph{Virityspuu} on verkon aliverkko $G_s$ joka sisältää verkon kaikki solmut siten, että se sisältää mahdollisimman vähän lankoja.
 Virityspuussa ei ole syklejä, koska mikä tahansa virityspuuksi ehdotetussa verkossa sijaitseva sykli $v_i, ... , v_i$ voidaan rikkoa poistamalla mikä tahansa sen sisältämä yksittäinen lanka ilman, että sen sisältämän solmujoukon $E$ koko muuttuu.
@@ -347,7 +347,7 @@ Purchase ym. \cite{RefWorks:47} ovat tutkineet esteettisyyteen vaikuttavia tekij
   \item Lankojen risteysmäärä
   \item Kaavion koko
   \item Lankojen yhteispituus
-  \item Pisin lankapituus
+  \item Pisin lankapituus	
   \item Symmetria
 \end{enumerate}
 
@@ -371,17 +371,18 @@ Alkuperäinen ajatus graafien kerrostamisesta voidaan johtaa Warfieldin \cite{Re
 Ylivoimaisesti suosituin tapa lähestyä suunnattujen graafien piirtoa on Sugiyaman menetelmä, joka jakaa ongelman vaiheisiin \cite{RefWorks:9}.
 Sugiyaman ym. määrittelemä jaottelu on säilynyt hierarkkisen graafinpiirron tutkimuskentässä ajankohtaisena, vaikkei sen esittämiä algoritmeja juuri käytetäkään.
 Kun jokaista vaihetta voidaan tutkia erillisenä ongelmana, tutkimustyö helpottuu.
-Sitä onkin kehitetty valtavasti eteenpäin ja siihen on tehty uusia käyttötarkoituksia palvelevia laajennuksia.
+Näiden ongelmien ratkaisuja on kehitetty aktiivisesti kymmeniä vuosia.
+Jaotteluun on lisäksi tehty uusia käyttökohteita palvelevia laajennuksia.
 
-Laajoja käytännön tutkimuksia tietovirtakaavioiden asettelusta ovat tehneet Klauske ym. \cite{RefWorks:50}.
 Tietovirtakaavioiden toimilohkot sisältävät useita portteja, joiden keskinäinen järjestys on säilytettävä.
 Lisäksi langat ovat tyypillisesti ortogonaalisia, jolloin algoritmia pitää täydentää erillisellä langoille tarkoitetulla reititysalgoritmilla.
 Työvaiheista kerrostus ja risteysten vähennys saattavat muuttaa ohjelman suoritusjärjestystä.
 Tällöin algoritmin toimintaa pitää yksinkertaisesti rajoittaa järjestysherkkien blokkien osalta.
 Koska algoritmit ovat heuristisia, ovat niihin tehtävät yksinkertaiset rajoitukset helppoja toteuttaa.
+Laajoja käytännön tutkimuksia tietovirtakaavioiden asettelusta ovat tehneet Klauske ym. \cite{RefWorks:50}.
 
 Toimilohkojen syötöt ovat yleensä lohkon vasemmalla ja ulostulot oikealla puolella.
-Näin on FBD-ohjelmointikielen tapauksessa aina. % SFS-VIITTAUS
+Näin on FBD-ohjelmointikielen tapauksessa aina.
 Toimintakaavioiden tapauksessa syöttöjen ja ulostulojen sijainteja ei ole määritelty yhtä tarkasti, jolloin sivuportit on otettava asettelevassa algoritmissa myös huomioon, jos niitä halutaan käyttää.
 Sivuporttien huomioonottoon on esitetty ratkaisu, jossa lankojen reititystä varten asetetaan valesolmuja. \cite{RefWorks:51}
 
@@ -457,8 +458,8 @@ Se löydetään, kun otetaan käyttöön lineaarisen ohjelmoinnin optimointimene
 
 \begin{equation}
 f=\displaystyle\sum\limits_{(p_1 ,p_2) \in E} (i - j - 1), \hspace{1cm}
-\mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j
-\end{equation},
+\mathsf{n}(p_1) \in L_i \quad ja \quad \mathsf{n}(p_2) \in L_j \hspace{2mm},
+\end{equation}
 
 missä minimoitava arvo $f$ on samalla valesolmujen määrä.
 
@@ -595,7 +596,7 @@ On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauks
 	\clearpage
 	\section{Yhteenveto}
 
-Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä, ja on todennäköistä että se muuttuu edelleen.
+Automaatiojärjestelmien suunnittelu- ja ohjelmointityö on muuttunut nopeasti viime vuosikymmeninä. On todennäköistä, että se muuttuu edelleen.
 Turhaa työtä pyritään vähentämään ja välttämätöntä työtä tehostamaan uusilla käytännöillä ja menetelmillä.
 Näitä ovat eri työvaiheiden- ja tehtävien saumaton yhteistyö jaettujen työkalujen ja mallien avulla, mallien uudelleenkäytettävyyden parantaminen sekä entistä yhtenäisempi suunnitteluprosessi.
 
@@ -603,14 +604,14 @@ Työvälineiden tehostamista on akateemisissa julkaisuissa kartoitettu runsaasti
 Tutkimukset ovat kuitenkin olleet usein abstrakteja ja vieraannuttavia teollisille toimijoille.
 Tämä työ on pyrkinyt tarjoamaan ratkaisun, jolla suunnittelutyötä voidaan tehostaa, ja joka voidaan helposti lisätä jo olemassaoleviin järjestelmiin.
 
-Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä, sekä todettu niitten asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
-Esitelty algoritmi tuottaa hyviä tuloksia, ja on muunneltavissa edelleen erilaisiin tarpeisiin.
+Työssä on osoitettu yhteys suunnattujen graafien ja logiikkadiagrammien välillä sekä todettu niitten asetteluun kehitettyjen algoritmien käyttökelpoisuus teollisuuden automaatiosuunnittelussa.
+Esitelty algoritmi tuottaa hyviä tuloksia ja on muunneltavissa edelleen erilaisiin tarpeisiin.
 Asettelualgoritmin käyttö erottaa varsinaisen logiikan sen kaaviomuotoisesta kuvauksesta.
 Sen lisäksi, että asetteluun ei kulu suunnittelijoilta aikaa, logiikan tietomalli helpottaa suunnittelua tehostavien muunnosten ja kirjastojen kehittämistä.
 Muunnosten avulla voidaan tietomallia muokata huomattavan nopeasti ja asettelun avulla tulokset ovat välittömästi asiakkaalle luettavassa muodossa.
 
 Kaavioiden tuottaminen voidaan toteuttaa suunnittelijan käyttämällä tietokoneella tai keskitetyllä kaavioiden asettelupalvelimella.
-Tästä on erityisen paljon hyötyä sillion, kun suunnittelijoita on monta.
+Palvelun toteuttamisesta on erityisen paljon hyötyä, kun suunnittelijoita on monta.
 Versioinnin tuottamilta haasteilta vältytään, ja sama työkalu voidaan tuoda kaikille suunnittelujärjestelmän käyttäjille yhdenaikaisesti.
 
 \clearpage
