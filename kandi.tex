@@ -482,8 +482,8 @@ Graafi on myös muokattu kerrostamisvaiheessa kelvolliseksi, minkä seurauksena 
 Näistä helpotuksista huolimatta kyseessä on NP-täydellinen ongelma siinäkin tapauksessa, että koko graafissa on kerroksia vain kaksi \cite{RefWorks:40}.
 
 Parhaan mahdollisen kombinaation löytämiseksi joudutaan yksinkertaisen ratkaisun puutteessa käyttämään heuristisia menetelmiä.
-Eräs suosittu lähestymistapa perustuu solmujen sijoittamiseen sen kohde- ja lähdesolmujen järjestyslukujen mediaaniin.
-Tätä toistetaan graafin jokaiselle solmulle, kunnes järjestys ei enää muutu.
+Eräs suosittu lähestymistapa perustuu solmujen sijoittamiseen kohde- ja lähdesolmujen järjestyslukujen mediaaniin.
+Tätä toistetaan jokaiselle solmulle, kunnes järjestys ei enää muutu.
 Teorian kannalta mediaanimenetelmällä on useita hyviä ominaisuuksia.
 Sen avulla tuotetun ratkaisun risteysmäärän suhde parhaaseen mahdolliseen on vakio.
 Lisäksi algoritmi voidaan suorittaa polynomisessa ajassa.
@@ -531,7 +531,7 @@ Menettely tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduuk
 
 		\subsubsection{Lankojen reititys}
 
-Tietovirtakaavioiden toimilohkoissa on useita portteja, ja niitten sisältämät lankareititykset ovat ortogonaalisia.
+Tietovirtakaavioiden toimilohkoissa on useita portteja, joista lähtevät langat reititetään ortogonaalisesti.
 Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa huomioon.
 Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu sijoittelun laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla. \cite{RefWorks:28}
 
@@ -548,7 +548,7 @@ Risteysten minimoimiseksi luodaan segmenttiylitysgraafi jokaiselle ruudulle.
 Jokainen graafiin kuuluva segmentti vastaa yhtä segmenttiylitysgraafin solmua.
 Segmenttiylitysgraafin syklit vastaavat asettelussa olevia risteyksiä.
 Asyklinen segmenttiylitysgraafi ei silloin sisällä syklejä ja se voidaan järjestää topologisesti.
-Muussa tapauksessa sen sisältämät syklit rikotaan käyttäen syklinpoistoon soveltuvaa algoritmia. \cite{RefWorks:48}.
+Muussa tapauksessa sen sisältämät syklit rikotaan käyttäen syklinpoistoon soveltuvaa algoritmia. \cite{RefWorks:48}
 
 Lopuksi segmenttien sijoitus lasketaan syklittömästä segmenttiristeysgraafista.
 Segmentti, jonka sijoitus on $r \in \{1,...,r_{max}\}$, saa koordinaatikseen $k + r/(r_{max} +1)$.
@@ -578,7 +578,7 @@ Algoritmi onnistuu kuitenkin luomaan jotakin järkeä täysin satunnaiseen kaavi
 	\includegraphics[width=\textwidth]{esim2.pdf}
 	\caption{Vaihtelua sisältävän verkon asettelu. Toimilohkoissa on 0\textendash4 lähtöä.}
 \end{figure}
-
+\clearpage % FORCED PAGE CHANGE 
 Kuvan neljä esimerkki on huomattavan vaikea, eikä tuloksena odotettukaan kovin luettavaa esitystä.
 Jokaisessa toimilohkossa on neljä lähtöä, minkä seurauksena kuvassa on 32 yksittäistä ja täysin satunnaista lankaa.
 Valmiin kaavion luettavuus on jo merkittävän huono. Huomataan, että parhaatkaan algoritmit eivät suoriudu näin haastavasta tehtävästä.
