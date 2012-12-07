@@ -185,7 +185,7 @@ Työssä esitellään myös algoritmin tuottamia asetteluja.
 	\section{Tehtaan mallit}
 
 Tehdasmalli on kuvaus, joka mahdollistaa tehtaan toteutuksen, käyttöönoton ja ylläpidon.
-Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia ja laajuudestaan riippuen myös sen organisaatiota, ihmisiä ja toimintaa.
+Se on tietomalli, joka kuvaa tehtaan toimintaa, sen prosessia ja laajuudestaan riippuen myös sen ihmisten toimintaa ja organisaatiota.
 Pohjimmiltaan se koostuu tehdasobjekteista ominaisuuksineen ja niitten välisistä relaatioista. \cite{RefWorks:41}
 
 Suunnittelijoilla on erilaisten työtehtäviensä myötä erilaisia tarpeita myös tehdasmallin suhteen.
@@ -230,7 +230,7 @@ järjestelmän fyysiseen käyttöönottoon ja ylläpitoon. Sen käsittely ei kuu
 
 Ohjelmistonäkymä kattaa funktionaalisen suunnittelun toteutuksen ohjelmamuodossa.
 Asiakkaalla on yleensä omat toiveensa sen suhteen, millaiseen muotoon ohjelma tehdään.
-Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä \textemdash toisin sanoen toiminnallisen kuvauksen määrittelyjen täytyy olla riittävän tarkkoja, jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
+Ohjelmiston toteuttamiseen ei pitäisi liittyä enää suunnittelutyötä --- toisin sanoen toiminnallisen kuvauksen määrittelyjen täytyy olla riittävän tarkkoja, jotta niitten mukaan tehdyssä ohjelmassa ei ole sen toimintaan vaikuttavia tulkinnanvaraisuuksia.
 
 Ohjelmistototeutuksen työtavat jäävät usein määrittelemättömiksi ja muusta suunnittelutyöstä irrallisiksi,
 vaikka pyrkimyksiä niitten integroimiseksi suunnitteluprosessiin entistä vahvemmin on ollut.
@@ -300,7 +300,7 @@ Tällaista kuvausta voidaan pitää dokumentaation lopullisena muotona. \cite{Re
 
 Kun logiikkakuvauksen muoto on määritelty tarkasti, voidaan määritelmän mukaisesti laadittu logiikkakuvaus muuntaa määritelmään perustuvien sääntöjen perusteella.
 Monet automaatiologiikan suunnitteluohjelmistot pystyvät muuntamaan käyttämänsä kuvauksen PLCopen-muotoiseksi tiedoksi, jolloin suunnittelutietoa voidaan siirtää eri järjestelmien kesken.
-Erilaisia XML-kuvauksia on helppoa laatia. Niitten sisältämien tietojen pohjalta voidaan tuottaa minkä tahansa muotoisia dokumentteja käyttäen hyväksi XSL-muunnoksia \cite{RefWorks:61}. Eri XML-pohjaisia tiedostoformaatteja käyttävien suunnitteluvälineiden välinen integraatio on tällöin helposti toteutettavissa.
+Erilaisia XML-kuvauksia on helppoa laatia ja niitten sisältämään tietoon perustuen voidaan tuottaa minkä tahansa muotoisia dokumentteja käyttäen hyväksi XSL-muunnoksia \cite{RefWorks:61}. Eri XML-pohjaisia tiedostoformaatteja käyttävien suunnitteluvälineiden välinen integraatio on tällöin helposti toteutettavissa.
 
 Olemassaolevien suunnitteluohjelmistojen varaan rakennettu suunnittelujärjestelmä voi kuitenkin kohdata haasteita, jos luotetaan liikaa ohjelmien standardinmukaisuuteen.
 Valmistajat jättävät usein standardinmukaisiksi kutsutuissa ohjelmistoissa määrittelyn mukaisia ominaisuuksia toteuttamatta.
@@ -321,7 +321,7 @@ Kerrostus on jaottelu $\mathfrak{L} = (L_1, L_2, \dots, L_h)$, jonka alajoukot s
 Solmujoukon erilaisia kerrostuksia vertaillaan jaottelun \emph{leveyden} ja \emph{korkeuden} avulla.
 Korkeus\footnote{Tietovirtakaavioissa vasemmalta oikealle} on kerrosten määrä $h$ ja leveys\footnote{Tietovirtakaavioissa ylhäältä alas} on suurimman kerrosjoukon $L_i$ koko.
 
-Laajennetaan määritelmää ja sisällytetään graafin määritelmään joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
+Laajennetaan graafin määritelmää sisällyttämällä siihen joukko portteja $P$ ja funktio $\mathsf{n} : P \rightarrow V$, joka kartoittaa portit niitä vastaaville solmuille.
 Lanka koostuu porttiparista, joita se yhdistää. Graafi on \emph{suunnattu} silloin, kun sen langat ovat järjestettyjä pareja, joista toinen on tulo- ja toinen lähtöportti.
 Toisin sanoen $e = (p_1, p_2)$, missä $p_1$ on lähtö- ja $p_2$ tuloportti.
 
@@ -352,7 +352,7 @@ Purchase ym. \cite{RefWorks:47} ovat tutkineet esteettisyyteen vaikuttavia tekij
 \end{enumerate}
 
 Näistä ominaisuuksista lankojen risteysmäärä muodostui tärkeimmäksi. Myös lankojen pituus oli merkittävässä asemassa luettavuuden kannalta.
-Esteettiset ominaisuudet ovat usein ristiriidassa keskenään \textemdash jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen tekemään mutkia.
+Esteettiset ominaisuudet ovat usein ristiriidassa keskenään --- jotta voitaisiin esimerkiksi välttää langan piirto solmun läpi, joudutaan siihen tekemään mutkia.
 Valmiin kaavion asettelua voidaan arvioida laskemalla kaavioista esteettisyyteen vaikuttavia tekijöitä automatisoidusti.
 
 
@@ -534,7 +534,7 @@ Menettely tekee kaaviosta vähemmän tasapainoisen, mutta käytännössä ruduuk
 
 Tietovirtakaavioiden toimilohkoissa on useita portteja, ja niitten sisältämät lankareititykset ovat ortogonaalisia.
 Nämä rajoitukset tulee ottaa tässä kaaviopiirron viimeisessä vaiheessa huomioon.
-Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu noodisijoitteluesityksen laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla. \cite{RefWorks:28}
+Gansner ym. esittivät porttiongelmaan ratkaisun, joka perustuu sijoittelun laajentamiseen porttien suhteellista sijaintia kuvaavalla tiedolla. \cite{RefWorks:28}
 
 Kun jokaiselle solmulle on tiedossa sen lopullinen sijainti, luodaan lankasegmenttejä siten, että ne liikkuvat solmujen koordinaattien välillä.
 Poikittaiset segmentit, jotka asetetaan tyhjään tilaan rivien $j$ ja $j+1$ välille, saavat koordinaatikseen $j+0.5$.
@@ -587,7 +587,7 @@ On kuitenkin kyseenalaista, pystyisikö ihminen näin mutkikkaan kaavion tapauks
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{esim3.pdf}
-	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisesta toimilohkosta lähtee neljä lankaa}.
+	\caption{Huomattavan monta lankaa sisältävän verkon asettelu. Jokaisella toimilohkolla on neljä lähtöä.}
 \end{figure}
 
 
